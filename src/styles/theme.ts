@@ -2,10 +2,8 @@ import { DefaultTheme } from 'styled-components';
 
 const color = {
   primary: '#55CCFF',
-  success: '#95DE2F',
-  info: '#55CCFF',
-  warning: '#FFC700',
-  danger: '#FF5F2F',
+  warning: '#F7C83B',
+  danger: '#FF7171',
   black: {
     0: '#ffffff',
     50: '#f5f5f5',
