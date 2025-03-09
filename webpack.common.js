@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
@@ -25,11 +25,22 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|gif|mp3|webp|ico)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.glsl$/,
+        type: 'asset/source',
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'src/assets', to: 'assets/' }],
     }),
   ],
   devtool: 'inline-source-map',
