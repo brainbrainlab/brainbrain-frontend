@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { calculateButtonColor } from 'utils/calculateButtonColor';
+import { calculateButtonColor } from '../../utils/calculateButtonColor';
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 export type ButtonColor = 'primary' | 'warning' | 'danger' | 'black';
@@ -32,10 +32,10 @@ interface ButtonShapesProp {
 
 const buttonSize = ({ size, width, height, borderRadius, fontSize, fontWeight, textAlign }: ButtonShapesProp) => {
   const defaultSizes = {
-    sm: { width: '6rem', height: '3rem', borderRadius: '3rem', fontSize: 'sm' },
-    md: { width: '10rem', height: '4rem', borderRadius: '0.5rem', fontSize: 'md' },
-    lg: { width: '15rem', height: '4rem', borderRadius: '1rem', fontSize: 'base' },
-    xl: { width: '25rem', height: '6rem', borderRadius: '6rem', fontSize: 'h6' },
+    sm: { width: '14rem', height: '4rem', borderRadius: '0.8rem', fontSize: 'md' },
+    md: { width: '18rem', height: '5.8rem', borderRadius: '1rem', fontSize: 'h6' },
+    lg: { width: '22rem', height: '7.2rem', borderRadius: '1.2rem', fontSize: 'h4' },
+    xl: { width: '26rem', height: '8rem', borderRadius: '1.2rem', fontSize: 'h3' },
   };
 
   const {
@@ -99,7 +99,7 @@ export const Button = styled.button<ButtonStyleProp>`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid;
+  border: ${({ $filled }) => ($filled ? 'none' : '1px solid')};
   border-radius: ${({ $rounded, $borderRadius }) => $borderRadius || ($rounded ? '50rem' : '0.5rem')};
 
   transition: all 0.2s;
