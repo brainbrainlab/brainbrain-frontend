@@ -1,0 +1,13 @@
+{
+  "header": {
+    "language": "语言/Language"
+  },
+  "main": {
+    "subtitle": "这里是字幕区",
+    "description": "这里是描述区",
+    "button": "接受考验",
+    "section1": {
+      "title": "为什么需要进行IQ测试？"
+    }
+  }
+}

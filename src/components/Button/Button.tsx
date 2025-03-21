@@ -35,7 +35,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProp>(
       textAlign,
       filled = true,
       rounded = false,
-      animation = false,
+      animation = true,
       color = 'primary',
       disabled = false,
       children,
