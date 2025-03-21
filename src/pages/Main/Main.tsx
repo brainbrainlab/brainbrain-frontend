@@ -1,28 +1,78 @@
+import React from 'react';
 import * as S from './Main.styles';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import DotAnimation from '../../components/DotAnimation/DotAnimation';
+import { useTranslation } from 'react-i18next';
+import textLogo from '../../assets/images/logo_text.svg';
+const SubTitle = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.SubTitle>{t('main.subtitle')}</S.SubTitle>;
+});
+
+const Description = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.Description>{t('main.description')}</S.Description>;
+});
+
+const MainButton = React.memo(() => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  return (
+    <Button fontWeight="extraBold" onClick={() => navigate('/testing')}>
+      {t('main.button')}
+    </Button>
+  );
+});
+
+const Section1Title = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.Section1Title>{t('main.section1.title')}</S.Section1Title>;
+});
+
+const Section1Subtitle = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.Section1Subtitle>{t('main.section1.subtitle')}</S.Section1Subtitle>;
+});
+
+const Section1Description1 = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.Section1Description>{t('main.section1.description1')}</S.Section1Description>;
+});
+
+const Section1Description2 = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.Section1Description>{t('main.section1.description2')}</S.Section1Description>;
+});
+
+const Section1Description3 = React.memo(() => {
+  const { t } = useTranslation();
+  return <S.Section1Description>{t('main.section1.description3')}</S.Section1Description>;
+});
 
 function Main() {
-  const navigate = useNavigate();
   return (
     <S.Layout>
       <S.TitleSection>
         <S.TitleTextAndImageWrapper>
           <S.TitleTextContainer>
-            <S.Title>BrainBrain</S.Title>
-            <S.SubTitle>당신의 능력을 테스트해보세요.</S.SubTitle>
-            <S.Description>
-              브레인브레인은 당신의 뇌를 테스트하는 플랫폼입니다. <br />
-              당신의 뇌를 테스트하고 싶다면 테스트하러 가기 버튼을 눌러주세요.
-            </S.Description>
+            <S.TextLogo src={textLogo} />
+            <SubTitle />
+            <Description />
           </S.TitleTextContainer>
-          <DotAnimation width={500} height={500} />
+          <DotAnimation />
         </S.TitleTextAndImageWrapper>
-        <Button fontWeight="extraBold" onClick={() => navigate('/testing')}>
-          테스트하러 가기
-        </Button>
+        <MainButton />
       </S.TitleSection>
+      <S.Section1>
+        <Section1Title />
+        <Section1Subtitle />
+        <S.Section1DescriptionWrapper>
+          <Section1Description1 />
+          <Section1Description2 />
+          <Section1Description3 />
+        </S.Section1DescriptionWrapper>
+      </S.Section1>
     </S.Layout>
   );
 }

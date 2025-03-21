@@ -1,12 +1,11 @@
-import styled, { keyframes, css } from 'styled-components';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import * as THREE from 'three';
 import { gsap, Power0, Power2, Elastic } from 'gsap';
 
 // Import shader code
 import vertexShader from './vertexShader.glsl';
 import fragmentShader from './fragmentShader.glsl';
-
 interface CustomVector3 extends THREE.Vector3 {
   color: number;
   theta: number;
@@ -15,56 +14,45 @@ interface CustomVector3 extends THREE.Vector3 {
   tl?: gsap.core.Timeline;
 }
 
-interface DotAnimationProps {
-  width: number;
-  height: number;
-}
-
-// Styled component for the canvas
-const StyledCanvas = styled.canvas`
-  width: ${props => props.width}rem;
-  height: ${props => props.height}rem;
-  display: block;
-`;
-
-const Container = styled.div<{ size: number }>`
-  width: ${({ size }) => size}rem;
-  height: ${({ size }) => size}rem;
-  border-radius: 50%;
-  background-color: #f0f0f0;
+const Container = styled.div`
+  width: 50rem;
+  height: 50rem;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const generateRandomKeyframes = () => keyframes`
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(${Math.random() * 10}rem, ${Math.random() * 10}rem); }
-`;
-
-const Dot = styled.div<{ size: number; top: number; left: number; animation: any }>`
-  width: ${({ size }) => size}rem;
-  height: ${({ size }) => size}rem;
-  background-color: #3498db;
-  border-radius: 50%;
+const BackgroundImage = styled.img`
+  width: 36rem;
+  height: 36rem;
+  object-fit: fill;
   position: absolute;
-  top: ${({ top }) => top}%;
-  left: ${({ left }) => left}%;
-  transition: transform 0.3s;
-  animation: ${({ animation }) =>
-    css`
-      ${animation} 5s linear infinite alternate
-    `};
-
-  &:hover {
-    transform: scale(1.5);
-  }
-
-  &:not(:hover) {
-    transform: scale(1); // Reset scale when not hovered
+  z-index: 1;
+  mix-blend-mode: multiply;
+  animation: fadeIn 4s ease-in-out infinite;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0.3;
+    }
   }
 `;
 
-function DotAnimation({ width, height }: DotAnimationProps) {
+const StyledCanvas = styled.canvas`
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  mix-blend-mode: multiply;
+`;
+
+const DotCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef(new THREE.Vector2(-100, -100));
   const prevHovered = useRef<number[]>([]);
@@ -72,36 +60,42 @@ function DotAnimation({ width, height }: DotAnimationProps) {
   const attributeSizes = useRef<THREE.BufferAttribute | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current as HTMLCanvasElement;
+    const canvas = canvasRef.current;
     if (!canvas) return;
 
-    canvas.style.width = `${width}rem`;
-    canvas.style.height = `${height}rem`;
-
-    const colors = [new THREE.Color(0x39bcf5), new THREE.Color(0x39bcf5), new THREE.Color(0xf3f3f3)];
-
     const renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
+      canvas,
       antialias: true,
       alpha: true,
     });
-    renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
-    renderer.setSize(width, height);
-    renderer.setClearColor(0xffffff, 0);
 
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 2000);
     const scene = new THREE.Scene();
     const raycaster = new THREE.Raycaster();
     raycaster.params.Points.threshold = 6;
-
-    const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 2000);
     camera.position.set(0, 0, 350);
+
+    const resizeCanvas = () => {
+      const { clientWidth, clientHeight } = canvas;
+      renderer.setSize(clientWidth, clientHeight);
+      camera.aspect = clientWidth / clientHeight;
+      camera.updateProjectionMatrix();
+    };
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const colors = [new THREE.Color(0x69cffb), new THREE.Color(0xc1e9fa), new THREE.Color(0xe7f6fd)];
+    renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
+    renderer.setSize(500, 500);
+    renderer.setClearColor(0xffffff, 0);
 
     const galaxy = new THREE.Group();
     scene.add(galaxy);
 
     const loader = new THREE.TextureLoader();
     const dotTexture = loader.load('assets/images/dotTexture.png');
-    const dotsAmount = 200;
+    const dotsAmount = 130;
     const positions = new Float32Array(dotsAmount * 3);
     const vertices: CustomVector3[] = Array.from({ length: dotsAmount }, () => new THREE.Vector3() as CustomVector3);
     const sizes = new Float32Array(dotsAmount);
@@ -123,7 +117,7 @@ function DotAnimation({ width, height }: DotAnimationProps) {
       }
       vector.toArray(positions, i * 3);
       colors[vector.color].toArray(colorsAttribute, i * 3);
-      sizes[i] = 18;
+      sizes[i] = 15;
     });
 
     function moveDot(vector: CustomVector3, index: number) {
@@ -204,7 +198,7 @@ function DotAnimation({ width, height }: DotAnimationProps) {
       vertices[index].tl = gsap.timeline();
       gsap.to(vertices[index], {
         duration: 0.4,
-        scaleX: 25,
+        scaleX: 22,
         ease: Elastic.easeOut.config(1.3, 0.8),
         onUpdate: function () {
           if (attributeSizes.current) {
@@ -225,7 +219,7 @@ function DotAnimation({ width, height }: DotAnimationProps) {
       }
       gsap.to(vertices[index], {
         duration: 0.4,
-        scaleX: 18,
+        scaleX: 15,
         ease: Power2.easeOut,
         onUpdate: function () {
           if (attributeSizes.current) {
@@ -237,8 +231,8 @@ function DotAnimation({ width, height }: DotAnimationProps) {
 
     const onMouseMove = (e: MouseEvent) => {
       const canvasBounding = canvas.getBoundingClientRect();
-      mouse.current.x = ((e.clientX - canvasBounding.left) / width) * 2 - 1;
-      mouse.current.y = -((e.clientY - canvasBounding.top) / height) * 2 + 1;
+      mouse.current.x = ((e.clientX - canvasBounding.left) / canvas.clientWidth) * 2 - 1;
+      mouse.current.y = -((e.clientY - canvasBounding.top) / canvas.clientHeight) * 2 + 1;
     };
 
     gsap.ticker.add(render);
@@ -247,10 +241,20 @@ function DotAnimation({ width, height }: DotAnimationProps) {
     return () => {
       gsap.ticker.remove(render);
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('resize', resizeCanvas);
     };
-  }, [width, height]);
+  });
 
   return <StyledCanvas ref={canvasRef} />;
-}
+};
+
+const DotAnimation: React.FC = () => {
+  return (
+    <Container>
+      <BackgroundImage src="assets/images/logo.svg" alt="brain" />
+      <DotCanvas />
+    </Container>
+  );
+};
 
 export default DotAnimation;

@@ -5,15 +5,31 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import './styles/font.css';
 import Testing from './pages/Testing/Testing';
+import Layout from './pages/Layout';
+import Result from './pages/Result/Result';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main />,
-  },
-  {
-    path: '/testing',
-    element: <Testing />,
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <Main />,
+      },
+      {
+        path: '/testing',
+        element: <Testing />,
+      },
+      {
+        path: '/result',
+        element: <Result />,
+      },
+      {
+        path: '*',
+        element: <div>404</div>,
+      },
+    ],
   },
 ]);
 
