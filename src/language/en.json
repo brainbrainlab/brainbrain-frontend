@@ -1,0 +1,13 @@
+{
+  "header": {
+    "language": "Language"
+  },
+  "main": {
+    "subtitle": "This is subtitle area",
+    "description": "This is description area",
+    "button": "Go to test",
+    "section1": {
+      "title": "Why should I take an IQ test?"
+    }
+  }
+}
