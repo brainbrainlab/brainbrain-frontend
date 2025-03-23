@@ -11,56 +11,7 @@ export const Layout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 2rem;
   background-color: ${({ theme }) => theme.color.black[0]};
-`;
-
-export const TimerContainer = styled.div`
-  width: 100%;
-  height: 6rem;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: center;
-  gap: 1rem;
-`;
-
-export const TimerBar = styled.progress`
-  width: 100%;
-  height: 1rem;
-  border: none;
-  border-radius: 10px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: ${({ theme }) => theme.color.black[200]};
-
-  &::-webkit-progress-bar {
-    background-color: ${({ theme }) => theme.color.black[200]};
-    border-radius: 10px;
-  }
-
-  &::-webkit-progress-value {
-    background-color: ${({ theme }) => theme.color.primary[500]};
-    border-radius: 10px;
-    transition: width 0.3s ease-in-out;
-  }
-
-  &::-moz-progress-bar {
-    background-color: ${({ theme }) => theme.color.primary[500]};
-    border-radius: 10px;
-  }
-
-  &::-ms-fill {
-    background-color: ${({ theme }) => theme.color.primary[500]};
-    border: none;
-    border-radius: 10px;
-  }
-`;
-
-export const TimerText = styled.div`
-  font-size: 2rem;
-  font-weight: 600;
 `;
 
 export const QuestionContainer = styled.div`
@@ -69,31 +20,48 @@ export const QuestionContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  gap: 4rem;
+`;
+
+export const QuestionWrapper = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  gap: 3rem;
 `;
 
 export const QuestionText = styled.h1`
   display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: start;
+  width: 5rem;
+  height: 100%;
   font-size: ${({ theme }) => theme.fontSize.h5};
   font-weight: 600;
   text-align: start;
 `;
 
+export const QuestionImageWrapper = styled.div`
+  width: 44rem;
+  height: 44rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid ${({ theme }) => theme.color.black[400]};
+  border-radius: 1rem;
+`;
 export const QuestionImage = styled.img`
-  width: 36rem;
-  height: 36rem;
+  width: 40rem;
+  height: 40rem;
 `;
 
 export const ChoiceContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
+  width: 60rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 `;
 
 export const QuestionButtonWrapper = styled.div`
