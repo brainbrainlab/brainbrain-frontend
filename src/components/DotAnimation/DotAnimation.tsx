@@ -29,17 +29,17 @@ const BackgroundImage = styled.img`
   object-fit: fill;
   position: absolute;
   z-index: 1;
-  mix-blend-mode: multiply;
   animation: fadeIn 4s ease-in-out infinite;
+  mix-blend-mode: darken;
   @keyframes fadeIn {
     0% {
-      opacity: 0.3;
+      opacity: 0.4;
     }
     50% {
-      opacity: 0.6;
+      opacity: 0.8;
     }
     100% {
-      opacity: 0.3;
+      opacity: 0.4;
     }
   }
 `;
@@ -49,7 +49,7 @@ const StyledCanvas = styled.canvas`
   height: 100%;
   z-index: 2;
   position: absolute;
-  mix-blend-mode: multiply;
+  /* mix-blend-mode: exclusion; */
 `;
 
 const DotCanvas = () => {
@@ -198,7 +198,7 @@ const DotCanvas = () => {
       vertices[index].tl = gsap.timeline();
       gsap.to(vertices[index], {
         duration: 0.4,
-        scaleX: 22,
+        scaleX: 40,
         ease: Elastic.easeOut.config(1.3, 0.8),
         onUpdate: function () {
           if (attributeSizes.current) {
@@ -206,7 +206,7 @@ const DotCanvas = () => {
           }
         },
         onComplete: function () {
-          vertices[index].scaleX = 25;
+          vertices[index].scaleX = 40;
           if (attributeSizes.current) {
             attributeSizes.current.array[index] = vertices[index].scaleX;
           }

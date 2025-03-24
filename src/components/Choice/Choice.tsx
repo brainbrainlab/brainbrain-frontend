@@ -13,7 +13,7 @@ function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
   };
 
   return (
-    <Button width="12.5rem" height="12.5rem" color="#ECECEC" onClick={onClick}>
+    <Button width="12.5rem" height="12.5rem" color="#ECECEC" borderRadius="0" onClick={onClick}>
       <S.ChoiceImage src={getChoiceImage(questionIndex, choiceIndex)} />
     </Button>
   );

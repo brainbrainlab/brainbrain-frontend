@@ -1,7 +1,19 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import Button from '../../components/Button/Button';
 import { HiMiniListBullet } from 'react-icons/hi2';
 import { IoArrowBackOutline, IoArrowForwardOutline } from 'react-icons/io5';
+
+const createBlinkKeyframes = (theme: any) => keyframes`
+  0% {
+    background-color: ${theme.color.primary[500]};
+  }
+  30% {
+    background-color: ${theme.color.danger[500]};
+  }
+  100% {
+    background-color: ${theme.color.primary[500]};
+  }
+`;
 
 export const Layout = styled.div`
   width: 100vw;
@@ -47,7 +59,7 @@ export const QuestionImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border: 2px solid ${({ theme }) => theme.color.black[400]};
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
 `;
 export const QuestionImage = styled.img`
   width: 40rem;
@@ -96,7 +108,7 @@ export const PreviousButton = styled(IoArrowBackOutline)`
   }
 `;
 
-export const QuestionButtonContainer = styled.div`
+export const QuestionButtonContainer = styled.div<{ showUnsolved: boolean }>`
   position: absolute;
   top: 100%;
   left: 50%;
@@ -123,6 +135,14 @@ export const QuestionButtonContainer = styled.div`
     visibility: visible;
   }
   z-index: 100;
+
+  ${({ showUnsolved }) =>
+    showUnsolved &&
+    css`
+      opacity: 1;
+      top: -50%;
+      visibility: visible;
+    `}
 `;
 
 export const ToggleButton = styled(HiMiniListBullet)`
@@ -141,7 +161,7 @@ export const ToggleButton = styled(HiMiniListBullet)`
   }
 `;
 
-export const QuestionButton = styled(Button)<{ solved: boolean; current: boolean }>`
+export const QuestionButton = styled(Button)<{ solved: boolean; current: boolean; showUnsolved: boolean }>`
   width: 4rem;
   height: 4rem;
   border-radius: 3rem;
@@ -149,6 +169,12 @@ export const QuestionButton = styled(Button)<{ solved: boolean; current: boolean
   border: ${({ theme, current, solved }) =>
     current ? `3px solid ${solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
   background-color: ${({ theme, solved }) => (solved ? theme.color.black[400] : theme.color.primary[500])};
+
+  animation: ${({ theme, showUnsolved }) =>
+    showUnsolved &&
+    css`
+      ${createBlinkKeyframes(theme)} 1s ease 3
+    `};
 
   &:hover {
     background-color: ${({ theme, solved }) => (solved ? theme.color.black[500] : theme.color.primary[600])};

@@ -31,30 +31,40 @@ export const TitleTextAndImageWrapper = styled.div`
 export const TitleTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  gap: 10rem;
+  gap: 1.2rem;
   width: 50rem;
 `;
 
 export const TextLogo = styled.img`
   width: 34rem;
+  padding-bottom: 1.8rem;
 `;
 
 export const SubTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.color.black[900]};
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: ${({ theme }) => theme.color.black[600]};
   width: 100%;
-  text-align: center;
+  text-align: left;
+  padding-bottom: 4.6rem;
 `;
 
 export const Description = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: ${({ theme }) => theme.color.black[900]};
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: start;
+  gap: 0.8rem;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: keep-all;
 `;
 
 export const Section1 = styled.div`
@@ -64,8 +74,7 @@ export const Section1 = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10rem;
-  background-color: ${({ theme }) => theme.color.primary[0]};
+  gap: 8rem;
   padding: 0 12rem;
 `;
 
@@ -75,7 +84,7 @@ export const Section1Title = styled.h2`
   align-items: center;
   text-align: center;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fontSize.h3};
+  font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme }) => theme.color.black[600]};
   width: 100%;
@@ -87,10 +96,15 @@ export const Section1Subtitle = styled.h3`
   align-items: center;
   justify-content: center;
   gap: 10rem;
-  font-size: ${({ theme }) => theme.fontSize.h5};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-size: ${({ theme }) => theme.fontSize.h6};
+  font-weight: ${({ theme }) => theme.fontWeight.light};
   color: ${({ theme }) => theme.color.black[400]};
   width: 80%;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  line-height: 1.7;
+  margin-bottom: 3rem;
 `;
 
 export const Section1DescriptionWrapper = styled.div`
@@ -101,13 +115,37 @@ export const Section1DescriptionWrapper = styled.div`
   gap: 10rem;
 `;
 
-export const Section1Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.lg};
+export const Section1DescriptionDivider = styled.div`
+  width: 0.4rem;
+  height: 30%;
+  transform: translateY(8rem);
+  background-color: ${({ theme }) => theme.color.black[200]};
+  border-radius: 1rem;
+`;
+
+export const Section1DescriptionBoxWrapper = styled.div`
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 2rem;
+`;
+export const Section1DescriptionTitle = styled.h3`
+  font-size: ${({ theme }) => theme.fontSize.h5};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.color.black[600]};
-  width: 20%;
+`;
+
+export const Section1Description = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: ${({ theme }) => theme.fontWeight.light};
+  color: ${({ theme }) => theme.color.black[600]};
+  width: 100%;
   text-align: start;
   line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: keep-all;
 `;
 
 export const Section2 = styled.div`
