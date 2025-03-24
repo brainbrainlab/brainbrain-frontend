@@ -1,42 +1,48 @@
-import { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import * as S from './Testing.styles';
-import Logo from '../../assets/images/logo.svg';
 import Choice from '../../components/Choice/Choice';
 import { useNavigate } from 'react-router-dom';
+import Timer from '../../components/Timer/Timer';
+import { FaCheck } from 'react-icons/fa';
 
 function Testing() {
   const navigate = useNavigate();
   const TIME_LIMIT = 2400;
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
-  const [solvedQuestions, setSolvedQuestions] = useState<boolean[]>(Array(36).fill(false));
+  const [solvedQuestions, setSolvedQuestions] = useState<number[]>(Array(36).fill(null));
+  const [showUnsolved, setShowUnsolved] = useState(false);
 
-  const startTime = useRef(new Date());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(TIME_LIMIT - (new Date().getTime() - startTime.current.getTime()) / 1000);
-    }, 1000);
-    if (timeLeft <= 0) {
-      clearInterval(interval);
-      navigate('/result');
-    }
-    return () => clearInterval(interval);
-  }, [timeLeft]);
-
-  const handleSolveQuestion = (index: number) => {
+  const handleSolveQuestion = (index: number, choiceIndex: number) => {
     setSolvedQuestions(prev => {
       const newSolved = [...prev];
-      newSolved[index] = true;
+      newSolved[index] = choiceIndex;
       return newSolved;
     });
 
-    questionIndex === 35 ? null : setQuestionIndex(prev => prev + 1); //TODO: 마지막 문제 풀이 후 결과 페이지로 이동
+    if (questionIndex === 35) {
+      setSolvedQuestions(prev => {
+        const allSolved = prev.every(solved => solved !== null);
+        if (allSolved) {
+          navigate('/result');
+        } else {
+          setShowUnsolved(true);
+          setTimeout(() => {
+            setShowUnsolved(false);
+          }, 3000);
+        }
+        return prev;
+      });
+    } else {
+      setQuestionIndex(prev => prev + 1);
+    }
   };
 
   const handleChangeQuestion = (index: number) => {
     setQuestionIndex(index);
+  };
+
+  const getQuestionImage = (index: number) => {
+    return `../../assets/images/questions/${index + 1}.svg`;
   };
 
   const handleBeforeUnload = (event: Event) => {
@@ -47,32 +53,24 @@ function Testing() {
 
   return (
     <S.Layout>
-      <S.TimerContainer>
-        <S.TimerText>
-          {timeLeft / 60 > 10
-            ? `${Math.floor(timeLeft / 60)} `
-            : timeLeft / 60 > 1
-            ? `0${Math.floor(timeLeft / 60)} `
-            : `00 `}
-          :{' '}
-          {timeLeft % 60 > 10
-            ? `${Math.floor(timeLeft % 60)} `
-            : timeLeft % 60 > 1
-            ? `0${Math.floor(timeLeft % 60)} `
-            : `00 `}
-        </S.TimerText>
-        <S.TimerBar value={timeLeft / TIME_LIMIT} />
-      </S.TimerContainer>
-
-      <S.QuestionText>Q{questionIndex + 1}.</S.QuestionText>
+      <Timer TIME_LIMIT={TIME_LIMIT} />
       <S.QuestionContainer>
-        <S.QuestionImage src={Logo} />
-
+        <S.QuestionWrapper>
+          <S.QuestionText>Q{questionIndex + 1}.</S.QuestionText>
+          <S.QuestionImageWrapper>
+            <S.QuestionImage src={getQuestionImage(questionIndex)}></S.QuestionImage>
+          </S.QuestionImageWrapper>
+        </S.QuestionWrapper>
         <S.ChoiceContainer>
           {Array(8)
             .fill(null)
             .map((_, index) => (
-              <Choice key={index} onClick={() => handleSolveQuestion(questionIndex)} />
+              <Choice
+                key={index}
+                onClick={() => handleSolveQuestion(questionIndex, index)}
+                questionIndex={questionIndex}
+                choiceIndex={index}
+              />
             ))}
         </S.ChoiceContainer>
       </S.QuestionContainer>
@@ -83,15 +81,16 @@ function Testing() {
           <div style={{ width: '3rem' }}></div>
         )}
         <S.ToggleButton />
-        <S.QuestionButtonContainer>
+        <S.QuestionButtonContainer showUnsolved={showUnsolved}>
           {solvedQuestions.map((solved, index) => (
             <S.QuestionButton
-              solved={solved}
+              solved={solved !== null}
               current={index === questionIndex}
               key={index}
               onClick={() => handleChangeQuestion(index)}
+              showUnsolved={solved === null && showUnsolved}
             >
-              {index + 1}
+              {solved !== null ? <FaCheck color="white" /> : index + 1}
             </S.QuestionButton>
           ))}
         </S.QuestionButtonContainer>
