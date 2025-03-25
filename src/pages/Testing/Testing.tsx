@@ -1,34 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as S from './Testing.styles';
 import Choice from '../../components/Choice/Choice';
 import { useNavigate } from 'react-router-dom';
 import Timer from '../../components/Timer/Timer';
 import { FaCheck } from 'react-icons/fa';
+import { validateTest } from '../../utils/testValidation';
+
+// Constants
+const TOTAL_QUESTIONS = 42;
+const LAST_QUESTION_INDEX = TOTAL_QUESTIONS - 1;
+const CHOICES_PER_QUESTION = 8;
+const TIME_LIMIT_SECONDS = 2400;
+const UNSOLVED_NOTIFICATION_DURATION = 3000;
+
+// Types
+type QuestionIndex = number;
+type ChoiceIndex = number;
+type SolvedQuestions = (number | null)[];
 
 function Testing() {
   const navigate = useNavigate();
-  const TIME_LIMIT = 2400;
-  const [questionIndex, setQuestionIndex] = useState(0);
-  const [solvedQuestions, setSolvedQuestions] = useState<number[]>(Array(36).fill(null));
+  const [questionIndex, setQuestionIndex] = useState<QuestionIndex>(0);
+  const [solvedQuestions, setSolvedQuestions] = useState<SolvedQuestions>(Array(TOTAL_QUESTIONS).fill(null));
   const [showUnsolved, setShowUnsolved] = useState(false);
+  const [startTime, setStartTime] = useState(new Date());
+  const [answers, setAnswers] = useState<SolvedQuestions>(Array(TOTAL_QUESTIONS).fill(null));
 
-  const handleSolveQuestion = (index: number, choiceIndex: number) => {
+  const handleSolveQuestion = (index: QuestionIndex, choiceIndex: ChoiceIndex) => {
     setSolvedQuestions(prev => {
       const newSolved = [...prev];
       newSolved[index] = choiceIndex;
       return newSolved;
     });
 
-    if (questionIndex === 35) {
+    if (questionIndex === LAST_QUESTION_INDEX) {
       setSolvedQuestions(prev => {
         const allSolved = prev.every(solved => solved !== null);
         if (allSolved) {
-          navigate('/result');
+          handleSubmit();
         } else {
           setShowUnsolved(true);
           setTimeout(() => {
             setShowUnsolved(false);
-          }, 3000);
+          }, UNSOLVED_NOTIFICATION_DURATION);
         }
         return prev;
       });
@@ -37,11 +51,11 @@ function Testing() {
     }
   };
 
-  const handleChangeQuestion = (index: number) => {
+  const handleChangeQuestion = (index: QuestionIndex) => {
     setQuestionIndex(index);
   };
 
-  const getQuestionImage = (index: number) => {
+  const getQuestionImage = (index: QuestionIndex) => {
     return `../../assets/images/questions/${index + 1}.svg`;
   };
 
@@ -49,11 +63,43 @@ function Testing() {
     event.preventDefault();
     return '페이지를 나가시면 테스트가 중지됩니다. 그래도 나가시겠습니까?';
   };
-  window.addEventListener('beforeunload', handleBeforeUnload);
+
+  const handleSubmit = () => {
+    const validationResult = validateTest(
+      startTime,
+      new Date(),
+      answers.filter((answer): answer is number => answer !== null),
+    );
+
+    if (!validationResult.isValid) {
+      navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
+      return;
+    }
+
+    // Calculate result based on answers
+    const result = {
+      type:
+        answers.filter(answer => answer !== null).reduce((acc, curr) => acc + curr, 0) > TOTAL_QUESTIONS * 2
+          ? 'A'
+          : 'B',
+      answers: answers,
+    };
+
+    navigate('/result', { state: { result } });
+  };
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Cleanup function to remove the event listener when component unmounts
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []); // Empty dependency array since handleBeforeUnload doesn't depend on any props or state
 
   return (
     <S.Layout>
-      <Timer TIME_LIMIT={TIME_LIMIT} />
+      <Timer TIME_LIMIT={TIME_LIMIT_SECONDS} />
       <S.QuestionContainer>
         <S.QuestionWrapper>
           <S.QuestionText>Q{questionIndex + 1}.</S.QuestionText>
@@ -62,7 +108,7 @@ function Testing() {
           </S.QuestionImageWrapper>
         </S.QuestionWrapper>
         <S.ChoiceContainer>
-          {Array(8)
+          {Array(CHOICES_PER_QUESTION)
             .fill(null)
             .map((_, index) => (
               <Choice
@@ -94,7 +140,7 @@ function Testing() {
             </S.QuestionButton>
           ))}
         </S.QuestionButtonContainer>
-        {questionIndex !== 35 ? (
+        {questionIndex !== LAST_QUESTION_INDEX ? (
           <S.NextButton onClick={() => handleChangeQuestion(questionIndex + 1)} />
         ) : (
           <div style={{ width: '3rem' }}></div>

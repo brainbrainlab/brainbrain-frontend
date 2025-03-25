@@ -1,17 +1,30 @@
 import React, { forwardRef } from 'react';
-import i18n from '../../language/i18n';
+import i18n, { LANGUAGE_CODES, LanguageCode } from '../../language/i18n';
 import * as S from './LanguageDropdown.styles';
 
+interface LanguageOption {
+  code: LanguageCode;
+  label: string;
+}
+
+const LANGUAGE_OPTIONS: LanguageOption[] = [
+  { code: LANGUAGE_CODES.KOREAN, label: '한국어' },
+  { code: LANGUAGE_CODES.ENGLISH, label: 'English' },
+  { code: LANGUAGE_CODES.CHINESE, label: '中文' },
+];
+
 const LanguageDropdown = forwardRef<HTMLDivElement>((props, ref) => {
-  const changeLanguage = (lang: string) => {
+  const changeLanguage = (lang: LanguageCode) => {
     i18n.changeLanguage(lang);
   };
 
   return (
     <S.Dropdown ref={ref}>
-      <S.DropdownItem onClick={() => changeLanguage('ko')}>한국어</S.DropdownItem>
-      <S.DropdownItem onClick={() => changeLanguage('en')}>English</S.DropdownItem>
-      <S.DropdownItem onClick={() => changeLanguage('cn')}>中文</S.DropdownItem>
+      {LANGUAGE_OPTIONS.map(({ code, label }) => (
+        <S.DropdownItem key={code} onClick={() => changeLanguage(code)}>
+          {label}
+        </S.DropdownItem>
+      ))}
     </S.Dropdown>
   );
 });

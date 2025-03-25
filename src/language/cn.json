@@ -1,13 +1,92 @@
 {
+  "common": {
+    "goToHome": "返回首页",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "contact": "联系我们",
+    "businessInfo": "企业信息",
+    "copyright": "© 2024 BrainBrain. 版权所有。"
+  },
+  "error": {
+    "pageNotFound": "页面未找到",
+    "testInvalid": "无法确认测试结果",
+    "testInvalidDescription": "由于测试过程异常，无法确认结果。\n请重新进行测试。",
+    "retakeTest": "重新测试",
+    "invalidReasons": {
+      "tooFast": "测试完成时间过短",
+      "sameAnswer": "相同答案过多"
+    }
+  },
   "header": {
     "language": "语言/Language"
   },
   "main": {
-    "subtitle": "这里是字幕区",
-    "description": "这里是描述区",
-    "button": "接受考验",
+    "subtitle": "门萨题型智商测试",
+    "description1": "40分钟42道题",
+    "description2": "颁发官方证书",
+    "description3": "客观评估智力水平",
+    "description4": "采用2025最新智商测试题型",
+    "button": "开始测试",
     "section1": {
-      "title": "为什么需要进行IQ测试？"
+      "title": "什么是BrainBrain智商测试？",
+      "subtitle": "BrainBrain通过不同难度的定制测试，提供实时结果分析和反馈。\n通过这些，您可以了解自己的优势和需要改进的地方，并提供训练大脑的方法。\n此外，我们严格保护个人信息，所有数据都安全管理。",
+      "description1": {
+        "title": "✅ 可靠准确的结果",
+        "content": "BrainBrain基于最新的心理学研究和经过验证的智商测试，提供准确可靠的结果。我们遵循科学标准，确保所有用户都能获得可信的智商分数。"
+      },
+      "description2": {
+        "title": "📊 个性化分析",
+        "content": "除了简单的分数之外，我们还提供测试结果的详细分析。通过确认各个领域的优势和需要改进的部分，您可以更好地理解自己的大脑能力。"
+      },
+      "description3": {
+        "title": "🌐 便捷的在线访问",
+        "content": "只要有网络，随时随地都能轻松访问BrainBrain。无需受时间和地点的限制，可以在想要的时间进行测试，非常方便。"
+      }
+    },
+    "section2": {
+      "title": "智商分数分布",
+      "subtitle": "智商（IQ）是量化人的认知能力的数值，用于测量逻辑思维、问题解决、记忆力和推理能力等心理学指标。智商受遗传因素和环境因素的影响，应该被解释为综合认知能力的一个指标，而不是简单的数字。",
+      "scores": {
+        "highest": "前0.1%",
+        "higher": "前2%",
+        "high": "高智商",
+        "aboveAverage": "高于平均",
+        "belowAverage": "低于平均",
+        "low": "临界智力",
+        "lower": "后2%",
+        "lowest": "后0.1%",
+        "mensaNote": "符合门萨入会标准"
+      }
+    }
+  },
+  "testing": {
+    "timeRemaining": "剩余时间",
+    "minutes": "分钟",
+    "seconds": "秒",
+    "question": "问题",
+    "nextQuestion": "下一题",
+    "submitTest": "提交",
+    "confirmSubmit": "确定要提交测试吗？",
+    "confirmSubmitDescription": "提交后将无法修改答案。",
+    "yes": "是",
+    "no": "否"
+  },
+  "result": {
+    "title": "智商测试结果",
+    "score": "您的智商分数",
+    "description": "该分数位于前{percent}%。",
+    "downloadCertificate": "下载证书",
+    "retakeTest": "重新测试",
+    "shareResult": "分享结果",
+    "analysis": {
+      "title": "详细分析",
+      "overall": "整体评估",
+      "categories": {
+        "logical": "逻辑思维",
+        "spatial": "空间感知",
+        "numerical": "数字能力",
+        "memory": "记忆力"
+      }
     }
   }
 }

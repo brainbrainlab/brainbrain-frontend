@@ -1,13 +1,92 @@
 {
+  "common": {
+    "goToHome": "Go to Home",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contact": "Contact",
+    "businessInfo": "Business Information",
+    "copyright": "© 2024 BrainBrain. All Rights Reserved."
+  },
+  "error": {
+    "pageNotFound": "Page Not Found",
+    "testInvalid": "Test Results Unavailable",
+    "testInvalidDescription": "We cannot verify your test results due to irregular test-taking patterns.\nPlease take the test again.",
+    "retakeTest": "Take Test Again",
+    "invalidReasons": {
+      "tooFast": "Test completion time was too short",
+      "sameAnswer": "Too many identical answers"
+    }
+  },
   "header": {
     "language": "Language"
   },
   "main": {
-    "subtitle": "This is subtitle area",
-    "description": "This is description area",
-    "button": "Go to test",
+    "subtitle": "Mensa-type IQ Test",
+    "description1": "42 Questions in 40 Minutes",
+    "description2": "Official Certificate Issuance",
+    "description3": "Objective Assessment of Intellectual Level",
+    "description4": "2025 Latest IQ Test Format Applied",
+    "button": "Start Test",
     "section1": {
-      "title": "Why should I take an IQ test?"
+      "title": "What is BrainBrain IQ Test?",
+      "subtitle": "BrainBrain provides real-time result analysis and feedback through customized tests of varying difficulty levels.\nThis helps you identify your strengths and areas for improvement, and suggests methods to train your brain.\nAdditionally, personal information is strictly protected, and all data is securely managed.",
+      "description1": {
+        "title": "✅ Reliable and Accurate Results",
+        "content": "BrainBrain provides accurate and reliable results based on the latest psychological research and verified IQ tests. We ensure that all users receive credible IQ scores by adhering to scientific standards."
+      },
+      "description2": {
+        "title": "📊 Personalized Analysis",
+        "content": "Beyond just scores, we provide detailed analysis of test results. You can better understand your brain capabilities by identifying strengths and areas for improvement in each field."
+      },
+      "description3": {
+        "title": "🌐 Convenient Online Access",
+        "content": "BrainBrain is easily accessible anywhere, anytime with internet connection. You can take the test at your convenience without being restricted by time and place."
+      }
+    },
+    "section2": {
+      "title": "IQ Score Distribution",
+      "subtitle": "Intelligence Quotient (IQ) is a numerical value that quantifies cognitive ability, measuring psychological indicators such as logical thinking, problem-solving, memory, and reasoning abilities. IQ is influenced by both genetic and environmental factors and should be interpreted as one indicator of comprehensive cognitive ability rather than a simple number.",
+      "scores": {
+        "highest": "Top 0.1%",
+        "higher": "Top 2%",
+        "high": "High Intelligence",
+        "aboveAverage": "Above Average",
+        "belowAverage": "Below Average",
+        "low": "Borderline",
+        "lower": "Bottom 2%",
+        "lowest": "Bottom 0.1%",
+        "mensaNote": "Qualifies for Mensa membership"
+      }
+    }
+  },
+  "testing": {
+    "timeRemaining": "Time Remaining",
+    "minutes": "min",
+    "seconds": "sec",
+    "question": "Question",
+    "nextQuestion": "Next Question",
+    "submitTest": "Submit",
+    "confirmSubmit": "Do you want to submit the test?",
+    "confirmSubmitDescription": "You cannot modify your answers after submission.",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "result": {
+    "title": "IQ Test Results",
+    "score": "Your IQ Score",
+    "description": "This score is in the top {percent}%.",
+    "downloadCertificate": "Download Certificate",
+    "retakeTest": "Take Test Again",
+    "shareResult": "Share Results",
+    "analysis": {
+      "title": "Detailed Analysis",
+      "overall": "Overall Assessment",
+      "categories": {
+        "logical": "Logical Thinking",
+        "spatial": "Spatial Perception",
+        "numerical": "Numerical Ability",
+        "memory": "Memory"
+      }
     }
   }
 }

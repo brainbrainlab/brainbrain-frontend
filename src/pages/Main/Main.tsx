@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './Main.styles';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
@@ -6,50 +6,39 @@ import DotAnimation from '../../components/DotAnimation/DotAnimation';
 import { useTranslation } from 'react-i18next';
 import textLogo from '../../assets/images/logo_text.svg';
 import { MdCircle } from 'react-icons/md';
+import ScoreTable, { ScoreLevelType } from '../../components/ScoreTable/ScoreTable';
+
+// Types
+type DescriptionProps = {
+  translationKey: string;
+};
+
+// Reusable Components
+const Description = React.memo<DescriptionProps>(({ translationKey }) => {
+  const { t } = useTranslation();
+  return (
+    <S.Description>
+      <MdCircle size={7} />
+      {t(translationKey)}
+    </S.Description>
+  );
+});
+
+const Section1DescriptionBox = React.memo<{ index: number }>(({ index }) => {
+  const { t } = useTranslation();
+  return (
+    <S.Section1DescriptionBoxWrapper>
+      <S.Section1DescriptionTitle>{t(`main.section1.description${index}.title`)}</S.Section1DescriptionTitle>
+      <S.Section1Description>{t(`main.section1.description${index}.content`)}</S.Section1Description>
+    </S.Section1DescriptionBoxWrapper>
+  );
+});
+
 const SubTitle = React.memo(() => {
   const { t } = useTranslation();
   return <S.SubTitle>{t('main.subtitle')}</S.SubTitle>;
 });
 
-const Description1 = React.memo(() => {
-  const { t } = useTranslation();
-  return (
-    <S.Description>
-      <MdCircle size={7} />
-      {t('main.description1')}
-    </S.Description>
-  );
-});
-
-const Description2 = React.memo(() => {
-  const { t } = useTranslation();
-  return (
-    <S.Description>
-      <MdCircle size={7} />
-      {t('main.description2')}
-    </S.Description>
-  );
-});
-
-const Description3 = React.memo(() => {
-  const { t } = useTranslation();
-  return (
-    <S.Description>
-      <MdCircle size={7} />
-      {t('main.description3')}
-    </S.Description>
-  );
-});
-
-const Description4 = React.memo(() => {
-  const { t } = useTranslation();
-  return (
-    <S.Description>
-      <MdCircle size={7} />
-      {t('main.description4')}
-    </S.Description>
-  );
-});
 const MainButton = React.memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -70,73 +59,47 @@ const Section1Subtitle = React.memo(() => {
   return <S.Section1Subtitle>{t('main.section1.subtitle')}</S.Section1Subtitle>;
 });
 
-const Section1Description1Title = React.memo(() => {
-  const { t } = useTranslation();
-  return <S.Section1DescriptionTitle>{t('main.section1.description1.title')}</S.Section1DescriptionTitle>;
-});
-
-const Section1Description1 = React.memo(() => {
-  const { t } = useTranslation();
-  return <S.Section1Description>{t('main.section1.description1.content')}</S.Section1Description>;
-});
-
-const Section1Description2Title = React.memo(() => {
-  const { t } = useTranslation();
-  return <S.Section1DescriptionTitle>{t('main.section1.description2.title')}</S.Section1DescriptionTitle>;
-});
-
-const Section1Description2 = React.memo(() => {
-  const { t } = useTranslation();
-  return <S.Section1Description>{t('main.section1.description2.content')}</S.Section1Description>;
-});
-
-const Section1Description3Title = React.memo(() => {
-  const { t } = useTranslation();
-  return <S.Section1DescriptionTitle>{t('main.section1.description3.title')}</S.Section1DescriptionTitle>;
-});
-
-const Section1Description3 = React.memo(() => {
-  const { t } = useTranslation();
-  return <S.Section1Description>{t('main.section1.description3.content')}</S.Section1Description>;
-});
-
 function Main() {
+  const [hoveredLevel, setHoveredLevel] = useState<ScoreLevelType | null>(null);
+  const { t } = useTranslation();
+
   return (
     <S.Layout>
       <S.TitleSection>
         <S.TitleTextAndImageWrapper>
           <S.TitleTextContainer>
-            <S.TextLogo src={textLogo} />
+            <S.TextLogo src={textLogo} alt="Text Logo" />
             <SubTitle />
-            <Description1 />
-            <Description2 />
-            <Description3 />
-            <Description4 />
+            <Description translationKey="main.description1" />
+            <Description translationKey="main.description2" />
+            <Description translationKey="main.description3" />
+            <Description translationKey="main.description4" />
           </S.TitleTextContainer>
           <DotAnimation />
         </S.TitleTextAndImageWrapper>
         <MainButton />
       </S.TitleSection>
-      <S.Section1>
+      <S.Section>
         <Section1Title />
         <Section1Subtitle />
         <S.Section1DescriptionWrapper>
-          <S.Section1DescriptionBoxWrapper>
-            <Section1Description1Title />
-            <Section1Description1 />
-          </S.Section1DescriptionBoxWrapper>
+          <Section1DescriptionBox index={1} />
           <S.Section1DescriptionDivider />
-          <S.Section1DescriptionBoxWrapper>
-            <Section1Description2Title />
-            <Section1Description2 />
-          </S.Section1DescriptionBoxWrapper>
+          <Section1DescriptionBox index={2} />
           <S.Section1DescriptionDivider />
-          <S.Section1DescriptionBoxWrapper>
-            <Section1Description3Title />
-            <Section1Description3 />
-          </S.Section1DescriptionBoxWrapper>
+          <Section1DescriptionBox index={3} />
         </S.Section1DescriptionWrapper>
-      </S.Section1>
+      </S.Section>
+      <S.Section>
+        <S.Section2TitleContainer>
+          <S.Section2Title>{t('main.section2.title')}</S.Section2Title>
+          <S.Section2SubTitle>{t('main.section2.subtitle')}</S.Section2SubTitle>
+        </S.Section2TitleContainer>
+        <S.Section2DescriptionContainer>
+          <S.StyledIqGraph $hoveredLevel={hoveredLevel} />
+          <ScoreTable hoveredLevel={hoveredLevel} onHover={setHoveredLevel} />
+        </S.Section2DescriptionContainer>
+      </S.Section>
     </S.Layout>
   );
 }
