@@ -26,8 +26,20 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif|mp3|webp|ico)$/,
+        test: /\.(png|jpg|gif|mp3|webp|ico)$/,
         type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
+        oneOf: [
+          {
+            resourceQuery: /component/,
+            use: ['@svgr/webpack'],
+          },
+          {
+            type: 'asset/resource',
+          },
+        ],
       },
       {
         test: /\.glsl$/,

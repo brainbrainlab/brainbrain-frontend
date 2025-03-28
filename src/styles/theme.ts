@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components';
 const color = {
   primary: {
     0: '#e6f7ff',
+    25: '#F1FBFF',
     50: '#ccefff',
     100: '#b3e7ff',
     200: '#99dfff',
@@ -42,6 +43,8 @@ const color = {
   },
   black: {
     0: '#ffffff',
+    2: '#f9f9f9',
+    5: '#f7f7f7',
     50: '#f5f5f5',
     100: '#eeeeee',
     200: '#e5e5e5',
@@ -85,14 +88,48 @@ const fontWeight = {
   black: '900',
 };
 
+const spacing = {
+  xxs: '0.4rem',
+  xs: '0.8rem',
+  sm: '1.2rem',
+  md: '1.6rem',
+  lg: '2.4rem',
+  xl: '4.0rem',
+  xxl: '8.0rem',
+  xxxl: '12.0rem',
+};
+
+const borderRadius = {
+  none: '0',
+  sm: '0.4rem',
+  md: '0.8rem',
+  lg: '1.6rem',
+  xl: '3.0rem',
+  full: '9999px',
+};
+
+const shadow = {
+  none: 'none',
+  sm: '0 2px 8px rgba(0, 0, 0, 0.1)',
+  md: '0 4px 12px rgba(0, 0, 0, 0.1)',
+  lg: '0 8px 16px rgba(0, 0, 0, 0.1)',
+  xl: '0 12px 24px rgba(0, 0, 0, 0.1)',
+};
+
 export type ColorTypes = typeof color;
 export type FontSizeTypes = typeof fontSize;
 export type FontWeightTypes = typeof fontWeight;
 export type DeviceWidthTypes = typeof deviceWidth;
+export type SpacingTypes = typeof spacing;
+export type BorderRadiusTypes = typeof borderRadius;
+export type ShadowTypes = typeof shadow;
 
 export const theme: DefaultTheme = {
   color,
   fontSize,
   fontWeight,
   deviceWidth,
+  spacing,
+  borderRadius,
+  shadow,
 };

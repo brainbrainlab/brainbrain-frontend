@@ -11,7 +11,7 @@ const TestButton = React.memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Button width="12rem" size="sm" fontWeight="extraBold" onClick={() => navigate('/testing')}>
+    <Button width="12rem" size="sm" fontWeight="extraBold" onClick={() => navigate('/test')}>
       {t('main.button')}
     </Button>
   );
@@ -20,7 +20,7 @@ const TestButton = React.memo(() => {
 const Header = React.memo(() => {
   const { t } = useTranslation();
   const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const isTestingPage = useLocation().pathname === '/testing';
+  const isTestingPage = useLocation().pathname === '/test';
   const navigate = useNavigate();
 
   return (

@@ -4,6 +4,14 @@ declare module '*.png' {
 }
 
 declare module '*.svg' {
-  const value: string;
-  export default value;
+  import * as React from 'react';
+  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  const src: string;
+  export default src;
+}
+
+declare module '*.svg?component' {
+  import React from 'react';
+  const SVGComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  export default SVGComponent;
 }
