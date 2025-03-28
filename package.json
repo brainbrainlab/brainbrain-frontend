@@ -6,8 +6,10 @@
   "author": "greetings1012 <ahnqwerty@gmail.com>",
   "license": "MIT",
   "private": true,
+  "packageManager": "yarn@4.5.0",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "preinstall": "yarn config set enableImmutableInstalls true",
+    "build": "yarn install --immutable && webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js"
   },
   "dependencies": {
