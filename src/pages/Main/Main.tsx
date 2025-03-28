@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './Main.styles';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
@@ -43,7 +43,7 @@ const MainButton = React.memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Button fontWeight="extraBold" onClick={() => navigate('/testing')}>
+    <Button fontWeight="extraBold" style={{ marginTop: '3rem', zIndex: 2 }} onClick={() => navigate('/test')}>
       {t('main.button')}
     </Button>
   );
@@ -63,6 +63,10 @@ function Main() {
   const [hoveredLevel, setHoveredLevel] = useState<ScoreLevelType | null>(null);
   const { t } = useTranslation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <S.Layout>
       <S.TitleSection>
@@ -79,18 +83,16 @@ function Main() {
         </S.TitleTextAndImageWrapper>
         <MainButton />
       </S.TitleSection>
-      <S.Section>
+      <S.Section1>
         <Section1Title />
         <Section1Subtitle />
         <S.Section1DescriptionWrapper>
           <Section1DescriptionBox index={1} />
-          <S.Section1DescriptionDivider />
           <Section1DescriptionBox index={2} />
-          <S.Section1DescriptionDivider />
           <Section1DescriptionBox index={3} />
         </S.Section1DescriptionWrapper>
-      </S.Section>
-      <S.Section>
+      </S.Section1>
+      <S.Section2>
         <S.Section2TitleContainer>
           <S.Section2Title>{t('main.section2.title')}</S.Section2Title>
           <S.Section2SubTitle>{t('main.section2.subtitle')}</S.Section2SubTitle>
@@ -99,7 +101,7 @@ function Main() {
           <S.StyledIqGraph $hoveredLevel={hoveredLevel} />
           <ScoreTable hoveredLevel={hoveredLevel} onHover={setHoveredLevel} />
         </S.Section2DescriptionContainer>
-      </S.Section>
+      </S.Section2>
     </S.Layout>
   );
 }

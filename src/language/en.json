@@ -59,7 +59,7 @@
       }
     }
   },
-  "testing": {
+  "test": {
     "timeRemaining": "Time Remaining",
     "minutes": "min",
     "seconds": "sec",

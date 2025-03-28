@@ -59,7 +59,7 @@ export type TranslationKeys = {
       };
     };
   };
-  testing: {
+  test: {
     timeRemaining: string;
     minutes: string;
     seconds: string;

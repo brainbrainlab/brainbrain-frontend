@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as S from './Testing.styles';
+import * as S from './Test.styles';
 import Choice from '../../components/Choice/Choice';
 import { useNavigate } from 'react-router-dom';
 import Timer from '../../components/Timer/Timer';
@@ -18,7 +18,7 @@ type QuestionIndex = number;
 type ChoiceIndex = number;
 type SolvedQuestions = (number | null)[];
 
-function Testing() {
+function Test() {
   const navigate = useNavigate();
   const [questionIndex, setQuestionIndex] = useState<QuestionIndex>(0);
   const [solvedQuestions, setSolvedQuestions] = useState<SolvedQuestions>(Array(TOTAL_QUESTIONS).fill(null));
@@ -150,4 +150,4 @@ function Testing() {
   );
 }
 
-export default Testing;
+export default Test;

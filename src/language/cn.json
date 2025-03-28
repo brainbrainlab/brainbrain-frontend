@@ -59,7 +59,7 @@
       }
     }
   },
-  "testing": {
+  "test": {
     "timeRemaining": "剩余时间",
     "minutes": "分钟",
     "seconds": "秒",

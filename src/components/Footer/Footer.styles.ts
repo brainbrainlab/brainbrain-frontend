@@ -22,6 +22,7 @@ export const LogoSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xs};
+  cursor: pointer;
 `;
 
 export const Logo = styled.img`

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../pages/Layout';
 import Main from '../pages/Main/Main';
-import Testing from '../pages/Testing/Testing';
+import Testing from '../pages/Test/Test';
 import Result from '../pages/Result/Result';
 import NotFound from '../pages/NotFound/NotFound';
 import TestInvalid from '../pages/TestInvalid/TestInvalid';
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: '/testing',
+        path: '/test',
         element: <Testing />,
       },
       {

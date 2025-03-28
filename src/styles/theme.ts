@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components';
 const color = {
   primary: {
     0: '#e6f7ff',
+    25: '#F1FBFF',
     50: '#ccefff',
     100: '#b3e7ff',
     200: '#99dfff',
@@ -42,6 +43,8 @@ const color = {
   },
   black: {
     0: '#ffffff',
+    2: '#f9f9f9',
+    5: '#f7f7f7',
     50: '#f5f5f5',
     100: '#eeeeee',
     200: '#e5e5e5',

@@ -22,7 +22,7 @@ export interface ScoreLevel {
 
 const SCORE_LEVELS: ScoreLevel[] = [
   { level: 'highest', range: '172+', translationKey: 'main.section2.scores.highest', hasMensaNote: true },
-  { level: 'higher', range: '148 - 171', translationKey: 'main.section2.scores.higher' },
+  { level: 'higher', range: '148 - 171', translationKey: 'main.section2.scores.higher', hasMensaNote: true },
   { level: 'high', range: '124 - 147', translationKey: 'main.section2.scores.high' },
   { level: 'aboveAverage', range: '101 - 123', translationKey: 'main.section2.scores.aboveAverage' },
   { level: 'belowAverage', range: '76 - 99', translationKey: 'main.section2.scores.belowAverage' },

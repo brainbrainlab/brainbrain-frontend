@@ -2,21 +2,27 @@ import * as S from './Footer.styles';
 import { useTranslation } from 'react-i18next';
 import logoImage from '../../assets/images/logo_with_dot.svg';
 import textLogo from '../../assets/images/logo_text.svg';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-
+  const navigate = useNavigate();
   return (
     <S.Container>
       <S.Content>
-        <S.LogoSection>
+        <S.LogoSection
+          onClick={() => {
+            navigate('/');
+            window.scrollTo(0, 0);
+          }}
+        >
           <S.Logo src={logoImage} alt="BrainBrain Logo" />
           <S.LogoText src={textLogo} alt="BrainBrain" />
         </S.LogoSection>
 
         <S.MenuLinks>
-          <S.MenuItem href="/testing">IQ Test</S.MenuItem>
+          <S.MenuItem href="/test">IQ Test</S.MenuItem>
           <S.MenuItem href="/privacy">Privacy Policy</S.MenuItem>
           <S.MenuItem href="/terms">Terms of Service</S.MenuItem>
           <S.MenuItem href="/contact">Contact</S.MenuItem>
