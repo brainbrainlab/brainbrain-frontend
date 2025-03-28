@@ -8,8 +8,8 @@
   "private": true,
   "packageManager": "yarn@4.5.0",
   "scripts": {
-    "preinstall": "yarn config set enableImmutableInstalls true",
-    "build": "yarn install --immutable && webpack --config webpack.prod.js",
+    "preinstall": "yarn config set enableImmutableInstalls false",
+    "build": "yarn install && webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js"
   },
   "dependencies": {
