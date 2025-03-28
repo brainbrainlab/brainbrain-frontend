@@ -16,7 +16,7 @@ const createBlinkKeyframes = (theme: any) => keyframes`
 `;
 
 export const Layout = styled.div`
-  width: 100vw;
+  width: 100%;
   height: calc(100vh - 8rem);
   padding: 0 6rem;
   display: flex;
@@ -61,6 +61,7 @@ export const QuestionImageWrapper = styled.div`
   border: 2px solid ${({ theme }) => theme.color.black[400]};
   /* border-radius: 1rem; */
 `;
+
 export const QuestionImage = styled.img`
   width: 40rem;
   height: 40rem;
@@ -96,6 +97,7 @@ export const NextButton = styled(IoArrowForwardOutline)`
     opacity: 1;
   }
 `;
+
 export const PreviousButton = styled(IoArrowBackOutline)`
   width: 3rem;
   height: 3rem;
@@ -116,7 +118,7 @@ export const QuestionButtonContainer = styled.div<{ showUnsolved: boolean }>`
   width: max-content;
   height: 12rem;
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
+  grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
@@ -124,7 +126,7 @@ export const QuestionButtonContainer = styled.div<{ showUnsolved: boolean }>`
   padding: 1rem;
   border-radius: 3rem;
   background-color: ${({ theme }) => theme.color.black[100]};
-  gap: 1.2rem;
+  gap: 1rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -162,10 +164,10 @@ export const ToggleButton = styled(HiMiniListBullet)`
 `;
 
 export const QuestionButton = styled(Button)<{ solved: boolean; current: boolean; showUnsolved: boolean }>`
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border: ${({ theme, current, solved }) =>
     current ? `3px solid ${solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
   background-color: ${({ theme, solved }) => (solved ? theme.color.black[400] : theme.color.primary[500])};

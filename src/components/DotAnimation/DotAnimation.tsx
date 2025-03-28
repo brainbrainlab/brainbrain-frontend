@@ -21,11 +21,12 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 `;
 
 const BackgroundImage = styled.img`
-  width: 36rem;
-  height: 36rem;
+  width: 40rem;
+  height: 40rem;
   object-fit: fill;
   position: absolute;
   z-index: 1;
@@ -95,7 +96,7 @@ const DotCanvas = () => {
 
     const loader = new THREE.TextureLoader();
     const dotTexture = loader.load('assets/images/dotTexture.png');
-    const dotsAmount = 130;
+    const dotsAmount = 100;
     const positions = new Float32Array(dotsAmount * 3);
     const vertices: CustomVector3[] = Array.from({ length: dotsAmount }, () => new THREE.Vector3() as CustomVector3);
     const sizes = new Float32Array(dotsAmount);

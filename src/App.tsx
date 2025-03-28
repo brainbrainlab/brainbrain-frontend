@@ -1,39 +1,19 @@
-import GlobalStyle from './styles/Global.style';
 import { ThemeProvider } from 'styled-components';
+import { RouterProvider } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import GlobalStyle from './styles/Global.style';
 import { theme } from './styles/theme';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Main from './pages/Main/Main';
-import './styles/font.css';
-import Testing from './pages/Testing/Testing';
-import Layout from './pages/Layout';
-import Result from './pages/Result/Result';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        path: '/',
-        element: <Main />,
-      },
-      {
-        path: '/testing',
-        element: <Testing />,
-      },
-      {
-        path: '/result',
-        element: <Result />,
-      },
-      {
-        path: '*',
-        element: <div>404</div>,
-      },
-    ],
-  },
-]);
+import { router } from './routes';
+import { updateHtmlLang } from './utils/i18n';
 
 function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    updateHtmlLang(i18n.language);
+  }, [i18n.language]);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

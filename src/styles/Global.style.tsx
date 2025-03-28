@@ -8,7 +8,6 @@ const GlobalStyles = createGlobalStyle`
     */
     *:where(:not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *)) {
         all: unset;
-
         display: revert;
     }
 
@@ -21,20 +20,22 @@ const GlobalStyles = createGlobalStyle`
 
     /* Fix mobile Safari increase font-size on landscape mode */
     html {
+        font-family: 'Pretendard Variable';
+        font-size: 62.5%;
         text-size-adjust: none;
+        -webkit-text-size-adjust: none;
     }
 
-    /* Reapply the pointer cursor for anchor tags */
-    a,
-    button {
-        cursor: revert;
+    body {
+        font-family: 'Pretendard Variable';
+        line-height: 1.5;
+        background-color: ${({ theme }) => theme.color.black[0]};
+        color: ${({ theme }) => theme.color.black[900]};
+        font-size: 1.6rem;  /* 기본 폰트 사이즈 설정 */
     }
 
     /* Remove list styles (bullets/numbers) */
-    ol,
-    ul,
-    menu,
-    summary {
+    ol, ul, menu, summary {
         list-style: none;
     }
 
@@ -107,14 +108,13 @@ const GlobalStyles = createGlobalStyle`
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
-    appearance: none;
-
-    margin: 0;
+        appearance: none;
+        margin: 0;
     }
 
-    /* Firefox  */
+    /* Firefox */
     input[type='number'] {
-    appearance: textfield;
+        appearance: textfield;
     }
 `;
 

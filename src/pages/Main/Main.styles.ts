@@ -1,22 +1,35 @@
 import styled from 'styled-components';
+import IqGraph from '../../assets/images/iq_graph.svg?component';
+
+const scoreColors = {
+  highest: '#39BCF5',
+  higher: '#3FB0E4',
+  high: '#45A4D3',
+  aboveAverage: '#4B98C2',
+  belowAverage: '#5780A0',
+  low: '#5D748F',
+  lower: '#565761',
+  lowest: '#4E4E4E',
+} as const;
 
 export const Layout = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background-color: ${({ theme }) => theme.color.black[0]};
 `;
 
 export const TitleSection = styled.div`
   display: flex;
-  height: calc(100vh - 6rem);
+  width: 100%;
+  height: calc(100vh - ${({ theme }) => theme.fontSize.h2});
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: ${({ theme }) => theme.spacing.xxl};
+  background-color: ${({ theme }) => theme.color.primary[25]};
 `;
 
 export const TitleTextAndImageWrapper = styled.div`
@@ -25,43 +38,46 @@ export const TitleTextAndImageWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
+  gap: ${({ theme }) => theme.spacing.xl};
+  position: relative;
 `;
 
 export const TitleTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   justify-content: center;
-  gap: 1.2rem;
-  width: 50rem;
+  gap: ${({ theme }) => theme.spacing.md};
+  width: 100%;
 `;
 
 export const TextLogo = styled.img`
   width: 34rem;
-  padding-bottom: 1.8rem;
+  padding-bottom: ${({ theme }) => theme.spacing.md};
+  text-align: right;
+  z-index: 2;
 `;
 
 export const SubTitle = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSize.h4};
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
   color: ${({ theme }) => theme.color.black[600]};
   width: 100%;
-  text-align: left;
-  padding-bottom: 4.6rem;
+  text-align: center;
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+  z-index: 2;
 `;
 
 export const Description = styled.p`
-  font-size: 1.6rem;
-  font-weight: 400;
+  font-size: ${({ theme }) => theme.fontSize.base};
+  font-weight: ${({ theme }) => theme.fontWeight.normal};
   color: ${({ theme }) => theme.color.black[900]};
   width: 100%;
   display: flex;
   flex-direction: row;
-
   align-items: center;
   justify-content: start;
-  gap: 0.8rem;
+  gap: ${({ theme }) => theme.spacing.xs};
   text-align: left;
   white-space: pre-wrap;
   word-break: keep-all;
@@ -70,14 +86,24 @@ export const Description = styled.p`
 export const Section1 = styled.div`
   display: flex;
   width: 100%;
-  height: calc(100vh - 16rem);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8rem;
-  padding: 0 12rem;
+  gap: ${({ theme }) => theme.spacing.xl};
+  background-color: ${({ theme }) => theme.color.black[2]};
+  padding: ${({ theme }) => theme.spacing.xxl};
 `;
 
+export const Section2 = styled.div`
+  display: flex;
+  width: 100%;
+  margin: ${({ theme }) => theme.spacing.xxl} 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.xxl};
+  padding: 0 ${({ theme }) => theme.spacing.xxxl};
+`;
 export const Section1Title = styled.h2`
   display: flex;
   flex-direction: column;
@@ -98,7 +124,7 @@ export const Section1Subtitle = styled.h3`
   gap: 10rem;
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  color: ${({ theme }) => theme.color.black[400]};
+  color: ${({ theme }) => theme.color.black[500]};
   width: 80%;
   text-align: center;
   white-space: pre-wrap;
@@ -112,45 +138,101 @@ export const Section1DescriptionWrapper = styled.div`
   flex-direction: row;
   align-items: start;
   justify-content: center;
-  gap: 10rem;
-`;
-
-export const Section1DescriptionDivider = styled.div`
-  width: 0.4rem;
-  height: 30%;
-  transform: translateY(8rem);
-  background-color: ${({ theme }) => theme.color.black[200]};
-  border-radius: 1rem;
+  gap: 5rem;
 `;
 
 export const Section1DescriptionBoxWrapper = styled.div`
   display: flex;
-  width: 30%;
+  width: 34rem;
+  height: 28rem;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
+  align-items: center;
+  justify-content: start;
   gap: 2rem;
+  padding: ${({ theme }) => theme.spacing.xl};
+  background-color: ${({ theme }) => theme.color.black[0]};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border: 3px solid ${({ theme }) => theme.color.primary[400]};
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    border: 3px solid ${({ theme }) => theme.color.primary[500]};
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
 `;
+
 export const Section1DescriptionTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.h5};
+  font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.color.black[600]};
+  color: ${({ theme }) => theme.color.black[800]};
 `;
 
 export const Section1Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-size: ${({ theme }) => theme.fontSize.base};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  color: ${({ theme }) => theme.color.black[600]};
+  color: ${({ theme }) => theme.color.black[700]};
   width: 100%;
   text-align: start;
-  line-height: 1.5;
+  line-height: 1.6;
   white-space: pre-wrap;
   word-break: keep-all;
 `;
 
-export const Section2 = styled.div`
+export const Section2TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4rem;
+`;
+
+export const Section2Title = styled.h2`
+  font-size: ${({ theme }) => theme.fontSize.h2};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.color.black[600]};
+`;
+
+export const Section2SubTitle = styled.h3`
+  font-size: ${({ theme }) => theme.fontSize.h6};
+  font-weight: ${({ theme }) => theme.fontWeight.light};
+  color: ${({ theme }) => theme.color.black[400]};
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  line-height: 1.7;
+`;
+
+export const Section2DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: ${({ theme }) => theme.spacing.xxl};
+`;
+
+export const Section2Image = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const StyledIqGraph = styled(IqGraph)<{ $hoveredLevel: string | null }>`
+  width: 50%;
+
+  path {
+    transition: opacity 0.3s ease;
+    opacity: ${({ $hoveredLevel }) => ($hoveredLevel ? 0.5 : 1)};
+    will-change: transform, opacity;
+  }
+
+  .iq_graph_svg__${({ $hoveredLevel }) => $hoveredLevel} {
+    opacity: 1;
+    filter: brightness(1.2);
+    fill: ${({ $hoveredLevel }) => $hoveredLevel && scoreColors[$hoveredLevel as keyof typeof scoreColors]};
+    transform: scale(1.2);
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
