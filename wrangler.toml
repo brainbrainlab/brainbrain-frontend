@@ -2,6 +2,8 @@
 bucket = "./dist"
 site = "./dist"
 
+main = "_worker.js"
+
 [build]
 command = "yarn build"
 upload.format = "service-worker" 
