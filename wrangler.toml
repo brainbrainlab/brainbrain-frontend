@@ -1,2 +1,7 @@
 [site]
-bucket = "./dist" 
+bucket = "./dist"
+site = "./dist"
+
+[build]
+command = "yarn build"
+upload.format = "service-worker" 
