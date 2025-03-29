@@ -1,5 +1,5 @@
 {
-  "name": "brainbrain-frontend",
+  "name": "brainbrain",
   "compatibility_date": "2025-03-29",
   "site": {
     "bucket": "./dist"
