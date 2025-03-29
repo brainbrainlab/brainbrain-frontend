@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
@@ -8,6 +9,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -52,7 +54,12 @@ module.exports = {
       template: './public/index.html',
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: 'src/assets', to: 'assets/' }],
+      patterns: [
+        { from: 'src/assets', to: 'assets/' },
+        { from: '_routes.json', to: '_routes.json' },
+        { from: '_headers.json', to: '_headers.json' },
+        { from: '_redirects', to: '_redirects' },
+      ],
     }),
   ],
   devtool: 'inline-source-map',
@@ -60,5 +67,6 @@ module.exports = {
     static: './dist',
     hot: true,
     open: true,
+    historyApiFallback: true,
   },
 };
