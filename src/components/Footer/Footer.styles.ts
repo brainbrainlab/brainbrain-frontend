@@ -46,6 +46,7 @@ export const MenuItem = styled.a`
   font-size: ${({ theme }) => theme.fontSize.base};
   text-decoration: none;
   transition: color 0.2s ease;
+  cursor: pointer;
 
   &:hover {
     color: ${({ theme }) => theme.color.primary[500]};
