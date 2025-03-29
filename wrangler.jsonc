@@ -1,0 +1,7 @@
+{
+  "name": "brainbrain-frontend",
+  "compatibility_date": "2025-03-29",
+  "assets": {
+    "directory": "./dist"
+  }
+}
