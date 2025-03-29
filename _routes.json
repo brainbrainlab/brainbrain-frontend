@@ -1,5 +1,5 @@
 {
   "version": 1,
   "include": ["/*"],
-  "exclude": ["/build/*", "/static/*", "/node_modules/*", "/api/*", "/assets/*"]
+  "exclude": ["/_assets/*", "/build/*", "/node_modules/*"]
 }
