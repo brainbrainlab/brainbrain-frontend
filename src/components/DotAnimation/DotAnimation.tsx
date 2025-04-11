@@ -14,43 +14,9 @@ interface CustomVector3 extends THREE.Vector3 {
   tl?: gsap.core.Timeline;
 }
 
-const Container = styled.div`
-  width: 50rem;
-  height: 50rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 0;
-`;
-
-const BackgroundImage = styled.img`
-  width: 40rem;
-  height: 40rem;
-  object-fit: fill;
-  position: absolute;
-  z-index: 1;
-  animation: fadeIn 4s ease-in-out infinite;
-  mix-blend-mode: darken;
-  @keyframes fadeIn {
-    0% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 0.4;
-    }
-  }
-`;
-
 const StyledCanvas = styled.canvas`
-  width: 100%;
-  height: 100%;
-  z-index: 2;
+  z-index: 0;
   position: absolute;
-  /* mix-blend-mode: exclusion; */
 `;
 
 const DotCanvas = () => {
@@ -77,9 +43,8 @@ const DotCanvas = () => {
     camera.position.set(0, 0, 350);
 
     const resizeCanvas = () => {
-      const { clientWidth, clientHeight } = canvas;
-      renderer.setSize(clientWidth, clientHeight);
-      camera.aspect = clientWidth / clientHeight;
+      renderer.setSize(600, 600);
+      camera.aspect = 1;
       camera.updateProjectionMatrix();
     };
 
@@ -88,7 +53,6 @@ const DotCanvas = () => {
 
     const colors = [new THREE.Color(0x69cffb), new THREE.Color(0xc1e9fa), new THREE.Color(0xe7f6fd)];
     renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
-    renderer.setSize(500, 500);
     renderer.setClearColor(0xffffff, 0);
 
     const galaxy = new THREE.Group();
@@ -250,12 +214,7 @@ const DotCanvas = () => {
 };
 
 const DotAnimation: React.FC = () => {
-  return (
-    <Container>
-      <BackgroundImage src="assets/images/logo.svg" alt="brain" />
-      <DotCanvas />
-    </Container>
-  );
+  return <DotCanvas />;
 };
 
 export default DotAnimation;

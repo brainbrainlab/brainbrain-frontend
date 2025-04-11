@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Layout = styled.header`
   width: 100%;
-  height: 6rem;
+  height: 7rem;
   padding: 0 6rem;
   position: fixed;
   top: 0;
@@ -14,7 +14,7 @@ export const Layout = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: 1px solid ${({ theme }) => theme.color.black[300]};
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const Logo = styled.div`
