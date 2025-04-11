@@ -14,7 +14,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.lg};
+  gap: ${({ theme }) => theme.spacing.xxs};
 `;
 
 export const LogoSection = styled.div`

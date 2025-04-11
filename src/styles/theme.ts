@@ -89,6 +89,7 @@ const fontWeight = {
 };
 
 const spacing = {
+  xxxs: '0.2rem',
   xxs: '0.4rem',
   xs: '0.8rem',
   sm: '1.2rem',
@@ -97,6 +98,7 @@ const spacing = {
   xl: '4.0rem',
   xxl: '8.0rem',
   xxxl: '12.0rem',
+  xxxxl: '16.0rem',
 };
 
 const borderRadius = {

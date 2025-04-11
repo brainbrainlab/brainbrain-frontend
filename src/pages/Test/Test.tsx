@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import Timer from '../../components/Timer/Timer';
 import { FaCheck } from 'react-icons/fa';
 import { validateTest } from '../../utils/testValidation';
+import TestWarningModal from '../../components/TestWarningModal/TestWarningModal';
+import TestCompletionModal from '../../components/TestCompletionModal/TestCompletionModal';
 
 // Constants
 const TOTAL_QUESTIONS = 42;
@@ -21,31 +23,26 @@ type SolvedQuestions = (number | null)[];
 function Test() {
   const navigate = useNavigate();
   const [questionIndex, setQuestionIndex] = useState<QuestionIndex>(0);
-  const [solvedQuestions, setSolvedQuestions] = useState<SolvedQuestions>(Array(TOTAL_QUESTIONS).fill(null));
   const [showUnsolved, setShowUnsolved] = useState(false);
-  const [startTime, setStartTime] = useState(new Date());
+  const [startTime, setStartTime] = useState<Date | null>(null);
   const [answers, setAnswers] = useState<SolvedQuestions>(Array(TOTAL_QUESTIONS).fill(null));
+  const [isTestWarningModalOpen, setIsTestWarningModalOpen] = useState(true);
+  const [isCompletionModalOpen, setIsCompletionModalOpen] = useState(false);
 
   const handleSolveQuestion = (index: QuestionIndex, choiceIndex: ChoiceIndex) => {
-    setSolvedQuestions(prev => {
-      const newSolved = [...prev];
-      newSolved[index] = choiceIndex;
-      return newSolved;
-    });
+    const newAnswers = [...answers];
+    newAnswers[index] = choiceIndex;
+    setAnswers(newAnswers);
 
-    if (questionIndex === LAST_QUESTION_INDEX) {
-      setSolvedQuestions(prev => {
-        const allSolved = prev.every(solved => solved !== null);
-        if (allSolved) {
-          handleSubmit();
-        } else {
-          setShowUnsolved(true);
-          setTimeout(() => {
-            setShowUnsolved(false);
-          }, UNSOLVED_NOTIFICATION_DURATION);
-        }
-        return prev;
-      });
+    // Check if all questions are solved after updating the current answer
+    const allSolved = newAnswers.every(answer => answer !== null);
+    if (allSolved) {
+      setIsCompletionModalOpen(true);
+    } else if (questionIndex === LAST_QUESTION_INDEX) {
+      setShowUnsolved(true);
+      setTimeout(() => {
+        setShowUnsolved(false);
+      }, UNSOLVED_NOTIFICATION_DURATION);
     } else {
       setQuestionIndex(prev => prev + 1);
     }
@@ -65,6 +62,10 @@ function Test() {
   };
 
   const handleSubmit = () => {
+    if (!startTime) {
+      return;
+    }
+
     const validationResult = validateTest(
       startTime,
       new Date(),
@@ -85,7 +86,11 @@ function Test() {
       answers: answers,
     };
 
-    navigate('/result', { state: { result } });
+    navigate('/user-info', { state: { result } });
+  };
+
+  const handleReview = () => {
+    setIsCompletionModalOpen(false);
   };
 
   useEffect(() => {
@@ -99,7 +104,20 @@ function Test() {
 
   return (
     <S.Layout>
-      <Timer TIME_LIMIT={TIME_LIMIT_SECONDS} />
+      <TestWarningModal
+        isOpen={isTestWarningModalOpen}
+        onClose={() => {
+          setIsTestWarningModalOpen(false);
+          setStartTime(new Date());
+        }}
+      />
+      <TestCompletionModal
+        isOpen={isCompletionModalOpen}
+        onClose={() => setIsCompletionModalOpen(false)}
+        onSubmit={handleSubmit}
+        onReview={handleReview}
+      />
+      <Timer TIME_LIMIT={TIME_LIMIT_SECONDS} startTime={startTime} />
       <S.QuestionContainer>
         <S.QuestionWrapper>
           <S.QuestionText>Q{questionIndex + 1}.</S.QuestionText>
@@ -128,7 +146,7 @@ function Test() {
         )}
         <S.ToggleButton />
         <S.QuestionButtonContainer showUnsolved={showUnsolved}>
-          {solvedQuestions.map((solved, index) => (
+          {answers.map((solved, index) => (
             <S.QuestionButton
               solved={solved !== null}
               current={index === questionIndex}

@@ -8,5 +8,5 @@ export const Layout = styled.div`
 `;
 
 export const Main = styled.main`
-  margin-top: 6rem;
+  margin-top: 7rem;
 `;

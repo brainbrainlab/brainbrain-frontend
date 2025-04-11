@@ -4,26 +4,33 @@ import * as S from './Timer.styles';
 
 interface TimerProps {
   TIME_LIMIT: number;
+  startTime: Date | null;
 }
 
-const Timer = React.memo(({ TIME_LIMIT }: TimerProps) => {
+const Timer = React.memo(({ TIME_LIMIT, startTime }: TimerProps) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
-  const startTime = useRef(new Date());
+  const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const elapsed = (new Date().getTime() - startTime.current.getTime()) / 1000;
-      if (TIME_LIMIT - elapsed <= 0) {
-        clearInterval(interval);
-        navigate('/result');
-      } else {
-        setTimeLeft(TIME_LIMIT - elapsed);
-      }
-    }, 1000);
+    if (startTime) {
+      intervalRef.current = setInterval(() => {
+        const elapsed = (new Date().getTime() - startTime.getTime()) / 1000;
+        if (TIME_LIMIT - elapsed <= 0) {
+          clearInterval(intervalRef.current);
+          navigate('/result');
+        } else {
+          setTimeLeft(TIME_LIMIT - elapsed);
+        }
+      }, 1000);
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [startTime, TIME_LIMIT, navigate]);
 
   return (
     <S.Container>

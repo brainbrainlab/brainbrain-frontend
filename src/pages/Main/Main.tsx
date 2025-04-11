@@ -5,30 +5,22 @@ import { useNavigate } from 'react-router-dom';
 import DotAnimation from '../../components/DotAnimation/DotAnimation';
 import { useTranslation } from 'react-i18next';
 import textLogo from '../../assets/images/logo_text.svg';
-import { MdCircle } from 'react-icons/md';
+import brain from '../../assets/images/logo.svg';
+import checkGreen from '../../assets/images/check_green.svg';
+import graph from '../../assets/images/graph.svg';
+import globeWithHuman from '../../assets/images/globe_with_human.svg';
 import ScoreTable, { ScoreLevelType } from '../../components/ScoreTable/ScoreTable';
-
-// Types
-type DescriptionProps = {
-  translationKey: string;
-};
-
-// Reusable Components
-const Description = React.memo<DescriptionProps>(({ translationKey }) => {
-  const { t } = useTranslation();
-  return (
-    <S.Description>
-      <MdCircle size={7} />
-      {t(translationKey)}
-    </S.Description>
-  );
-});
-
+import MainIcons from '../../components/MainIcons/MainIcons';
 const Section1DescriptionBox = React.memo<{ index: number }>(({ index }) => {
   const { t } = useTranslation();
   return (
     <S.Section1DescriptionBoxWrapper>
-      <S.Section1DescriptionTitle>{t(`main.section1.description${index}.title`)}</S.Section1DescriptionTitle>
+      <S.Section1DescriptionTitle>
+        {index === 1 && <S.Section1DescriptionTitleIcon src={checkGreen} alt="check_green" />}
+        {index === 2 && <S.Section1DescriptionTitleIcon src={graph} alt="graph" />}
+        {index === 3 && <S.Section1DescriptionTitleIcon src={globeWithHuman} alt="globe_with_human" />}
+        {t(`main.section1.description${index}.title`)}
+      </S.Section1DescriptionTitle>
       <S.Section1Description>{t(`main.section1.description${index}.content`)}</S.Section1Description>
     </S.Section1DescriptionBoxWrapper>
   );
@@ -43,7 +35,7 @@ const MainButton = React.memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Button fontWeight="extraBold" style={{ marginTop: '3rem', zIndex: 2 }} onClick={() => navigate('/test')}>
+    <Button fontWeight="extraBold" style={{ zIndex: 2 }} onClick={() => navigate('/test')}>
       {t('main.button')}
     </Button>
   );
@@ -63,25 +55,21 @@ function Main() {
   const [hoveredLevel, setHoveredLevel] = useState<ScoreLevelType | null>(null);
   const { t } = useTranslation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <S.Layout>
       <S.TitleSection>
+        <S.DotAnimationWrapper>
+          <DotAnimation />
+          <S.BackgroundImage src={brain} alt="brain" />
+        </S.DotAnimationWrapper>
         <S.TitleTextAndImageWrapper>
           <S.TitleTextContainer>
             <S.TextLogo src={textLogo} alt="Text Logo" />
             <SubTitle />
-            <Description translationKey="main.description1" />
-            <Description translationKey="main.description2" />
-            <Description translationKey="main.description3" />
-            <Description translationKey="main.description4" />
+            <MainIcons />
           </S.TitleTextContainer>
-          <DotAnimation />
+          <MainButton />
         </S.TitleTextAndImageWrapper>
-        <MainButton />
       </S.TitleSection>
       <S.Section1>
         <Section1Title />

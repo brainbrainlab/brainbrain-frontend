@@ -14,7 +14,6 @@ function Footer() {
         <S.LogoSection
           onClick={() => {
             navigate('/');
-            window.scrollTo(0, 0);
           }}
         >
           <S.Logo src={logoImage} alt="BrainBrain Logo" />

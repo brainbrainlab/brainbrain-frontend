@@ -9,7 +9,7 @@ const TestInvalid: React.FC = () => {
   const navigate = useNavigate();
 
   const handleRetakeTest = () => {
-    navigate('/');
+    navigate('/test');
   };
 
   const handleContactClick = () => {

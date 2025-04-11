@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import IqGraph from '../../assets/images/iq_graph.svg?component';
 
 const scoreColors = {
@@ -12,40 +12,70 @@ const scoreColors = {
   lowest: '#4E4E4E',
 } as const;
 
+const pulseAnimation = keyframes`
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.2;
+  }
+`;
+
 export const Layout = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.color.black[0]};
+  background-color: ${({ theme }) => theme.color.primary[25]};
+`;
+
+export const DotAnimationWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50rem;
+  height: 50rem;
+`;
+
+export const BackgroundImage = styled.img`
+  position: absolute;
+  width: 40rem;
+  height: 40rem;
+  object-fit: fill;
+  mix-blend-mode: darken;
+  animation: ${pulseAnimation} 7s infinite;
 `;
 
 export const TitleSection = styled.div`
   display: flex;
   width: 100%;
   height: calc(100vh - ${({ theme }) => theme.fontSize.h2});
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing.xxl};
-  background-color: ${({ theme }) => theme.color.primary[25]};
+  padding-right: 5rem;
 `;
 
 export const TitleTextAndImageWrapper = styled.div`
   width: fit-content;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing.xl};
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 14rem;
   position: relative;
 `;
 
 export const TitleTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing.md};
   width: 100%;
@@ -63,7 +93,7 @@ export const SubTitle = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
   color: ${({ theme }) => theme.color.black[600]};
   width: 100%;
-  text-align: center;
+  text-align: end;
   margin-bottom: ${({ theme }) => theme.spacing.md};
   z-index: 2;
 `;
@@ -90,8 +120,9 @@ export const Section1 = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing.xl};
-  background-color: ${({ theme }) => theme.color.black[2]};
+  background-color: ${({ theme }) => theme.color.black[0]};
   padding: ${({ theme }) => theme.spacing.xxl};
+  z-index: 2;
 `;
 
 export const Section2 = styled.div`
@@ -134,17 +165,16 @@ export const Section1Subtitle = styled.h3`
 `;
 
 export const Section1DescriptionWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  justify-content: center;
-  gap: 5rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 34rem;
+  gap: 2rem;
+  align-items: stretch;
 `;
 
 export const Section1DescriptionBoxWrapper = styled.div`
   display: flex;
   width: 34rem;
-  height: 28rem;
   flex-direction: column;
   align-items: center;
   justify-content: start;
@@ -166,6 +196,16 @@ export const Section1DescriptionTitle = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.color.black[800]};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.xs};
+`;
+
+export const Section1DescriptionTitleIcon = styled.img`
+  width: 2rem;
+  height: 2rem;
 `;
 
 export const Section1Description = styled.p`
@@ -176,7 +216,6 @@ export const Section1Description = styled.p`
   text-align: start;
   line-height: 1.6;
   white-space: pre-wrap;
-  word-break: keep-all;
 `;
 
 export const Section2TitleContainer = styled.div`
@@ -209,7 +248,7 @@ export const Section2DescriptionContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: ${({ theme }) => theme.spacing.xxl};
+  gap: ${({ theme }) => theme.spacing.xxxl};
 `;
 
 export const Section2Image = styled.img`
