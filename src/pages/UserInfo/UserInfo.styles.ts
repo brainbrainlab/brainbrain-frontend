@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  padding: 2rem 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -96,21 +97,17 @@ export const Input = styled.input<InputProps>`
 
 export const Select = styled.select<InputProps>`
   width: 100%;
-  height: 48px;
+  height: 4.8rem;
+  justify-content: center;
+  align-items: center;
   padding: 0 1rem;
   border: 1px solid ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[200])};
   border-radius: 8px;
   font-size: ${({ theme }) => theme.fontSize.base};
-  color: ${({ theme }) => theme.color.black[900]};
+  color: ${({ theme }) => theme.color.black[600]};
   background-color: ${({ theme }) => theme.color.black[0]};
   transition: all 0.2s ease;
   cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1em;
-  padding-right: 2.5rem;
 
   &:hover {
     border-color: ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[400])};
@@ -221,6 +218,11 @@ export const AgreementLabel = styled.label`
   cursor: pointer;
   line-height: 1.5;
   user-select: none;
+`;
+
+export const AgreementLink = styled.a`
+  color: ${({ theme }) => theme.color.primary[500]};
+  text-decoration: underline;
 `;
 
 export const SubmitButton = styled.button`
