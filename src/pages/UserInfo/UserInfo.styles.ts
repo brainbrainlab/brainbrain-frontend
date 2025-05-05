@@ -65,15 +65,11 @@ export const Required = styled.span`
   margin-left: 2px;
 `;
 
-interface InputProps {
-  hasError?: boolean;
-}
-
-export const Input = styled.input<InputProps>`
+export const Input = styled.input<{ $hasError: boolean }>`
   width: 100%;
   height: 48px;
   padding: 0 1rem;
-  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[200])};
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[200])};
   border-radius: 8px;
   font-size: ${({ theme }) => theme.fontSize.base};
   color: ${({ theme }) => theme.color.black[900]};
@@ -81,13 +77,13 @@ export const Input = styled.input<InputProps>`
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[400])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[400])};
   }
 
   &:focus {
     outline: none;
-    border-color: ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[500])};
-    box-shadow: 0 0 0 3px ${({ theme, hasError }) => (hasError ? theme.color.danger[100] : theme.color.primary[100])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[500])};
+    box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.danger[100] : theme.color.primary[100])};
   }
 
   &::placeholder {
@@ -95,13 +91,13 @@ export const Input = styled.input<InputProps>`
   }
 `;
 
-export const Select = styled.select<InputProps>`
+export const Select = styled.select<{ $hasError: boolean }>`
   width: 100%;
   height: 4.8rem;
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
-  border: 1px solid ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[200])};
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[200])};
   border-radius: 8px;
   font-size: ${({ theme }) => theme.fontSize.base};
   color: ${({ theme }) => theme.color.black[600]};
@@ -110,13 +106,13 @@ export const Select = styled.select<InputProps>`
   cursor: pointer;
 
   &:hover {
-    border-color: ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[400])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[400])};
   }
 
   &:focus {
     outline: none;
-    border-color: ${({ theme, hasError }) => (hasError ? theme.color.danger[500] : theme.color.primary[500])};
-    box-shadow: 0 0 0 3px ${({ theme, hasError }) => (hasError ? theme.color.danger[100] : theme.color.primary[100])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[500])};
+    box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.danger[100] : theme.color.primary[100])};
   }
 
   option {
@@ -150,24 +146,17 @@ export const RadioInput = styled.input`
   display: none;
 `;
 
-export const RadioButton = styled.div<{ isChecked: boolean }>`
+export const RadioButton = styled.div<{ $isChecked: boolean }>`
   width: 20px;
   height: 20px;
-  border: 2px solid ${({ theme, isChecked }) => (isChecked ? theme.color.primary[500] : theme.color.primary[200])};
   border-radius: 50%;
+  border: 2px solid ${({ theme, $isChecked }) => ($isChecked ? theme.color.primary[500] : theme.color.black[400])};
+  background-color: ${({ theme, $isChecked }) => ($isChecked ? theme.color.primary[500] : 'transparent')};
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 0.5rem;
   transition: all 0.2s ease;
-  background-color: ${({ theme, isChecked }) => (isChecked ? theme.color.primary[500] : 'transparent')};
-
-  svg {
-    width: 12px;
-    height: 12px;
-    color: white;
-    opacity: ${({ isChecked }) => (isChecked ? 1 : 0)};
-    transition: opacity 0.2s ease;
-  }
 `;
 
 export const ErrorMessage = styled.div`

@@ -88,5 +88,37 @@
         "memory": "记忆力"
       }
     }
+  },
+  "payment": {
+    "title": "选择支付选项",
+    "selectOption": "请选择支付选项",
+    "coupon": {
+      "title": "注册优惠券",
+      "placeholder": "输入优惠券代码",
+      "register": "注册"
+    },
+    "options": {
+      "basic": {
+        "title": "仅分数",
+        "features": ["提供测试分数"]
+      },
+      "online": {
+        "title": "在线证书 + 报告",
+        "features": ["提供测试分数", "在线证书", "详细报告"]
+      },
+      "premium": {
+        "title": "高级套餐",
+        "features": ["提供测试分数", "在线证书", "离线证书", "详细报告", "BrainBrain商品"]
+      }
+    },
+    "process": {
+      "title": "支付信息",
+      "englishName": "英文名",
+      "koreanName": "韩文名",
+      "address": "地址",
+      "phoneNumber": "电话号码",
+      "goBack": "返回",
+      "makePayment": "支付"
+    }
   }
 }

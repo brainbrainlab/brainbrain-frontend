@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -60,6 +61,9 @@ module.exports = {
         { from: '_headers.json', to: '_headers.json' },
         { from: '_redirects', to: '_redirects' },
       ],
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ],
   devtool: 'inline-source-map',

@@ -9,11 +9,12 @@ export const validateTest = (startTime: Date, endTime: Date, answers: number[]):
     reasons: [],
   };
 
-  const testDurationMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
-  if (testDurationMinutes < 10) {
-    result.isValid = false;
-    result.reasons.push('tooFast');
-  }
+  // 임시로 시간 검증 비활성화
+  // const testDurationMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
+  // if (testDurationMinutes < 10) {
+  //   result.isValid = false;
+  //   result.reasons.push('tooFast');
+  // }
 
   const answerCounts = answers.reduce((acc, curr) => {
     acc[curr] = (acc[curr] || 0) + 1;
