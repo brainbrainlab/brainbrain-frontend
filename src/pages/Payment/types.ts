@@ -23,7 +23,17 @@ export interface PaymentProcessProps {
 }
 
 export interface FormData {
-  [key: string]: string;
+  englishName: string;
+  koreanName: string;
+  address: string;
+  detailedAddress: string;
+  phoneNumber: string;
+  englishNameError?: string;
+  koreanNameError?: string;
+  addressError?: string;
+  detailedAddressError?: string;
+  phoneNumberError?: string;
+  [key: string]: string | undefined;
 }
 
 export interface FormFieldConfig {

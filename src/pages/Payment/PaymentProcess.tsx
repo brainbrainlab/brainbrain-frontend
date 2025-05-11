@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './PaymentProcess.styles';
@@ -27,6 +27,7 @@ const PaymentProcess = () => {
     [FORM_FIELDS.ENGLISH_NAME]: '',
     [FORM_FIELDS.KOREAN_NAME]: '',
     [FORM_FIELDS.ADDRESS]: '',
+    [FORM_FIELDS.DETAILED_ADDRESS]: '',
     [FORM_FIELDS.PHONE_NUMBER]: '',
   });
 
@@ -81,6 +82,11 @@ const PaymentProcess = () => {
 
     return () => {
       if (cleanup) cleanup();
+      // 위젯 컨테이너 DOM 비우기 (중복 마운트 방지)
+      const paymentMethodContainer = document.getElementById(PAYMENT_WIDGET_SELECTORS.PAYMENT_METHOD.slice(1));
+      const agreementContainer = document.getElementById(PAYMENT_WIDGET_SELECTORS.AGREEMENT.slice(1));
+      if (paymentMethodContainer) paymentMethodContainer.innerHTML = '';
+      if (agreementContainer) agreementContainer.innerHTML = '';
       resetWidgetState();
     };
   }, [navigate, t, resetWidgetState]);
@@ -153,7 +159,9 @@ const PaymentProcess = () => {
         option: plan.type as PaymentOption,
         ...(plan.type === 'FULL_PACKAGE' && {
           location: formData[FORM_FIELDS.ADDRESS],
-          road_location: formData[FORM_FIELDS.ADDRESS],
+          road_location: formData[FORM_FIELDS.DETAILED_ADDRESS]
+            ? `${formData[FORM_FIELDS.ADDRESS]} ${formData[FORM_FIELDS.DETAILED_ADDRESS]}`
+            : formData[FORM_FIELDS.ADDRESS],
           phone_number: formData[FORM_FIELDS.PHONE_NUMBER],
         }),
 
@@ -186,41 +194,49 @@ const PaymentProcess = () => {
   return (
     <S.Container>
       <S.Title>{t('payment.title')}</S.Title>
-      <S.PlanInfo>
-        <S.PlanTitle>{plan.title}</S.PlanTitle>
-        <S.PlanPrice>
-          {plan.price.toLocaleString()}
-          {t('common.currency')}
-        </S.PlanPrice>
-      </S.PlanInfo>
+      <S.ContentWrapper>
+        <div>
+          <S.PlanInfo>
+            <S.PlanTitle>{plan.title}</S.PlanTitle>
+            <S.PlanPrice>
+              {plan.price.toLocaleString()}
+              {t('common.currency')}
+            </S.PlanPrice>
+          </S.PlanInfo>
 
-      <S.CouponContainer>
-        <S.CouponCheckbox
-          type="checkbox"
-          id="coupon-box"
-          checked={isCouponApplied}
-          onChange={e => setIsCouponApplied(e.target.checked)}
-        />
-        <S.CouponLabel htmlFor="coupon-box">
-          {t('payment.coupon.label', { amount: COUPON.AMOUNT.toLocaleString() })}
-        </S.CouponLabel>
-      </S.CouponContainer>
+          <S.CouponContainer>
+            <S.CouponCheckbox
+              type="checkbox"
+              id="coupon-box"
+              checked={isCouponApplied}
+              onChange={e => setIsCouponApplied(e.target.checked)}
+            />
+            <S.CouponLabel htmlFor="coupon-box">{t('payment.coupon.apply')}</S.CouponLabel>
+          </S.CouponContainer>
 
-      <S.PaymentWidgetContainer>
-        <div id={PAYMENT_WIDGET_SELECTORS.PAYMENT_METHOD.slice(1)} />
-        <div id={PAYMENT_WIDGET_SELECTORS.AGREEMENT.slice(1)} />
-      </S.PaymentWidgetContainer>
+          <S.PaymentWidgetContainer>
+            <div id={PAYMENT_WIDGET_SELECTORS.PAYMENT_METHOD.slice(1)} />
+            <div id={PAYMENT_WIDGET_SELECTORS.AGREEMENT.slice(1)} />
+          </S.PaymentWidgetContainer>
+        </div>
 
-      <S.Form>{renderFormFields({ plan, formData, setFormData, t })}</S.Form>
-
-      <S.ActionsContainer>
-        <Button filled={false} onClick={() => navigate(-1)}>
-          {t('common.back')}
-        </Button>
-        <Button filled={true} onClick={handlePayment} disabled={isLoading}>
-          {isLoading ? t('payment.processing') : t('payment.pay')}
-        </Button>
-      </S.ActionsContainer>
+        <S.Form onSubmit={e => e.preventDefault()}>
+          {renderFormFields({
+            formData,
+            setFormData,
+            plan,
+            t,
+          })}
+          <S.ActionsContainer>
+            <Button
+              onClick={handlePayment}
+              disabled={isLoading || !isWidgetInitialized || !validateForm({ formData, plan, widgets, t })}
+            >
+              {isLoading ? t('payment.processing') : t('payment.pay')}
+            </Button>
+          </S.ActionsContainer>
+        </S.Form>
+      </S.ContentWrapper>
     </S.Container>
   );
 };
