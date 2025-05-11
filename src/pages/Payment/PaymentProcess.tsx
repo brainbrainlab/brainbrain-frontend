@@ -141,14 +141,25 @@ const PaymentProcess = () => {
 
       // 결제 완료 후 백엔드 API 호출
       const paymentData = {
+        // IQ 점수 계산 정보
+        username: userInfo.name,
         email: userInfo.email,
+        country: userInfo.country,
+        answerSheet: testResults.answers,
+
+        // 결제 정보
         korea_name: formData[FORM_FIELDS.KOREAN_NAME],
         english_name: formData[FORM_FIELDS.ENGLISH_NAME],
         option: plan.type as PaymentOption,
         ...(plan.type === 'FULL_PACKAGE' && {
           location: formData[FORM_FIELDS.ADDRESS],
-          road_location: formData[FORM_FIELDS.ADDRESS], // 도로명 주소는 별도 필드가 필요할 수 있음
+          road_location: formData[FORM_FIELDS.ADDRESS],
           phone_number: formData[FORM_FIELDS.PHONE_NUMBER],
+        }),
+
+        // 쿠폰 정보
+        ...(location.state.couponCode && {
+          coupon_id: location.state.couponCode,
         }),
       };
 
