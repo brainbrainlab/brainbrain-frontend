@@ -34,7 +34,6 @@ function Test() {
     newAnswers[index] = choiceIndex;
     setAnswers(newAnswers);
 
-    // Check if all questions are solved after updating the current answer
     const allSolved = newAnswers.every(answer => answer !== null);
     if (allSolved) {
       setIsCompletionModalOpen(true);
@@ -77,14 +76,7 @@ function Test() {
       return;
     }
 
-    // Calculate result based on answers
-    const result = {
-      type:
-        answers.filter(answer => answer !== null).reduce((acc, curr) => acc + curr, 0) > TOTAL_QUESTIONS * 2
-          ? 'A'
-          : 'B',
-      answers: answers,
-    };
+    const result = answers;
 
     navigate('/user-info', { state: { result } });
   };
@@ -96,11 +88,10 @@ function Test() {
   useEffect(() => {
     window.addEventListener('beforeunload', handleBeforeUnload);
 
-    // Cleanup function to remove the event listener when component unmounts
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, []); // Empty dependency array since handleBeforeUnload doesn't depend on any props or state
+  }, []);
 
   return (
     <S.Layout>

@@ -8,6 +8,10 @@ import TestInvalid from '../pages/TestInvalid/TestInvalid';
 import Info from '../pages/Info/Info';
 import Contact from '../pages/Contact/Contact';
 import UserInfo from '../pages/UserInfo/UserInfo';
+import Payment from '../pages/Payment/Payment';
+import PaymentProcess from '../pages/Payment/PaymentProcess';
+import PaymentSuccess from '../pages/Payment/PaymentSuccess';
+import PaymentFail from '../pages/Payment/PaymentFail';
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +53,22 @@ export const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
+      },
+      {
+        path: '/payment',
+        element: <Payment />,
+      },
+      {
+        path: '/payment/process',
+        element: <PaymentProcess />,
+      },
+      {
+        path: '/payment/success',
+        element: <PaymentSuccess />,
+      },
+      {
+        path: '/payment/fail',
+        element: <PaymentFail />,
       },
       {
         path: '*',

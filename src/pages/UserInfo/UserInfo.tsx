@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as S from './UserInfo.styles';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { IoCheckboxOutline, IoSquareOutline } from 'react-icons/io5';
+import { FaCheck } from 'react-icons/fa';
+import { IoCheckbox, IoSquareOutline } from 'react-icons/io5';
 import Button from '../../components/Button/Button';
 import { useTheme } from 'styled-components';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface UserInfoData {
   email: string;
@@ -39,6 +40,15 @@ function UserInfo() {
   const [isComplete, setIsComplete] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const nameTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const result = state?.result;
+
+  useEffect(() => {
+    if (!result) {
+      navigate('/404');
+    }
+  }, []);
 
   useEffect(() => {
     const allFieldsFilled =
@@ -105,21 +115,16 @@ function UserInfo() {
     const { name, value } = e.target;
     setUserInfo(prev => ({ ...prev, [name]: value }));
 
-    // 이름 필드인 경우 디바운스 적용
     if (name === 'name') {
-      // 이전 타이머 취소
       if (nameTimeoutRef.current) {
         clearTimeout(nameTimeoutRef.current);
       }
-      // 새로운 타이머 설정
       nameTimeoutRef.current = setTimeout(() => {
         if (value.trim() !== '') {
           showNextField(name as keyof UserInfoData);
         }
       }, 500);
-    }
-    // 이메일 필드인 경우 실시간 검증
-    else if (name === 'email') {
+    } else if (name === 'email') {
       const emailError = validateEmail(value);
       setErrors(prev => ({ ...prev, email: emailError }));
       if (!emailError) {
@@ -179,51 +184,20 @@ function UserInfo() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 현재 보이는 필드들의 값이 모두 유효한지 확인
-    const currentFieldsValid = visibleFields.every(field => {
-      if (field === 'email') {
-        const emailError = validateEmail(userInfo.email);
-        if (emailError) {
-          setErrors(prev => ({ ...prev, email: emailError }));
-          return false;
-        }
-        return true;
-      }
-      if (field === 'agreement') {
-        if (!userInfo.agreement) {
-          setErrors(prev => ({ ...prev, agreement: '개인정보처리방침에 동의해주세요.' }));
-          return false;
-        }
-        return true;
-      }
-      if (!userInfo[field] || userInfo[field].trim() === '') {
-        setErrors(prev => ({
-          ...prev,
-          [field]: `${
-            field === 'age' ? '나이를' : field === 'name' ? '이름을' : field === 'gender' ? '성별을' : '국가를'
-          } ${field === 'age' || field === 'gender' || field === 'country' ? '선택해주세요.' : '입력해주세요.'}`,
-        }));
-        return false;
-      }
-      return true;
-    });
+    // 모든 필드의 유효성 검사
+    const allFieldsValid = validateForm();
 
-    // 현재 필드가 유효하면 다음 필드 표시
-    if (currentFieldsValid) {
-      const lastVisibleField = visibleFields[visibleFields.length - 1];
-      if (lastVisibleField && lastVisibleField !== 'agreement') {
-        showNextField(lastVisibleField);
-      }
-    }
-
-    // 모든 필드가 표시되고 모두 유효하면 제출
-    const allFieldsVisible = visibleFields.length === 6;
-    if (allFieldsVisible && currentFieldsValid) {
-      console.log('Form submitted:', userInfo);
+    if (allFieldsValid) {
+      // 결제 페이지로 이동하면서 사용자 정보와 테스트 결과 전달
+      navigate('/payment', {
+        state: {
+          userInfo,
+          testResults: result,
+        },
+      });
     }
   };
 
-  // 컴포넌트 언마운트 시 타이머 정리
   useEffect(() => {
     return () => {
       if (nameTimeoutRef.current) {
@@ -250,7 +224,7 @@ function UserInfo() {
               value={userInfo.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              hasError={!!errors.email}
+              $hasError={!!errors.email}
             />
             <S.ErrorContainer>{errors.email && <S.ErrorMessage>{errors.email}</S.ErrorMessage>}</S.ErrorContainer>
           </S.FormGroup>
@@ -266,7 +240,7 @@ function UserInfo() {
               name="name"
               value={userInfo.name}
               onChange={handleChange}
-              hasError={!!errors.name}
+              $hasError={!!errors.name}
               placeholder="홍길동"
             />
             <S.ErrorContainer>{errors.name && <S.ErrorMessage>{errors.name}</S.ErrorMessage>}</S.ErrorContainer>
@@ -278,7 +252,7 @@ function UserInfo() {
             <S.Label>
               나이<S.Required>*</S.Required>
             </S.Label>
-            <S.Select name="age" value={userInfo.age} onChange={handleChange} hasError={!!errors.age}>
+            <S.Select name="age" value={userInfo.age} onChange={handleChange} $hasError={!!errors.age}>
               <option value="" disabled>
                 나이를 선택해주세요
               </option>
@@ -313,8 +287,8 @@ function UserInfo() {
                     checked={userInfo.gender === option.value}
                     onChange={handleChange}
                   />
-                  <S.RadioButton isChecked={userInfo.gender === option.value}>
-                    <BsCheckCircleFill />
+                  <S.RadioButton $isChecked={userInfo.gender === option.value}>
+                    <FaCheck color="white" size={10} />
                   </S.RadioButton>
                   {option.label}
                 </S.RadioLabel>
@@ -329,7 +303,7 @@ function UserInfo() {
             <S.Label>
               국가<S.Required>*</S.Required>
             </S.Label>
-            <S.Select name="country" value={userInfo.country} onChange={handleChange} hasError={!!errors.country}>
+            <S.Select name="country" value={userInfo.country} onChange={handleChange} $hasError={!!errors.country}>
               <option value="" disabled>
                 국가를 선택해주세요
               </option>
@@ -353,12 +327,19 @@ function UserInfo() {
               }
             >
               {userInfo.agreement ? (
-                <IoCheckboxOutline size={24} color={theme.color.primary[500]} />
+                <IoCheckbox size={24} color={theme.color.primary[500]} />
               ) : (
                 <IoSquareOutline size={24} color={theme.color.black[400]} />
               )}
               <S.AgreementLabel>
-                개인정보처리방침 및 서비스 이용약관에 동의합니다.<S.Required>*</S.Required>
+                <S.AgreementLink href="/privacy" target="_blank" onClick={e => e.stopPropagation()}>
+                  개인정보처리방침
+                </S.AgreementLink>
+                &nbsp;및&nbsp;
+                <S.AgreementLink href="/terms" target="_blank" onClick={e => e.stopPropagation()}>
+                  서비스 이용약관
+                </S.AgreementLink>
+                에 동의합니다.<S.Required>*</S.Required>
               </S.AgreementLabel>
             </S.CheckboxWrapper>
             <S.ErrorContainer>
@@ -367,7 +348,7 @@ function UserInfo() {
           </S.AgreementGroup>
         )}
 
-        <Button type="submit">결과 받기</Button>
+        {isComplete && <Button type="submit">결과 받기</Button>}
       </S.Form>
     </S.Container>
   );

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/theme';
 
 export const WarningContent = styled.div`
   display: flex;
@@ -8,9 +7,9 @@ export const WarningContent = styled.div`
 `;
 
 export const WarningTitle = styled.h3`
-  font-size: ${theme.fontSize.lg};
-  font-weight: ${theme.fontWeight.semibold};
-  color: ${theme.color.black[700]};
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  color: ${({ theme }) => theme.color.black[700]};
   margin: 0;
 `;
 
@@ -27,12 +26,12 @@ export const WarningItem = styled.li`
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  color: ${theme.color.black[600]};
-  font-size: ${theme.fontSize.base};
+  color: ${({ theme }) => theme.color.black[600]};
+  font-size: ${({ theme }) => theme.fontSize.base};
   line-height: 1.5;
 
   svg {
-    color: ${theme.color.primary[500]};
+    color: ${({ theme }) => theme.color.primary[500]};
     flex-shrink: 0;
     margin-top: 0.25rem;
   }

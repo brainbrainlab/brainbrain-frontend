@@ -23,7 +23,7 @@ const TestWarningModal: React.FC<TestWarningModalProps> = ({ isOpen, onClose }) 
       }
     >
       <S.WarningContent>
-        <S.WarningTitle>테스트를 시작하기 전에 다음 사항을 확인해주세요:</S.WarningTitle>
+        <S.WarningTitle>테스트를 시작하기 전에 다음 사항을 확인해 주세요.</S.WarningTitle>
         <S.WarningList>
           <S.WarningItem>
             <FaCheck size={16} />

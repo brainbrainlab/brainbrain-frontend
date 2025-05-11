@@ -87,7 +87,6 @@ export const ModalHeader = styled.div`
   align-items: center;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1.5px solid ${({ theme }) => theme.color.black[100]};
 `;
 
 export const ModalTitle = styled.h2`
@@ -98,20 +97,24 @@ export const ModalTitle = styled.h2`
 `;
 
 export const CloseButton = styled.button`
-  background: none;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
   border: none;
   padding: 0.5rem;
   cursor: pointer;
   color: ${({ theme }) => theme.color.black[400]};
-  transition: color 0.2s ease;
+  background-color: ${({ theme }) => theme.color.black[100]};
+  border-radius: 3px;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
     color: ${({ theme }) => theme.color.black[700]};
+    background-color: ${({ theme }) => theme.color.black[200]};
   }
-
   svg {
     width: 20px;
     height: 20px;
@@ -127,7 +130,6 @@ export const ModalFooter = styled.div`
   justify-content: flex-end;
   gap: 1rem;
   padding-top: 1rem;
-  border-top: 1.5px solid ${({ theme }) => theme.color.black[100]};
 `;
 
 export const Button = styled.button<{ variant?: 'primary' | 'secondary' | 'danger' }>`

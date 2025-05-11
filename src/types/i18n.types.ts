@@ -89,4 +89,36 @@ export type TranslationKeys = {
       };
     };
   };
+  payment: {
+    title: string;
+    selectOption: string;
+    coupon: {
+      title: string;
+      placeholder: string;
+      register: string;
+    };
+    options: {
+      basic: {
+        title: string;
+        features: string[];
+      };
+      online: {
+        title: string;
+        features: string[];
+      };
+      premium: {
+        title: string;
+        features: string[];
+      };
+    };
+    process: {
+      title: string;
+      englishName: string;
+      koreanName: string;
+      address: string;
+      phoneNumber: string;
+      goBack: string;
+      makePayment: string;
+    };
+  };
 };

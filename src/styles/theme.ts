@@ -126,7 +126,7 @@ export type SpacingTypes = typeof spacing;
 export type BorderRadiusTypes = typeof borderRadius;
 export type ShadowTypes = typeof shadow;
 
-export const theme: DefaultTheme = {
+const theme: DefaultTheme = {
   color,
   fontSize,
   fontWeight,
@@ -135,3 +135,5 @@ export const theme: DefaultTheme = {
   borderRadius,
   shadow,
 };
+
+export default theme;

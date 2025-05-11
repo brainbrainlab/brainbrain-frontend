@@ -88,5 +88,48 @@
         "memory": "Memory"
       }
     }
+  },
+  "payment": {
+    "title": "Select Payment Option",
+    "selectOption": "Please select a payment option",
+    "coupon": {
+      "title": "Register Coupon",
+      "placeholder": "Enter coupon code",
+      "register": "Register"
+    },
+    "options": {
+      "basic": {
+        "title": "Score Only",
+        "features": ["Test score provided"]
+      },
+      "online": {
+        "title": "Online Certificate + Report",
+        "features": ["Test score provided", "Online certificate", "Detailed report"]
+      },
+      "premium": {
+        "title": "Premium Package",
+        "features": [
+          "Test score provided",
+          "Online certificate",
+          "Offline certificate",
+          "Detailed report",
+          "BrainBrain goods"
+        ]
+      }
+    },
+    "process": {
+      "title": "Payment Information",
+      "englishName": "English Name",
+      "koreanName": "Korean Name",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "goBack": "Go Back",
+      "makePayment": "Make Payment"
+    },
+    "error": {
+      "paymentMethodRequired": "Please select a payment method",
+      "paymentInProgress": "Payment is already in progress. Please wait a moment."
+    },
+    "processing": "Processing payment..."
   }
 }

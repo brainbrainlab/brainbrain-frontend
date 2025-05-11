@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { theme } from '../../styles/theme';
 
 export const ContactContainer = styled.div`
   width: 100%;
@@ -8,7 +7,7 @@ export const ContactContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${theme.color.black[0]};
+  background-color: ${({ theme }) => theme.color.black[0]};
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
@@ -17,17 +16,17 @@ export const ContactTitle = styled.h1`
   width: 60%;
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${theme.color.black[700]};
+  color: ${({ theme }) => theme.color.black[700]};
   margin-bottom: 2rem;
   text-align: start;
-  border-bottom: 2px solid ${theme.color.primary[500]};
+  border-bottom: 2px solid ${({ theme }) => theme.color.primary[500]};
   padding-bottom: 1rem;
 `;
 
 export const ContactDescription = styled.p`
   width: 60%;
   text-align: start;
-  color: ${theme.color.black[700]};
+  color: ${({ theme }) => theme.color.black[700]};
   line-height: 1.6;
   margin-bottom: 3rem;
   font-size: ${({ theme }) => theme.fontSize.lg};
@@ -284,8 +283,8 @@ export const DeleteButton = styled.button`
 
 export const SubmitButton = styled.button`
   padding: 1rem;
-  background-color: ${theme.color.primary[500]};
-  color: ${theme.color.black[0]};
+  background-color: ${({ theme }) => theme.color.primary[500]};
+  color: ${({ theme }) => theme.color.black[0]};
   border: none;
   border-radius: 4px;
   font-size: ${({ theme }) => theme.fontSize.lg};
@@ -294,10 +293,10 @@ export const SubmitButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: ${theme.color.primary[600]};
+    background-color: ${({ theme }) => theme.color.primary[600]};
   }
 
   &:active {
-    background-color: ${theme.color.primary[700]};
+    background-color: ${({ theme }) => theme.color.primary[700]};
   }
 `;
