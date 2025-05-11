@@ -14,6 +14,7 @@ import { PaymentProcessProps, FormData } from './types';
 import { validateForm } from './validation';
 import { renderFormFields } from './formFields';
 import initializePayment from './paymentUtils';
+import { completePayment, PaymentOption } from '../../api/payment';
 
 const PaymentProcess = () => {
   const { t } = useTranslation();
@@ -137,6 +138,21 @@ const PaymentProcess = () => {
       if (!paymentResult) {
         throw new Error('Payment request failed');
       }
+
+      // 결제 완료 후 백엔드 API 호출
+      const paymentData = {
+        email: userInfo.email,
+        korea_name: formData[FORM_FIELDS.KOREAN_NAME],
+        english_name: formData[FORM_FIELDS.ENGLISH_NAME],
+        option: plan.type as PaymentOption,
+        ...(plan.type === 'FULL_PACKAGE' && {
+          location: formData[FORM_FIELDS.ADDRESS],
+          road_location: formData[FORM_FIELDS.ADDRESS], // 도로명 주소는 별도 필드가 필요할 수 있음
+          phone_number: formData[FORM_FIELDS.PHONE_NUMBER],
+        }),
+      };
+
+      await completePayment(paymentData);
 
       navigate(PAYMENT_PATHS.SUCCESS, {
         state: { plan, formData, userInfo, testResults, orderId, amount },

@@ -1,4 +1,5 @@
 import { TossPaymentsWidgets } from '@tosspayments/tosspayments-sdk';
+import { PaymentOption } from '../../api/payment';
 
 export interface PaymentProcessProps {
   plan: {
@@ -6,6 +7,7 @@ export interface PaymentProcessProps {
     title: string;
     price: number;
     features: string[];
+    type: PaymentOption;
   };
   userInfo: {
     email: string;
@@ -33,4 +35,12 @@ export interface FormFieldConfig {
 
 export interface PaymentWidgets extends TossPaymentsWidgets {
   destroy: () => Promise<void>;
+}
+
+export interface Plan {
+  id: string;
+  title: string;
+  price: number;
+  features: string[];
+  type: PaymentOption;
 }
