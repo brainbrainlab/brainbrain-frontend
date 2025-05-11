@@ -31,15 +31,8 @@ export const FORM_FIELDS = {
   ENGLISH_NAME: 'englishName',
   KOREAN_NAME: 'koreanName',
   ADDRESS: 'address',
+  DETAILED_ADDRESS: 'detailedAddress',
   PHONE_NUMBER: 'phoneNumber',
-} as const;
-
-export const ERROR_MESSAGES = {
-  ENGLISH_NAME_REQUIRED: '영문 이름을 입력해주세요.',
-  KOREAN_NAME_REQUIRED: '한글 이름을 입력해주세요.',
-  ADDRESS_REQUIRED: '주소를 입력해주세요.',
-  PHONE_NUMBER_REQUIRED: '휴대폰 번호를 입력해주세요.',
-  PHONE_NUMBER_INVALID: '유효한 휴대폰 번호를 입력해주세요.',
 } as const;
 
 export const PAYMENT_STATUS = {

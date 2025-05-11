@@ -57,7 +57,7 @@ function PaymentSuccess() {
       if (!queryOrderId || !queryAmount || !queryPaymentKey) {
         navigate(PAYMENT_PATHS.FAIL, {
           state: {
-            error: t('payment.error.invalidParameters'),
+            error: t('error.invalidParameters'),
           },
         });
         return;
@@ -66,7 +66,7 @@ function PaymentSuccess() {
       if (queryOrderId !== orderId || parseInt(queryAmount) !== amount) {
         navigate(PAYMENT_PATHS.FAIL, {
           state: {
-            error: t('payment.error.parameterMismatch'),
+            error: t('error.parameterMismatch'),
           },
         });
         return;
@@ -88,7 +88,7 @@ function PaymentSuccess() {
       // if (!response.ok) {
       //   navigate(PAYMENT_PATHS.FAIL, {
       //     state: {
-      //       error: t('payment.error.verificationFailed'),
+      //       error: t('error.verificationFailed'),
       //     },
       //   });
       //   return;

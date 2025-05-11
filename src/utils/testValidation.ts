@@ -16,16 +16,17 @@ export const validateTest = (startTime: Date, endTime: Date, answers: number[]):
   //   result.reasons.push('tooFast');
   // }
 
-  const answerCounts = answers.reduce((acc, curr) => {
-    acc[curr] = (acc[curr] || 0) + 1;
-    return acc;
-  }, {} as Record<number, number>);
+  // 임시로 동일 답변 검증 비활성화
+  // const answerCounts = answers.reduce((acc, curr) => {
+  //   acc[curr] = (acc[curr] || 0) + 1;
+  //   return acc;
+  // }, {} as Record<number, number>);
 
-  const maxCount = Math.max(...Object.values(answerCounts));
-  if (maxCount / answers.length >= 0.5) {
-    result.isValid = false;
-    result.reasons.push('sameAnswer');
-  }
+  // const maxCount = Math.max(...Object.values(answerCounts));
+  // if (maxCount / answers.length >= 0.5) {
+  //   result.isValid = false;
+  //   result.reasons.push('sameAnswer');
+  // }
 
   return result;
 };
