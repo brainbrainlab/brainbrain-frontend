@@ -2,5 +2,5 @@ node_modules
 dist
 .env
 # Package manager temporary files
-install-state.gz
+.yarn/install-state.gz
 node_modules/.cache/install-state.gz
