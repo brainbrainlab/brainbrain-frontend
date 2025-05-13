@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
-import i18n, { LANGUAGE_CODES, LanguageCode } from '../../language/i18n';
+
 import * as S from './LanguageDropdown.styles';
+import i18n, { LANGUAGE_CODES, LanguageCode } from '../../language/i18n';
 
 interface LanguageOption {
   code: LanguageCode;

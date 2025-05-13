@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 export const Table = styled.table`
+  overflow: hidden;
+
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  margin: ${({ theme }) => theme.spacing.xxl} 0;
   border: 1px solid ${({ theme }) => theme.color.black[200]};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
-  overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadow.base};
-  margin: ${({ theme }) => theme.spacing.xxl} 0;
+
   background: ${({ theme }) => theme.color.black[0]};
+  box-shadow: ${({ theme }) => theme.shadow.base};
   font-size: ${({ theme }) => theme.fontSize.base};
+  border-collapse: separate;
+  border-spacing: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: ${({ theme }) => theme.fontSize.sm};
@@ -19,12 +21,14 @@ export const Table = styled.table`
 
 export const TableHeader = styled.th`
   padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.lg};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.color.black[900]};
+
   background: ${({ theme }) => theme.color.black[50]};
-  border-bottom: 1.5px solid ${({ theme }) => theme.color.black[200]};
+  color: ${({ theme }) => theme.color.black[900]};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-align: left;
+
   transition: background-color ${({ theme }) => theme.transitions.default};
+  border-bottom: 1.5px solid ${({ theme }) => theme.color.black[200]};
 
   &:hover {
     background: ${({ theme }) => theme.color.black[100]};
@@ -33,10 +37,12 @@ export const TableHeader = styled.th`
 
 export const TableCell = styled.td`
   padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.lg};
-  color: ${({ theme }) => theme.color.black[700]};
+
   background: ${({ theme }) => theme.color.black[0]};
-  border-bottom: 1px solid ${({ theme }) => theme.color.black[200]};
+  color: ${({ theme }) => theme.color.black[700]};
+
   transition: background-color ${({ theme }) => theme.transitions.default};
+  border-bottom: 1px solid ${({ theme }) => theme.color.black[200]};
 
   &:hover {
     background: ${({ theme }) => theme.color.black[50]};
@@ -54,8 +60,9 @@ export const TableRow = styled.tr`
 `;
 
 export const TableContainer = styled.div`
-  width: 100%;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+
+  width: 100%;
   margin: ${({ theme }) => theme.spacing.xl} 0;
+  -webkit-overflow-scrolling: touch;
 `;

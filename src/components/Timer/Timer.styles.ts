@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  height: 6rem;
   display: flex;
   flex-direction: column;
-  align-items: end;
   justify-content: center;
+  align-items: end;
   gap: 1rem;
+
+  width: 100%;
+  height: 6rem;
 `;
 
 export const TimerBar = styled.progress`
@@ -15,31 +16,35 @@ export const TimerBar = styled.progress`
   height: 1rem;
   border: none;
   border-radius: 10px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+
   background-color: ${({ theme }) => theme.color.black[200]};
+  appearance: none;
 
   &::-webkit-progress-bar {
-    background-color: ${({ theme }) => theme.color.black[200]};
     border-radius: 10px;
+
+    background-color: ${({ theme }) => theme.color.black[200]};
   }
 
   &::-webkit-progress-value {
-    background-color: ${({ theme }) => theme.color.primary[500]};
     border-radius: 10px;
+
+    background-color: ${({ theme }) => theme.color.primary[500]};
+
     transition: width 0.3s ease-in-out;
   }
 
   &::-moz-progress-bar {
-    background-color: ${({ theme }) => theme.color.primary[500]};
     border-radius: 10px;
+
+    background-color: ${({ theme }) => theme.color.primary[500]};
   }
 
   &::-ms-fill {
-    background-color: ${({ theme }) => theme.color.primary[500]};
     border: none;
     border-radius: 10px;
+
+    background-color: ${({ theme }) => theme.color.primary[500]};
   }
 `;
 

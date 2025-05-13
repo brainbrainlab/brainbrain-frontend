@@ -1,7 +1,8 @@
-import { FormData } from './types';
-import { validatePhoneNumber } from '../../utils/validation';
-import { PAYMENT_OPTIONS, FORM_FIELDS } from '../../constants/payment';
 import { TFunction } from 'i18next';
+
+import { FormData } from './types';
+import { PAYMENT_OPTIONS, FORM_FIELDS } from '../../constants/payment';
+import { validatePhoneNumber } from '../../utils/validation';
 
 interface ValidationParams {
   formData: FormData;

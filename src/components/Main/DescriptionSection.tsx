@@ -1,9 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import * as S from '../../pages/Main/Main.styles';
+
 import checkGreen from '../../assets/images/check_green.svg';
-import graph from '../../assets/images/graph.svg';
 import globeWithHuman from '../../assets/images/globe_with_human.svg';
+import graph from '../../assets/images/graph.svg';
+import * as S from '../../pages/Main/Main.styles';
 
 interface DescriptionBoxProps {
   index: number;

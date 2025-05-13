@@ -1,7 +1,8 @@
 import { loadTossPayments } from '@tosspayments/tosspayments-sdk';
-import { PAYMENT_PATHS, PAYMENT_WIDGET_CONFIG, PAYMENT_WIDGET_SELECTORS, COUPON } from '../../constants/payment';
 import { TFunction } from 'i18next';
+
 import { PaymentWidgets } from './types';
+import { PAYMENT_PATHS, PAYMENT_WIDGET_CONFIG, PAYMENT_WIDGET_SELECTORS, COUPON } from '../../constants/payment';
 
 interface InitializePaymentParams {
   plan: { price: number };

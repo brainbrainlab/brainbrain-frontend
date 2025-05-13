@@ -1,7 +1,8 @@
 import React from 'react';
+
+import * as S from './TestCompletionModal.styles';
 import Modal from '../Modal/Modal';
 import { Button } from '../Modal/Modal.styles';
-import * as S from './TestCompletionModal.styles';
 
 interface TestCompletionModalProps {
   isOpen: boolean;

@@ -1,4 +1,4 @@
-export type TranslationKeys = {
+export interface TranslationKeys {
   common: {
     goToHome: string;
     privacyPolicy: string;
@@ -121,4 +121,4 @@ export type TranslationKeys = {
       makePayment: string;
     };
   };
-};
+}

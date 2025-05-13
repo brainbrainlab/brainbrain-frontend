@@ -1,10 +1,12 @@
-import { ThemeProvider } from 'styled-components';
-import { RouterProvider } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { RouterProvider } from 'react-router-dom';
+
+import { ThemeProvider } from 'styled-components';
+
+import { router } from './routes';
 import GlobalStyle from './styles/Global.style';
 import { theme } from './styles/theme';
-import { router } from './routes';
 import { updateHtmlLang } from './utils/i18n';
 
 function App() {

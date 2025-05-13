@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+
 import { GoChecklist } from 'react-icons/go';
 import { IoBulbOutline } from 'react-icons/io5';
 import { LiaCertificateSolid } from 'react-icons/lia';
+
 import * as S from './MainIcons.styles';
 
 function MainIcons() {

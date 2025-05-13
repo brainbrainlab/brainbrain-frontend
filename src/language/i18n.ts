@@ -1,9 +1,11 @@
-import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import type { TranslationKeys } from '../types/i18n.types';
-import ko from './ko.json';
-import en from './en.json';
+
+import i18n from 'i18next';
+
 import cn from './cn.json';
+import en from './en.json';
+import ko from './ko.json';
+import type { TranslationKeys } from '../types/i18n.types';
 
 // Language codes
 export const LANGUAGE_CODES = {

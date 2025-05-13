@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+
+import brain from '../../assets/images/logo.svg';
+import textLogo from '../../assets/images/logo_text.svg';
 import * as S from '../../pages/Main/Main.styles';
 import Button from '../Button/Button';
 import DotAnimation from '../DotAnimation/DotAnimation';
 import MainIcons from '../MainIcons/MainIcons';
-import textLogo from '../../assets/images/logo_text.svg';
-import brain from '../../assets/images/logo.svg';
 
 const SubTitle: React.FC = () => {
   const { t } = useTranslation();

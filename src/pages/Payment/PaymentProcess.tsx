@@ -1,7 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { renderFormFields } from './formFields';
 import * as S from './PaymentProcess.styles';
+import initializePayment from './paymentUtils';
+import { PaymentProcessProps, FormData } from './types';
+import { validateForm } from './validation';
+import { completePayment, PaymentOption } from '../../api/payment';
 import Button from '../../components/Button/Button';
 import {
   PAYMENT_PATHS,
@@ -10,11 +16,6 @@ import {
   FORM_FIELDS,
   PAYMENT_WIDGET_CONFIG,
 } from '../../constants/payment';
-import { PaymentProcessProps, FormData } from './types';
-import { validateForm } from './validation';
-import { renderFormFields } from './formFields';
-import initializePayment from './paymentUtils';
-import { completePayment, PaymentOption } from '../../api/payment';
 
 const PaymentProcess = () => {
   const { t } = useTranslation();

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import * as S from './Payment.styles';
-import Modal from '../../components/Modal/Modal';
 import Button from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal';
 import { PAYMENT_OPTIONS } from '../../constants/payment';
 
 interface PaymentOption {

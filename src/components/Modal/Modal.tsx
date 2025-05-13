@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
 import { IoMdClose } from 'react-icons/io';
+
 import * as S from './Modal.styles';
 
 interface ModalProps {

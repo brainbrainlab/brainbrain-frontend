@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+import { Table, TableHeader, TableCell, TableRow, TableContainer } from '../../styles/components/Table.styles';
 import {
   Heading1,
   Heading2,
@@ -8,19 +10,20 @@ import {
   OrderedList,
   ListItem,
 } from '../../styles/components/Typography.styles';
-import { Table, TableHeader, TableCell, TableRow, TableContainer } from '../../styles/components/Table.styles';
 
 export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: ${({ theme }) => theme.spacing.xxl};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.color.black[0]};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
+
+  background-color: ${({ theme }) => theme.color.black[0]};
   box-shadow: ${({ theme }) => theme.shadow.base};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -31,21 +34,24 @@ export const InfoContainer = styled.div`
 export const InfoTitle = styled(Heading1)`
   width: 100%;
   max-width: 800px;
+  margin-bottom: ${({ theme }) => theme.spacing.xxl};
+  padding-bottom: ${({ theme }) => theme.spacing.xl};
+
   text-align: start;
   border-bottom: 2px solid ${({ theme }) => theme.color.primary[500]};
-  padding-bottom: ${({ theme }) => theme.spacing.xl};
-  margin-bottom: ${({ theme }) => theme.spacing.xxl};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: ${({ theme }) => theme.fontSize.h2};
-    padding-bottom: ${({ theme }) => theme.spacing.lg};
     margin-bottom: ${({ theme }) => theme.spacing.xl};
+    padding-bottom: ${({ theme }) => theme.spacing.lg};
+
+    font-size: ${({ theme }) => theme.fontSize.h2};
   }
 `;
 
 export const InfoContent = styled.div`
   width: 100%;
   max-width: 800px;
+
   color: ${({ theme }) => theme.color.black[700]};
   line-height: 1.6;
 
@@ -67,8 +73,8 @@ export const InfoContent = styled.div`
   }
 
   strong {
-    font-weight: ${({ theme }) => theme.fontWeight.semibold};
     color: ${({ theme }) => theme.color.black[900]};
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

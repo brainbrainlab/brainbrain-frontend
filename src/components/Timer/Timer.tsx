@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import * as S from './Timer.styles';
 
 interface TimerProps {

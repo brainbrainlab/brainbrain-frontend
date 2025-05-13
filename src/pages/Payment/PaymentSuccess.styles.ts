@@ -7,36 +7,40 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
+  margin-bottom: 2rem;
+
+  color: ${({ theme }) => theme.color.primary[500]};
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 2rem;
-  color: ${({ theme }) => theme.color.primary[500]};
 `;
 
 export const Section = styled.section`
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background-color: ${({ theme }) => theme.color.black[0]};
   border-radius: 8px;
+
+  background-color: ${({ theme }) => theme.color.black[0]};
 `;
 
 export const SectionTitle = styled.h2`
+  margin-bottom: 1rem;
+
+  color: ${({ theme }) => theme.color.black[900]};
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: ${({ theme }) => theme.color.black[900]};
 `;
 
 export const InfoList = styled.ul`
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 `;
 
 export const InfoItem = styled.li`
   display: flex;
   justify-content: space-between;
+
   padding: 0.75rem 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.black[200]};
 
@@ -46,18 +50,19 @@ export const InfoItem = styled.li`
 `;
 
 export const InfoLabel = styled.span`
-  font-size: 0.875rem;
   color: ${({ theme }) => theme.color.black[600]};
+  font-size: 0.875rem;
 `;
 
 export const InfoValue = styled.span`
+  color: ${({ theme }) => theme.color.black[900]};
   font-size: 0.875rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.color.black[900]};
 `;
 
 export const ActionsContainer = styled.div`
   display: flex;
   justify-content: center;
+
   margin-top: 2rem;
 `;

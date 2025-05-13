@@ -1,68 +1,81 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const slideDown = keyframes`
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
 
 export const Container = styled.div`
-  padding: 2rem 0;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 2rem 0;
+
   background-color: transparent;
+
+  animation: ${slideDown} 1000ms ease-out;
 `;
 
 export const Title = styled.h1`
   width: 60%;
+  margin-bottom: 2rem;
+
+  color: ${({ theme }) => theme.color.black[700]};
   font-size: ${({ theme }) => theme.fontSize.h3};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.color.black[700]};
-  margin-bottom: 2rem;
 `;
 
 export const Subtitle = styled.p`
   width: 60%;
-  text-align: start;
-  color: ${({ theme }) => theme.color.black[700]};
-  line-height: 1.6;
   margin-bottom: 3rem;
+
+  color: ${({ theme }) => theme.color.black[700]};
   font-size: ${({ theme }) => theme.fontSize.lg};
+  line-height: 1.6;
+  text-align: start;
 `;
 
 export const Form = styled.form`
-  width: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
+
+  width: 60%;
   padding: 2rem;
 `;
 
 export const FormGroup = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: slideDown 0.3s ease forwards;
 
-  @keyframes slideDown {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  width: 100%;
+
+  opacity: 0;
+
+  animation: slideDown 0.3s ease forwards;
+  transform: translateY(10px);
 `;
 
 export const Label = styled.label`
+  color: ${({ theme }) => theme.color.black[700]};
   font-size: ${({ theme }) => theme.fontSize.base};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.color.black[700]};
 `;
 
 export const Required = styled.span`
-  color: ${({ theme }) => theme.color.error[500]};
   margin-left: 2px;
+
+  color: ${({ theme }) => theme.color.error[500]};
 `;
 
 export const Input = styled.input<{ $hasError: boolean }>`
@@ -71,9 +84,11 @@ export const Input = styled.input<{ $hasError: boolean }>`
   padding: 0 1rem;
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[200])};
   border-radius: 8px;
-  font-size: ${({ theme }) => theme.fontSize.base};
-  color: ${({ theme }) => theme.color.black[900]};
+
   background-color: ${({ theme }) => theme.color.black[0]};
+  color: ${({ theme }) => theme.color.black[900]};
+  font-size: ${({ theme }) => theme.fontSize.base};
+
   transition: all 0.2s ease;
 
   &:hover {
@@ -82,7 +97,9 @@ export const Input = styled.input<{ $hasError: boolean }>`
 
   &:focus {
     outline: none;
+
     border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[500])};
+
     box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.error[50] : theme.color.primary[100])};
   }
 
@@ -92,17 +109,21 @@ export const Input = styled.input<{ $hasError: boolean }>`
 `;
 
 export const Select = styled.select<{ $hasError: boolean }>`
-  width: 100%;
-  height: 4.8rem;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
+  height: 4.8rem;
   padding: 0 1rem;
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[200])};
   border-radius: 8px;
-  font-size: ${({ theme }) => theme.fontSize.base};
-  color: ${({ theme }) => theme.color.black[600]};
+
   background-color: ${({ theme }) => theme.color.black[0]};
+  color: ${({ theme }) => theme.color.black[600]};
+  font-size: ${({ theme }) => theme.fontSize.base};
+
   transition: all 0.2s ease;
+
   cursor: pointer;
 
   &:hover {
@@ -111,7 +132,9 @@ export const Select = styled.select<{ $hasError: boolean }>`
 
   &:focus {
     outline: none;
+
     border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[500])};
+
     box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.error[100] : theme.color.primary[100])};
   }
 
@@ -127,6 +150,7 @@ export const Select = styled.select<{ $hasError: boolean }>`
 export const RadioGroup = styled.div`
   display: flex;
   gap: 1.5rem;
+
   margin-top: 0.5rem;
 `;
 
@@ -134,12 +158,16 @@ export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  cursor: pointer;
-  font-size: ${({ theme }) => theme.fontSize.base};
-  color: ${({ theme }) => theme.color.black[700]};
+
   padding: 0.5rem;
   border-radius: 4px;
+
+  color: ${({ theme }) => theme.color.black[700]};
+  font-size: ${({ theme }) => theme.fontSize.base};
+
   transition: all 0.2s ease;
+
+  cursor: pointer;
 `;
 
 export const RadioInput = styled.input`
@@ -147,65 +175,78 @@ export const RadioInput = styled.input`
 `;
 
 export const RadioButton = styled.div<{ $isChecked: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  border: 2px solid ${({ theme, $isChecked }) => ($isChecked ? theme.color.primary[500] : theme.color.black[400])};
-  background-color: ${({ theme, $isChecked }) => ($isChecked ? theme.color.primary[500] : 'transparent')};
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-right: 0.5rem;
+  border: 2px solid ${({ theme, $isChecked }) => ($isChecked ? theme.color.primary[500] : theme.color.black[400])};
+  border-radius: 50%;
+
+  background-color: ${({ theme, $isChecked }) => ($isChecked ? theme.color.primary[500] : 'transparent')};
+
   transition: all 0.2s ease;
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${({ theme }) => theme.color.error[500]};
-  font-size: ${({ theme }) => theme.fontSize.sm};
   display: flex;
   align-items: center;
   gap: 0.5rem;
 
+  color: ${({ theme }) => theme.color.error[500]};
+  font-size: ${({ theme }) => theme.fontSize.sm};
+
   &::before {
-    content: '!';
     display: inline-flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
     width: 16px;
     height: 16px;
+    border-radius: 50%;
+
     background-color: ${({ theme }) => theme.color.error[500]};
     color: white;
-    border-radius: 50%;
     font-size: 12px;
     font-weight: bold;
+    content: '!';
   }
 `;
 
 export const AgreementGroup = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  width: 100%;
+
   opacity: 0;
-  transform: translateY(10px);
+
   animation: slideDown 0.3s ease forwards;
+  transform: translateY(10px);
 `;
 
 export const CheckboxWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  cursor: pointer;
+
   padding: 0.5rem;
   border-radius: 6px;
+
   transition: all 0.2s ease;
+
+  cursor: pointer;
 `;
 
 export const AgreementLabel = styled.label`
-  font-size: ${({ theme }) => theme.fontSize.base};
   color: ${({ theme }) => theme.color.black[700]};
-  cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSize.base};
   line-height: 1.5;
+
+  cursor: pointer;
   user-select: none;
 `;
 
@@ -217,17 +258,20 @@ export const AgreementLink = styled.a`
 export const SubmitButton = styled.button`
   width: 60%;
   padding: 1rem;
-  background-color: ${({ theme }) => theme.color.primary[500]};
-  color: ${({ theme }) => theme.color.black[0]};
   border: none;
   border-radius: 4px;
+
+  background-color: ${({ theme }) => theme.color.primary[500]};
+  opacity: 0;
+  color: ${({ theme }) => theme.color.black[0]};
   font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  opacity: 0;
-  transform: translateY(10px);
+
   animation: slideDown 0.3s ease forwards;
+  transform: translateY(10px);
+  transition: background-color 0.2s ease;
+
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.primary[600]};

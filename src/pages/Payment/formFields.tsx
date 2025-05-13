@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
+
+import { TFunction } from 'i18next';
+
 import * as S from './PaymentProcess.styles';
 import { FormData, FormFieldConfig } from './types';
 import { PAYMENT_OPTIONS, FORM_FIELDS } from '../../constants/payment';
-import { TFunction } from 'i18next';
-import { useDaumPostcodePopup } from 'react-daum-postcode';
 
 interface FormFieldsProps {
   plan: { id: string };

@@ -4,56 +4,66 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.xl};
+
   min-height: calc(100vh - 200px);
+  padding: ${({ theme }) => theme.spacing.xl};
+
   background-color: ${({ theme }) => theme.color.black[0]};
 `;
 
 export const Content = styled.div`
   width: 100%;
   max-width: 800px;
+
   text-align: center;
 `;
 
 export const Title = styled.h1`
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
+
+  color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.color.black[600]};
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
 
 export const Score = styled.div`
+  margin-bottom: ${({ theme }) => theme.spacing.xxl};
+
+  color: ${({ theme }) => theme.color.primary[500]};
   font-size: ${({ theme }) => theme.fontSize.h1};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.color.primary[500]};
-  margin-bottom: ${({ theme }) => theme.spacing.xxl};
 `;
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.lg};
-  color: ${({ theme }) => theme.color.black[700]};
   margin-bottom: ${({ theme }) => theme.spacing.xxl};
-  white-space: pre-line;
+
+  color: ${({ theme }) => theme.color.black[700]};
+  font-size: ${({ theme }) => theme.fontSize.lg};
   line-height: 1.6;
+  white-space: pre-line;
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing.lg};
   justify-content: center;
+  gap: ${({ theme }) => theme.spacing.lg};
+
   margin-top: ${({ theme }) => theme.spacing.xxl};
 `;
 
 export const Button = styled.button`
   padding: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.lg}`};
-  font-size: ${({ theme }) => theme.fontSize.base};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.color.black[0]};
-  background-color: ${({ theme }) => theme.color.primary[500]};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  cursor: pointer;
+
+  background-color: ${({ theme }) => theme.color.primary[500]};
+  color: ${({ theme }) => theme.color.black[0]};
+  font-size: ${({ theme }) => theme.fontSize.base};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+
   transition: background-color 0.2s;
+
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.primary[600]};

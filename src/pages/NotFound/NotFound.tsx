@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import * as S from './NotFound.styles';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import * as S from './NotFound.styles';
 
 const NotFound = () => {
   const navigate = useNavigate();

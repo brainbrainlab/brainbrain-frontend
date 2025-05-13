@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { IoLanguage } from 'react-icons/io5';
-import * as S from './Header.styles';
 import { useTranslation } from 'react-i18next';
-import LanguageDropdown from './LanguageDropdown';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Button from '../Button/Button';
+
+import { IoLanguage } from 'react-icons/io5';
+
+import * as S from './Header.styles';
+import LanguageDropdown from './LanguageDropdown';
 import logoWithDot from '../../assets/images/logo_with_dot.svg';
+import Button from '../Button/Button';
 
 const TestButton = React.memo(() => {
   const { t } = useTranslation();

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { FaCheck } from 'react-icons/fa';
+
 import * as S from './Test.styles';
 import Choice from '../../components/Choice/Choice';
-import { useNavigate } from 'react-router-dom';
-import Timer from '../../components/Timer/Timer';
-import { FaCheck } from 'react-icons/fa';
-import { validateTest } from '../../utils/testValidation';
-import TestWarningModal from '../../components/TestWarningModal/TestWarningModal';
 import TestCompletionModal from '../../components/TestCompletionModal/TestCompletionModal';
+import TestWarningModal from '../../components/TestWarningModal/TestWarningModal';
+import Timer from '../../components/Timer/Timer';
+import { validateTest } from '../../utils/testValidation';
 
 // Constants
 const TOTAL_QUESTIONS = 42;

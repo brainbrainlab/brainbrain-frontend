@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router-dom';
-
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import { useEffect } from 'react';
+import { Outlet , useLocation } from 'react-router-dom';
 
 import * as S from './Layout.styles';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
+
+
 const Layout = () => {
   const location = useLocation();
   useEffect(() => {

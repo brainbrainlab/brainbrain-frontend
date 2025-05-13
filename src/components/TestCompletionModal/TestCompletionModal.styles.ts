@@ -5,27 +5,31 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+
   padding: 1rem;
 `;
 
 export const Message = styled.h4`
+  margin: 0;
+
+  color: ${({ theme }) => theme.color.black[900]};
   font-size: ${({ theme }) => theme.fontSize.h5};
   font-weight: 600;
-  color: ${({ theme }) => theme.color.black[900]};
-  margin: 0;
 `;
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.base};
-  color: ${({ theme }) => theme.color.black[600]};
-  text-align: center;
   margin: 0;
+
+  color: ${({ theme }) => theme.color.black[600]};
+  font-size: ${({ theme }) => theme.fontSize.base};
   line-height: 1.5;
+  text-align: center;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
-  gap: 1rem;
   justify-content: center;
+  gap: 1rem;
+
   width: 100%;
 `;

@@ -4,47 +4,56 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   min-height: calc(100vh - 200px);
+
   background-color: ${({ theme }) => theme.color.black[0]};
 `;
 
 export const Content = styled.div`
-  text-align: center;
-  padding: ${({ theme }) => theme.spacing.xl};
   max-width: 600px;
+  padding: ${({ theme }) => theme.spacing.xl};
+
+  text-align: center;
 `;
 
 export const IconWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.lg};
+
   color: ${({ theme }) => theme.color.error[500]};
   font-size: 4rem;
 `;
 
 export const Title = styled.h1`
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+
+  color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h3};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.color.black[600]};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
 `;
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.lg};
-  color: ${({ theme }) => theme.color.black[700]};
   margin-bottom: ${({ theme }) => theme.spacing.xl};
-  white-space: pre-line;
+
+  color: ${({ theme }) => theme.color.black[700]};
+  font-size: ${({ theme }) => theme.fontSize.lg};
   line-height: 1.6;
+  white-space: pre-line;
 `;
 
 export const Button = styled.button`
   padding: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.lg}`};
-  font-size: ${({ theme }) => theme.fontSize.base};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.color.black[0]};
-  background-color: ${({ theme }) => theme.color.primary[500]};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  cursor: pointer;
+
+  background-color: ${({ theme }) => theme.color.primary[500]};
+  color: ${({ theme }) => theme.color.black[0]};
+  font-size: ${({ theme }) => theme.fontSize.base};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+
   transition: background-color 0.2s;
+
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.primary[600]};

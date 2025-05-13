@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { FaCheck } from 'react-icons/fa';
+
+import * as S from './TestWarningModal.styles';
 import Modal from '../Modal/Modal';
 import { Button } from '../Modal/Modal.styles';
-import * as S from './TestWarningModal.styles';
 
 interface TestWarningModalProps {
   isOpen: boolean;

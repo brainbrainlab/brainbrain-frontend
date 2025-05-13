@@ -14,28 +14,35 @@ const scoreColors = {
 export const ScoreTable = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: end;
   justify-content: center;
+  align-items: end;
   gap: ${({ theme }) => theme.spacing.xs};
+
   width: 100%;
   max-width: 30rem;
 `;
 
 export const ScoreRow = styled.div<{ $level: keyof typeof scoreColors }>`
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+
   width: 100%;
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
-  background-color: ${({ $level }) => scoreColors[$level]};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
+
+  background-color: ${({ $level }) => scoreColors[$level]};
   color: ${({ theme }) => theme.color.black[0]};
   font-size: ${({ theme }) => theme.fontSize.base};
+
   transition: all 0.3s ease;
+
   cursor: default;
+
   &:hover {
-    transform: translateX(${({ theme }) => theme.spacing.xxs});
     box-shadow: ${({ theme }) => theme.shadow.sm};
+
+    transform: translateX(${({ theme }) => theme.spacing.xxs});
     filter: brightness(1.1);
   }
 `;
@@ -55,13 +62,15 @@ export const RedAsterisk = styled.span`
 `;
 
 export const ScoreNote = styled.p`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xxs};
+
+  margin-top: ${({ theme }) => theme.spacing.xs};
+
   color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.sm};
   text-align: right;
-  margin-top: ${({ theme }) => theme.spacing.xs};
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;
-  gap: ${({ theme }) => theme.spacing.xxs};
 `;

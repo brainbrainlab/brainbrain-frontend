@@ -1,10 +1,9 @@
-import React from 'react';
 import * as S from './Main.styles';
-import TitleSection from '../../components/Main/TitleSection';
 import DescriptionSection from '../../components/Main/DescriptionSection';
 import ScoreSection from '../../components/Main/ScoreSection';
+import TitleSection from '../../components/Main/TitleSection';
 
-const Main: React.FC = () => {
+const Main = () => {
   return (
     <S.Layout>
       <TitleSection />
