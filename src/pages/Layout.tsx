@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { Outlet , useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 
 import * as S from './Layout.styles';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-
 
 const Layout = () => {
   const location = useLocation();

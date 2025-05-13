@@ -32,7 +32,7 @@ export const Layout = styled.div`
   align-items: center;
 
   width: 100%;
-  height: calc(100vh - 8rem);
+  height: calc(100vh - 7rem);
   padding: 0 6rem;
 
   background-color: ${({ theme }) => theme.color.black[0]};

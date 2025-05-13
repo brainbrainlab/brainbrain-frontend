@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import * as S from '../../pages/Main/Main.styles';
-import ScoreTable, { ScoreLevelType } from '../ScoreTable/ScoreTable';
+import * as S from '@/pages/Main/Main.styles';
 
-const ScoreSection: React.FC = () => {
+import ScoreTable, { ScoreLevelType } from '@/components/ScoreTable/ScoreTable';
+
+const ScoreSection = () => {
   const [hoveredLevel, setHoveredLevel] = useState<ScoreLevelType | null>(null);
   const { t } = useTranslation();
 
   return (
-    <S.Section2>
+    <S.Section2 id="score">
       <S.Section2TitleContainer>
         <S.Section2Title>{t('main.section2.title')}</S.Section2Title>
         <S.Section2SubTitle>{t('main.section2.subtitle')}</S.Section2SubTitle>

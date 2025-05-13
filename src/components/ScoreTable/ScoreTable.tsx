@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import * as S from './ScoreTable.styles';
@@ -37,7 +36,7 @@ interface ScoreTableProps {
   onHover: (level: ScoreLevelType | null) => void; // string -> ScoreLevelType
 }
 
-const ScoreTable: React.FC<ScoreTableProps> = ({ hoveredLevel, onHover }) => {
+const ScoreTable = ({ hoveredLevel, onHover }: ScoreTableProps) => {
   const { t } = useTranslation();
 
   return (

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import Button from '@/components/Button/Button';
+import Modal from '@/components/Modal/Modal';
+
+import { PAYMENT_OPTIONS } from '@/constants/payment';
+
 import * as S from './Payment.styles';
-import Button from '../../components/Button/Button';
-import Modal from '../../components/Modal/Modal';
-import { PAYMENT_OPTIONS } from '../../constants/payment';
 
 interface PaymentOption {
   readonly id: string;

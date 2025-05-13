@@ -1,6 +1,6 @@
 import { TossPaymentsWidgets } from '@tosspayments/tosspayments-sdk';
 
-import { PaymentOption } from '../../api/payment';
+import { PaymentOption } from '@/api/payment';
 
 export interface PaymentProcessProps {
   plan: {

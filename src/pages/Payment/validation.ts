@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next';
 
 import { FormData } from './types';
-import { PAYMENT_OPTIONS, FORM_FIELDS } from '../../constants/payment';
+import { FORM_FIELDS, PAYMENT_OPTIONS } from '../../constants/payment';
 import { validatePhoneNumber } from '../../utils/validation';
 
 interface ValidationParams {

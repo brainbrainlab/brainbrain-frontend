@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa';
 import { IoCheckbox, IoSquareOutline } from 'react-icons/io5';
 import { useTheme } from 'styled-components';
 
+import Button from '@/components/Button/Button';
+
 import * as S from './UserInfo.styles';
-import Button from '../../components/Button/Button';
-
-
 
 interface UserInfoData {
   email: string;

@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-import { gsap, Power0, Power2, Elastic } from 'gsap';
+import { Elastic, gsap, Power0, Power2 } from 'gsap';
 import * as THREE from 'three';
 
-import fragmentShader from '../components/DotAnimation/fragmentShader.glsl';
-import vertexShader from '../components/DotAnimation/vertexShader.glsl';
+import fragmentShader from '@/components/DotAnimation/fragmentShader.glsl';
+import vertexShader from '@/components/DotAnimation/vertexShader.glsl';
 
 interface CustomVector3 extends THREE.Vector3 {
   color: number;

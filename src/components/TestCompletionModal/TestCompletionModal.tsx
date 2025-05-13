@@ -1,5 +1,3 @@
-import React from 'react';
-
 import * as S from './TestCompletionModal.styles';
 import Modal from '../Modal/Modal';
 import { Button } from '../Modal/Modal.styles';
@@ -11,7 +9,7 @@ interface TestCompletionModalProps {
   onReview: () => void;
 }
 
-const TestCompletionModal: React.FC<TestCompletionModalProps> = ({ isOpen, onClose, onSubmit, onReview }) => {
+const TestCompletionModal = ({ isOpen, onClose, onSubmit, onReview }: TestCompletionModalProps) => {
   return (
     <Modal
       isOpen={isOpen}

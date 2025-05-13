@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styled from 'styled-components';
 
 import { useDotAnimation } from '../../hooks/useDotAnimation';
@@ -9,7 +7,7 @@ const StyledCanvas = styled.canvas`
   z-index: 0;
 `;
 
-const DotAnimation: React.FC = () => {
+const DotAnimation = () => {
   const { canvasRef } = useDotAnimation();
 
   return <StyledCanvas ref={canvasRef} />;

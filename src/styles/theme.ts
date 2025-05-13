@@ -2,6 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const color = {
   primary: {
+    10: '#F5FAFF',
     50: '#E3F2FD',
     100: '#BBDEFB',
     200: '#90CAF9',
@@ -102,7 +103,7 @@ const spacing = {
   lg: '2rem', // 20px
   xl: '2.4rem', // 24px
   xxl: '3.2rem', // 32px
-  xxxl: '4rem', // 40px
+  xxxl: '4.8rem', // 48px
 } as const;
 
 const borderRadius = {

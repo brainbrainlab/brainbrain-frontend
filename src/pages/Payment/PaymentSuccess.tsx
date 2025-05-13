@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
+import Button from '@/components/Button/Button';
+
+import { PAYMENT_PATHS } from '@/constants/payment';
+
 import * as S from './PaymentSuccess.styles';
-import Button from '../../components/Button/Button';
-import { PAYMENT_PATHS } from '../../constants/payment';
 
 interface PaymentSuccessProps {
   plan: {

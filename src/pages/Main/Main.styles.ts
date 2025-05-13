@@ -33,7 +33,7 @@ export const Layout = styled.div`
 
   width: 100%;
 
-  background-color: ${({ theme }) => theme.color.primary[50]};
+  background-color: ${({ theme }) => theme.color.primary[10]};
 `;
 
 export const DotAnimationWrapper = styled.div`
@@ -66,7 +66,7 @@ export const TitleSection = styled.div`
   gap: ${({ theme }) => theme.spacing.xxl};
 
   width: 100%;
-  height: calc(100vh - ${({ theme }) => theme.fontSize.h2});
+  height: calc(100vh - 7rem);
   padding-right: 5rem;
 `;
 
@@ -140,7 +140,7 @@ export const Section1 = styled.div`
   z-index: 2;
 
   width: 100%;
-  padding: ${({ theme }) => theme.spacing.xxl};
+  padding: ${({ theme }) => theme.spacing.xxxl};
 
   background-color: ${({ theme }) => theme.color.black[0]};
 `;
@@ -164,7 +164,7 @@ export const Section1Title = styled.h2`
 
   width: 100%;
 
-  color: ${({ theme }) => theme.color.black[600]};
+  color: ${({ theme }) => theme.color.black[700]};
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-align: center;
@@ -180,7 +180,7 @@ export const Section1Subtitle = styled.h3`
   width: 80%;
   margin-bottom: 3rem;
 
-  color: ${({ theme }) => theme.color.black[500]};
+  color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   line-height: 1.7;
@@ -206,7 +206,7 @@ export const Section1DescriptionBoxWrapper = styled.div`
 
   width: 34rem;
   padding: ${({ theme }) => theme.spacing.xl};
-  border: 3px solid ${({ theme }) => theme.color.primary[400]};
+  border: 3px solid ${({ theme }) => theme.color.primary[300]};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
 
   background-color: ${({ theme }) => theme.color.black[0]};
@@ -214,7 +214,7 @@ export const Section1DescriptionBoxWrapper = styled.div`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    border: 3px solid ${({ theme }) => theme.color.primary[500]};
+    border: 3px solid ${({ theme }) => theme.color.primary[600]};
 
     box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
 
@@ -229,7 +229,7 @@ export const Section1DescriptionTitle = styled.h3`
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xs};
 
-  color: ${({ theme }) => theme.color.black[800]};
+  color: ${({ theme }) => theme.color.black[900]};
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
 `;
@@ -265,7 +265,7 @@ export const Section2Title = styled.h2`
 `;
 
 export const Section2SubTitle = styled.h3`
-  color: ${({ theme }) => theme.color.black[400]};
+  color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   line-height: 1.7;

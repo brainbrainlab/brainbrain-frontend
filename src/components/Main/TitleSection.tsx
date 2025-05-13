@@ -1,32 +1,33 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import brain from '../../assets/images/logo.svg';
-import textLogo from '../../assets/images/logo_text.svg';
-import * as S from '../../pages/Main/Main.styles';
-import Button from '../Button/Button';
-import DotAnimation from '../DotAnimation/DotAnimation';
-import MainIcons from '../MainIcons/MainIcons';
+import brain from '@/assets/images/logo.svg';
+import textLogo from '@/assets/images/logo_text.svg';
 
-const SubTitle: React.FC = () => {
+import * as S from '@/pages/Main/Main.styles';
+
+import Button from '@/components/Button/Button';
+import DotAnimation from '@/components/DotAnimation/DotAnimation';
+import MainIcons from '@/components/MainIcons/MainIcons';
+
+const SubTitle = () => {
   const { t } = useTranslation();
   return <S.SubTitle>{t('main.subtitle')}</S.SubTitle>;
 };
 
-const MainButton: React.FC = () => {
+const MainButton = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Button fontWeight="extraBold" style={{ zIndex: 2 }} onClick={() => navigate('/test')}>
+    <Button size="md" fontWeight="extraBold" style={{ zIndex: 2 }} onClick={() => navigate('/test')}>
       {t('main.button')}
     </Button>
   );
 };
 
-const TitleSection: React.FC = () => {
+const TitleSection = () => {
   return (
-    <S.TitleSection>
+    <S.TitleSection id="title">
       <S.DotAnimationWrapper>
         <DotAnimation />
         <S.BackgroundImage src={brain} alt="brain" />

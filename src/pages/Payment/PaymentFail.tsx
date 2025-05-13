@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import Button from '@/components/Button/Button';
+
 import * as S from './PaymentFail.styles';
-import Button from '../../components/Button/Button';
 
 function PaymentFail() {
   const location = useLocation();

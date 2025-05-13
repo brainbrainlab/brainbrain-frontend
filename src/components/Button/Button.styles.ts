@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { calculateButtonColor } from '../../utils/calculateButtonColor';
+import { calculateButtonColor } from '@/utils/calculateButtonColor';
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 export type ButtonColor = 'primary' | 'warning' | 'error' | 'black';
@@ -34,9 +34,9 @@ interface ButtonShapesProp {
 const buttonSize = ({ size, width, height, borderRadius, fontSize, fontWeight, textAlign }: ButtonShapesProp) => {
   const defaultSizes = {
     sm: { width: '14rem', height: '4rem', borderRadius: '0.8rem', fontSize: 'md' },
-    md: { width: '18rem', height: '5.8rem', borderRadius: '1rem', fontSize: 'h6' },
-    lg: { width: '22rem', height: '7.2rem', borderRadius: '1.2rem', fontSize: 'h4' },
-    xl: { width: '26rem', height: '8rem', borderRadius: '1.2rem', fontSize: 'h3' },
+    md: { width: '18rem', height: '5.8rem', borderRadius: '1rem', fontSize: 'lg' },
+    lg: { width: '22rem', height: '7.2rem', borderRadius: '1.2rem', fontSize: 'xl' },
+    xl: { width: '26rem', height: '8rem', borderRadius: '1.2rem', fontSize: 'xxl' },
   };
 
   const {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FaCheck } from 'react-icons/fa';
 
 import * as S from './TestWarningModal.styles';
@@ -11,7 +9,7 @@ interface TestWarningModalProps {
   onClose: () => void;
 }
 
-const TestWarningModal: React.FC<TestWarningModalProps> = ({ isOpen, onClose }) => {
+const TestWarningModal = ({ isOpen, onClose }: TestWarningModalProps) => {
   return (
     <Modal
       isOpen={isOpen}

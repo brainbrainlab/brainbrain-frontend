@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import * as S from './Footer.styles';
-import textLogo from '../../assets/images/logo_text.svg';
-import logoImage from '../../assets/images/logo_with_dot.svg';
+import textLogo from '@/assets/images/logo_text.svg';
+import logoImage from '@/assets/images/logo_with_dot.svg';
 
+import * as S from './Footer.styles';
 
 function Footer() {
   const { t } = useTranslation();

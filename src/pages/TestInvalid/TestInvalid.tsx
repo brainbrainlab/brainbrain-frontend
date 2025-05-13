@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 
 import * as S from './TestInvalid.styles';
 
-const TestInvalid: React.FC = () => {
+const TestInvalid = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 

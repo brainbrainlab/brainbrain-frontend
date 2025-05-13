@@ -1,8 +1,9 @@
 import { loadTossPayments } from '@tosspayments/tosspayments-sdk';
 import { TFunction } from 'i18next';
 
+import { COUPON, PAYMENT_PATHS, PAYMENT_WIDGET_CONFIG, PAYMENT_WIDGET_SELECTORS } from '@/constants/payment';
+
 import { PaymentWidgets } from './types';
-import { PAYMENT_PATHS, PAYMENT_WIDGET_CONFIG, PAYMENT_WIDGET_SELECTORS, COUPON } from '../../constants/payment';
 
 interface InitializePaymentParams {
   plan: { price: number };
@@ -14,7 +15,6 @@ interface InitializePaymentParams {
   t: TFunction;
 }
 
-const SESSION_TIMEOUT = 30 * 60 * 1000; // 30분
 const REFRESH_THRESHOLD = 25 * 60 * 1000; // 25분
 
 const initializePayment = async ({

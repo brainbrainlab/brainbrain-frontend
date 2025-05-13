@@ -1,4 +1,4 @@
-import { I18nConfig, LanguageMapping, SupportedLanguage } from '../types/i18n';
+import { I18nConfig, SupportedLanguage } from '@/types/i18n';
 
 export const i18nConfig: I18nConfig = {
   defaultLanguage: 'ko',

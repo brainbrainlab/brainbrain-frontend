@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { IoLanguage } from 'react-icons/io5';
 
+import logoWithDot from '@/assets/images/logo_with_dot.svg';
+
+import Button from '@/components/Button/Button';
+
 import * as S from './Header.styles';
 import LanguageDropdown from './LanguageDropdown';
-import logoWithDot from '../../assets/images/logo_with_dot.svg';
-import Button from '../Button/Button';
 
-const TestButton = React.memo(() => {
+const TestButton = memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
@@ -19,7 +21,7 @@ const TestButton = React.memo(() => {
   );
 });
 
-const Header = React.memo(() => {
+const Header = memo(() => {
   const { t } = useTranslation();
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const isTestingPage = useLocation().pathname === '/test';

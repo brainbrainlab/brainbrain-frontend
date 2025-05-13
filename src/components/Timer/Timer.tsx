@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import * as S from './Timer.styles';
@@ -8,7 +8,7 @@ interface TimerProps {
   startTime: Date | null;
 }
 
-const Timer = React.memo(({ TIME_LIMIT, startTime }: TimerProps) => {
+const Timer = memo(({ TIME_LIMIT, startTime }: TimerProps) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { IoMdClose } from 'react-icons/io';
 
@@ -13,7 +13,7 @@ interface ModalProps {
   footer?: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, width, footer }) => {
+const Modal = ({ isOpen, onClose, title, children, width, footer }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
@@ -51,8 +51,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, width, 
   if (!isOpen && !isClosing) return null;
 
   return (
-    <S.ModalOverlay onClick={handleOverlayClick} isClosing={isClosing}>
-      <S.ModalContainer width={width} isClosing={isClosing}>
+    <S.Overlay onClick={handleOverlayClick} isOpen={isOpen}>
+      <S.ModalContainer isOpen={isOpen} width={width} isClosing={isClosing}>
         <S.ModalHeader>
           <S.ModalTitle>{title}</S.ModalTitle>
           <S.CloseButton onClick={handleClose} aria-label="Close modal">
@@ -62,7 +62,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, width, 
         <S.ModalContent>{children}</S.ModalContent>
         {footer && <S.ModalFooter>{footer}</S.ModalFooter>}
       </S.ModalContainer>
-    </S.ModalOverlay>
+    </S.Overlay>
   );
 };
 

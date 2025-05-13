@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-import { Table, TableHeader, TableCell, TableRow, TableContainer } from '../../styles/components/Table.styles';
+import { Table, TableCell, TableContainer, TableHeader, TableRow } from '../../styles/components/Table.styles';
 import {
   Heading1,
   Heading2,
   Heading3,
-  Paragraph,
   List,
-  OrderedList,
   ListItem,
+  OrderedList,
+  Paragraph,
 } from '../../styles/components/Typography.styles';
 
 export const InfoContainer = styled.div`

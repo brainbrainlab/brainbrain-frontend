@@ -34,8 +34,8 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   animation-fill-mode: forwards;
 `;
 
-export const ModalContainer = styled.div<{ isOpen: boolean }>`
-  width: 90%;
+export const ModalContainer = styled.div<{ isOpen: boolean; width?: string; isClosing: boolean }>`
+  width: ${({ width }) => width || '90%'};
   max-width: 500px;
   padding: ${({ theme }) => theme.spacing.xl};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
