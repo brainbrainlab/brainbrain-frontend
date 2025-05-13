@@ -10,13 +10,13 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   text-align: center;
-  padding: ${({ theme }) => theme.spacing.xxl};
+  padding: ${({ theme }) => theme.spacing.xl};
   max-width: 600px;
 `;
 
 export const IconWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.lg};
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
   font-size: 4rem;
 `;
 
@@ -54,8 +54,8 @@ export const ContactLink = styled.span`
 `;
 
 export const Button = styled.button`
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
-  font-size: ${({ theme }) => theme.fontSize.md};
+  padding: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.lg}`};
+  font-size: ${({ theme }) => theme.fontSize.base};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.color.black[0]};
   background-color: ${({ theme }) => theme.color.primary[500]};

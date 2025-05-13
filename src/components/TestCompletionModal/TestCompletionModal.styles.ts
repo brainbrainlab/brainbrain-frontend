@@ -16,7 +16,7 @@ export const Message = styled.h4`
 `;
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.md};
+  font-size: ${({ theme }) => theme.fontSize.base};
   color: ${({ theme }) => theme.color.black[600]};
   text-align: center;
   margin: 0;

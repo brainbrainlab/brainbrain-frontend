@@ -8,7 +8,7 @@ const createBlinkKeyframes = (theme: any) => keyframes`
     background-color: ${theme.color.primary[500]};
   }
   30% {
-    background-color: ${theme.color.danger[500]};
+    background-color: ${theme.color.error[500]};
   }
   100% {
     background-color: ${theme.color.primary[500]};

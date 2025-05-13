@@ -1,23 +1,26 @@
+import 'styled-components';
 import {
   ColorTypes,
   FontSizeTypes,
   FontWeightTypes,
-  DeviceWidthTypes,
   SpacingTypes,
   BorderRadiusTypes,
+  BreakpointTypes,
   ShadowTypes,
+  ZIndexTypes,
+  TransitionTypes,
 } from './theme';
-
-import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: ColorTypes;
     fontSize: FontSizeTypes;
     fontWeight: FontWeightTypes;
-    deviceWidth: DeviceWidthTypes;
     spacing: SpacingTypes;
     borderRadius: BorderRadiusTypes;
+    breakpoints: BreakpointTypes;
     shadow: ShadowTypes;
+    zIndex: ZIndexTypes;
+    transitions: TransitionTypes;
   }
 }

@@ -51,7 +51,7 @@ export const ScoreDescription = styled.span`
 `;
 
 export const RedAsterisk = styled.span`
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
 `;
 
 export const ScoreNote = styled.p`

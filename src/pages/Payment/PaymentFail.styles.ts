@@ -11,7 +11,7 @@ export const Title = styled.h1`
   font-weight: 600;
   text-align: center;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
 `;
 
 export const ErrorMessage = styled.p`

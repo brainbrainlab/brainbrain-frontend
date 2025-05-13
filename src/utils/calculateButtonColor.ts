@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import theme from '../styles/theme';
+import { theme } from '../styles/theme';
 
 const intToHexColor = (decimal: number) => {
   const rrggbb = ('000000' + decimal.toString(16)).slice(-6);

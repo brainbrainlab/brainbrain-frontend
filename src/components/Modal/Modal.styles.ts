@@ -169,16 +169,16 @@ export const Button = styled.button<{ variant?: 'primary' | 'secondary' | 'dange
         `;
       case 'danger':
         return css`
-          background-color: ${theme.color.danger[500]};
+          background-color: ${theme.color.error[500]};
           color: ${theme.color.black[0]};
           border: none;
 
           &:hover {
-            background-color: ${theme.color.danger[600]};
+            background-color: ${theme.color.error[600]};
           }
 
           &:active {
-            background-color: ${theme.color.danger[700]};
+            background-color: ${theme.color.error[700]};
           }
         `;
     }

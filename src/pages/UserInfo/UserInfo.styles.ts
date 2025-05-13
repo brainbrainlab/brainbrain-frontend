@@ -61,7 +61,7 @@ export const Label = styled.label`
 `;
 
 export const Required = styled.span`
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
   margin-left: 2px;
 `;
 
@@ -69,7 +69,7 @@ export const Input = styled.input<{ $hasError: boolean }>`
   width: 100%;
   height: 48px;
   padding: 0 1rem;
-  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[200])};
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[200])};
   border-radius: 8px;
   font-size: ${({ theme }) => theme.fontSize.base};
   color: ${({ theme }) => theme.color.black[900]};
@@ -77,13 +77,13 @@ export const Input = styled.input<{ $hasError: boolean }>`
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[400])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[400])};
   }
 
   &:focus {
     outline: none;
-    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[500])};
-    box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.danger[100] : theme.color.primary[100])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[500])};
+    box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.error[50] : theme.color.primary[100])};
   }
 
   &::placeholder {
@@ -97,7 +97,7 @@ export const Select = styled.select<{ $hasError: boolean }>`
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
-  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[200])};
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[200])};
   border-radius: 8px;
   font-size: ${({ theme }) => theme.fontSize.base};
   color: ${({ theme }) => theme.color.black[600]};
@@ -106,13 +106,13 @@ export const Select = styled.select<{ $hasError: boolean }>`
   cursor: pointer;
 
   &:hover {
-    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[400])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[400])};
   }
 
   &:focus {
     outline: none;
-    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[500])};
-    box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.danger[100] : theme.color.primary[100])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[500])};
+    box-shadow: 0 0 0 3px ${({ theme, $hasError }) => ($hasError ? theme.color.error[100] : theme.color.primary[100])};
   }
 
   option {
@@ -160,7 +160,7 @@ export const RadioButton = styled.div<{ $isChecked: boolean }>`
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
   font-size: ${({ theme }) => theme.fontSize.sm};
   display: flex;
   align-items: center;
@@ -173,7 +173,7 @@ export const ErrorMessage = styled.div`
     justify-content: center;
     width: 16px;
     height: 16px;
-    background-color: ${({ theme }) => theme.color.danger[500]};
+    background-color: ${({ theme }) => theme.color.error[500]};
     color: white;
     border-radius: 50%;
     font-size: 12px;

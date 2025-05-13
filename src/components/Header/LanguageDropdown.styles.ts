@@ -16,7 +16,7 @@ export const Dropdown = styled.div`
 
 export const DropdownItem = styled.div`
   padding: 1rem 2rem;
-  font-size: ${({ theme }) => theme.fontSize.md};
+  font-size: ${({ theme }) => theme.fontSize.base};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   cursor: pointer;
   &:hover {

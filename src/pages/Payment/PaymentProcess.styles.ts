@@ -89,14 +89,14 @@ export const Label = styled.label`
 `;
 
 export const Required = styled.span`
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
   margin-left: 0.25rem;
 `;
 
 export const Input = styled.input<{ $hasError: boolean }>`
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.black[200])};
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.black[200])};
   border-radius: 4px;
   color: ${({ theme }) => theme.color.black[900]};
   background-color: ${({ theme }) => theme.color.black[0]};
@@ -104,14 +104,14 @@ export const Input = styled.input<{ $hasError: boolean }>`
 
   &:focus {
     outline: none;
-    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.danger[500] : theme.color.primary[500])};
-    box-shadow: 0 0 0 2px ${({ theme, $hasError }) => ($hasError ? theme.color.danger[100] : theme.color.primary[100])};
+    border-color: ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[500])};
+    box-shadow: 0 0 0 2px ${({ theme, $hasError }) => ($hasError ? theme.color.error[50] : theme.color.primary[100])};
   }
 `;
 
 export const ErrorMessage = styled.p`
   margin-top: 0.5rem;
-  color: ${({ theme }) => theme.color.danger[500]};
+  color: ${({ theme }) => theme.color.error[500]};
 `;
 
 export const ActionsContainer = styled.div`

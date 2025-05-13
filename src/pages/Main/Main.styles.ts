@@ -30,7 +30,7 @@ export const Layout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.color.primary[25]};
+  background-color: ${({ theme }) => theme.color.primary[50]};
 `;
 
 export const DotAnimationWrapper = styled.div`
@@ -77,13 +77,13 @@ export const TitleTextContainer = styled.div`
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.base};
   width: 100%;
 `;
 
 export const TextLogo = styled.img`
   width: 34rem;
-  padding-bottom: ${({ theme }) => theme.spacing.md};
+  padding-bottom: ${({ theme }) => theme.spacing.base};
   text-align: right;
   z-index: 2;
 `;
@@ -94,7 +94,7 @@ export const SubTitle = styled.h2`
   color: ${({ theme }) => theme.color.black[600]};
   width: 100%;
   text-align: end;
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: ${({ theme }) => theme.spacing.base};
   z-index: 2;
 `;
 
@@ -119,7 +119,7 @@ export const Section1 = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xl};
+  gap: ${({ theme }) => theme.spacing.xxl};
   background-color: ${({ theme }) => theme.color.black[0]};
   padding: ${({ theme }) => theme.spacing.xxl};
   z-index: 2;

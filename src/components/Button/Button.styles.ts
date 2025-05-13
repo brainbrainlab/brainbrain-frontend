@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { calculateButtonColor } from '../../utils/calculateButtonColor';
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ButtonColor = 'primary' | 'warning' | 'danger' | 'black';
+export type ButtonColor = 'primary' | 'warning' | 'error' | 'black';
 
 interface ButtonStyleProp {
   $css?: ReturnType<typeof css>;

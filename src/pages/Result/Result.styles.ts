@@ -1,81 +1,52 @@
 import styled from 'styled-components';
 
-export const Layout = styled.div`
-  width: 100%;
-  min-height: calc(100vh - 8rem);
-  padding: ${({ theme }) => theme.spacing.xxl};
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.spacing.xl};
+  min-height: calc(100vh - 200px);
   background-color: ${({ theme }) => theme.color.black[0]};
 `;
 
-export const ResultContainer = styled.div`
+export const Content = styled.div`
   width: 100%;
-  max-width: 120rem;
-  padding: ${({ theme }) => theme.spacing.xxl};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing.xl};
+  max-width: 800px;
+  text-align: center;
 `;
 
 export const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme }) => theme.color.black[600]};
-  text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
 
-export const ScoreSection = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing.xl};
-  padding: ${({ theme }) => theme.spacing.xl};
-  background-color: ${({ theme }) => theme.color.black[50]};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-`;
-
-export const ScoreBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing.md};
-  padding: ${({ theme }) => theme.spacing.lg};
-  background-color: ${({ theme }) => theme.color.black[0]};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-`;
-
-export const ScoreLabel = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.lg};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.color.black[600]};
-`;
-
-export const ScoreValue = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.h3};
+export const Score = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.h1};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.color.black[600]};
+  color: ${({ theme }) => theme.color.primary[500]};
+  margin-bottom: ${({ theme }) => theme.spacing.xxl};
 `;
 
 export const Description = styled.p`
   font-size: ${({ theme }) => theme.fontSize.lg};
-  line-height: 1.6;
   color: ${({ theme }) => theme.color.black[700]};
-  text-align: center;
-  margin: ${({ theme }) => theme.spacing.xl} 0;
+  margin-bottom: ${({ theme }) => theme.spacing.xxl};
   white-space: pre-line;
+  line-height: 1.6;
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing.lg};
+  justify-content: center;
+  margin-top: ${({ theme }) => theme.spacing.xxl};
 `;
 
 export const Button = styled.button`
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
-  font-size: ${({ theme }) => theme.fontSize.lg};
+  padding: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.lg}`};
+  font-size: ${({ theme }) => theme.fontSize.base};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.color.black[0]};
   background-color: ${({ theme }) => theme.color.primary[500]};
