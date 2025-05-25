@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa';
 
@@ -26,6 +26,11 @@ type SolvedQuestions = (number | null)[];
 
 function Test() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const consoleLogUserInfoState = () => {
+    console.log('UserInfo state:', state);
+  };
+  const result = state?.result;
   const [questionIndex, setQuestionIndex] = useState<QuestionIndex>(0);
   const [showUnsolved, setShowUnsolved] = useState(false);
   const [startTime, setStartTime] = useState<Date | null>(null);

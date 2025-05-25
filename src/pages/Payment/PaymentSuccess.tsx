@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 import Button from '@/components/Button/Button';
+import PageLayout from '@/components/common/PageLayout/PageLayout';
 
 import { PAYMENT_PATHS } from '@/constants/payment';
 
@@ -102,7 +103,7 @@ function PaymentSuccess() {
   }, [searchParams, orderId, amount, navigate, t]);
 
   return (
-    <S.Container>
+    <PageLayout>
       <S.Title>{t('payment.success.title')}</S.Title>
 
       <S.Section>
@@ -145,7 +146,7 @@ function PaymentSuccess() {
           {t('common.goHome')}
         </Button>
       </S.ActionsContainer>
-    </S.Container>
+    </PageLayout>
   );
 }
 

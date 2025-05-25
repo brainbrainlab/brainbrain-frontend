@@ -4,7 +4,7 @@ import checkGreen from '@/assets/images/check_green.svg';
 import globeWithHuman from '@/assets/images/globe_with_human.svg';
 import graph from '@/assets/images/graph.svg';
 
-import * as S from '@/pages/Main/Main.styles';
+import * as S from '@/components/Main/Main.styles';
 
 interface DescriptionBoxProps {
   index: number;

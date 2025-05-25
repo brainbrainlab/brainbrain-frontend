@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: 1rem;
 
   padding: 1rem;
@@ -23,7 +23,7 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.base};
   line-height: 1.5;
-  text-align: center;
+  text-align: left;
 `;
 
 export const ButtonContainer = styled.div`

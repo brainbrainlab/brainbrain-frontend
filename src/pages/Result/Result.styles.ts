@@ -1,19 +1,31 @@
 import styled from 'styled-components';
 
+export const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: calc(100vh - 20rem);
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: ${({ theme }) => theme.spacing.xl};
 
-  min-height: calc(100vh - 200px);
+  max-width: 80rem;
   padding: ${({ theme }) => theme.spacing.xl};
+  border-radius: 8px;
 
   background-color: ${({ theme }) => theme.color.black[0]};
 `;
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: 80rem;
 
   text-align: center;
 `;
@@ -24,6 +36,7 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+  border-bottom: 2px solid ${({ theme }) => theme.color.primary[500]};
 `;
 
 export const Score = styled.div`
@@ -68,4 +81,12 @@ export const Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.color.primary[600]};
   }
+`;
+
+export const Section = styled.section`
+  border-radius: 8px;
+`;
+
+export const InfoItem = styled.li`
+  border-bottom: 1px solid ${({ theme }) => theme.color.black[200]};
 `;

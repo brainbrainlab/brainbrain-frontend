@@ -36,7 +36,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
 
 export const ModalContainer = styled.div<{ isOpen: boolean; width?: string; isClosing: boolean }>`
   width: ${({ width }) => width || '90%'};
-  max-width: 500px;
+  max-width: 70rem;
   padding: ${({ theme }) => theme.spacing.xl};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
 
@@ -56,12 +56,14 @@ export const ModalHeader = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const ModalTitle = styled.h2`
-  margin: 0;
+export const ModalTitle = styled.h1`
+  width: 100%;
 
-  color: ${({ theme }) => theme.color.black[700]};
-  font-size: ${({ theme }) => theme.fontSize.h3};
+  color: ${({ theme }) => theme.color.primary[900]};
+  font-size: ${({ theme }) => theme.fontSize.h1};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+
+  border-bottom: 1px solid ${({ theme }) => theme.color.primary[900]};
 `;
 
 export const CloseButton = styled.button`

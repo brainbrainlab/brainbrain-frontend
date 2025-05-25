@@ -1,21 +1,22 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { completePayment, PaymentOption } from '../../api/payment';
+import Button from '../../components/Button/Button';
+import PageLayout from '../../components/common/PageLayout/PageLayout';
+import {
+  COUPON,
+  FORM_FIELDS,
+  PAYMENT_PATHS,
+  PAYMENT_WIDGET_CONFIG,
+  PAYMENT_WIDGET_SELECTORS,
+} from '../../constants/payment';
 import { renderFormFields } from './formFields';
 import * as S from './PaymentProcess.styles';
 import initializePayment from './paymentUtils';
-import { PaymentProcessProps, FormData } from './types';
+import { FormData, PaymentProcessProps } from './types';
 import { validateForm } from './validation';
-import { completePayment, PaymentOption } from '../../api/payment';
-import Button from '../../components/Button/Button';
-import {
-  PAYMENT_PATHS,
-  PAYMENT_WIDGET_SELECTORS,
-  COUPON,
-  FORM_FIELDS,
-  PAYMENT_WIDGET_CONFIG,
-} from '../../constants/payment';
 
 const PaymentProcess = () => {
   const { t } = useTranslation();
@@ -193,8 +194,8 @@ const PaymentProcess = () => {
   };
 
   return (
-    <S.Container>
-      <S.Title>{t('payment.title')}</S.Title>
+    <PageLayout>
+      <S.Title>결제 진행</S.Title>
       <S.ContentWrapper>
         <div>
           <S.PlanInfo>
@@ -238,7 +239,7 @@ const PaymentProcess = () => {
           </S.ActionsContainer>
         </S.Form>
       </S.ContentWrapper>
-    </S.Container>
+    </PageLayout>
   );
 };
 

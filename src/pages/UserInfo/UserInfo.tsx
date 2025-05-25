@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa';
 import { IoCheckbox, IoSquareOutline } from 'react-icons/io5';
 import { useTheme } from 'styled-components';
-
-import Button from '@/components/Button/Button';
 
 import * as S from './UserInfo.styles';
 
@@ -28,6 +27,7 @@ interface UserInfoErrors {
 }
 
 function UserInfo() {
+  const { t } = useTranslation();
   const theme = useTheme();
   const [userInfo, setUserInfo] = useState<UserInfoData>({
     email: '',
@@ -106,10 +106,10 @@ function UserInfo() {
 
   const validateEmail = (email: string) => {
     if (!email) {
-      return '이메일을 입력해주세요.';
+      return t('error.emailRequired');
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return '올바른 이메일 형식이 아닙니다.';
+      return t('error.emailInvalid');
     }
     return '';
   };
@@ -155,29 +155,29 @@ function UserInfo() {
     const newErrors: UserInfoErrors = {};
 
     if (!userInfo.name) {
-      newErrors.name = '이름을 입력해주세요.';
+      newErrors.name = t('error.nameRequired');
     }
 
     if (!userInfo.age) {
-      newErrors.age = '나이를 선택해주세요.';
+      newErrors.age = t('error.ageRequired');
     }
 
     if (!userInfo.gender) {
-      newErrors.gender = '성별을 선택해주세요.';
+      newErrors.gender = t('error.genderRequired');
     }
 
     if (!userInfo.country) {
-      newErrors.country = '국가를 선택해주세요.';
+      newErrors.country = t('error.countryRequired');
     }
 
     if (!userInfo.email) {
-      newErrors.email = '이메일을 입력해주세요.';
+      newErrors.email = t('error.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInfo.email)) {
-      newErrors.email = '올바른 이메일 형식이 아닙니다.';
+      newErrors.email = t('error.emailInvalid');
     }
 
     if (!userInfo.agreement) {
-      newErrors.agreement = '개인정보처리방침에 동의해주세요.';
+      newErrors.agreement = t('error.agreementRequired');
     }
 
     setErrors(newErrors);
@@ -212,21 +212,20 @@ function UserInfo() {
   return (
     <S.Container>
       <S.Title>테스트를 모두 완료하셨습니다!</S.Title>
-      <S.Subtitle>
-        입력하신 이메일로 인증서와 보고서를 발송해 드립니다. <br /> 모든 정보를 정확히 입력해주세요.
-      </S.Subtitle>
+      <S.Subtitle>{t('userInfo.completeSubtitle')}</S.Subtitle>
       <S.Form ref={formRef} onSubmit={handleSubmit}>
         {visibleFields.includes('email') && (
-          <S.FormGroup>
+          <S.FormGroup withAnimation={visibleFields.indexOf('email') !== 0}>
             <S.Label>
-              이메일<S.Required>*</S.Required>
+              {t('userInfo.email')}
+              <S.Required>*</S.Required>
             </S.Label>
             <S.Input
               type="email"
               name="email"
               value={userInfo.email}
               onChange={handleChange}
-              placeholder="you@example.com"
+              placeholder={t('userInfo.emailPlaceholder')}
               $hasError={!!errors.email}
             />
             <S.ErrorContainer>{errors.email && <S.ErrorMessage>{errors.email}</S.ErrorMessage>}</S.ErrorContainer>
@@ -234,53 +233,54 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('name') && (
-          <S.FormGroup>
+          <S.FormGroup withAnimation={visibleFields.indexOf('name') !== 0}>
             <S.Label>
-              이름<S.Required>*</S.Required>
+              {t('userInfo.name')}
+              <S.Required>*</S.Required>
             </S.Label>
             <S.Input
               type="text"
               name="name"
               value={userInfo.name}
               onChange={handleChange}
+              placeholder={t('userInfo.namePlaceholder')}
               $hasError={!!errors.name}
-              placeholder="홍길동"
             />
             <S.ErrorContainer>{errors.name && <S.ErrorMessage>{errors.name}</S.ErrorMessage>}</S.ErrorContainer>
           </S.FormGroup>
         )}
 
         {visibleFields.includes('age') && (
-          <S.FormGroup>
+          <S.FormGroup withAnimation={visibleFields.indexOf('age') !== 0}>
             <S.Label>
-              나이<S.Required>*</S.Required>
+              {t('userInfo.age')}
+              <S.Required>*</S.Required>
             </S.Label>
             <S.Select name="age" value={userInfo.age} onChange={handleChange} $hasError={!!errors.age}>
               <option value="" disabled>
-                나이를 선택해주세요
+                {t('userInfo.agePlaceholder')}
               </option>
-              <option value="0-19">0 - 19</option>
-              <option value="20-29">20 - 29</option>
-              <option value="30-39">30 - 39</option>
-              <option value="40-49">40 - 49</option>
-              <option value="50-59">50 - 59</option>
-              <option value="60-69">60 - 69</option>
-              <option value="70+">70+</option>
+              {Array.from({ length: 83 }, (_, i) => i + 18).map(age => (
+                <option key={age} value={age}>
+                  {age}
+                </option>
+              ))}
             </S.Select>
             <S.ErrorContainer>{errors.age && <S.ErrorMessage>{errors.age}</S.ErrorMessage>}</S.ErrorContainer>
           </S.FormGroup>
         )}
 
         {visibleFields.includes('gender') && (
-          <S.FormGroup>
+          <S.FormGroup withAnimation={visibleFields.indexOf('gender') !== 0}>
             <S.Label>
-              성별<S.Required>*</S.Required>
+              {t('userInfo.gender')}
+              <S.Required>*</S.Required>
             </S.Label>
             <S.RadioGroup>
               {[
-                { value: 'male', label: '남자' },
-                { value: 'female', label: '여자' },
-                { value: 'other', label: '기타/밝히고 싶지 않음' },
+                { value: 'male', label: t('userInfo.genderOptions.male') },
+                { value: 'female', label: t('userInfo.genderOptions.female') },
+                { value: 'other', label: t('userInfo.genderOptions.other') },
               ].map(option => (
                 <S.RadioLabel key={option.value}>
                   <S.RadioInput
@@ -302,26 +302,27 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('country') && (
-          <S.FormGroup>
+          <S.FormGroup withAnimation={visibleFields.indexOf('country') !== 0}>
             <S.Label>
-              국가<S.Required>*</S.Required>
+              {t('userInfo.country.label')}
+              <S.Required>*</S.Required>
             </S.Label>
             <S.Select name="country" value={userInfo.country} onChange={handleChange} $hasError={!!errors.country}>
               <option value="" disabled>
-                국가를 선택해주세요
+                {t('userInfo.country.placeholder')}
               </option>
-              <option value="KR">대한민국</option>
-              <option value="US">미국</option>
-              <option value="JP">일본</option>
-              <option value="CN">중국</option>
-              <option value="other">기타</option>
+              <option value="kr">{t('userInfo.country.options.kr')}</option>
+              <option value="us">{t('userInfo.country.options.us')}</option>
+              <option value="jp">{t('userInfo.country.options.jp')}</option>
+              <option value="cn">{t('userInfo.country.options.cn')}</option>
+              <option value="other">{t('userInfo.country.options.other')}</option>
             </S.Select>
             <S.ErrorContainer>{errors.country && <S.ErrorMessage>{errors.country}</S.ErrorMessage>}</S.ErrorContainer>
           </S.FormGroup>
         )}
 
         {visibleFields.includes('agreement') && (
-          <S.AgreementGroup>
+          <S.AgreementGroup withAnimation={visibleFields.indexOf('agreement') !== 0}>
             <S.CheckboxWrapper
               onClick={() =>
                 handleCheckboxChange({
@@ -336,13 +337,14 @@ function UserInfo() {
               )}
               <S.AgreementLabel>
                 <S.AgreementLink href="/privacy" target="_blank" onClick={e => e.stopPropagation()}>
-                  개인정보처리방침
+                  {t('common.privacyPolicy')}
                 </S.AgreementLink>
-                &nbsp;및&nbsp;
+                &nbsp;{t('common.and')}&nbsp;
                 <S.AgreementLink href="/terms" target="_blank" onClick={e => e.stopPropagation()}>
-                  서비스 이용약관
+                  {t('common.termsOfService')}
                 </S.AgreementLink>
-                에 동의합니다.<S.Required>*</S.Required>
+                {t('userInfo.agreement')}
+                <S.Required>*</S.Required>
               </S.AgreementLabel>
             </S.CheckboxWrapper>
             <S.ErrorContainer>
@@ -351,7 +353,7 @@ function UserInfo() {
           </S.AgreementGroup>
         )}
 
-        {isComplete && <Button type="submit">결과 받기</Button>}
+        {isComplete && <S.SubmitButton withAnimation>{t('userInfo.submit')}</S.SubmitButton>}
       </S.Form>
     </S.Container>
   );

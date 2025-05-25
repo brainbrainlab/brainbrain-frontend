@@ -15,7 +15,7 @@ const TestButton = memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Button width="12rem" size="sm" fontWeight="extraBold" onClick={() => navigate('/test')}>
+    <Button width="12rem" size="sm" fontSize="1.6rem" fontWeight="extraBold" onClick={() => navigate('/test')}>
       {t('main.button')}
     </Button>
   );

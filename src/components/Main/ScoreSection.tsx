@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import * as S from '@/pages/Main/Main.styles';
+import * as S from '@/components/Main/Main.styles';
 
 import ScoreTable, { ScoreLevelType } from '@/components/ScoreTable/ScoreTable';
 

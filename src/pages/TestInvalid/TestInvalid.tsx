@@ -1,38 +1,64 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { FaExclamationTriangle } from 'react-icons/fa';
-
-import * as S from './TestInvalid.styles';
+import Button from '../../components/Button/Button';
+import PageLayout from '../../components/common/PageLayout/PageLayout';
 
 const TestInvalid = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const handleRetakeTest = () => {
-    navigate('/test');
-  };
-
-  const handleContactClick = () => {
-    navigate('/contact');
-  };
-
   return (
-    <S.Container>
-      <S.Content>
-        <S.IconWrapper>
-          <FaExclamationTriangle />
-        </S.IconWrapper>
-        <S.Title>{t('error.testInvalid')}</S.Title>
-        <S.Description>{t('error.testInvalidDescription')}</S.Description>
-        <S.Button onClick={handleRetakeTest}>{t('error.retakeTest')}</S.Button>
-        <S.AdditionalInfo>
-          정상적으로 테스트를 진행했는데도 같은 문제가 반복된다면{' '}
-          <S.ContactLink onClick={handleContactClick}>문의하기</S.ContactLink>를 이용해 주세요.
-        </S.AdditionalInfo>
-      </S.Content>
-    </S.Container>
+    <PageLayout>
+      <Wrapper>
+        <Title>{t('error.testInvalid')}</Title>
+        <Description>{t('error.testInvalidDescription')}</Description>
+        <Button onClick={() => navigate('/test')}>{t('error.retakeTest')}</Button>
+        <ContactText>
+          {t('test.invalid.contactMessage')}
+          <ContactLink href="mailto:support@brainbrain.com">{t('test.invalid.contactLink')}</ContactLink>
+        </ContactText>
+      </Wrapper>
+    </PageLayout>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  min-height: 100vh;
+
+  text-align: center;
+`;
+
+const Title = styled.h1`
+  color: ${({ theme }) => theme.color.black[900]};
+  font-size: 2.4rem;
+  font-weight: 700;
+`;
+
+const Description = styled.p`
+  color: ${({ theme }) => theme.color.black[600]};
+  font-size: 1.6rem;
+  text-align: center;
+  white-space: pre-line;
+`;
+
+const ContactText = styled.p`
+  margin-top: 2rem;
+
+  color: ${({ theme }) => theme.color.black[600]};
+  font-size: 1.4rem;
+`;
+
+const ContactLink = styled.a`
+  color: ${({ theme }) => theme.color.primary};
+  text-decoration: underline;
+`;
 
 export default TestInvalid;

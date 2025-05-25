@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Button from '@/components/Button/Button';
+import PageLayout from '@/components/common/PageLayout/PageLayout';
 
 import * as S from './PaymentFail.styles';
 
@@ -25,7 +26,7 @@ function PaymentFail() {
   const { error } = location.state;
 
   return (
-    <S.Container>
+    <PageLayout>
       <S.Title>{t('payment.fail.title')}</S.Title>
       <S.ErrorMessage>{error}</S.ErrorMessage>
       <S.ActionsContainer>
@@ -36,7 +37,7 @@ function PaymentFail() {
           {t('common.goHome')}
         </Button>
       </S.ActionsContainer>
-    </S.Container>
+    </PageLayout>
   );
 }
 

@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     */
     *:where(:not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *)) {
         all: unset;
+
         display: revert;
     }
 
@@ -20,18 +21,11 @@ const GlobalStyles = createGlobalStyle`
 
     /* Fix mobile Safari increase font-size on landscape mode */
     html {
-        font-family: 'Pretendard Variable';
-        font-size: 62.5%;
         text-size-adjust: none;
-        -webkit-text-size-adjust: none;
     }
 
     body {
-        font-family: 'Pretendard Variable';
         line-height: 1.5;
-        background-color: ${({ theme }) => theme.color.black[0]};
-        color: ${({ theme }) => theme.color.black[900]};
-        font-size: 1.6rem;  /* 기본 폰트 사이즈 설정 */
     }
 
     /* Remove list styles (bullets/numbers) */
@@ -109,6 +103,7 @@ const GlobalStyles = createGlobalStyle`
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         appearance: none;
+
         margin: 0;
     }
 

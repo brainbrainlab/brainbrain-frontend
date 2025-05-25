@@ -1,21 +1,19 @@
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
+import Button from '../../components/Button/Button';
+import PageLayout from '../../components/common/PageLayout/PageLayout';
 import * as S from './NotFound.styles';
 
-const NotFound = () => {
+function NotFound() {
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   return (
-    <S.Container>
-      <S.Content>
-        <S.Title>404</S.Title>
-        <S.Description>{t('error.pageNotFound')}</S.Description>
-        <S.Button onClick={() => navigate('/')}>{t('common.goToHome')}</S.Button>
-      </S.Content>
-    </S.Container>
+    <PageLayout>
+      <S.Title>404</S.Title>
+      <S.Description>페이지를 찾을 수 없습니다.</S.Description>
+      <Button onClick={() => navigate('/')}>홈으로 돌아가기</Button>
+    </PageLayout>
   );
-};
+}
 
 export default NotFound;

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import brain from '@/assets/images/logo.svg';
 import textLogo from '@/assets/images/logo_text.svg';
 
-import * as S from '@/pages/Main/Main.styles';
+import * as S from '@/components/Main/Main.styles';
 
 import Button from '@/components/Button/Button';
 import DotAnimation from '@/components/DotAnimation/DotAnimation';

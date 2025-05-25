@@ -14,11 +14,12 @@ interface ScrollIconProps {
 const ScrollIcon = ({ targetSections }: ScrollIconProps) => {
   const { currentSection, handleClick } = useScrollIcon({ targetSections });
 
-  const isBottom = targetSections ? currentSection === targetSections[targetSections.length - 1].id : false;
+  const isBottom = targetSections ? currentSection === 'bottom' : false;
 
   return (
-    <S.Layout onClick={handleClick} $isBottom={isBottom}>
+    <S.Layout>
       <S.ScrollIcon
+        onClick={handleClick}
         tabIndex={0}
         role="button"
         aria-label={isBottom ? '위로 스크롤' : '아래로 스크롤'}

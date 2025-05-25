@@ -45,6 +45,11 @@ export const DotAnimationWrapper = styled.div`
 
   width: 50rem;
   height: 50rem;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 30rem;
+    height: 30rem;
+  }
 `;
 
 export const BackgroundImage = styled.img`
@@ -56,6 +61,11 @@ export const BackgroundImage = styled.img`
   mix-blend-mode: darken;
 
   animation: ${pulseAnimation} 7s infinite;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 24rem;
+    height: 24rem;
+  }
 `;
 
 export const TitleSection = styled.div`
@@ -68,6 +78,17 @@ export const TitleSection = styled.div`
   width: 100%;
   height: calc(100vh - 7rem);
   padding-right: 5rem;
+
+  background-color: ${({ theme }) => theme.color.primary[10]};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+    gap: ${({ theme }) => theme.spacing.lg};
+
+    height: auto;
+    min-height: calc(100vh - 7rem);
+    padding-right: 0;
+  }
 `;
 
 export const TitleTextAndImageWrapper = styled.div`
@@ -80,6 +101,13 @@ export const TitleTextAndImageWrapper = styled.div`
   position: relative;
 
   width: fit-content;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    align-items: center;
+    gap: ${({ theme }) => theme.spacing.xl};
+
+    padding: ${({ theme }) => theme.spacing.xl};
+  }
 `;
 
 export const TitleTextContainer = styled.div`
@@ -90,6 +118,10 @@ export const TitleTextContainer = styled.div`
   gap: ${({ theme }) => theme.spacing.base};
 
   width: 100%;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    align-items: center;
+  }
 `;
 
 export const TextLogo = styled.img`
@@ -99,6 +131,12 @@ export const TextLogo = styled.img`
   padding-bottom: ${({ theme }) => theme.spacing.base};
 
   text-align: right;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 24rem;
+
+    text-align: center;
+  }
 `;
 
 export const SubTitle = styled.h2`
@@ -111,6 +149,11 @@ export const SubTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.h4};
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
   text-align: end;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.h5};
+    text-align: center;
+  }
 `;
 
 export const Description = styled.p`
@@ -128,6 +171,10 @@ export const Description = styled.p`
   text-align: left;
   white-space: pre-wrap;
   word-break: keep-all;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
+  }
 `;
 
 export const Section1 = styled.div`
@@ -143,6 +190,12 @@ export const Section1 = styled.div`
   padding: ${({ theme }) => theme.spacing.xxxl};
 
   background-color: ${({ theme }) => theme.color.black[0]};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    gap: ${({ theme }) => theme.spacing.xl};
+
+    padding: ${({ theme }) => theme.spacing.xl};
+  }
 `;
 
 export const Section2 = styled.div`
@@ -153,9 +206,17 @@ export const Section2 = styled.div`
   gap: ${({ theme }) => theme.spacing.xxl};
 
   width: 100%;
-  margin: ${({ theme }) => theme.spacing.xxl} 0;
-  padding: 0 ${({ theme }) => theme.spacing.xxxl};
+  padding: ${({ theme }) => theme.spacing.xxxl};
+
+  background-color: ${({ theme }) => theme.color.primary[10]};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    gap: ${({ theme }) => theme.spacing.xl};
+
+    padding: 0 ${({ theme }) => theme.spacing.xl};
+  }
 `;
+
 export const Section1Title = styled.h2`
   display: flex;
   flex-direction: column;
@@ -168,6 +229,10 @@ export const Section1Title = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-align: center;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.h3};
+  }
 `;
 
 export const Section1Subtitle = styled.h3`
@@ -187,6 +252,14 @@ export const Section1Subtitle = styled.h3`
   text-align: center;
   white-space: pre-wrap;
   word-break: keep-all;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    gap: 2rem;
+
+    width: 100%;
+
+    font-size: ${({ theme }) => theme.fontSize.base};
+  }
 `;
 
 export const Section1DescriptionWrapper = styled.div`
@@ -195,6 +268,11 @@ export const Section1DescriptionWrapper = styled.div`
   gap: 2rem;
   grid-auto-flow: column;
   grid-auto-columns: 34rem;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+  }
 `;
 
 export const Section1DescriptionBoxWrapper = styled.div`
@@ -207,7 +285,7 @@ export const Section1DescriptionBoxWrapper = styled.div`
   width: 34rem;
   padding: ${({ theme }) => theme.spacing.xl};
   border: 3px solid ${({ theme }) => theme.color.primary[300]};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border-radius: 16px;
 
   background-color: ${({ theme }) => theme.color.black[0]};
 
@@ -219,6 +297,11 @@ export const Section1DescriptionBoxWrapper = styled.div`
     box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
 
     transform: translateY(-5px);
+  }
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%;
+    padding: ${({ theme }) => theme.spacing.lg};
   }
 `;
 
@@ -232,11 +315,20 @@ export const Section1DescriptionTitle = styled.h3`
   color: ${({ theme }) => theme.color.black[900]};
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.base};
+  }
 `;
 
 export const Section1DescriptionTitleIcon = styled.img`
   width: 2rem;
   height: 2rem;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
 `;
 
 export const Section1Description = styled.p`
@@ -248,6 +340,10 @@ export const Section1Description = styled.p`
   line-height: 1.6;
   text-align: start;
   white-space: pre-wrap;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
+  }
 `;
 
 export const Section2TitleContainer = styled.div`
@@ -256,12 +352,20 @@ export const Section2TitleContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 4rem;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    gap: 2rem;
+  }
 `;
 
 export const Section2Title = styled.h2`
   color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.h3};
+  }
 `;
 
 export const Section2SubTitle = styled.h3`
@@ -272,6 +376,10 @@ export const Section2SubTitle = styled.h3`
   text-align: center;
   white-space: pre-wrap;
   word-break: keep-all;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fontSize.base};
+  }
 `;
 
 export const Section2DescriptionContainer = styled.div`
@@ -282,15 +390,29 @@ export const Section2DescriptionContainer = styled.div`
   gap: ${({ theme }) => theme.spacing.xxxl};
 
   width: 100%;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+    gap: ${({ theme }) => theme.spacing.xl};
+  }
 `;
 
 export const Section2Image = styled.img`
   width: 100%;
   height: 100%;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const StyledIqGraph = styled(IqGraph)<{ $hoveredLevel: string | null }>`
   width: 50%;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%;
+  }
 
   path {
     opacity: ${({ $hoveredLevel }) => ($hoveredLevel ? 0.5 : 1)};

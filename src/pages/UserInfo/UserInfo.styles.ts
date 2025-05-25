@@ -1,11 +1,13 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const slideDown = keyframes`
   from {
     transform: translateY(-100%);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
   }
 `;
 
@@ -19,16 +21,14 @@ export const Container = styled.div`
   padding: 2rem 0;
 
   background-color: transparent;
-
-  animation: ${slideDown} 1000ms ease-out;
 `;
 
 export const Title = styled.h1`
   width: 60%;
   margin-bottom: 2rem;
 
-  color: ${({ theme }) => theme.color.black[700]};
-  font-size: ${({ theme }) => theme.fontSize.h3};
+  color: ${({ theme }) => theme.color.black[800]};
+  font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
@@ -53,17 +53,27 @@ export const Form = styled.form`
   padding: 2rem;
 `;
 
-export const FormGroup = styled.div`
+export const FormGroup = styled.div<{ withAnimation?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
   width: 100%;
 
-  opacity: 0;
+  ${({ withAnimation }) =>
+    withAnimation
+      ? css`
+          opacity: 0;
 
-  animation: slideDown 0.3s ease forwards;
-  transform: translateY(10px);
+          animation: ${slideDown} 0.3s ease forwards;
+          transform: translateY(10px);
+        `
+      : css`
+          opacity: 1;
+
+          animation: none;
+          transform: none;
+        `}
 `;
 
 export const Label = styled.label`
@@ -215,17 +225,25 @@ export const ErrorMessage = styled.div`
   }
 `;
 
-export const AgreementGroup = styled.div`
+export const AgreementGroup = styled.div<{ withAnimation?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
   width: 100%;
 
-  opacity: 0;
-
-  animation: slideDown 0.3s ease forwards;
-  transform: translateY(10px);
+  ${({ withAnimation }) =>
+    withAnimation
+      ? `
+    opacity: 0;
+    animation: ${slideDown} 0.3s ease forwards;
+    transform: translateY(10px);
+  `
+      : `
+    opacity: 1;
+    animation: none;
+    transform: none;
+  `}
 `;
 
 export const CheckboxWrapper = styled.div`
@@ -255,23 +273,33 @@ export const AgreementLink = styled.a`
   text-decoration: underline;
 `;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled.button<{ withAnimation?: boolean }>`
   width: 60%;
   padding: 1rem;
   border: none;
   border-radius: 4px;
 
   background-color: ${({ theme }) => theme.color.primary[500]};
-  opacity: 0;
   color: ${({ theme }) => theme.color.black[0]};
   font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
 
-  animation: slideDown 0.3s ease forwards;
-  transform: translateY(10px);
   transition: background-color 0.2s ease;
 
   cursor: pointer;
+
+  ${({ withAnimation }) =>
+    withAnimation
+      ? `
+    opacity: 0;
+    animation: ${slideDown} 0.3s ease forwards;
+    transform: translateY(10px);
+  `
+      : `
+    opacity: 1;
+    animation: none;
+    transform: none;
+  `}
 
   &:hover {
     background-color: ${({ theme }) => theme.color.primary[600]};

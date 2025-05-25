@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import * as S from './Contact.styles';
 import Button from '../../components/Button/Button';
+import PageLayout from '../../components/common/PageLayout/PageLayout';
+import * as S from './Contact.styles';
 
 interface ContactForm {
   name: string;
@@ -300,16 +301,16 @@ function Contact() {
   };
 
   return (
-    <S.ContactContainer>
-      <S.ContactTitle>문의하기</S.ContactTitle>
-      <S.ContactDescription>
+    <PageLayout>
+      <S.Title>문의하기</S.Title>
+      <S.Description>
         BrainBrain과 함께 성장하는 여정에 여러분의 소중한 의견이 필요합니다.
         <br />
         서비스 개선 제안, 버그 리포트, 결제 관련 문의, 또는 단순히 궁금한 점이 있으시다면 언제든 편하게 문의해 주세요.
         <br />
         빠른 시일 내에 답변 드리겠습니다.
-      </S.ContactDescription>
-      <S.ContactForm onSubmit={handleSubmit}>
+      </S.Description>
+      <S.Form onSubmit={handleSubmit}>
         <S.FormGroup>
           <S.Label htmlFor="name">
             이름<span>*</span>
@@ -431,8 +432,8 @@ function Contact() {
           {fileError && <S.ErrorMessage>{fileError}</S.ErrorMessage>}
         </S.FormGroup>
         <Button type="submit">보내기</Button>
-      </S.ContactForm>
-    </S.ContactContainer>
+      </S.Form>
+    </PageLayout>
   );
 }
 

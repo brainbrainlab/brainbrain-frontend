@@ -27,7 +27,7 @@ const getTransformStyle = ({ $isBottom }: ScrollIconProps) => {
       `;
 };
 
-export const Layout = styled.div<{ $isBottom: boolean }>`
+export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

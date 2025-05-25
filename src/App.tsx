@@ -9,6 +9,8 @@ import GlobalStyle from './styles/Global.style';
 import { theme } from './styles/theme';
 import { updateHtmlLang } from './utils/i18n';
 
+import './styles/font.css';
+
 function App() {
   const { i18n } = useTranslation();
 

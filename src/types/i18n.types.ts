@@ -6,6 +6,10 @@ export interface TranslationKeys {
     contact: string;
     businessInfo: string;
     copyright: string;
+    currency: string;
+    back: string;
+    goBack: string;
+    goHome: string;
   };
   error: {
     pageNotFound: string;
@@ -16,6 +20,17 @@ export interface TranslationKeys {
       tooFast: string;
       sameAnswer: string;
     };
+    required: string;
+    englishNameRequired: string;
+    englishNameInvalid: string;
+    koreanNameRequired: string;
+    koreanNameInvalid: string;
+    addressRequired: string;
+    phoneNumberRequired: string;
+    phoneNumberInvalid: string;
+    unknown: string;
+    paymentMethodRequired: string;
+    paymentInProgress: string;
   };
   header: {
     language: string;
@@ -70,6 +85,21 @@ export interface TranslationKeys {
     confirmSubmitDescription: string;
     yes: string;
     no: string;
+    warning: {
+      title: string;
+      startButton: string;
+      description: string;
+      rules: {
+        timeLimit: string;
+        allQuestions: string;
+        noPageLeave: string;
+        noRefresh: string;
+      };
+    };
+    invalid: {
+      contactMessage: string;
+      contactLink: string;
+    };
   };
   result: {
     title: string;
@@ -96,6 +126,8 @@ export interface TranslationKeys {
       title: string;
       placeholder: string;
       register: string;
+      apply: string;
+      label: string;
     };
     options: {
       basic: {
@@ -119,6 +151,53 @@ export interface TranslationKeys {
       phoneNumber: string;
       goBack: string;
       makePayment: string;
+    };
+    form: {
+      englishName: string;
+      englishNamePlaceholder: string;
+      koreanName: string;
+      koreanNamePlaceholder: string;
+      address: string;
+      addressPlaceholder: string;
+      detailedAddress: string;
+      detailedAddressPlaceholder: string;
+      phoneNumber: string;
+      phoneNumberPlaceholder: string;
+      searchAddress: string;
+    };
+    pay: string;
+    fail: {
+      title: string;
+    };
+    processing: string;
+  };
+  userInfo: {
+    country: {
+      label: string;
+      placeholder: string;
+      options: {
+        kr: string;
+        us: string;
+        jp: string;
+        cn: string;
+        other: string;
+      };
+    };
+  };
+  terms: {
+    service: {
+      title: string;
+      article4: {
+        title: string;
+        content: {
+          list: string;
+          items: {
+            test: string;
+            score: string;
+            report: string;
+          };
+        };
+      };
     };
   };
 }

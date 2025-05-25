@@ -1,13 +1,24 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Layout = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 20rem);
+`;
 
-  background-color: ${({ theme }) => theme.color.black[0]};
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xl};
+
+  max-width: 60rem;
+  padding: ${({ theme }) => theme.spacing.xl};
+  border-radius: 8px;
 `;
 
 export const Content = styled.div`
@@ -30,6 +41,7 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.color.black[600]};
   font-size: ${({ theme }) => theme.fontSize.h3};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+  border-bottom: 2px solid ${({ theme }) => theme.color.primary[500]};
 `;
 
 export const Description = styled.p`

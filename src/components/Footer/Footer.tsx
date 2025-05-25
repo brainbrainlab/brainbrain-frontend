@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import textLogo from '@/assets/images/logo_text.svg';
@@ -7,7 +6,6 @@ import logoImage from '@/assets/images/logo_with_dot.svg';
 import * as S from './Footer.styles';
 
 function Footer() {
-  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
   return (

@@ -7,6 +7,11 @@ const getHeaderHeight = () => {
   return header ? header.getBoundingClientRect().height : 0;
 };
 
+const getFooterHeight = () => {
+  const footer = document.querySelector('footer');
+  return footer ? footer.getBoundingClientRect().height : 0;
+};
+
 interface UseScrollIconProps {
   targetSections?: TargetSection[];
 }
@@ -21,9 +26,10 @@ const useScrollIcon = ({ targetSections }: UseScrollIconProps) => {
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
     const headerHeight = getHeaderHeight();
+    const footerHeight = getFooterHeight();
 
     // 페이지 하단에 도달했는지 확인
-    if (scrollPosition + windowHeight >= documentHeight - 100) {
+    if (scrollPosition + windowHeight >= documentHeight - footerHeight - 100) {
       setCurrentSection('bottom');
       return;
     }
@@ -51,9 +57,31 @@ const useScrollIcon = ({ targetSections }: UseScrollIconProps) => {
   const handleClick = useCallback(() => {
     if (!targetSections) return;
 
+    const headerHeight = getHeaderHeight();
+
+    // 현재 bottom 상태면 맨 위로 스크롤
+    if (currentSection === 'bottom') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // 현재 top 상태면 첫 번째 섹션으로 스크롤
+    if (currentSection === 'top') {
+      const firstSection = targetSections[0];
+      const element = document.getElementById(firstSection.id);
+      if (element) {
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementTop - headerHeight,
+          behavior: 'smooth',
+        });
+      }
+      return;
+    }
+
+    // 현재 섹션에서 다음 섹션으로 스크롤
     const currentIndex = targetSections.findIndex(section => section.id === currentSection);
     const nextSection = targetSections[currentIndex + 1];
-    const headerHeight = getHeaderHeight();
 
     if (nextSection) {
       const element = document.getElementById(nextSection.id);
@@ -64,8 +92,6 @@ const useScrollIcon = ({ targetSections }: UseScrollIconProps) => {
           behavior: 'smooth',
         });
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentSection, targetSections]);
 

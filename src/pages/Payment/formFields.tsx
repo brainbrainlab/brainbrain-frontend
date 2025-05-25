@@ -108,9 +108,9 @@ const FormField = ({
   if (field === FORM_FIELDS.ADDRESS) {
     return (
       <>
-        <S.FormGroup>
+        <S.InputWrapper>
           <S.Label>
-            {t(label)} <S.Required>*</S.Required>
+            {t(label)} <S.RequiredMark>*</S.RequiredMark>
           </S.Label>
           <S.AddressInputWrapper>
             <S.Input
@@ -126,7 +126,7 @@ const FormField = ({
             </S.AddressSearchButton>
           </S.AddressInputWrapper>
           {error && <S.ErrorMessage>{t(error, { ns: 'payment' })}</S.ErrorMessage>}
-        </S.FormGroup>
+        </S.InputWrapper>
         <FormField
           field={FORM_FIELDS.DETAILED_ADDRESS}
           label="payment.form.detailedAddress"
@@ -140,9 +140,9 @@ const FormField = ({
   }
 
   return (
-    <S.FormGroup>
+    <S.InputWrapper>
       <S.Label>
-        {t(label)} <S.Required>*</S.Required>
+        {t(label)} <S.RequiredMark>*</S.RequiredMark>
       </S.Label>
       <S.Input
         type={type}
@@ -156,7 +156,7 @@ const FormField = ({
         disabled={field === FORM_FIELDS.DETAILED_ADDRESS && !formData[FORM_FIELDS.ADDRESS]}
       />
       {error && <S.ErrorMessage>{t(error, { ns: 'payment' })}</S.ErrorMessage>}
-    </S.FormGroup>
+    </S.InputWrapper>
   );
 };
 

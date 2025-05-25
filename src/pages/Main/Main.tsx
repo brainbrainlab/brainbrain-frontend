@@ -3,8 +3,6 @@ import DescriptionSection from '@/components/Main/DescriptionSection';
 import ScoreSection from '@/components/Main/ScoreSection';
 import TitleSection from '@/components/Main/TitleSection';
 
-import * as S from './Main.styles';
-
 const targetSections: TargetSection[] = [
   { id: 'title', position: 'top' },
   { id: 'description', position: 'bottom' },
@@ -14,11 +12,9 @@ const targetSections: TargetSection[] = [
 const Main = () => {
   return (
     <>
-      <S.Layout>
-        <TitleSection />
-        <DescriptionSection />
-        <ScoreSection />
-      </S.Layout>
+      <TitleSection />
+      <DescriptionSection />
+      <ScoreSection />
       <ScrollIcon targetSections={targetSections} />
     </>
   );
