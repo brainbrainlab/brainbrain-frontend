@@ -21,7 +21,7 @@ export const paymentsService = {
           orderId,
           amount,
           goodsName,
-          returnUrl: NICE_PAY_CONFIG.RETURN_URL,
+          returnUrl: NICE_PAY_CONFIG.RETURN_URL + '?name=' + goodsName,
           fnError: result => {
             reject({ success: false, error: result.errorMsg });
           },
