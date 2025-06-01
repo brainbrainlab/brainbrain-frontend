@@ -1,0 +1,361 @@
+{
+  "common": {
+    "goToHome": "홈으로 돌아가기",
+    "privacyPolicy": "개인정보 처리방침",
+    "termsOfService": "서비스 이용약관",
+    "contact": "문의하기",
+    "businessInfo": "사업자 정보",
+    "copyright": "© 2024 BrainBrain. All Rights Reserved.",
+    "currency": "원",
+    "back": "뒤로",
+    "goBack": "돌아가기",
+    "goHome": "홈으로",
+    "and": "및"
+  },
+  "error": {
+    "pageNotFound": "페이지를 찾을 수 없습니다",
+    "testInvalid": "테스트 결과를 확인할 수 없습니다",
+    "testInvalidDescription": "비정상적인 테스트 진행으로 인해 결과를 확인할 수 없습니다.\n테스트를 다시 진행해 주세요.",
+    "retakeTest": "테스트 다시 하기",
+    "invalidReasons": {
+      "tooFast": "테스트 진행 시간이 너무 짧습니다",
+      "sameAnswer": "동일한 답변이 너무 많습니다"
+    },
+    "required": "필수 입력 항목입니다",
+    "emailRequired": "이메일을 입력해주세요",
+    "emailInvalid": "올바른 이메일 형식이 아닙니다",
+    "englishNameRequired": "영문 이름을 입력해주세요",
+    "englishNameInvalid": "영문으로만 입력해주세요",
+    "koreanNameRequired": "한글 이름을 입력해주세요",
+    "koreanNameInvalid": "한글로만 입력해주세요",
+    "addressRequired": "주소를 입력해주세요",
+    "phoneNumberRequired": "휴대폰 번호를 입력해주세요",
+    "phoneNumberInvalid": "올바른 휴대폰 번호를 입력해주세요",
+    "unknown": "알 수 없는 오류가 발생했습니다",
+    "paymentsMethodRequired": "결제 수단을 선택해주세요",
+    "paymentsInProgress": "결제가 이미 진행 중입니다. 잠시만 기다려주세요."
+  },
+  "header": {
+    "language": "언어/Language"
+  },
+  "main": {
+    "subtitle": "멘사 문제 유형 IQ 테스트",
+    "description1": "40분 42문항",
+    "description2": "공식 인증서 발급",
+    "description3": "지적 수준을 객관적으로 확인",
+    "description4": "2025 최신 IQ Test 문제 유형 반영",
+    "button": "테스트 시작",
+    "section1": {
+      "title": "BrainBrain IQ Test는 무엇인가요?",
+      "subtitle": "BrainBrain은 다양한 난이도의 맞춤형 테스트를 통해 실시간 결과 분석과 피드백을 제공합니다.\n이를 통해 자신의 강점과 개선할 점을 파악하고, 뇌를 발전시킬 수 있는 훈련 방법도 제시합니다.\n또한, 개인정보는 철저히 보호되며, 모든 데이터는 안전하게 관리됩니다.",
+      "description1": {
+        "title": "신뢰할 수 있는 정확한 결과",
+        "content": "BrainBrain은 최신의 심리학 연구와 검증된 IQ 테스트를 바탕으로, 정확하고 신뢰할 수 있는 결과를 제공합니다. 과학적인 기준을 준수하여 모든 사용자가 믿을 수 있는 IQ 점수를 얻을 수 있도록 보장합니다."
+      },
+      "description2": {
+        "title": "개인 맞춤형 분석",
+        "content": "단순한 점수 외에도, 테스트 결과에 대한 상세한 분석을 제공합니다. 각 분야에서의 강점과 개선이 필요한 부분을 확인하여, 개인의 뇌 능력을 더 잘 이해할 수 있습니다."
+      },
+      "description3": {
+        "title": "편리한 온라인 접근",
+        "content": "BrainBrain은 언제 어디서나 인터넷만 있으면 쉽게 접속할 수 있습니다. 번거로운 시간과 장소에 구애받지 않고, 원하는 시간에 테스트를 진행할 수 있어 편리합니다."
+      }
+    },
+    "section2": {
+      "title": "IQ 점수 분포도",
+      "subtitle": "지능 지수(IQ)는 사람의 인지 능력을 수치화한 값으로, 논리적 사고, 문제 해결, 기억력, 추론 능력 등을 측정하는 심리학적 지표입니다.\nIQ는 유전적 요인과 환경적 요인의 영향을 받으며, 단순한 수치가 아닌 종합적인 인지 능력의 하나의 지표로 해석해야 합니다.",
+      "scores": {
+        "highest": "상위 0.1%",
+        "higher": "상위 2%",
+        "high": "높은 지능",
+        "aboveAverage": "평균 이상",
+        "belowAverage": "평균 이하",
+        "low": "경계성 지능",
+        "lower": "하위 2%",
+        "lowest": "하위 0.1%",
+        "mensaNote": "멘사 가입 기준 충족"
+      }
+    }
+  },
+  "test": {
+    "timeRemaining": "남은 시간",
+    "minutes": "분",
+    "seconds": "초",
+    "question": "문제",
+    "nextQuestion": "다음 문제",
+    "submitTest": "제출하기",
+    "confirmSubmit": "테스트를 제출하시겠습니까?",
+    "confirmSubmitDescription": "제출 후에는 답변을 수정할 수 없습니다.",
+    "yes": "예",
+    "no": "아니오",
+    "warning": {
+      "title": "테스트 주의사항",
+      "startButton": "테스트 시작하기",
+      "description": "테스트를 시작하기 전에 다음 사항을 확인해 주세요.",
+      "rules": {
+        "timeLimit": "테스트는 총 42문제로 구성되어 있으며, 제한 시간은 40분입니다.",
+        "allQuestions": "모든 문제에 답변해야 결과를 확인할 수 있습니다.",
+        "noPageLeave": "페이지를 나가면 테스트가 중단되며, 진행 상황은 저장되지 않습니다.",
+        "noRefresh": "테스트 중에는 브라우저를 닫거나 새로고침하지 마세요."
+      }
+    },
+    "invalid": {
+      "contactMessage": "정상적으로 테스트를 진행했는데도 같은 문제가 반복된다면",
+      "contactLink": "문의하기"
+    }
+  },
+  "result": {
+    "title": "IQ 테스트 결과",
+    "score": "당신의 IQ 점수",
+    "description": "상위 {percent}%에 해당하는 점수입니다.",
+    "downloadCertificate": "인증서 다운로드",
+    "retakeTest": "다시 테스트하기",
+    "shareResult": "결과 공유하기",
+    "analysis": {
+      "title": "상세 분석",
+      "overall": "전체 평가",
+      "categories": {
+        "logical": "논리적 사고",
+        "spatial": "공간 지각",
+        "numerical": "수리 능력",
+        "memory": "기억력"
+      }
+    }
+  },
+  "payments": {
+    "title": "결제 옵션 선택",
+    "selectOption": "결제 옵션을 선택해주세요",
+    "coupon": {
+      "title": "쿠폰 등록",
+      "placeholder": "쿠폰 코드를 입력하세요",
+      "register": "쿠폰 등록",
+      "apply": "쿠폰 적용",
+      "label": "{{amount}}원 할인 쿠폰 적용"
+    },
+    "options": {
+      "basic": {
+        "title": "기본 패키지",
+        "features": ["테스트 결과 점수"]
+      },
+      "standard": {
+        "title": "온라인 인증서 패키지",
+        "features": ["테스트 결과 점수", "온라인 인증서", "상세 보고서"]
+      },
+      "premium": {
+        "title": "프리미엄 패키지",
+        "features": ["테스트 결과 점수", "온라인 인증서", "실물 인증서", "상세 보고서", "브레인브레인 굿즈"]
+      }
+    },
+    "process": {
+      "title": "결제 정보",
+      "englishName": "영문 이름",
+      "koreanName": "한글 이름",
+      "address": "주소",
+      "phoneNumber": "휴대폰 번호",
+      "goBack": "돌아가기",
+      "makePayments": "결제하기"
+    },
+    "form": {
+      "englishName": "영문 이름",
+      "englishNamePlaceholder": "영문 이름을 입력해주세요",
+      "koreanName": "한글 이름",
+      "koreanNamePlaceholder": "한글 이름을 입력해주세요",
+      "address": "주소",
+      "addressPlaceholder": "주소를 입력해주세요",
+      "detailedAddress": "상세 주소",
+      "detailedAddressPlaceholder": "동/호수를 입력해주세요",
+      "phoneNumber": "전화번호",
+      "phoneNumberPlaceholder": "-를 제외한 번호를 입력해주세요",
+      "searchAddress": "주소 검색"
+    },
+    "pay": "결제하기",
+    "fail": {
+      "title": "결제 실패",
+      "description": "결제 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+      "retry": "다시 시도",
+      "goBack": "돌아가기"
+    },
+    "processing": "결제 처리 중...",
+    "success": {
+      "title": "결제 완료",
+      "description": "구매해 주셔서 감사합니다.",
+      "download": "인증서 다운로드",
+      "goHome": "홈으로"
+    }
+  },
+  "userInfo": {
+    "completeSubtitle": "결제 정보를 입력해주세요",
+    "email": "이메일",
+    "emailPlaceholder": "이메일을 입력해주세요",
+    "name": "이름",
+    "namePlaceholder": "이름을 입력해주세요",
+    "age": "나이",
+    "agePlaceholder": "나이를 선택해주세요",
+    "gender": "성별",
+    "genderOptions": {
+      "male": "남성",
+      "female": "여성",
+      "other": "기타"
+    },
+    "agreement": "에 동의합니다",
+    "submit": "제출하기",
+    "country": {
+      "label": "국가",
+      "placeholder": "국가를 선택해주세요",
+      "options": {
+        "kr": "대한민국",
+        "us": "미국",
+        "jp": "일본",
+        "cn": "중국",
+        "other": "기타"
+      }
+    }
+  },
+  "terms": {
+    "privacy": {
+      "title": "개인정보처리방침",
+      "introduction": "브레인랩(이하 \"회사\"라 함)은 BrainBrain 서비스(이하 \"서비스\"라 함)를 운영함에 있어 이용자의 개인정보를 소중하게 생각하며, 관련 법령에 따라 개인정보를 안전하게 보호하고 적법하게 처리하기 위하여 다음과 같은 개인정보처리방침을 수립·공개합니다.",
+      "article1": {
+        "title": "제1조 (수집하는 개인정보 항목 및 수집 방법)",
+        "description": "회사는 아래의 항목에 해당하는 개인정보를 수집합니다.",
+        "items": {
+          "title": "수집 항목",
+          "personalInfo": "이름, 이메일 주소, 성별, 나이, 국가",
+          "testResult": "아이큐 테스트 결과 및 점수",
+          "payments": "결제 내역"
+        },
+        "methods": {
+          "title": "수집 방법",
+          "directInput": "이용자가 테스트를 진행하거나 결제 과정에서 직접 입력한 정보",
+          "paymentsInfo": "결제 시 PG사로부터 수신한 결제 정보"
+        }
+      },
+      "article2": {
+        "title": "제2조 (개인정보의 수집 및 이용 목적)",
+        "description": "회사는 수집한 개인정보를 다음의 목적을 위하여 이용합니다.",
+        "purposes": {
+          "certificate": "아이큐 테스트 결과 기반 인증서 및 보고서 작성",
+          "email": "이메일을 통한 결과 전달",
+          "support": "이용자 문의 대응 및 서비스 이용 관련 고지"
+        }
+      },
+      "article3": {
+        "title": "제3조 (개인정보의 보유 및 이용 기간)",
+        "description": "회사는 원칙적으로 개인정보 수집 및 이용 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 다만, 다음의 경우에는 명시한 기간 동안 보존합니다.",
+        "retention": {
+          "items": "보존 항목: 이름, 이메일, 성별, 나이대, 국가, 점수, 결제내역",
+          "period": "보존 기간: 수집일로부터 2년 또는 이용자의 삭제 요청 시까지"
+        }
+      },
+      "article4": {
+        "title": "제4조 (개인정보의 제3자 제공)",
+        "description": "회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다. 단, 관련 법령에 의거한 요청이 있을 경우에는 예외로 할 수 있습니다."
+      },
+      "article5": {
+        "title": "제5조 (개인정보 처리의 위탁)",
+        "description": "회사는 아래와 같이 일부 업무를 외부에 위탁하고 있으며, 위탁받은 업체가 개인정보 보호법을 준수하도록 관리·감독하고 있습니다.",
+        "table": {
+          "company": "수탁업체",
+          "task": "위탁업무 내용",
+          "emailTask": "이메일 전송(사용자 정보 포함되지 않음. 인증서 및 보고서 파일만 첨부)"
+        }
+      },
+      "article6": {
+        "title": "제6조 (이용자의 권리 및 행사 방법)",
+        "description": "이용자는 언제든지 회사에 대해 아래 사항에 대한 권리를 행사할 수 있습니다.",
+        "rights": {
+          "access": "개인정보 열람 요구",
+          "correction": "오류 등이 있을 경우 정정 요구",
+          "deletion": "삭제 요청",
+          "suspension": "처리 정지 요구"
+        },
+        "contact": "※ 위 권리는 이메일(📩 brainbrainsite@gmail.com)을 통해 행사하실 수 있으며, 회사는 이에 지체 없이 조치하겠습니다."
+      },
+      "article7": {
+        "title": "제7조 (개인정보 자동 수집 장치의 설치·운영 및 거부)",
+        "description": "회사는 쿠키, 웹 로그 분석 도구(Google Analytics 등)를 사용하지 않습니다."
+      },
+      "article8": {
+        "title": "제8조 (개인정보의 안전성 확보 조치)",
+        "description": "회사는 개인정보보호법 제29조에 따라 다음과 같은 안전성 확보에 필요한 조치를 하고 있습니다.",
+        "measures": {
+          "access": "개인정보에 대한 접근 제한",
+          "encryption": "문서 파일 및 전송 파일 암호화",
+          "security": "외부 접속 제어 및 보안 소프트웨어 사용"
+        }
+      },
+      "article9": {
+        "title": "제9조 (개인정보 보호책임자)",
+        "description": "회사는 개인정보 처리에 관한 업무를 총괄하여 책임지고, 정보주체의 개인정보 관련 문의 및 고충 처리 등을 담당하는 개인정보 보호책임자를 지정하고 있습니다.",
+        "officer": {
+          "title": "개인정보 보호책임자",
+          "name": "Brain Lab",
+          "email": "이메일",
+          "address": "brainbrainsite@gmail.com"
+        }
+      },
+      "article10": {
+        "title": "제10조 (개인정보처리방침의 변경)",
+        "description": "이 개인정보처리방침은 법령 및 내부 운영 정책에 따라 변경될 수 있으며, 변경 시 서비스 내 공지사항 또는 이메일을 통해 사전 공지합니다.",
+        "effectiveDate": "시행일자",
+        "date": "2025년 5월 11일"
+      }
+    },
+    "service": {
+      "title": "서비스 이용약관",
+      "introduction": "본 약관은 브레인랩(이하 \"회사\")이 제공하는 BrainBrain 웹사이트(이하 \"서비스\")의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.",
+      "article1": {
+        "title": "제1조 (목적)",
+        "description": "이 약관은 회사가 제공하는 IQ 테스트 및 그에 따른 결과 리포트·인증서 발급 서비스의 이용조건 및 절차, 기타 필요한 사항을 규정함을 목적으로 합니다."
+      },
+      "article2": {
+        "title": "제2조 (용어의 정의)",
+        "definitions": {
+          "user": "\"이용자\"란 본 서비스에 접속하여 본 약관에 따라 서비스를 이용하는 자를 말합니다.",
+          "payments": "\"결제\"란 이용자가 회사에 일정 금액을 지불하고 유료 서비스를 이용하는 행위를 말합니다.",
+          "content": "\"콘텐츠\"란 회사가 서비스 내에서 제공하는 텍스트, 이미지, 보고서, 인증서 등의 결과물을 말합니다."
+        }
+      },
+      "article3": {
+        "title": "제3조 (약관의 효력 및 변경)",
+        "effectiveness": {
+          "notice": "본 약관은 서비스 화면에 게시하거나 기타 방법으로 공지함으로써 효력을 발생합니다.",
+          "changes": "회사는 관련 법령을 위배하지 않는 범위에서 약관을 변경할 수 있으며, 변경된 약관은 적용일자와 함께 공지합니다.",
+          "disagreement": "이용자가 변경된 약관에 동의하지 않는 경우, 서비스 이용을 중단할 수 있습니다."
+        }
+      },
+      "article4": {
+        "title": "제4조 (서비스의 제공)",
+        "services": {
+          "title": "회사는 아래와 같은 서비스를 제공합니다:",
+          "test": "IQ 테스트 진행",
+          "score": "결과 기반 점수 제공",
+          "report": "개인화된 보고서 및 인증서 작성 및 이메일 발송"
+        }
+      },
+      "article5": {
+        "title": "제5조 (서비스 이용요금 및 결제)",
+        "payments": {
+          "paidContent": "본 서비스는 일부 콘텐츠에 대해 유료로 제공되며, 이용자는 결제를 통해 유료 콘텐츠를 이용할 수 있습니다.",
+          "process": "결제는 토스페이먼츠(PG)를 통해 진행되며, 이용자는 결제 시 제시되는 금액 및 조건을 충분히 확인해야 합니다.",
+          "refund": "결제 완료 후에는 원칙적으로 환불이 불가능합니다. 단, 서비스 장애나 중대한 오류가 있는 경우에는 회사가 개별적으로 환불을 판단합니다."
+        }
+      }
+    },
+    "business": {
+      "description": "브레인랩의 사업자 정보입니다.",
+      "table": {
+        "item": "항목",
+        "content": "내용",
+        "company": "상호(법인명)",
+        "companyName": "브레인랩",
+        "ceo": "대표자명",
+        "ceoName": "이예찬",
+        "address": "주소",
+        "companyAddress": "경기도 성남시 분당구 정자일로 15 103동 1302호",
+        "email": "대표 이메일",
+        "companyEmail": "brainbrainsite@gmail.com"
+      }
+    }
+  }
+}

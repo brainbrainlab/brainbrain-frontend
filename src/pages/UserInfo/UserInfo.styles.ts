@@ -11,21 +11,9 @@ const slideDown = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  padding: 2rem 0;
-
-  background-color: transparent;
-`;
-
 export const Title = styled.h1`
-  width: 60%;
-  margin-bottom: 2rem;
+  width: 80%;
+  margin: 2rem 0;
 
   color: ${({ theme }) => theme.color.black[800]};
   font-size: ${({ theme }) => theme.fontSize.h2};
@@ -33,7 +21,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  width: 60%;
+  width: 80%;
   margin-bottom: 3rem;
 
   color: ${({ theme }) => theme.color.black[700]};
@@ -49,19 +37,18 @@ export const Form = styled.form`
   align-items: center;
   gap: 2rem;
 
-  width: 60%;
-  padding: 2rem;
+  width: 80%;
 `;
 
-export const FormGroup = styled.div<{ withAnimation?: boolean }>`
+export const FormGroup = styled.div<{ $withAnimation?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
   width: 100%;
 
-  ${({ withAnimation }) =>
-    withAnimation
+  ${({ $withAnimation }) =>
+    $withAnimation
       ? css`
           opacity: 0;
 
@@ -90,7 +77,7 @@ export const Required = styled.span`
 
 export const Input = styled.input<{ $hasError: boolean }>`
   width: 100%;
-  height: 48px;
+  height: 4.8rem;
   padding: 0 1rem;
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.color.error[500] : theme.color.primary[200])};
   border-radius: 8px;
@@ -225,25 +212,27 @@ export const ErrorMessage = styled.div`
   }
 `;
 
-export const AgreementGroup = styled.div<{ withAnimation?: boolean }>`
+export const AgreementGroup = styled.div<{ $withAnimation?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
   width: 100%;
 
-  ${({ withAnimation }) =>
-    withAnimation
-      ? `
-    opacity: 0;
-    animation: ${slideDown} 0.3s ease forwards;
-    transform: translateY(10px);
-  `
-      : `
-    opacity: 1;
-    animation: none;
-    transform: none;
-  `}
+  ${({ $withAnimation }) =>
+    $withAnimation
+      ? css`
+          opacity: 0;
+
+          animation: ${slideDown} 0.3s ease forwards;
+          transform: translateY(10px);
+        `
+      : css`
+          opacity: 1;
+
+          animation: none;
+          transform: none;
+        `}
 `;
 
 export const CheckboxWrapper = styled.div`
@@ -273,11 +262,15 @@ export const AgreementLink = styled.a`
   text-decoration: underline;
 `;
 
-export const SubmitButton = styled.button<{ withAnimation?: boolean }>`
+export const SubmitButton = styled.button<{ $withAnimation?: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 60%;
   padding: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
 
   background-color: ${({ theme }) => theme.color.primary[500]};
   color: ${({ theme }) => theme.color.black[0]};
@@ -288,18 +281,20 @@ export const SubmitButton = styled.button<{ withAnimation?: boolean }>`
 
   cursor: pointer;
 
-  ${({ withAnimation }) =>
-    withAnimation
-      ? `
-    opacity: 0;
-    animation: ${slideDown} 0.3s ease forwards;
-    transform: translateY(10px);
-  `
-      : `
-    opacity: 1;
-    animation: none;
-    transform: none;
-  `}
+  ${({ $withAnimation }) =>
+    $withAnimation
+      ? css`
+          opacity: 0;
+
+          animation: ${slideDown} 0.3s ease forwards;
+          transform: translateY(10px);
+        `
+      : css`
+          opacity: 1;
+
+          animation: none;
+          transform: none;
+        `}
 
   &:hover {
     background-color: ${({ theme }) => theme.color.primary[600]};

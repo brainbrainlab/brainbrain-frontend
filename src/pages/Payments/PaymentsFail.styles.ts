@@ -28,7 +28,7 @@ export const Description = styled.p`
   word-break: keep-all;
 `;
 
-export const PaymentInfo = styled.div`
+export const PaymentsInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +42,7 @@ export const PaymentInfo = styled.div`
   background-color: ${({ theme }) => theme.color.black[50]};
 `;
 
-export const PaymentInfoTitle = styled.h2`
+export const PaymentsInfoTitle = styled.h2`
   width: 100%;
   padding-bottom: ${({ theme }) => theme.spacing.base};
   border-bottom: 1px solid ${({ theme }) => theme.color.black[200]};

@@ -1847,13 +1847,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tosspayments/tosspayments-sdk@npm:^2.3.4":
-  version: 2.3.4
-  resolution: "@tosspayments/tosspayments-sdk@npm:2.3.4"
-  checksum: 10c0/73b5534dc6c826509ab022cf93a36c44cd459c30455a7a058a418fb10538429750511840f5cd2da1348624e9d8fddb059c6038fbf0ea35ff62e5fe16d8cd5f09
-  languageName: node
-  linkType: hard
-
 "@trysound/sax@npm:0.2.0":
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0"
@@ -2191,6 +2184,13 @@ __metadata:
     fflate: "npm:~0.8.2"
     meshoptimizer: "npm:~0.18.1"
   checksum: 10c0/338e9d8d01d373014ee3c3b686a0d633c1a29603fe199c7c5340fc1a35c17e6eea0d0a7bba5ff9a33b8e462e5b471c0829c2aaa34ab2300e8d6e7e3f885e45b5
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@types/uuid@npm:10.0.0"
+  checksum: 10c0/9a1404bf287164481cb9b97f6bb638f78f955be57c40c6513b7655160beb29df6f84c915aaf4089a1559c216557dc4d2f79b48d978742d3ae10b937420ddac60
   languageName: node
   linkType: hard
 
@@ -3193,14 +3193,15 @@ __metadata:
     "@eslint/js": "npm:^9.26.0"
     "@svgr/webpack": "npm:^8.1.0"
     "@tanstack/react-query": "npm:^5.67.2"
-    "@tosspayments/tosspayments-sdk": "npm:^2.3.4"
     "@types/eslint-plugin-jsx-a11y": "npm:^6"
     "@types/react": "npm:^19.0.10"
     "@types/react-dom": "npm:^19.0.4"
     "@types/react-router-dom": "npm:^5.3.3"
     "@types/three": "npm:^0.174.0"
+    "@types/uuid": "npm:^10.0.0"
     copy-webpack-plugin: "npm:^13.0.0"
     css-loader: "npm:^7.1.2"
+    dotenv-webpack: "npm:^8.1.0"
     eslint: "npm:^9.26.0"
     eslint-import-resolver-typescript: "npm:^4.3.4"
     eslint-plugin-import: "npm:^2.31.0"
@@ -3228,6 +3229,7 @@ __metadata:
     ts-loader: "npm:^9.5.2"
     typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.32.1"
+    uuid: "npm:^11.1.0"
     webpack: "npm:^5.98.0"
     webpack-cli: "npm:^6.0.1"
     webpack-dev-server: "npm:^5.2.0"
@@ -4184,6 +4186,33 @@ __metadata:
     no-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: 10c0/5b859ea65097a7ea870e2c91b5768b72ddf7fa947223fd29e167bcdff58fe731d941c48e47a38ec8aa8e43044c8fbd15cd8fa21689a526bc34b6548197cd5b05
+  languageName: node
+  linkType: hard
+
+"dotenv-defaults@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "dotenv-defaults@npm:2.0.2"
+  dependencies:
+    dotenv: "npm:^8.2.0"
+  checksum: 10c0/14b7b8f6c21a30404106384398728746e63405bfeabe47ef7aadd0e81de49986d5896a612e5b1acddf655af6472a24947b7b113aa3ef3270a2877afa9c5bd287
+  languageName: node
+  linkType: hard
+
+"dotenv-webpack@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "dotenv-webpack@npm:8.1.0"
+  dependencies:
+    dotenv-defaults: "npm:^2.0.2"
+  peerDependencies:
+    webpack: ^4 || ^5
+  checksum: 10c0/7a64587fc96eba8e4ffccf56d6af09606611a32bc5cf04a37057b8c2881bcd11bf43c3395404581be734ae7fd2788471ceac76cb3d0ba1283e675223f98e5816
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^8.2.0":
+  version: 8.6.0
+  resolution: "dotenv@npm:8.6.0"
+  checksum: 10c0/6750431dea8efbd54b9f2d9681b04e1ccc7989486461dcf058bb708d9e3d63b04115fcdf8840e38ad1e24a4a2e1e7c1560626c5e3ac7bc09371b127c49e2d45f
   languageName: node
   linkType: hard
 
@@ -9485,6 +9514,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: 10c0/02ba649de1b7ca8854bfe20a82f1dfbdda3fb57a22ab4a8972a63a34553cf7aa51bc9081cf7e001b035b88186d23689d69e71b510e610a09a4c66f68aa95b672
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "uuid@npm:11.1.0"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 10c0/34aa51b9874ae398c2b799c88a127701408cd581ee89ec3baa53509dd8728cbb25826f2a038f9465f8b7be446f0fbf11558862965b18d21c993684297628d4d3
   languageName: node
   linkType: hard
 

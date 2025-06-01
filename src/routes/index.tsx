@@ -5,10 +5,8 @@ import Info from '@/pages/Info/Info';
 import Layout from '@/pages/Layout';
 import Main from '@/pages/Main/Main';
 import NotFound from '@/pages/NotFound/NotFound';
-import Payment from '@/pages/Payment/Payment';
-import PaymentFail from '@/pages/Payment/PaymentFail';
-import PaymentProcess from '@/pages/Payment/PaymentProcess';
-import PaymentSuccess from '@/pages/Payment/PaymentSuccess';
+import Payments from '@/pages/Payments/Payments';
+import PaymentsFail from '@/pages/Payments/PaymentsFail';
 import Result from '@/pages/Result/Result';
 import Testing from '@/pages/Test/Test';
 import TestInvalid from '@/pages/TestInvalid/TestInvalid';
@@ -56,20 +54,12 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: '/payment',
-        element: <Payment />,
+        path: '/payments',
+        element: <Payments />,
       },
       {
-        path: '/payment/process',
-        element: <PaymentProcess />,
-      },
-      {
-        path: '/payment/success',
-        element: <PaymentSuccess />,
-      },
-      {
-        path: '/payment/fail',
-        element: <PaymentFail />,
+        path: '/payments/fail',
+        element: <PaymentsFail />,
       },
       {
         path: '*',

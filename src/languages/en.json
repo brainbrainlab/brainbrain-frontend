@@ -1,0 +1,359 @@
+{
+  "common": {
+    "goToHome": "Go to Home",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contact": "Contact",
+    "businessInfo": "Business Information",
+    "copyright": "© 2024 BrainBrain. All Rights Reserved.",
+    "currency": "KRW",
+    "back": "Back",
+    "goBack": "Go Back",
+    "goHome": "Go Home",
+    "and": "and"
+  },
+  "error": {
+    "pageNotFound": "Page Not Found",
+    "testInvalid": "Test Results Unavailable",
+    "testInvalidDescription": "We cannot verify your test results due to irregular test-taking patterns.\nPlease take the test again.",
+    "retakeTest": "Take Test Again",
+    "invalidReasons": {
+      "tooFast": "Test completion time was too short",
+      "sameAnswer": "Too many identical answers"
+    },
+    "required": "This field is required",
+    "englishNameRequired": "Please enter your English name",
+    "englishNameInvalid": "Please enter only English characters",
+    "koreanNameRequired": "Please enter your Korean name",
+    "koreanNameInvalid": "Please enter only Korean characters",
+    "addressRequired": "Please enter your address",
+    "phoneNumberRequired": "Please enter your phone number",
+    "phoneNumberInvalid": "Please enter a valid phone number",
+    "unknown": "An unknown error occurred",
+    "paymentsMethodRequired": "Please select a payments method",
+    "paymentsInProgress": "Payments is already in progress. Please wait a moment."
+  },
+  "header": {
+    "language": "Language"
+  },
+  "main": {
+    "subtitle": "Mensa-type IQ Test",
+    "description1": "42 Questions in 40 Minutes",
+    "description2": "Official Certificate Issuance",
+    "description3": "Objective Assessment of Intellectual Level",
+    "description4": "2025 Latest IQ Test Format Applied",
+    "button": "Start Test",
+    "section1": {
+      "title": "What is BrainBrain IQ Test?",
+      "subtitle": "BrainBrain provides real-time result analysis and feedback through customized tests of varying difficulty levels.\nThis helps you identify your strengths and areas for improvement, and suggests methods to train your brain.\nAdditionally, personal information is strictly protected, and all data is securely managed.",
+      "description1": {
+        "title": "Reliable and Accurate Results",
+        "content": "BrainBrain provides accurate and reliable results based on the latest psychological research and verified IQ tests. We ensure that all users receive credible IQ scores by adhering to scientific standards."
+      },
+      "description2": {
+        "title": "Personalized Analysis",
+        "content": "Beyond just scores, we provide detailed analysis of test results. You can better understand your brain capabilities by identifying strengths and areas for improvement in each field."
+      },
+      "description3": {
+        "title": "Convenient Online Access",
+        "content": "BrainBrain is easily accessible anywhere, anytime with internet connection. You can take the test at your convenience without being restricted by time and place."
+      }
+    },
+    "section2": {
+      "title": "IQ Score Distribution",
+      "subtitle": "Intelligence Quotient (IQ) is a numerical value that quantifies cognitive ability, measuring psychological indicators such as logical thinking, problem-solving, memory, and reasoning abilities. IQ is influenced by both genetic and environmental factors and should be interpreted as one indicator of comprehensive cognitive ability rather than a simple number.",
+      "scores": {
+        "highest": "Top 0.1%",
+        "higher": "Top 2%",
+        "high": "High Intelligence",
+        "aboveAverage": "Above Average",
+        "belowAverage": "Below Average",
+        "low": "Borderline",
+        "lower": "Bottom 2%",
+        "lowest": "Bottom 0.1%",
+        "mensaNote": "Qualifies for Mensa membership"
+      }
+    }
+  },
+  "test": {
+    "timeRemaining": "Time Remaining",
+    "minutes": "min",
+    "seconds": "sec",
+    "question": "Question",
+    "nextQuestion": "Next Question",
+    "submitTest": "Submit",
+    "confirmSubmit": "Do you want to submit the test?",
+    "confirmSubmitDescription": "You cannot modify your answers after submission.",
+    "yes": "Yes",
+    "no": "No",
+    "warning": {
+      "title": "Test Instructions",
+      "startButton": "Start Test",
+      "description": "Please check the following before starting the test.",
+      "rules": {
+        "timeLimit": "The test consists of 42 questions with a 40-minute time limit.",
+        "allQuestions": "You must answer all questions to see your results.",
+        "noPageLeave": "Leaving the page will stop the test and your progress will not be saved.",
+        "noRefresh": "Do not close the browser or refresh during the test."
+      }
+    },
+    "invalid": {
+      "contactMessage": "If you still experience issues despite taking the test properly,",
+      "contactLink": "Contact Us"
+    }
+  },
+  "result": {
+    "title": "IQ Test Results",
+    "score": "Your IQ Score",
+    "description": "This score is in the top {percent}%.",
+    "downloadCertificate": "Download Certificate",
+    "retakeTest": "Take Test Again",
+    "shareResult": "Share Results",
+    "analysis": {
+      "title": "Detailed Analysis",
+      "overall": "Overall Assessment",
+      "categories": {
+        "logical": "Logical Thinking",
+        "spatial": "Spatial Perception",
+        "numerical": "Numerical Ability",
+        "memory": "Memory"
+      }
+    }
+  },
+  "payments": {
+    "title": "Select Payments Option",
+    "selectOption": "Please select a payments option",
+    "coupon": {
+      "title": "Coupon",
+      "placeholder": "Enter coupon code",
+      "register": "Register Coupon",
+      "apply": "Apply Coupon",
+      "label": "{{amount}} KRW discount coupon applied"
+    },
+    "options": {
+      "basic": {
+        "title": "Basic Package",
+        "features": ["Test score"]
+      },
+      "standard": {
+        "title": "Online Certificate Package",
+        "features": ["Test score", "Online certificate", "Detailed report"]
+      },
+      "premium": {
+        "title": "Premium Package",
+        "features": ["Test score", "Online certificate", "Physical certificate", "Detailed report", "BrainBrain goods"]
+      }
+    },
+    "process": {
+      "title": "Payments Information",
+      "englishName": "English Name",
+      "koreanName": "Korean Name",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "goBack": "Go Back",
+      "makePayments": "Pay Now"
+    },
+    "form": {
+      "englishName": "English Name",
+      "englishNamePlaceholder": "Enter your English name",
+      "koreanName": "Korean Name",
+      "koreanNamePlaceholder": "Enter your Korean name",
+      "address": "Address",
+      "addressPlaceholder": "Enter your address",
+      "detailedAddress": "Detailed Address",
+      "detailedAddressPlaceholder": "Enter building/unit number",
+      "phoneNumber": "Phone Number",
+      "phoneNumberPlaceholder": "Enter number without hyphens",
+      "searchAddress": "Search Address"
+    },
+    "pay": "Pay",
+    "fail": {
+      "title": "Payments Failed",
+      "description": "An error occurred during payments processing. Please try again later.",
+      "retry": "Retry",
+      "goBack": "Go Back"
+    },
+    "processing": "Processing payments...",
+    "success": {
+      "title": "Payments Successful",
+      "description": "Thank you for your purchase.",
+      "download": "Download Certificate",
+      "goHome": "Go to Home"
+    }
+  },
+  "userInfo": {
+    "completeSubtitle": "Please enter your payments information",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "age": "Age",
+    "agePlaceholder": "Select your age",
+    "gender": "Gender",
+    "genderOptions": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "agreement": "I agree to the Terms of Service",
+    "submit": "Submit",
+    "country": {
+      "label": "Country",
+      "placeholder": "Select your country",
+      "options": {
+        "kr": "South Korea",
+        "us": "United States",
+        "jp": "Japan",
+        "cn": "China",
+        "other": "Other"
+      }
+    }
+  },
+  "terms": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "introduction": "Brain Lab (hereinafter referred to as the \"Company\") values the personal information of users in operating the BrainBrain service (hereinafter referred to as the \"Service\") and establishes and discloses the following privacy policy to safely protect and lawfully process personal information in accordance with relevant laws and regulations.",
+      "article1": {
+        "title": "Article 1 (Personal Information Items and Collection Methods)",
+        "description": "The Company collects the following personal information.",
+        "items": {
+          "title": "Collection Items",
+          "personalInfo": "Name, email address, gender, age, country",
+          "testResult": "IQ test results and scores",
+          "payments": "Payments history"
+        },
+        "methods": {
+          "title": "Collection Methods",
+          "directInput": "Information directly entered by users during test or payments process",
+          "paymentsInfo": "Payments information received from PG company"
+        }
+      },
+      "article2": {
+        "title": "Article 2 (Purpose of Collection and Use of Personal Information)",
+        "description": "The Company uses the collected personal information for the following purposes.",
+        "purposes": {
+          "certificate": "Creating certificates and reports based on IQ test results",
+          "email": "Delivering results via email",
+          "support": "Responding to user inquiries and service-related notices"
+        }
+      },
+      "article3": {
+        "title": "Article 3 (Retention and Use Period of Personal Information)",
+        "description": "The Company destroys personal information without delay after the purpose of collection and use is achieved. However, the following information is retained for the specified period.",
+        "retention": {
+          "items": "Retention Items: Name, email, gender, age group, country, score, payments history",
+          "period": "Retention Period: 2 years from collection date or until user requests deletion"
+        }
+      },
+      "article4": {
+        "title": "Article 4 (Provision of Personal Information to Third Parties)",
+        "description": "The Company does not provide users' personal information to third parties. However, exceptions may be made in accordance with relevant laws and regulations."
+      },
+      "article5": {
+        "title": "Article 5 (Outsourcing of Personal Information Processing)",
+        "description": "The Company outsources some tasks as follows and manages and supervises the outsourced companies to comply with the Personal Information Protection Act.",
+        "table": {
+          "company": "Outsourced Company",
+          "task": "Outsourced Task",
+          "emailTask": "Email transmission (excluding user information, only attaching certificate and report files)"
+        }
+      },
+      "article6": {
+        "title": "Article 6 (User Rights and Exercise Methods)",
+        "description": "Users may exercise the following rights with the Company at any time.",
+        "rights": {
+          "access": "Request for access to personal information",
+          "correction": "Request for correction of errors",
+          "deletion": "Request for deletion",
+          "suspension": "Request for suspension of processing"
+        },
+        "contact": "※ These rights can be exercised via email (📩 brainbrainsite@gmail.com), and the Company will take action without delay."
+      },
+      "article7": {
+        "title": "Article 7 (Installation and Operation of Automatic Collection Devices)",
+        "description": "The Company does not use cookies or web log analysis tools (such as Google Analytics)."
+      },
+      "article8": {
+        "title": "Article 8 (Security Measures for Personal Information)",
+        "description": "The Company takes the following security measures in accordance with Article 29 of the Personal Information Protection Act.",
+        "measures": {
+          "access": "Access restrictions to personal information",
+          "encryption": "Encryption of document files and transmission files",
+          "security": "External access control and security software usage"
+        }
+      },
+      "article9": {
+        "title": "Article 9 (Personal Information Protection Officer)",
+        "description": "The Company designates a personal information protection officer who is responsible for overseeing personal information processing and handling inquiries and complaints related to personal information.",
+        "officer": {
+          "title": "Personal Information Protection Officer",
+          "name": "Brain Lab",
+          "email": "Email",
+          "address": "brainbrainsite@gmail.com"
+        }
+      },
+      "article10": {
+        "title": "Article 10 (Changes to Privacy Policy)",
+        "description": "This privacy policy may be changed in accordance with laws and internal operating policies, and changes will be notified in advance through service notices or email.",
+        "effectiveDate": "Effective Date",
+        "date": "May 11, 2025"
+      }
+    },
+    "service": {
+      "title": "Terms of Service",
+      "introduction": "These terms and conditions are established to regulate the rights, obligations, and responsibilities between Brain Lab (hereinafter referred to as the \"Company\") and users regarding the use of the BrainBrain website (hereinafter referred to as the \"Service\").",
+      "article1": {
+        "title": "Article 1 (Purpose)",
+        "description": "These terms and conditions are established to regulate the conditions and procedures for using the IQ test and related result report/certificate issuance service provided by the Company."
+      },
+      "article2": {
+        "title": "Article 2 (Definitions)",
+        "definitions": {
+          "user": "\"User\" refers to a person who accesses the service and uses it in accordance with these terms.",
+          "payments": "\"Payments\" refers to the act of a user paying a certain amount to the Company to use paid services.",
+          "content": "\"Content\" refers to the results provided by the Company within the service, including text, images, reports, certificates, etc."
+        }
+      },
+      "article3": {
+        "title": "Article 3 (Effectiveness and Changes of Terms)",
+        "effectiveness": {
+          "notice": "These terms become effective when posted on the service screen or announced by other means.",
+          "changes": "The Company may change the terms within the scope not violating relevant laws, and changed terms will be announced with the effective date.",
+          "disagreement": "If a user does not agree to the changed terms, they may discontinue using the service."
+        }
+      },
+      "article4": {
+        "title": "Article 4 (Service Provision)",
+        "services": {
+          "title": "The Company provides the following services:",
+          "test": "IQ test administration",
+          "score": "Result-based score provision",
+          "report": "Personalized report and certificate creation and email delivery"
+        }
+      },
+      "article5": {
+        "title": "Article 5 (Service Fees and Payments)",
+        "payments": {
+          "paidContent": "This service is provided for a fee for some content, and users can use paid content through payments.",
+          "process": "Payments is processed through Toss Paymentss (PG), and users must fully confirm the amount and conditions presented at the time of payments.",
+          "refund": "Refunds are generally not possible after payments completion. However, the Company may individually determine refunds in case of service failure or major errors."
+        }
+      }
+    },
+    "business": {
+      "description": "Brain Lab's business information.",
+      "table": {
+        "item": "Item",
+        "content": "Content",
+        "company": "Company Name",
+        "companyName": "Brain Lab",
+        "ceo": "CEO",
+        "ceoName": "Yechan Lee",
+        "address": "Address",
+        "companyAddress": "103-1302, 15 Jeongja 1-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+        "email": "Email",
+        "companyEmail": "brainbrainsite@gmail.com"
+      }
+    }
+  }
+}

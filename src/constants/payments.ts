@@ -6,8 +6,8 @@ export const PAYMENT_OPTIONS = {
     features: ['테스트 결과 점수 제공'],
     isBest: false,
   },
-  ONLINE: {
-    id: 'online',
+  STANDARD: {
+    id: 'standard',
     title: '온라인 인증서 + 보고서',
     price: 20890,
     features: ['테스트 결과 점수 제공', '온라인 인증서', '상세 보고서'],
@@ -23,16 +23,9 @@ export const PAYMENT_OPTIONS = {
 } as const;
 
 export const PAYMENT_TYPES = {
-  ONLINE: 'online',
+  BASIC: 'basic',
+  STANDARD: 'standard',
   PREMIUM: 'premium',
-} as const;
-
-export const FORM_FIELDS = {
-  ENGLISH_NAME: 'englishName',
-  KOREAN_NAME: 'koreanName',
-  ADDRESS: 'address',
-  DETAILED_ADDRESS: 'detailedAddress',
-  PHONE_NUMBER: 'phoneNumber',
 } as const;
 
 export const PAYMENT_STATUS = {
@@ -41,27 +34,7 @@ export const PAYMENT_STATUS = {
 } as const;
 
 export const PAYMENT_PATHS = {
-  PAYMENT: '/payment',
-  PROCESS: '/payment/process',
-  SUCCESS: '/payment/success',
-  FAIL: '/payment/fail',
-} as const;
-
-export const PAYMENT_WIDGET_CONFIG = {
-  CUSTOMER_KEY: 'zdUK26HxM2IG4TXf_wIDO', // TODO: 실제 고객 키로 교체
-  CURRENCY: 'KRW',
-  VARIANT_KEY: {
-    PAYMENT_METHODS: 'DEFAULT',
-    AGREEMENT: 'AGREEMENT',
-  },
-} as const;
-
-export const PAYMENT_WIDGET_SELECTORS = {
-  PAYMENT_METHOD: '#payment-method',
-  AGREEMENT: '#agreement',
-} as const;
-
-export const COUPON = {
-  AMOUNT: 5000,
-  LABEL: '5,000원 쿠폰 적용',
+  PAYMENT: '/payments',
+  SUCCESS: '/payments/success',
+  FAIL: '/payments/fail',
 } as const;

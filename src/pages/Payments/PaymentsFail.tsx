@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import Button from '@/components/Button/Button';
+import Button from '@/components/common/Button/Button';
 import PageLayout from '@/components/common/PageLayout/PageLayout';
 
-import * as S from './PaymentFail.styles';
+import * as S from './PaymentsFail.styles';
 
-function PaymentFail() {
+function PaymentsFail() {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ function PaymentFail() {
 
   return (
     <PageLayout>
-      <S.Title>{t('payment.fail.title')}</S.Title>
+      <S.Title>{t('payments.fail.title')}</S.Title>
       <S.ErrorMessage>{error}</S.ErrorMessage>
       <S.ActionsContainer>
         <Button filled={false} onClick={() => navigate(-1)}>
@@ -41,4 +41,4 @@ function PaymentFail() {
   );
 }
 
-export default PaymentFail;
+export default PaymentsFail;

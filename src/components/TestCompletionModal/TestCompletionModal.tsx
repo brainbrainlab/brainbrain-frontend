@@ -1,6 +1,6 @@
+import Modal from '../common/Modal/Modal';
+import { Button } from '../common/Modal/Modal.styles';
 import * as S from './TestCompletionModal.styles';
-import Modal from '../Modal/Modal';
-import { Button } from '../Modal/Modal.styles';
 
 interface TestCompletionModalProps {
   isOpen: boolean;

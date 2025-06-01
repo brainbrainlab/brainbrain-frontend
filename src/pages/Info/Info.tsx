@@ -51,12 +51,12 @@ function Info() {
               <List>
                 <ListItem>{t('terms.privacy.article1.items.personalInfo')}</ListItem>
                 <ListItem>{t('terms.privacy.article1.items.testResult')}</ListItem>
-                <ListItem>{t('terms.privacy.article1.items.payment')}</ListItem>
+                <ListItem>{t('terms.privacy.article1.items.payments')}</ListItem>
               </List>
               <ListItem>{t('terms.privacy.article1.methods.title')}</ListItem>
               <List>
                 <ListItem>{t('terms.privacy.article1.methods.directInput')}</ListItem>
-                <ListItem>{t('terms.privacy.article1.methods.paymentInfo')}</ListItem>
+                <ListItem>{t('terms.privacy.article1.methods.paymentsInfo')}</ListItem>
               </List>
             </OrderedList>
             <Heading3>{t('terms.privacy.article2.title')}</Heading3>
@@ -133,7 +133,7 @@ function Info() {
             <Heading3>{t('terms.service.article2.title')}</Heading3>
             <OrderedList>
               <ListItem>{t('terms.service.article2.definitions.user')}</ListItem>
-              <ListItem>{t('terms.service.article2.definitions.payment')}</ListItem>
+              <ListItem>{t('terms.service.article2.definitions.payments')}</ListItem>
               <ListItem>{t('terms.service.article2.definitions.content')}</ListItem>
             </OrderedList>
             <Heading3>{t('terms.service.article3.title')}</Heading3>
@@ -153,9 +153,9 @@ function Info() {
             </OrderedList>
             <Heading3>{t('terms.service.article5.title')}</Heading3>
             <OrderedList>
-              <ListItem>{t('terms.service.article5.payment.paidContent')}</ListItem>
-              <ListItem>{t('terms.service.article5.payment.process')}</ListItem>
-              <ListItem>{t('terms.service.article5.payment.refund')}</ListItem>
+              <ListItem>{t('terms.service.article5.payments.paidContent')}</ListItem>
+              <ListItem>{t('terms.service.article5.payments.process')}</ListItem>
+              <ListItem>{t('terms.service.article5.payments.refund')}</ListItem>
             </OrderedList>
           </div>
         );

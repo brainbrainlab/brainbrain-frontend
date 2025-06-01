@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import Button from '../../components/Button/Button';
+import Button from '../../components/common/Button/Button';
 import PageLayout from '../../components/common/PageLayout/PageLayout';
 import * as S from './Contact.styles';
 

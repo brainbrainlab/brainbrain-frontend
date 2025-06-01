@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import i18n, { LANGUAGE_CODES, LanguageCode } from '@/languageㄴ/i18n';
+import i18n, { LANGUAGE_CODES, LanguageCode } from '@/languages/i18n';
 
 import * as S from './LanguageDropdown.styles';
 
@@ -15,7 +15,7 @@ const LANGUAGE_OPTIONS: LanguageOption[] = [
   { code: LANGUAGE_CODES.CHINESE, label: '中文' },
 ];
 
-const LanguageDropdown = forwardRef<HTMLDivElement>((props, ref) => {
+const LanguageDropdown = forwardRef<HTMLDivElement>((_, ref) => {
   const changeLanguage = (lang: LanguageCode) => {
     i18n.changeLanguage(lang);
   };

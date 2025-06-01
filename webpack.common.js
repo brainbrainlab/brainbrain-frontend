@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -60,6 +61,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
@@ -70,9 +72,6 @@ module.exports = {
         { from: '_headers.json', to: '_headers.json' },
         { from: '_redirects', to: '_redirects' },
       ],
-    }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
     }),
   ],
   devtool: 'inline-source-map',

@@ -1,5 +1,5 @@
+import Button from '../common/Button/Button';
 import * as S from './Choice.styles';
-import Button from '../Button/Button';
 
 interface ChoiceProps {
   onClick: () => void;

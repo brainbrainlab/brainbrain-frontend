@@ -6,7 +6,7 @@ import { IoLanguage } from 'react-icons/io5';
 
 import logoWithDot from '@/assets/images/logo_with_dot.svg';
 
-import Button from '@/components/Button/Button';
+import Button from '@/components/common/Button/Button';
 
 import * as S from './Header.styles';
 import LanguageDropdown from './LanguageDropdown';

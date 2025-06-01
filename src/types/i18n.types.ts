@@ -29,8 +29,8 @@ export interface TranslationKeys {
     phoneNumberRequired: string;
     phoneNumberInvalid: string;
     unknown: string;
-    paymentMethodRequired: string;
-    paymentInProgress: string;
+    paymentsMethodRequired: string;
+    paymentsInProgress: string;
   };
   header: {
     language: string;
@@ -119,7 +119,7 @@ export interface TranslationKeys {
       };
     };
   };
-  payment: {
+  payments: {
     title: string;
     selectOption: string;
     coupon: {
@@ -150,7 +150,7 @@ export interface TranslationKeys {
       address: string;
       phoneNumber: string;
       goBack: string;
-      makePayment: string;
+      makePayments: string;
     };
     form: {
       englishName: string;

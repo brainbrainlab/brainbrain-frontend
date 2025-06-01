@@ -6,6 +6,8 @@ import { FaCheck } from 'react-icons/fa';
 import { IoCheckbox, IoSquareOutline } from 'react-icons/io5';
 import { useTheme } from 'styled-components';
 
+import PageLayout from '@/components/common/PageLayout/PageLayout';
+
 import * as S from './UserInfo.styles';
 
 interface UserInfoData {
@@ -45,7 +47,7 @@ function UserInfo() {
   const nameTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { state } = useLocation();
   const navigate = useNavigate();
-  const result = state?.result;
+  const result = state.result;
 
   useEffect(() => {
     if (!result) {
@@ -192,7 +194,7 @@ function UserInfo() {
 
     if (allFieldsValid) {
       // 결제 페이지로 이동하면서 사용자 정보와 테스트 결과 전달
-      navigate('/payment', {
+      navigate('/payments', {
         state: {
           userInfo,
           testResults: result,
@@ -210,12 +212,12 @@ function UserInfo() {
   }, []);
 
   return (
-    <S.Container>
+    <PageLayout>
       <S.Title>테스트를 모두 완료하셨습니다!</S.Title>
       <S.Subtitle>{t('userInfo.completeSubtitle')}</S.Subtitle>
       <S.Form ref={formRef} onSubmit={handleSubmit}>
         {visibleFields.includes('email') && (
-          <S.FormGroup withAnimation={visibleFields.indexOf('email') !== 0}>
+          <S.FormGroup $withAnimation={visibleFields.indexOf('email') !== 0}>
             <S.Label>
               {t('userInfo.email')}
               <S.Required>*</S.Required>
@@ -233,7 +235,7 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('name') && (
-          <S.FormGroup withAnimation={visibleFields.indexOf('name') !== 0}>
+          <S.FormGroup $withAnimation={visibleFields.indexOf('name') !== 0}>
             <S.Label>
               {t('userInfo.name')}
               <S.Required>*</S.Required>
@@ -251,7 +253,7 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('age') && (
-          <S.FormGroup withAnimation={visibleFields.indexOf('age') !== 0}>
+          <S.FormGroup $withAnimation={visibleFields.indexOf('age') !== 0}>
             <S.Label>
               {t('userInfo.age')}
               <S.Required>*</S.Required>
@@ -271,7 +273,7 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('gender') && (
-          <S.FormGroup withAnimation={visibleFields.indexOf('gender') !== 0}>
+          <S.FormGroup $withAnimation={visibleFields.indexOf('gender') !== 0}>
             <S.Label>
               {t('userInfo.gender')}
               <S.Required>*</S.Required>
@@ -302,7 +304,7 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('country') && (
-          <S.FormGroup withAnimation={visibleFields.indexOf('country') !== 0}>
+          <S.FormGroup $withAnimation={visibleFields.indexOf('country') !== 0}>
             <S.Label>
               {t('userInfo.country.label')}
               <S.Required>*</S.Required>
@@ -322,7 +324,7 @@ function UserInfo() {
         )}
 
         {visibleFields.includes('agreement') && (
-          <S.AgreementGroup withAnimation={visibleFields.indexOf('agreement') !== 0}>
+          <S.AgreementGroup $withAnimation={visibleFields.indexOf('agreement') !== 0}>
             <S.CheckboxWrapper
               onClick={() =>
                 handleCheckboxChange({
@@ -353,9 +355,9 @@ function UserInfo() {
           </S.AgreementGroup>
         )}
 
-        {isComplete && <S.SubmitButton withAnimation>{t('userInfo.submit')}</S.SubmitButton>}
+        {isComplete && <S.SubmitButton $withAnimation>{t('userInfo.submit')}</S.SubmitButton>}
       </S.Form>
-    </S.Container>
+    </PageLayout>
   );
 }
 

@@ -4,11 +4,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
 
 import Choice from '@/components/Choice/Choice';
+import PageLayout from '@/components/common/PageLayout/PageLayout';
 import TestCompletionModal from '@/components/TestCompletionModal/TestCompletionModal';
 import TestWarningModal from '@/components/TestWarningModal/TestWarningModal';
 import Timer from '@/components/Timer/Timer';
-
-import { validateTest } from '@/utils/testValidation';
 
 import * as S from './Test.styles';
 
@@ -27,9 +26,7 @@ type SolvedQuestions = (number | null)[];
 function Test() {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const consoleLogUserInfoState = () => {
-    console.log('UserInfo state:', state);
-  };
+
   const result = state?.result;
   const [questionIndex, setQuestionIndex] = useState<QuestionIndex>(0);
   const [showUnsolved, setShowUnsolved] = useState(false);
@@ -74,16 +71,16 @@ function Test() {
       return;
     }
 
-    const validationResult = validateTest(
-      startTime,
-      new Date(),
-      answers.filter((answer): answer is number => answer !== null),
-    );
+    // const validationResult = validateTest(
+    //   startTime,
+    //   new Date(),
+    //   answers.filter((answer): answer is number => answer !== null),
+    // );
 
-    if (!validationResult.isValid) {
-      navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
-      return;
-    }
+    // if (!validationResult.isValid) {
+    //   navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
+    //   return;
+    // }
 
     const result = answers;
 
@@ -103,7 +100,7 @@ function Test() {
   }, []);
 
   return (
-    <S.Layout>
+    <PageLayout innerWidth="90%" fitToHeight={true}>
       <TestWarningModal
         isOpen={isTestWarningModalOpen}
         onClose={() => {
@@ -145,14 +142,14 @@ function Test() {
           <div style={{ width: '3rem' }}></div>
         )}
         <S.ToggleButton />
-        <S.QuestionButtonContainer showUnsolved={showUnsolved}>
+        <S.QuestionButtonContainer $showUnsolved={showUnsolved}>
           {answers.map((solved, index) => (
             <S.QuestionButton
-              solved={solved !== null}
-              current={index === questionIndex}
               key={index}
+              $solved={solved !== null}
+              $current={index === questionIndex}
               onClick={() => handleChangeQuestion(index)}
-              showUnsolved={solved === null && showUnsolved}
+              $showUnsolved={solved === null && showUnsolved}
             >
               {solved !== null ? <FaCheck color="white" /> : index + 1}
             </S.QuestionButton>
@@ -164,7 +161,7 @@ function Test() {
           <div style={{ width: '3rem' }}></div>
         )}
       </S.QuestionButtonWrapper>
-    </S.Layout>
+    </PageLayout>
   );
 }
 

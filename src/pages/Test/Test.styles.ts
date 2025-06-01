@@ -2,7 +2,7 @@ import { HiMiniListBullet } from 'react-icons/hi2';
 import { IoArrowBackOutline, IoArrowForwardOutline } from 'react-icons/io5';
 import styled, { css, keyframes } from 'styled-components';
 
-import Button from '../../components/Button/Button';
+import Button from '../../components/common/Button/Button';
 
 const createBlinkKeyframes = (theme: any) => keyframes`
   0% {
@@ -139,7 +139,7 @@ export const PreviousButton = styled(IoArrowBackOutline)`
   }
 `;
 
-export const QuestionButtonContainer = styled.div<{ showUnsolved: boolean }>`
+export const QuestionButtonContainer = styled.div<{ $showUnsolved: boolean }>`
   display: grid;
   justify-content: center;
   align-items: center;
@@ -174,8 +174,8 @@ export const QuestionButtonContainer = styled.div<{ showUnsolved: boolean }>`
     opacity: 1;
   }
 
-  ${({ showUnsolved }) =>
-    showUnsolved &&
+  ${({ $showUnsolved }) =>
+    $showUnsolved &&
     css`
       visibility: visible;
 
@@ -205,33 +205,33 @@ export const ToggleButton = styled(HiMiniListBullet)`
   }
 `;
 
-export const QuestionButton = styled(Button)<{ solved: boolean; current: boolean; showUnsolved: boolean }>`
+export const QuestionButton = styled(Button)<{ $solved: boolean; $current: boolean; $showUnsolved: boolean }>`
   width: 3.5rem;
   height: 3.5rem;
-  border: ${({ theme, current, solved }) =>
-    current ? `3px solid ${solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
+  border: ${({ theme, $current, $solved }) =>
+    $current ? `3px solid ${$solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
   border-radius: 3rem;
 
-  background-color: ${({ theme, solved }) => (solved ? theme.color.black[400] : theme.color.primary[500])};
+  background-color: ${({ theme, $solved }) => ($solved ? theme.color.black[400] : theme.color.primary[500])};
   font-size: 1.4rem;
 
-  animation-name: ${({ theme, showUnsolved }) => showUnsolved && createBlinkKeyframes(theme)};
+  animation-name: ${({ theme, $showUnsolved }) => $showUnsolved && createBlinkKeyframes(theme)};
   animation-duration: 1s;
   animation-timing-function: ease;
   animation-iteration-count: 3;
 
   &:hover {
-    border: ${({ theme, current, solved }) =>
-      current ? `3px solid ${solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
+    border: ${({ theme, $current, $solved }) =>
+      $current ? `3px solid ${$solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
 
-    background-color: ${({ theme, solved }) => (solved ? theme.color.black[500] : theme.color.primary[600])};
+    background-color: ${({ theme, $solved }) => ($solved ? theme.color.black[500] : theme.color.primary[600])};
   }
 
   &:active {
-    border: ${({ theme, current, solved }) =>
-      current ? `3px solid ${solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
+    border: ${({ theme, $current, $solved }) =>
+      $current ? `3px solid ${$solved ? theme.color.black[600] : theme.color.primary[700]}` : 'none'};
 
-    background-color: ${({ theme, solved }) => (solved ? theme.color.black[600] : theme.color.primary[700])};
+    background-color: ${({ theme, $solved }) => ($solved ? theme.color.black[600] : theme.color.primary[700])};
   }
 `;
 

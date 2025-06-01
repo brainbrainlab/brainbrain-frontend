@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { FaCheck } from 'react-icons/fa';
 
-import Modal from '../Modal/Modal';
-import { Button } from '../Modal/Modal.styles';
+import Modal from '../common/Modal/Modal';
+import { Button } from '../common/Modal/Modal.styles';
 import * as S from './TestWarningModal.styles';
 
 interface TestWarningModalProps {

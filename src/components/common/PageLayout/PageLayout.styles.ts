@@ -7,16 +7,18 @@ export const Layout = styled.div`
   align-items: center;
 `;
 
-export const Container = styled.div<{ $innerWidth: string }>`
+export const Container = styled.div<{ $innerWidth: string; $fitToHeight: boolean }>`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  place-content: ${({ $fitToHeight }) => ($fitToHeight ? 'space-around' : 'start')};
+
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xl};
 
   width: ${({ $innerWidth }) => $innerWidth};
+  min-height: ${({ $fitToHeight }) => ($fitToHeight ? 'calc(100vh - 11rem)' : 'auto')};
   margin: 2rem auto;
-  padding: ${({ theme }) => theme.spacing.xxl};
+  padding: ${({ theme }) => theme.spacing.xl};
   border-radius: 8px;
 
   background-color: ${({ theme }) => theme.color.black[0]};
