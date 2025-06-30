@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa';
+
+import { usePaymentsStore } from '@/stores/paymentsStore';
 
 import Choice from '@/components/Choice/Choice';
 import PageLayout from '@/components/common/PageLayout/PageLayout';
@@ -9,13 +11,15 @@ import TestCompletionModal from '@/components/TestCompletionModal/TestCompletion
 import TestWarningModal from '@/components/TestWarningModal/TestWarningModal';
 import Timer from '@/components/Timer/Timer';
 
+import { validateTest } from '@/utils/testValidation';
+
 import * as S from './Test.styles';
 
 // Constants
 const TOTAL_QUESTIONS = 42;
 const LAST_QUESTION_INDEX = TOTAL_QUESTIONS - 1;
 const CHOICES_PER_QUESTION = 8;
-const TIME_LIMIT_SECONDS = 2400;
+const TIME_LIMIT_SECONDS = 60 * 40; // 40 minutes
 const UNSOLVED_NOTIFICATION_DURATION = 3000;
 
 // Types
@@ -25,9 +29,7 @@ type SolvedQuestions = (number | null)[];
 
 function Test() {
   const navigate = useNavigate();
-  const { state } = useLocation();
 
-  const result = state?.result;
   const [questionIndex, setQuestionIndex] = useState<QuestionIndex>(0);
   const [showUnsolved, setShowUnsolved] = useState(false);
   const [startTime, setStartTime] = useState<Date | null>(null);
@@ -71,20 +73,23 @@ function Test() {
       return;
     }
 
-    // const validationResult = validateTest(
-    //   startTime,
-    //   new Date(),
-    //   answers.filter((answer): answer is number => answer !== null),
-    // );
+    const validationResult = validateTest(
+      startTime,
+      new Date(),
+      answers.filter((answer): answer is number => answer !== null),
+    );
 
-    // if (!validationResult.isValid) {
-    //   navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
-    //   return;
-    // }
+    if (!validationResult.isValid) {
+      navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
+      return;
+    }
 
     const result = answers;
+    console.log('Test results:', result);
+    const { setTestResults } = usePaymentsStore.getState().actions;
+    setTestResults(result);
 
-    navigate('/user-info', { state: { result } });
+    navigate('/user-info');
   };
 
   const handleReview = () => {
@@ -114,7 +119,7 @@ function Test() {
         onSubmit={handleSubmit}
         onReview={handleReview}
       />
-      <Timer TIME_LIMIT={TIME_LIMIT_SECONDS} startTime={startTime} />
+      <Timer TIME_LIMIT={TIME_LIMIT_SECONDS} startTime={startTime} handleSubmit={handleSubmit} />
       <S.QuestionContainer>
         <S.QuestionWrapper>
           <S.QuestionText>Q{questionIndex + 1}.</S.QuestionText>

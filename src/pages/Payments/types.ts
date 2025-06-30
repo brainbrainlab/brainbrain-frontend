@@ -1,8 +1,8 @@
 import { PaymentsOptionType } from '@/api/constants';
 
 export interface PaymentsProcessProps {
-  userInfo: UserInfo;
-  testResults: TestResults;
+  userInfo: UserInfoDTO;
+  testResults: (number | null)[];
 }
 
 export interface Plan {
@@ -44,8 +44,8 @@ export interface PaymentsOption {
 
 export interface PaymentsCompleteRequest {
   orderId: string;
-  userInfo: UserInfo;
-  testResults: TestResults;
+  userInfoRequest: UserInfoDTO;
+  answers: (number | null)[];
 }
 
 export interface PaymentsRequest {
@@ -67,7 +67,7 @@ export interface PaymentsRequest {
   coupon_id?: string;
 }
 
-export interface UserInfo {
+export interface UserInfoDTO {
   email: string;
   name: string;
   age: string;
@@ -76,18 +76,7 @@ export interface UserInfo {
   agreement: boolean;
 }
 
-export interface TestResults {
-  answers: number[];
-}
-
 export interface PaymentsInfo {
   planId: string;
   amount: number;
-}
-
-export interface PaymentsCompleteRequest {
-  orderId: string;
-  userInfo: UserInfo;
-  testResults: TestResults;
-  paymentsInfo: PaymentsInfo;
 }

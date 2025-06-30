@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xl};
+
+  width: 100%;
+  max-width: 60rem;
+  padding: ${({ theme }) => theme.spacing.xl};
+`;
+
 export const Title = styled.h1`
   color: ${({ theme }) => theme.color.black[900]};
   font-size: ${({ theme }) => theme.fontSize.h2};

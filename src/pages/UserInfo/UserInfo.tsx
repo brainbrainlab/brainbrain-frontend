@@ -1,23 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa';
 import { IoCheckbox, IoSquareOutline } from 'react-icons/io5';
 import { useTheme } from 'styled-components';
 
+import { UserInfoDTO } from '@/pages/Payments/types';
+
 import PageLayout from '@/components/common/PageLayout/PageLayout';
 
 import * as S from './UserInfo.styles';
 
-interface UserInfoData {
-  email: string;
-  name: string;
-  age: string;
-  gender: string;
-  country: string;
-  agreement: boolean;
-}
+import { usePaymentsStore } from '@/stores/paymentsStore';
 
 interface UserInfoErrors {
   email?: string;
@@ -31,7 +26,7 @@ interface UserInfoErrors {
 function UserInfo() {
   const { t } = useTranslation();
   const theme = useTheme();
-  const [userInfo, setUserInfo] = useState<UserInfoData>({
+  const [userInfo, setUserInfo] = useState<UserInfoDTO>({
     email: '',
     name: '',
     age: '',
@@ -41,13 +36,13 @@ function UserInfo() {
   });
 
   const [errors, setErrors] = useState<UserInfoErrors>({});
-  const [visibleFields, setVisibleFields] = useState<(keyof UserInfoData)[]>(['email']);
+  const [visibleFields, setVisibleFields] = useState<(keyof UserInfoDTO)[]>(['email']);
   const [isComplete, setIsComplete] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const nameTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { state } = useLocation();
   const navigate = useNavigate();
-  const result = state.result;
+  const storeUserInfo = usePaymentsStore(state => state.actions.setUserInfo);
+  const result = usePaymentsStore(state => state.testResults);
 
   useEffect(() => {
     if (!result) {
@@ -98,8 +93,8 @@ function UserInfo() {
     scrollToNextField();
   }, [visibleFields]);
 
-  const showNextField = (currentField: keyof UserInfoData) => {
-    const fieldOrder: (keyof UserInfoData)[] = ['email', 'name', 'age', 'gender', 'country', 'agreement'];
+  const showNextField = (currentField: keyof UserInfoDTO) => {
+    const fieldOrder: (keyof UserInfoDTO)[] = ['email', 'name', 'age', 'gender', 'country', 'agreement'];
     const currentIndex = fieldOrder.indexOf(currentField);
     if (currentIndex < fieldOrder.length - 1) {
       setVisibleFields(prev => [...prev, fieldOrder[currentIndex + 1]]);
@@ -126,19 +121,19 @@ function UserInfo() {
       }
       nameTimeoutRef.current = setTimeout(() => {
         if (value.trim() !== '') {
-          showNextField(name as keyof UserInfoData);
+          showNextField(name as keyof UserInfoDTO);
         }
       }, 500);
     } else if (name === 'email') {
       const emailError = validateEmail(value);
       setErrors(prev => ({ ...prev, email: emailError }));
       if (!emailError) {
-        showNextField(name as keyof UserInfoData);
+        showNextField(name as keyof UserInfoDTO);
       }
     } else {
       setErrors(prev => ({ ...prev, [name]: '' }));
       if (value && !errors[name as keyof UserInfoErrors]) {
-        showNextField(name as keyof UserInfoData);
+        showNextField(name as keyof UserInfoDTO);
       }
     }
   };
@@ -193,13 +188,8 @@ function UserInfo() {
     const allFieldsValid = validateForm();
 
     if (allFieldsValid) {
-      // 결제 페이지로 이동하면서 사용자 정보와 테스트 결과 전달
-      navigate('/payments', {
-        state: {
-          userInfo,
-          testResults: result,
-        },
-      });
+      storeUserInfo(userInfo);
+      navigate('/payments');
     }
   };
 

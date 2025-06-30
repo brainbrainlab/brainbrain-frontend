@@ -1,48 +1,69 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+import { paymentsService } from '@/services/paymentsService';
+import { usePaymentsStore } from '@/stores/paymentsStore';
 
 import Button from '@/components/common/Button/Button';
 import Modal from '@/components/common/Modal/Modal';
 import PageLayout from '@/components/common/PageLayout/PageLayout';
 
+import { couponsApi } from '@/api/coupons';
+
 import { PAYMENT_OPTIONS } from '@/constants/payments';
-import { paymentsService } from '@/services/paymentsService';
-import { PaymentsCompleteRequest, PaymentsProcessProps } from './types';
 
 import * as S from './Payments.styles';
 
 function Payments() {
-  const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  // Zustand Store에서 상태와 액션을 가져옵니다.
+  const { userInfo, testResults, actions } = usePaymentsStore();
+  const { setPaymentSuccess } = actions;
 
   const [selectedOption, setSelectedOption] = useState<string>('premium');
   const [showCouponModal, setShowCouponModal] = useState<boolean>(false);
   const [couponCode, setCouponCode] = useState<string>('');
+  const [discountRate, setDiscountRate] = useState<number>(0);
 
   useEffect(() => {
-    if (!location.state) {
-      navigate('/404', { replace: true });
+    console.log(userInfo, testResults, actions);
+    // Store에 필요한 데이터가 없으면, 정보 입력 페이지로 돌려보냅니다.
+    if (!userInfo || !testResults) {
+      navigate('/404');
     }
-  }, [location.state, navigate]);
+  }, [userInfo, testResults]);
 
-  if (!location.state) {
+  useEffect(() => {
+    setCouponCode('');
+  }, [showCouponModal]);
+
+  // 데이터가 로드되기 전이나, 리디렉션이 필요한 경우 렌더링을 막습니다.
+  if (!userInfo || !testResults) {
     return null;
   }
-
-  const { userInfo, testResults } = location.state as PaymentsProcessProps;
-
   const handleOptionSelect = (optionId: string) => {
     setSelectedOption(optionId);
   };
 
-  const handleCouponSubmit = () => {
-    // TODO: 쿠폰 검증 로직 구현
+  const handleCouponSubmit = async (event: any) => {
+    event.preventDefault();
+    if (!couponCode.trim()) return;
+    const coupon = await couponsApi.getCoupons(couponCode);
+    if (!coupon) {
+      alert(t('payments.coupon.invalid'));
+      return;
+    }
+    setDiscountRate(coupon.discountRate);
+    alert('payment.');
+    console.log(discountRate);
     setShowCouponModal(false);
   };
 
-  const handlePayments = async () => {
+  const handlePayments = async (event: any) => {
+    event.preventDefault();
     if (!selectedOption) return;
 
     const selectedPlan = Object.values(PAYMENT_OPTIONS).find(option => option.id === selectedOption);
@@ -50,34 +71,20 @@ function Payments() {
 
     try {
       // 1. 결제 요청
-      const paymentsResult = await paymentsService.requestPayments(selectedPlan.price, selectedPlan.id);
+      const paymentsResult = await paymentsService.requestPayments(
+        selectedPlan.price * (1 - discountRate),
+        selectedPlan.id,
+      );
 
       if (paymentsResult.success && paymentsResult.orderId && paymentsResult.result) {
-        // 2. 결제 성공 후 결과 전송
-        const paymentsData: PaymentsCompleteRequest = {
-          orderId: paymentsResult.orderId,
-          userInfo: {
-            ...userInfo,
-            agreement: true,
-          },
-          testResults,
-          paymentsInfo: {
-            planId: selectedOption,
-            amount: selectedPlan.price,
-          },
-        };
-
-        // 3. 결제 결과 페이지로 이동
-        navigate('/payments/success', {
-          state: {
-            orderId: paymentsResult.orderId,
-            paymentsData,
-            paymentsResult: paymentsResult.result,
-          },
-        });
+        // 2. 결제 성공 후 결과 전송 (백엔드 API 호출)
+        const setOrderId = usePaymentsStore.getState().actions.setOrderId;
+        setOrderId(paymentsResult.orderId);
+        setPaymentSuccess({ orderId: paymentsResult.orderId, result: paymentsResult.result });
       }
-    } catch (error) {
-      navigate('/payments/fail', { replace: true });
+    } catch (e) {
+      navigate('/payments/fail');
+      console.log(e);
     }
   };
 
@@ -94,7 +101,7 @@ function Payments() {
           >
             {option.isBest && <S.BestBadge>BEST</S.BestBadge>}
             <S.OptionTitle>{t(`payments.options.${option.id}.title`)}</S.OptionTitle>
-            <S.Price>{option.price.toLocaleString()}원</S.Price>
+            <S.Price>{Math.ceil(option.price * (1 - discountRate)).toLocaleString()}원</S.Price>
             <S.FeaturesList>
               {Array.isArray(t(`payments.options.${option.id}.features`, { returnObjects: true }))
                 ? (t(`payments.options.${option.id}.features`, { returnObjects: true }) as string[]).map(

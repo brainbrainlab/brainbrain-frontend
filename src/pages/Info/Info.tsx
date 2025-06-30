@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-import PageLayout from '@/components/common/PageLayout/PageLayout';
 import { Heading3, List, ListItem, OrderedList, Paragraph } from '@/pages/Info/Typography.styles';
 
 import * as S from './Info.styles';
@@ -197,12 +196,10 @@ function Info() {
   };
 
   return (
-    <PageLayout>
-      <S.Container>
-        <S.Title>{getTitle()}</S.Title>
-        <S.Content>{getContent()}</S.Content>
-      </S.Container>
-    </PageLayout>
+    <S.Container>
+      <S.Title>{getTitle()}</S.Title>
+      <S.Content>{getContent()}</S.Content>
+    </S.Container>
   );
 }
 

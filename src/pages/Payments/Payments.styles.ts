@@ -128,8 +128,6 @@ export const Input = styled.input`
   padding: 0.75rem;
   border: 1px solid #e5e5e5;
   border-radius: 0.5rem;
-
-  font-size: 1rem;
 `;
 
 export const PaymentsMethodContainer = styled.div`

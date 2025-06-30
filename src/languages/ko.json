@@ -130,7 +130,8 @@
       "placeholder": "쿠폰 코드를 입력하세요",
       "register": "쿠폰 등록",
       "apply": "쿠폰 적용",
-      "label": "{{amount}}원 할인 쿠폰 적용"
+      "label": "{{amount}}원 할인 쿠폰 적용",
+      "invalid": "유효하지 않은 쿠폰입니다"
     },
     "options": {
       "basic": {

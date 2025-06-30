@@ -28,6 +28,7 @@
       "@/pages/*": ["./pages/*"],
       "@/components/*": ["./components/*"],
       "@/hooks/*": ["./hooks/*"],
+      "@/stores/*": ["./stores/*"],
       "@/assets/*": ["./assets/*"],
       "@/styles/*": ["./styles/*"],
       "@/api/*": ["./api/*"],

@@ -6,9 +6,10 @@ import * as S from './Timer.styles';
 interface TimerProps {
   TIME_LIMIT: number;
   startTime: Date | null;
+  handleSubmit: () => void;
 }
 
-const Timer = memo(({ TIME_LIMIT, startTime }: TimerProps) => {
+const Timer = memo(({ TIME_LIMIT, startTime, handleSubmit }: TimerProps) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -19,7 +20,7 @@ const Timer = memo(({ TIME_LIMIT, startTime }: TimerProps) => {
         const elapsed = (new Date().getTime() - startTime.getTime()) / 1000;
         if (TIME_LIMIT - elapsed <= 0) {
           clearInterval(intervalRef.current);
-          navigate('/result');
+          handleSubmit();
         } else {
           setTimeLeft(TIME_LIMIT - elapsed);
         }
