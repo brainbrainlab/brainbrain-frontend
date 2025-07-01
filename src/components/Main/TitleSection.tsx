@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import brain from '@/assets/images/logo.svg';
 import textLogo from '@/assets/images/logo_text.svg';
 
-import * as S from '@/components/Main/Main.styles';
-
 import Button from '@/components/common/Button/Button';
 import DotAnimation from '@/components/DotAnimation/DotAnimation';
+import * as S from '@/components/Main/Main.styles';
 import MainIcons from '@/components/MainIcons/MainIcons';
 
 const SubTitle = () => {
