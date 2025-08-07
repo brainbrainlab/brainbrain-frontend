@@ -86,6 +86,7 @@ interface ButtonAnimationProp {
 }
 
 const buttonAnimation = ({ animation }: ButtonAnimationProp) => css`
+  transition: ${animation ? 'all 0.2s' : 'none'};
   &:hover {
     transform: ${animation ? 'scale(1.01)' : 'none'};
   }
@@ -102,8 +103,6 @@ export const Button = styled.button<ButtonStyleProp>`
 
   border: ${({ $filled }) => ($filled ? 'none' : '1px solid')};
   border-radius: ${({ $rounded, $borderRadius }) => $borderRadius || ($rounded ? '50rem' : '0.5rem')};
-
-  transition: all 0.2s;
 
   ${({ $size, $width, $height, $borderRadius, $fontSize }) =>
     buttonSize({ size: $size, width: $width, height: $height, borderRadius: $borderRadius, fontSize: $fontSize })}

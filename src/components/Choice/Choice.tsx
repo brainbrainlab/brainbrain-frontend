@@ -1,4 +1,5 @@
-import Button from '../common/Button/Button';
+import Button from '@/components/common/Button/Button';
+
 import * as S from './Choice.styles';
 
 interface ChoiceProps {
@@ -13,7 +14,7 @@ function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
   };
 
   return (
-    <Button width="12.5rem" height="12.5rem" color="#ECECEC" borderRadius="0" onClick={onClick}>
+    <Button width="7.5vw" height="7.5vw" color="#ECECEC" borderRadius="0" onClick={onClick} animation={false}>
       <S.ChoiceImage src={getChoiceImage(questionIndex, choiceIndex)} />
     </Button>
   );

@@ -66,7 +66,7 @@ export const InfoContainer = styled.div`
   background-color: ${({ theme }) => theme.color.black[0]};
   box-shadow: ${({ theme }) => theme.shadow.base};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     padding: ${({ theme }) => theme.spacing.xl};
   }
 `;
@@ -80,7 +80,7 @@ export const InfoTitle = styled(Heading1)`
   text-align: start;
   border-bottom: 2px solid ${({ theme }) => theme.color.primary[500]};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     margin-bottom: ${({ theme }) => theme.spacing.xl};
     padding-bottom: ${({ theme }) => theme.spacing.lg};
 
@@ -117,7 +117,7 @@ export const InfoContent = styled.div`
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;

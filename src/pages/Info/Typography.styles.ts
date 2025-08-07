@@ -8,7 +8,7 @@ export const Heading1 = styled.h1`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   line-height: 1.2;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.h2};
   }
 `;
@@ -21,7 +21,7 @@ export const Heading2 = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   line-height: 1.3;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.h3};
   }
 `;
@@ -34,7 +34,7 @@ export const Heading3 = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
   line-height: 1.4;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.h4};
   }
 `;
@@ -46,7 +46,7 @@ export const Paragraph = styled.p`
   font-size: ${({ theme }) => theme.fontSize.base};
   line-height: 1.6;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;

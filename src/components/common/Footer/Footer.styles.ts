@@ -43,6 +43,12 @@ export const MenuLinks = styled.div`
   gap: ${({ theme }) => theme.spacing.xl};
 
   margin: ${({ theme }) => theme.spacing.lg} 0;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const MenuItem = styled.a`

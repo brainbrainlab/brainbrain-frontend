@@ -63,4 +63,10 @@ export const LanguageButtonText = styled.span`
   color: ${({ theme }) => theme.color.black[900]};
   font-size: 1.5rem;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    div {
+      display: none;
+    }
+  }
 `;

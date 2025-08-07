@@ -2,7 +2,7 @@ import { HiMiniListBullet } from 'react-icons/hi2';
 import { IoArrowBackOutline, IoArrowForwardOutline } from 'react-icons/io5';
 import styled, { css, keyframes } from 'styled-components';
 
-import Button from '../../components/common/Button/Button';
+import Button from '@/components/common/Button/Button';
 
 const createBlinkKeyframes = (theme: any) => keyframes`
   0% {
@@ -47,6 +47,10 @@ export const QuestionContainer = styled.div`
 
   width: 100%;
   height: fit-content;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    flex-direction: column;
+  }
 `;
 
 export const QuestionWrapper = styled.div`
@@ -55,6 +59,9 @@ export const QuestionWrapper = styled.div`
   gap: 3rem;
 
   height: 100%;
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    flex-direction: column;
+  }
 `;
 
 export const QuestionText = styled.h1`
@@ -72,28 +79,34 @@ export const QuestionImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 44rem;
-  height: 44rem;
+  
+  width: 32vw;
+  height: 32vw;
   border: 2px solid ${({ theme }) => theme.color.black[400]};
+
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    flex-direction: column;
+  }
 
   /* border-radius: 1rem; */
 `;
 
 export const QuestionImage = styled.img`
-  width: 40rem;
-  height: 40rem;
+  width: 30vw;
+  height: 30vw;
 `;
 
 export const ChoiceContainer = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(8vw, 1fr));
+  gap: 1rem;
 
-  width: 60rem;
-  grid-template-rows: repeat(2, 1fr);
+  width: 40vw;
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    width: 80vw;
+  }
 `;
 
 export const QuestionButtonWrapper = styled.div`

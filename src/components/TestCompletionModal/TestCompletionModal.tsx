@@ -1,5 +1,6 @@
-import Modal from '../common/Modal/Modal';
-import { Button } from '../common/Modal/Modal.styles';
+import Button from '@/components/common/Button/Button';
+import Modal from '@/components/common/Modal/Modal';
+
 import * as S from './TestCompletionModal.styles';
 
 interface TestCompletionModalProps {
@@ -18,10 +19,10 @@ const TestCompletionModal = ({ isOpen, onClose, onSubmit, onReview }: TestComple
       width="500px"
       footer={
         <S.ButtonContainer>
-          <Button variant="secondary" onClick={onReview}>
+          <Button color="secondary" onClick={onReview}>
             수정하기
           </Button>
-          <Button variant="primary" onClick={onSubmit}>
+          <Button color="primary" onClick={onSubmit}>
             제출하기
           </Button>
         </S.ButtonContainer>

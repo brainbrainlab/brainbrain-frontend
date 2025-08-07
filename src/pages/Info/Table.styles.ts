@@ -14,7 +14,7 @@ export const Table = styled.table`
   border-collapse: separate;
   border-spacing: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;

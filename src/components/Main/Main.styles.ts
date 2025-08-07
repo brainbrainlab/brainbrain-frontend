@@ -46,7 +46,7 @@ export const DotAnimationWrapper = styled.div`
   width: 50rem;
   height: 50rem;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 30rem;
     height: 30rem;
   }
@@ -62,7 +62,7 @@ export const BackgroundImage = styled.img`
 
   animation: ${pulseAnimation} 7s infinite;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 24rem;
     height: 24rem;
   }
@@ -81,7 +81,7 @@ export const TitleSection = styled.div`
 
   background-color: ${({ theme }) => theme.color.primary[10]};
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.lg};
 
@@ -102,7 +102,7 @@ export const TitleTextAndImageWrapper = styled.div`
 
   width: fit-content;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     align-items: center;
     gap: ${({ theme }) => theme.spacing.xl};
 
@@ -119,8 +119,9 @@ export const TitleTextContainer = styled.div`
 
   width: 100%;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     align-items: center;
+    margin: 4rem;
   }
 `;
 
@@ -132,7 +133,7 @@ export const TextLogo = styled.img`
 
   text-align: right;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 24rem;
 
     text-align: center;
@@ -150,7 +151,7 @@ export const SubTitle = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
   text-align: end;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.h5};
     text-align: center;
   }
@@ -172,7 +173,7 @@ export const Description = styled.p`
   white-space: pre-wrap;
   word-break: keep-all;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;
@@ -191,7 +192,7 @@ export const Section1 = styled.div`
 
   background-color: ${({ theme }) => theme.color.black[0]};
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     gap: ${({ theme }) => theme.spacing.xl};
 
     padding: ${({ theme }) => theme.spacing.xl};
@@ -210,7 +211,7 @@ export const Section2 = styled.div`
 
   background-color: ${({ theme }) => theme.color.primary[10]};
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     gap: ${({ theme }) => theme.spacing.xl};
 
     padding: 0 ${({ theme }) => theme.spacing.xl};
@@ -230,7 +231,7 @@ export const Section1Title = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-align: center;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.h3};
   }
 `;
@@ -253,7 +254,7 @@ export const Section1Subtitle = styled.h3`
   white-space: pre-wrap;
   word-break: keep-all;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     gap: 2rem;
 
     width: 100%;
@@ -269,7 +270,7 @@ export const Section1DescriptionWrapper = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: 34rem;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     grid-auto-flow: row;
     grid-auto-columns: 1fr;
   }
@@ -299,7 +300,7 @@ export const Section1DescriptionBoxWrapper = styled.div`
     transform: translateY(-5px);
   }
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 100%;
     padding: ${({ theme }) => theme.spacing.lg};
   }
@@ -316,7 +317,7 @@ export const Section1DescriptionTitle = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.base};
   }
 `;
@@ -325,7 +326,7 @@ export const Section1DescriptionTitleIcon = styled.img`
   width: 2rem;
   height: 2rem;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 1.6rem;
     height: 1.6rem;
   }
@@ -341,7 +342,7 @@ export const Section1Description = styled.p`
   text-align: start;
   white-space: pre-wrap;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;
@@ -353,7 +354,7 @@ export const Section2TitleContainer = styled.div`
   align-items: center;
   gap: 4rem;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     gap: 2rem;
   }
 `;
@@ -363,7 +364,7 @@ export const Section2Title = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.h3};
   }
 `;
@@ -377,7 +378,7 @@ export const Section2SubTitle = styled.h3`
   white-space: pre-wrap;
   word-break: keep-all;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     font-size: ${({ theme }) => theme.fontSize.base};
   }
 `;
@@ -391,7 +392,7 @@ export const Section2DescriptionContainer = styled.div`
 
   width: 100%;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.xl};
   }
@@ -401,7 +402,7 @@ export const Section2Image = styled.img`
   width: 100%;
   height: 100%;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 100%;
     height: auto;
   }
@@ -410,7 +411,7 @@ export const Section2Image = styled.img`
 export const StyledIqGraph = styled(IqGraph)<{ $hoveredLevel: string | null }>`
   width: 50%;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 100%;
   }
 
