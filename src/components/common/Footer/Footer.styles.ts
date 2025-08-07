@@ -4,7 +4,7 @@ export const Container = styled.footer`
   width: 100%;
   padding: ${({ theme }) => theme.spacing.lg} 0;
 
-  background-color: ${({ theme }) => theme.color.black[50]};
+  background-color: ${({ theme }) => theme.color.black[0]};
   border-top: 1px solid ${({ theme }) => theme.color.black[100]};
 `;
 
@@ -23,26 +23,26 @@ export const LogoSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.xs};
+  gap: ${({ theme }) => theme.spacing.xxs};
 
   cursor: pointer;
 `;
 
 export const Logo = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
 `;
 
 export const LogoText = styled.img`
   width: auto;
-  height: 20px;
+  height: 15px;
 `;
 
 export const MenuLinks = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing.xl};
 
-  margin: ${({ theme }) => theme.spacing.lg} 0;
+  margin: ${({ theme }) => theme.spacing.xxs} 0;
 
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     flex-direction: column;
@@ -53,7 +53,7 @@ export const MenuLinks = styled.div`
 
 export const MenuItem = styled.a`
   color: ${({ theme }) => theme.color.black[600]};
-  font-size: ${({ theme }) => theme.fontSize.base};
+  font-size: ${({ theme }) => theme.fontSize.xs};
   text-decoration: none;
 
   transition: color 0.2s ease;
@@ -67,5 +67,5 @@ export const MenuItem = styled.a`
 
 export const Copyright = styled.p`
   color: ${({ theme }) => theme.color.black[400]};
-  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-size: ${({ theme }) => theme.fontSize.xxs};
 `;

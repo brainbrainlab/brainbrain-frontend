@@ -146,7 +146,7 @@ export const SubTitle = styled.h2`
   width: 100%;
   margin-bottom: ${({ theme }) => theme.spacing.base};
 
-  color: ${({ theme }) => theme.color.black[600]};
+  color: ${({ theme }) => theme.color.black[800]};
   font-size: ${({ theme }) => theme.fontSize.h4};
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
   text-align: end;
@@ -226,7 +226,7 @@ export const Section1Title = styled.h2`
 
   width: 100%;
 
-  color: ${({ theme }) => theme.color.black[700]};
+  color: ${({ theme }) => theme.color.black[800]};
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-align: center;
@@ -336,7 +336,7 @@ export const Section1Description = styled.p`
   width: 100%;
 
   color: ${({ theme }) => theme.color.black[700]};
-  font-size: ${({ theme }) => theme.fontSize.base};
+  font-size: ${({ theme }) => theme.fontSize.h6};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   line-height: 1.6;
   text-align: start;
@@ -360,7 +360,7 @@ export const Section2TitleContainer = styled.div`
 `;
 
 export const Section2Title = styled.h2`
-  color: ${({ theme }) => theme.color.black[600]};
+  color: ${({ theme }) => theme.color.black[800]};
   font-size: ${({ theme }) => theme.fontSize.h2};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 
