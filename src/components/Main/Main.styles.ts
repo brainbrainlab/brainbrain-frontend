@@ -121,6 +121,7 @@ export const TitleTextContainer = styled.div`
 
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     align-items: center;
+
     margin: 4rem;
   }
 `;

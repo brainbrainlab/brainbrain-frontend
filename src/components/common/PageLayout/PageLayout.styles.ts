@@ -23,6 +23,5 @@ export const Container = styled.div<{ $innerWidth: string; $fitToHeight: boolean
 
   background-color: ${({ theme }) => theme.color.black[0]};
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-
   font-size: ${({ theme }) => theme.fontSize.base};
 `;

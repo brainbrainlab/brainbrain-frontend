@@ -59,6 +59,7 @@ export const QuestionWrapper = styled.div`
   gap: 3rem;
 
   height: 100%;
+
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     flex-direction: column;
   }
@@ -104,6 +105,7 @@ export const ChoiceContainer = styled.div`
   gap: 1rem;
 
   width: 40vw;
+
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 80vw;
   }

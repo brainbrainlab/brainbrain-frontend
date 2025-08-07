@@ -87,6 +87,7 @@ interface ButtonAnimationProp {
 
 const buttonAnimation = ({ animation }: ButtonAnimationProp) => css`
   transition: ${animation ? 'all 0.2s' : 'none'};
+
   &:hover {
     transform: ${animation ? 'scale(1.01)' : 'none'};
   }

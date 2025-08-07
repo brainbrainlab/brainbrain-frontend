@@ -4,6 +4,7 @@ export const MainIconsWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing.xl};
+
   z-index: ${({ theme }) => theme.zIndex.dropdown};
 `;
 
