@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
+
 import { FaCheck } from 'react-icons/fa';
 
+import { Button } from '@/components/common/Modal/Modal.styles';
+
 import Modal from '../common/Modal/Modal';
-import { Button } from '../common/Modal/Modal.styles';
 import * as S from './TestWarningModal.styles';
 
 interface TestWarningModalProps {
@@ -18,7 +20,7 @@ const TestWarningModal = ({ isOpen, onClose }: TestWarningModalProps) => {
       isOpen={isOpen}
       onClose={onClose}
       title={t('test.warning.title')}
-      width="600px"
+      width="80%"
       footer={
         <Button variant="primary" onClick={onClose}>
           {t('test.warning.startButton')}

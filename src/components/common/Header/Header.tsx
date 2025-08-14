@@ -34,10 +34,8 @@ const Header = memo(() => {
       </S.Logo>
       <S.ButtonContainer>
         <S.LanguageButton onMouseEnter={() => setDropdownVisible(true)} onMouseLeave={() => setDropdownVisible(false)}>
-          <S.LanguageButtonText>
-            <IoLanguage size={20} />
-            {t('header.language')}
-          </S.LanguageButtonText>
+          <IoLanguage size={20} />
+          <S.LanguageButtonText>{t('header.language')}</S.LanguageButtonText>
           {isDropdownVisible && <LanguageDropdown />}
         </S.LanguageButton>
         {!isTestingPage && <TestButton />}

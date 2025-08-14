@@ -71,6 +71,7 @@ module.exports = {
         { from: '_routes.json', to: '_routes.json' },
         { from: '_headers.json', to: '_headers.json' },
         { from: '_redirects', to: '_redirects' },
+        { from: 'public/favicon.ico', to: 'favicon.ico' },
       ],
     }),
   ],

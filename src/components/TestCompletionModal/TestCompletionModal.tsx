@@ -16,13 +16,13 @@ const TestCompletionModal = ({ isOpen, onClose, onSubmit, onReview }: TestComple
       isOpen={isOpen}
       onClose={onClose}
       title="테스트 완료"
-      width="500px"
+      width="80%"
       footer={
         <S.ButtonContainer>
-          <Button color="secondary" onClick={onReview}>
+          <Button color="black" onClick={onReview} size="sm">
             수정하기
           </Button>
-          <Button color="primary" onClick={onSubmit}>
+          <Button color="primary" onClick={onSubmit} size="sm">
             제출하기
           </Button>
         </S.ButtonContainer>

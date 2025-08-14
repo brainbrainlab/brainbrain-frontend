@@ -80,8 +80,8 @@ function Test() {
     );
 
     if (!validationResult.isValid) {
-      navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
-      return;
+      // navigate('/test-invalid', { state: { reasons: validationResult.reasons } });
+      // return;
     }
 
     const result = answers;

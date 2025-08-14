@@ -51,6 +51,7 @@ export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
@@ -72,14 +73,13 @@ export const CloseButton = styled.button`
   align-items: center;
 
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 0.2rem;
 
   padding: 0.5rem;
   border: none;
   border-radius: 3px;
 
-  background-color: ${({ theme }) => theme.color.black[100]};
   color: ${({ theme }) => theme.color.black[400]};
 
   transition: all 0.2s ease;
@@ -87,7 +87,6 @@ export const CloseButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.black[200]};
     color: ${({ theme }) => theme.color.black[700]};
   }
 

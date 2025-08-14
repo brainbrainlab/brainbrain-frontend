@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 import Button from '../../components/common/Button/Button';
@@ -16,8 +17,8 @@ const TestInvalid = () => {
         <Description>{t('error.testInvalidDescription')}</Description>
         <Button onClick={() => navigate('/test')}>{t('error.retakeTest')}</Button>
         <ContactText>
-          {t('test.invalid.contactMessage')}
-          <ContactLink href="mailto:support@brainbrain.com">{t('test.invalid.contactLink')}</ContactLink>
+          {t('test.invalid.contactMessage') + ' '}
+          <ContactLink href="/contact">{t('test.invalid.contactLink')}</ContactLink>
         </ContactText>
       </Wrapper>
     </PageLayout>
@@ -31,7 +32,7 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 2rem;
 
-  min-height: 100vh;
+  min-height: calc(100vh - 30rem);
 
   text-align: center;
 `;

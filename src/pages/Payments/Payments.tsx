@@ -71,10 +71,11 @@ function Payments() {
 
     try {
       // 1. 결제 요청
-      const paymentsResult = await paymentsService.requestPayments(
-        selectedPlan.price * (1 - discountRate),
-        selectedPlan.id,
-      );
+      const finalPrice = selectedPlan.price * (1 - discountRate);
+      if (finalPrice <= 0) {
+        // 펀딩 쿠폰 로직 넣기
+      }
+      const paymentsResult = await paymentsService.requestPayments(finalPrice, selectedPlan.id);
 
       if (paymentsResult.success && paymentsResult.orderId && paymentsResult.result) {
         // 2. 결제 성공 후 결과 전송 (백엔드 API 호출)

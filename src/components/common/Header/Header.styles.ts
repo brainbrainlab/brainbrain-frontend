@@ -44,14 +44,21 @@ export const LanguageButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 2rem;
   gap: 0.5rem;
 
   position: relative;
 
-  width: 15rem;
+  width: fit-content;
   height: 3rem;
 
   cursor: pointer;
+
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    span {
+      display: none;
+    }
+  }
 `;
 
 export const LanguageButtonText = styled.span`
@@ -63,10 +70,4 @@ export const LanguageButtonText = styled.span`
   color: ${({ theme }) => theme.color.black[900]};
   font-size: 1.5rem;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-
-  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
-    div {
-      display: none;
-    }
-  }
 `;

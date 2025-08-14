@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { NICE_PAY_CONFIG, NicePayConfig, PaymentsResponse } from '@/types/payment';
-
 import { usePaymentsStore } from '@/stores/paymentsStore';
+
+import { NICE_PAY_CONFIG, NicePayConfig, PaymentsResponse } from '@/types/payment';
 
 declare global {
   interface Window {

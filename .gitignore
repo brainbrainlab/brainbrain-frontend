@@ -4,3 +4,6 @@ dist
 # Package manager temporary files
 .yarn/install-state.gz
 node_modules/.cache/install-state.gz
+
+.DS_Store
+

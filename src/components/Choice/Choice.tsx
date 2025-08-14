@@ -14,7 +14,14 @@ function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
   };
 
   return (
-    <Button width="7.5vw" height="7.5vw" color="#ECECEC" borderRadius="0" onClick={onClick} animation={false}>
+    <Button
+      width="max-content"
+      height="max-content"
+      color="#ECECEC"
+      borderRadius="0"
+      onClick={onClick}
+      animation={false}
+    >
       <S.ChoiceImage src={getChoiceImage(questionIndex, choiceIndex)} />
     </Button>
   );

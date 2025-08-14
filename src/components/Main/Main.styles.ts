@@ -215,7 +215,7 @@ export const Section2 = styled.div`
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     gap: ${({ theme }) => theme.spacing.xl};
 
-    padding: 0 ${({ theme }) => theme.spacing.xl};
+    padding: ${({ theme }) => theme.spacing.xxl};
   }
 `;
 
@@ -269,9 +269,9 @@ export const Section1DescriptionWrapper = styled.div`
   align-items: stretch;
   gap: 2rem;
   grid-auto-flow: column;
-  grid-auto-columns: 34rem;
+  grid-auto-columns: 1fr;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     grid-auto-flow: row;
     grid-auto-columns: 1fr;
   }
@@ -393,7 +393,7 @@ export const Section2DescriptionContainer = styled.div`
 
   width: 100%;
 
-  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.xl};
   }
@@ -433,5 +433,9 @@ export const StyledIqGraph = styled(IqGraph)<{ $hoveredLevel: string | null }>`
     transform-origin: 50% 50%;
 
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    width: 70%;
+    height: auto;
   }
 `;

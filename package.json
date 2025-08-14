@@ -13,7 +13,8 @@
     "serve": "serve dist",
     "lint": "eslint .",
     "lint:css": "stylelint './src/**/*.styles.{ts,tsx}'",
-    "lint:css:fix": "stylelint './src/**/*.styles.{ts,tsx}' --fix"
+    "lint:css:fix": "stylelint './src/**/*.styles.{ts,tsx}' --fix",
+    "deploy": "yarn build && npx wrangler pages deploy ./dist"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.67.2",

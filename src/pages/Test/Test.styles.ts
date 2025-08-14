@@ -46,7 +46,6 @@ export const QuestionContainer = styled.div`
   gap: 4rem;
 
   width: 100%;
-  height: fit-content;
 
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     flex-direction: column;
@@ -57,8 +56,6 @@ export const QuestionWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 3rem;
-
-  height: 100%;
 
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     flex-direction: column;
@@ -80,34 +77,45 @@ export const QuestionImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   width: 32vw;
   height: 32vw;
-  border: 2px solid ${({ theme }) => theme.color.black[400]};
 
-  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+  @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: column;
+    width: 100%;
+    height: max-content;
   }
 
   /* border-radius: 1rem; */
 `;
 
 export const QuestionImage = styled.img`
-  width: 30vw;
-  height: 30vw;
+  width: 60vw;
+  height: 60vw;
+  @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
+    width: 80%;
+    height: 100%;
+  }
 `;
 
 export const ChoiceContainer = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(8vw, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
   gap: 1rem;
 
   width: 40vw;
+  aspect-ratio: 2;
 
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
-    width: 80vw;
+    width: 50%;
+  }
+  @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
+    width: 80%;
   }
 `;
 
@@ -120,6 +128,10 @@ export const QuestionButtonWrapper = styled.div`
   position: relative;
 
   width: 100%;
+  @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
+    justify-content: space-between;
+    padding: 0 4rem;
+  }
 `;
 
 export const NextButton = styled(IoArrowForwardOutline)`
@@ -198,6 +210,9 @@ export const QuestionButtonContainer = styled.div<{ $showUnsolved: boolean }>`
 
       opacity: 1;
     `}
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    display: none;
+  }
 `;
 
 export const ToggleButton = styled(HiMiniListBullet)`
@@ -217,6 +232,9 @@ export const ToggleButton = styled(HiMiniListBullet)`
     visibility: visible;
 
     opacity: 1;
+  }
+  @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
+    display: none;
   }
 `;
 
