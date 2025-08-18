@@ -9,6 +9,7 @@ import Button from '@/components/common/Button/Button';
 import Modal from '@/components/common/Modal/Modal';
 import PageLayout from '@/components/common/PageLayout/PageLayout';
 
+import { Coupon } from '@/api/constants';
 import { couponsApi } from '@/api/coupons';
 
 import { PAYMENT_OPTIONS } from '@/constants/payments';
@@ -26,7 +27,7 @@ function Payments() {
   const [selectedOption, setSelectedOption] = useState<string>('premium');
   const [showCouponModal, setShowCouponModal] = useState<boolean>(false);
   const [couponCode, setCouponCode] = useState<string>('');
-  const [discountRate, setDiscountRate] = useState<number>(0);
+  const [coupon, setCoupon] = useState<Coupon>();
 
   useEffect(() => {
     console.log(userInfo, testResults, actions);
@@ -56,12 +57,9 @@ function Payments() {
       alert(t('payments.coupon.invalid'));
       return;
     }
-    setDiscountRate(coupon.discountRate);
-    alert('payment.');
-    console.log(discountRate);
+    setCoupon(coupon);
     setShowCouponModal(false);
   };
-
   const handlePayments = async (event: any) => {
     event.preventDefault();
     if (!selectedOption) return;
@@ -71,7 +69,10 @@ function Payments() {
 
     try {
       // 1. 결제 요청
-      const finalPrice = selectedPlan.price * (1 - discountRate);
+      const finalPrice =
+        coupon && (coupon.couponTarget === selectedPlan.id.toLocaleUpperCase() || coupon.couponTarget === 'ALL')
+          ? selectedPlan.price * (1 - coupon.discountRate)
+          : selectedPlan.price;
       if (finalPrice <= 0) {
         // 펀딩 쿠폰 로직 넣기
       }
@@ -102,7 +103,13 @@ function Payments() {
           >
             {option.isBest && <S.BestBadge>BEST</S.BestBadge>}
             <S.OptionTitle>{t(`payments.options.${option.id}.title`)}</S.OptionTitle>
-            <S.Price>{Math.ceil(option.price * (1 - discountRate)).toLocaleString()}원</S.Price>
+            <S.Price>
+              {(coupon && (coupon.couponTarget === option.id.toLocaleUpperCase() || coupon.couponTarget === 'ALL')
+                ? option.price * (1 - coupon.discountRate)
+                : option.price
+              ).toLocaleString()}
+              원
+            </S.Price>
             <S.FeaturesList>
               {Array.isArray(t(`payments.options.${option.id}.features`, { returnObjects: true }))
                 ? (t(`payments.options.${option.id}.features`, { returnObjects: true }) as string[]).map(

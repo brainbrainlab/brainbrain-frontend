@@ -6,6 +6,7 @@ export const PAYMENT_OPTIONS = {
 
 export interface Coupon {
   couponType: 'FUNDING' | string;
+  couponTarget: 'BASIC' | 'STANDARD' | 'PREMIUM' | 'ALL';
   discountRate: number;
   isAvailable: boolean;
 }
