@@ -69,7 +69,9 @@ export interface PaymentsRequest {
 
 export interface UserInfoDTO {
   email: string;
-  name: string;
+  koreanName: string;
+  firstName: string;
+  lastName: string;
   age: string;
   gender: string;
   country: string;

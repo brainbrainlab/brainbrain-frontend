@@ -2,7 +2,15 @@ import { apiClient } from './apiClient';
 import { Coupon } from './constants';
 
 export const couponsApi = {
-  getCoupons: async (code: string): Promise<Coupon> => {
+  getCoupons: async (code: string) => {
     return apiClient.get<Coupon>(`/coupons?code=${code}`);
+  },
+  useFreeCoupons: async (code: string, purchaseOption: string): Promise<string> => {
+    const response = await apiClient.post(`/payments/free`, {
+      couponCode: code,
+      purchaseOption: purchaseOption,
+    });
+    const data = await response.json();
+    return data.orderId;
   },
 };

@@ -53,7 +53,7 @@ function Payments() {
     event.preventDefault();
     if (!couponCode.trim()) return;
     const coupon = await couponsApi.getCoupons(couponCode);
-    if (!coupon) {
+    if (!coupon || !coupon.isAvailable) {
       alert(t('payments.coupon.invalid'));
       return;
     }
@@ -63,24 +63,28 @@ function Payments() {
   const handlePayments = async (event: any) => {
     event.preventDefault();
     if (!selectedOption) return;
-
     const selectedPlan = Object.values(PAYMENT_OPTIONS).find(option => option.id === selectedOption);
     if (!selectedPlan) return;
 
+    const isCouponApplied =
+      coupon && (coupon.couponTarget === selectedPlan!.id.toUpperCase() || coupon.couponTarget === 'ALL');
+
     try {
       // 1. 결제 요청
-      const finalPrice =
-        coupon && (coupon.couponTarget === selectedPlan.id.toLocaleUpperCase() || coupon.couponTarget === 'ALL')
-          ? selectedPlan.price * (1 - coupon.discountRate)
-          : selectedPlan.price;
-      if (finalPrice <= 0) {
-        // 펀딩 쿠폰 로직 넣기
+      const finalPrice = isCouponApplied ? selectedPlan.price * (1 - coupon.discountRate) : selectedPlan.price;
+      const setOrderId = usePaymentsStore.getState().actions.setOrderId;
+      if (isCouponApplied && finalPrice <= 0) {
+        const orderId = await couponsApi.useFreeCoupons(coupon.couponCode, selectedPlan.id);
+        setOrderId(orderId);
+        navigate('/payments/processing');
+        return;
       }
+
       const paymentsResult = await paymentsService.requestPayments(finalPrice, selectedPlan.id);
 
       if (paymentsResult.success && paymentsResult.orderId && paymentsResult.result) {
         // 2. 결제 성공 후 결과 전송 (백엔드 API 호출)
-        const setOrderId = usePaymentsStore.getState().actions.setOrderId;
+
         setOrderId(paymentsResult.orderId);
         setPaymentSuccess({ orderId: paymentsResult.orderId, result: paymentsResult.result });
       }
@@ -104,11 +108,16 @@ function Payments() {
             {option.isBest && <S.BestBadge>BEST</S.BestBadge>}
             <S.OptionTitle>{t(`payments.options.${option.id}.title`)}</S.OptionTitle>
             <S.Price>
-              {(coupon && (coupon.couponTarget === option.id.toLocaleUpperCase() || coupon.couponTarget === 'ALL')
-                ? option.price * (1 - coupon.discountRate)
-                : option.price
-              ).toLocaleString()}
-              원
+              {coupon && (coupon.couponTarget === option.id.toLocaleUpperCase() || coupon.couponTarget === 'ALL') ? (
+                <span>
+                  <del style={{ textDecoration: 'line-through', color: 'lightgray' }}>
+                    {option.price.toLocaleString()}
+                  </del>{' '}
+                  {(option.price * (1 - coupon.discountRate)).toLocaleString()}원
+                </span>
+              ) : (
+                <span>{option.price.toLocaleString()}원</span>
+              )}
             </S.Price>
             <S.FeaturesList>
               {Array.isArray(t(`payments.options.${option.id}.features`, { returnObjects: true }))

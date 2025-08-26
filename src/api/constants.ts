@@ -5,6 +5,7 @@ export const PAYMENT_OPTIONS = {
 } as const;
 
 export interface Coupon {
+  couponCode: string;
   couponType: 'FUNDING' | string;
   couponTarget: 'BASIC' | 'STANDARD' | 'PREMIUM' | 'ALL';
   discountRate: number;

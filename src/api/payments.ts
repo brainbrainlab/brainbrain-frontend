@@ -4,6 +4,7 @@ import { apiClient } from '@/api/apiClient';
 
 export const paymentsApi = {
   completePayments: async (data: PaymentsCompleteRequest) => {
-    return apiClient.post('/results', data);
+    const response = await apiClient.post('/results', data);
+    return response.json();
   },
 };

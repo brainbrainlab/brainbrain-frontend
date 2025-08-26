@@ -21,7 +21,6 @@ function PaymentsProcessing() {
         navigate('/404', { replace: true });
         return;
       }
-
       try {
         // 2. 백엔드에 최종 결제 완료 요청
         await paymentsApi.completePayments({
@@ -29,10 +28,10 @@ function PaymentsProcessing() {
           userInfoRequest: paymentsData.userInfoRequest,
           answers: paymentsData.answers,
         });
-        navigate('/payments/success', { replace: true });
       } catch (error) {
         if (error instanceof SyntaxError && error.message.includes('Unexpected end of JSON input')) {
           console.log('Payment completion successful with empty server response.');
+          navigate('/payments/success', { replace: true });
         } else {
           console.error('Failed to complete payment:', error);
           reset();

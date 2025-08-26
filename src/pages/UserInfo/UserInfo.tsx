@@ -6,41 +6,71 @@ import { FaCheck } from 'react-icons/fa';
 import { IoCheckbox, IoSquareOutline } from 'react-icons/io5';
 import { useTheme } from 'styled-components';
 
+import { usePaymentsStore } from '@/stores/paymentsStore';
+
 import { UserInfoDTO } from '@/pages/Payments/types';
 
 import PageLayout from '@/components/common/PageLayout/PageLayout';
 
 import * as S from './UserInfo.styles';
 
-import { usePaymentsStore } from '@/stores/paymentsStore';
+// --- 리팩터링: 상수 분리 ---
+// 컴포넌트 재렌더링 시 다시 생성될 필요 없는 상수들을 외부로 분리합니다.
+const FIELD_ORDER: (keyof UserInfoDTO)[] = [
+  'email',
+  'koreanName',
+  'firstName',
+  'lastName',
+  'age',
+  'gender',
+  'country',
+  'agreement',
+];
+const NAME_FIELDS: (keyof UserInfoDTO)[] = ['koreanName', 'firstName', 'lastName'];
 
-interface UserInfoErrors {
-  email?: string;
-  name?: string;
-  age?: string;
-  gender?: string;
-  country?: string;
-  agreement?: string;
-}
+// --- 리팩터링: 타입 명확화 ---
+// UserInfoDTO의 키 타입만 따로 정의하여 재사용성을 높입니다.
+type UserInfoField = keyof UserInfoDTO;
+type UserInfoErrors = { [key in UserInfoField]?: string };
+
+// --- 리팩터링: 초기 상태값 상수화 ---
+// 상태의 초기값을 상수로 정의하여 재사용 및 유지보수를 용이하게 합니다.
+const INITIAL_USER_INFO: UserInfoDTO = {
+  email: '',
+  koreanName: '',
+  firstName: '',
+  lastName: '',
+  age: '',
+  gender: '',
+  country: '',
+  agreement: false,
+};
+
+const INITIAL_ERRORS: UserInfoErrors = {
+  email: '',
+  koreanName: '',
+  firstName: '',
+  lastName: '',
+  age: '',
+  gender: '',
+  country: '',
+  agreement: '',
+};
 
 function UserInfo() {
   const { t } = useTranslation();
   const theme = useTheme();
-  const [userInfo, setUserInfo] = useState<UserInfoDTO>({
-    email: '',
-    name: '',
-    age: '',
-    gender: '',
-    country: '',
-    agreement: false,
-  });
+  const navigate = useNavigate();
 
-  const [errors, setErrors] = useState<UserInfoErrors>({});
-  const [visibleFields, setVisibleFields] = useState<(keyof UserInfoDTO)[]>(['email']);
+  const [userInfo, setUserInfo] = useState<UserInfoDTO>(INITIAL_USER_INFO);
+  // --- 리팩터링: 모든 키를 포함하여 에러 상태 초기화 ---
+  const [errors, setErrors] = useState<UserInfoErrors>(INITIAL_ERRORS);
+  const [visibleFields, setVisibleFields] = useState<UserInfoField[]>(['email']);
   const [isComplete, setIsComplete] = useState(false);
+
   const formRef = useRef<HTMLFormElement>(null);
   const nameTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const navigate = useNavigate();
+
   const storeUserInfo = usePaymentsStore(state => state.actions.setUserInfo);
   const result = usePaymentsStore(state => state.testResults);
 
@@ -48,151 +78,39 @@ function UserInfo() {
     if (!result) {
       navigate('/404');
     }
-  }, []);
+  }, [result, navigate]);
 
   useEffect(() => {
+    const noErrors = Object.values(errors).every(error => !error);
     const allFieldsFilled =
-      userInfo.name.trim() !== '' &&
+      userInfo.koreanName.trim() !== '' &&
+      userInfo.firstName.trim() !== '' &&
+      userInfo.lastName.trim() !== '' &&
       userInfo.age !== '' &&
       userInfo.gender !== '' &&
       userInfo.country !== '' &&
       userInfo.email.trim() !== '' &&
-      userInfo.agreement === true;
-
-    if (allFieldsFilled) {
-      validateForm();
-    }
-  }, [userInfo]);
-
-  // 에러 상태가 변경될 때마다 완료 상태 업데이트
-  useEffect(() => {
-    const noErrors = Object.keys(errors).length === 0;
-    const allFieldsFilled =
-      userInfo.name.trim() !== '' &&
-      userInfo.age !== '' &&
-      userInfo.gender !== '' &&
-      userInfo.country !== '' &&
-      userInfo.email.trim() !== '' &&
-      userInfo.agreement === true;
+      userInfo.agreement; // boolean 값은 === true 비교가 불필요합니다.
 
     setIsComplete(allFieldsFilled && noErrors);
   }, [errors, userInfo]);
 
-  // 스크롤을 다음 필드로 이동하는 함수
-  const scrollToNextField = () => {
-    if (formRef.current) {
-      const lastVisibleField = formRef.current.lastElementChild;
-      if (lastVisibleField) {
-        lastVisibleField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-  };
-
-  // visibleFields가 변경될 때마다 스크롤
   useEffect(() => {
-    scrollToNextField();
+    // --- 리팩터링: 스크롤 로직을 별도 함수로 분리 ---
+    const scrollToLastField = () => {
+      if (formRef.current) {
+        // 마지막 자식 요소 대신 ID나 data-attribute를 사용하는 것이 더 안정적일 수 있습니다.
+        // 여기서는 기존 로직을 유지합니다.
+        formRef.current.lastElementChild?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+    };
+    scrollToLastField();
   }, [visibleFields]);
 
-  const showNextField = (currentField: keyof UserInfoDTO) => {
-    const fieldOrder: (keyof UserInfoDTO)[] = ['email', 'name', 'age', 'gender', 'country', 'agreement'];
-    const currentIndex = fieldOrder.indexOf(currentField);
-    if (currentIndex < fieldOrder.length - 1) {
-      setVisibleFields(prev => [...prev, fieldOrder[currentIndex + 1]]);
-    }
-  };
-
-  const validateEmail = (email: string) => {
-    if (!email) {
-      return t('error.emailRequired');
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return t('error.emailInvalid');
-    }
-    return '';
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setUserInfo(prev => ({ ...prev, [name]: value }));
-
-    if (name === 'name') {
-      if (nameTimeoutRef.current) {
-        clearTimeout(nameTimeoutRef.current);
-      }
-      nameTimeoutRef.current = setTimeout(() => {
-        if (value.trim() !== '') {
-          showNextField(name as keyof UserInfoDTO);
-        }
-      }, 500);
-    } else if (name === 'email') {
-      const emailError = validateEmail(value);
-      setErrors(prev => ({ ...prev, email: emailError }));
-      if (!emailError) {
-        showNextField(name as keyof UserInfoDTO);
-      }
-    } else {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-      if (value && !errors[name as keyof UserInfoErrors]) {
-        showNextField(name as keyof UserInfoDTO);
-      }
-    }
-  };
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setUserInfo(prev => ({ ...prev, [name]: checked }));
-    setErrors(prev => ({ ...prev, [name]: '' }));
-
-    if (checked) {
-      showNextField('agreement');
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors: UserInfoErrors = {};
-
-    if (!userInfo.name) {
-      newErrors.name = t('error.nameRequired');
-    }
-
-    if (!userInfo.age) {
-      newErrors.age = t('error.ageRequired');
-    }
-
-    if (!userInfo.gender) {
-      newErrors.gender = t('error.genderRequired');
-    }
-
-    if (!userInfo.country) {
-      newErrors.country = t('error.countryRequired');
-    }
-
-    if (!userInfo.email) {
-      newErrors.email = t('error.emailRequired');
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInfo.email)) {
-      newErrors.email = t('error.emailInvalid');
-    }
-
-    if (!userInfo.agreement) {
-      newErrors.agreement = t('error.agreementRequired');
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // 모든 필드의 유효성 검사
-    const allFieldsValid = validateForm();
-
-    if (allFieldsValid) {
-      storeUserInfo(userInfo);
-      navigate('/payments');
-    }
-  };
-
+  // 컴포넌트 언마운트 시 타임아웃 정리
   useEffect(() => {
     return () => {
       if (nameTimeoutRef.current) {
@@ -201,11 +119,104 @@ function UserInfo() {
     };
   }, []);
 
+  const showNextField = (currentField: UserInfoField) => {
+    const currentIndex = FIELD_ORDER.indexOf(currentField);
+    if (currentIndex < FIELD_ORDER.length - 1) {
+      // 중복 추가를 방지하기 위해 Set을 사용하거나 includes로 확인하는 것이 더 안전합니다.
+      const nextField = FIELD_ORDER[currentIndex + 1];
+      setVisibleFields(prev => (prev.includes(nextField) ? prev : [...prev, nextField]));
+    }
+  };
+
+  const validateField = (name: UserInfoField, value: any): string => {
+    switch (name) {
+      case 'email':
+        if (!value) return t('error.emailRequired');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t('error.emailInvalid');
+        return '';
+      case 'koreanName':
+      case 'firstName':
+      case 'lastName':
+        return value.trim() ? '' : t('error.nameRequired');
+      case 'age':
+      case 'gender':
+      case 'country':
+        return value ? '' : t(`error.${name}Required`);
+      case 'agreement':
+        return value ? '' : t('error.agreementRequired');
+      default:
+        return '';
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target as { name: UserInfoField; value: string };
+    setUserInfo(prev => ({ ...prev, [name]: value }));
+
+    if (NAME_FIELDS.includes(name)) {
+      if (nameTimeoutRef.current) clearTimeout(nameTimeoutRef.current);
+      nameTimeoutRef.current = setTimeout(() => {
+        if (value.trim()) {
+          setErrors(prev => ({ ...prev, [name]: '' }));
+          showNextField(name);
+        }
+      }, 300);
+    } else {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+      if (!error) {
+        showNextField(name);
+      }
+    }
+  };
+
+  const handleCheckboxChange = () => {
+    const newCheckedValue = !userInfo.agreement;
+    setUserInfo(prev => ({ ...prev, agreement: newCheckedValue }));
+
+    const error = validateField('agreement', newCheckedValue);
+    setErrors(prev => ({ ...prev, agreement: error }));
+
+    if (newCheckedValue) {
+      showNextField('agreement');
+    }
+  };
+
+  // --- 리팩터링: validateForm은 에러 객체만 반환하도록 역할 축소 ---
+  const validateForm = (data: UserInfoDTO): UserInfoErrors => {
+    const newErrors: UserInfoErrors = {};
+    (Object.keys(data) as UserInfoField[]).forEach(key => {
+      const error = validateField(key, data[key]);
+      if (error) {
+        newErrors[key] = error;
+      }
+    });
+    return newErrors;
+  };
+
+  // --- 리팩터링: handleSubmit에서 유효성 검사 결과에 따른 모든 처리 담당 ---
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationErrors = validateForm(userInfo);
+    const isFormValid = Object.keys(validationErrors).length === 0;
+
+    if (isFormValid) {
+      storeUserInfo(userInfo);
+      navigate('/payments');
+    } else {
+      // 제출 시 모든 필드를 보여주고, 에러 상태를 업데이트합니다.
+      setVisibleFields(FIELD_ORDER);
+      setErrors(validationErrors);
+    }
+  };
+
   return (
     <PageLayout>
       <S.Title>테스트를 모두 완료하셨습니다!</S.Title>
       <S.Subtitle>{t('userInfo.completeSubtitle')}</S.Subtitle>
-      <S.Form ref={formRef} onSubmit={handleSubmit}>
+      <S.Form ref={formRef} onSubmit={handleSubmit} noValidate>
+        {/* 각 필드 렌더링... (JSX는 동일하므로 생략) */}
+        {/* ...기존 JSX 코드... */}
         {visibleFields.includes('email') && (
           <S.FormGroup $withAnimation={visibleFields.indexOf('email') !== 0}>
             <S.Label>
@@ -224,21 +235,59 @@ function UserInfo() {
           </S.FormGroup>
         )}
 
-        {visibleFields.includes('name') && (
-          <S.FormGroup $withAnimation={visibleFields.indexOf('name') !== 0}>
+        {visibleFields.includes('koreanName') && (
+          <S.FormGroup $withAnimation={visibleFields.indexOf('koreanName') !== 0}>
             <S.Label>
-              {t('userInfo.name')}
+              {t('userInfo.koreanName')}
               <S.Required>*</S.Required>
             </S.Label>
             <S.Input
               type="text"
-              name="name"
-              value={userInfo.name}
+              name="koreanName"
+              value={userInfo.koreanName}
               onChange={handleChange}
-              placeholder={t('userInfo.namePlaceholder')}
-              $hasError={!!errors.name}
+              placeholder={t('userInfo.koreanNamePlaceholder')}
+              $hasError={!!errors.koreanName}
             />
-            <S.ErrorContainer>{errors.name && <S.ErrorMessage>{errors.name}</S.ErrorMessage>}</S.ErrorContainer>
+            <S.ErrorContainer>
+              {errors.koreanName && <S.ErrorMessage>{errors.koreanName}</S.ErrorMessage>}
+            </S.ErrorContainer>
+          </S.FormGroup>
+        )}
+        {visibleFields.includes('firstName') && (
+          <S.FormGroup $withAnimation={visibleFields.indexOf('firstName') !== 0}>
+            <S.Label>
+              {t('userInfo.englishFirstName')}
+              <S.Required>*</S.Required>
+            </S.Label>
+            <S.Input
+              type="text"
+              name="firstName"
+              value={userInfo.firstName}
+              onChange={handleChange}
+              placeholder={t('userInfo.englishFirstNamePlaceholder')}
+              $hasError={!!errors.firstName}
+            />
+            <S.ErrorContainer>
+              {errors.firstName && <S.ErrorMessage>{errors.firstName}</S.ErrorMessage>}
+            </S.ErrorContainer>
+          </S.FormGroup>
+        )}
+        {visibleFields.includes('lastName') && (
+          <S.FormGroup $withAnimation={visibleFields.indexOf('lastName') !== 0}>
+            <S.Label>
+              {t('userInfo.englishLastName')}
+              <S.Required>*</S.Required>
+            </S.Label>
+            <S.Input
+              type="text"
+              name="lastName"
+              value={userInfo.lastName}
+              onChange={handleChange}
+              placeholder={t('userInfo.englishLastNamePlaceholder')}
+              $hasError={!!errors.lastName}
+            />
+            <S.ErrorContainer>{errors.lastName && <S.ErrorMessage>{errors.lastName}</S.ErrorMessage>}</S.ErrorContainer>
           </S.FormGroup>
         )}
 
@@ -315,13 +364,7 @@ function UserInfo() {
 
         {visibleFields.includes('agreement') && (
           <S.AgreementGroup $withAnimation={visibleFields.indexOf('agreement') !== 0}>
-            <S.CheckboxWrapper
-              onClick={() =>
-                handleCheckboxChange({
-                  target: { name: 'agreement', checked: !userInfo.agreement },
-                } as React.ChangeEvent<HTMLInputElement>)
-              }
-            >
+            <S.CheckboxWrapper onClick={handleCheckboxChange}>
               {userInfo.agreement ? (
                 <IoCheckbox size={24} color={theme.color.primary[500]} />
               ) : (

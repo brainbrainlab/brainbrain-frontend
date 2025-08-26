@@ -7,6 +7,7 @@ import Main from '@/pages/Main/Main';
 import NotFound from '@/pages/NotFound/NotFound';
 import Payments from '@/pages/Payments/Payments';
 import PaymentsFail from '@/pages/Payments/PaymentsFail';
+import PaymentsProcessing from '@/pages/Payments/PaymentsProcessing';
 import PaymentsSuccess from '@/pages/Payments/PaymentsSuccess';
 import Result from '@/pages/Result/Result';
 import Testing from '@/pages/Test/Test';
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: '/payments',
         element: <Payments />,
+      },
+      {
+        path: '/payments/processing',
+        element: <PaymentsProcessing />,
       },
       {
         path: '/payments/fail',

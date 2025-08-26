@@ -19,9 +19,8 @@ function PaymentsSuccess() {
   }, [navigate, userInfo]);
 
   const handleButtonClick = () => {
-    usePaymentsStore.getState().actions.reset();
-
     navigate('/', { replace: true });
+    usePaymentsStore.getState().actions.reset();
   };
 
   if (!userInfo) {
