@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 
 import { Heading3, List, ListItem, OrderedList, Paragraph } from '@/pages/Info/Typography.styles';
 
+import PageLayout from '@/components/common/PageLayout/PageLayout';
+
 import * as S from './Info.styles';
 
 type InfoType = 'privacy' | 'terms' | 'business';
@@ -51,11 +53,13 @@ function Info() {
                 <ListItem>{t('terms.privacy.article1.items.personalInfo')}</ListItem>
                 <ListItem>{t('terms.privacy.article1.items.testResult')}</ListItem>
                 <ListItem>{t('terms.privacy.article1.items.payments')}</ListItem>
+                <ListItem>{t('terms.privacy.article1.items.shipping')}</ListItem>
               </List>
               <ListItem>{t('terms.privacy.article1.methods.title')}</ListItem>
               <List>
                 <ListItem>{t('terms.privacy.article1.methods.directInput')}</ListItem>
                 <ListItem>{t('terms.privacy.article1.methods.paymentsInfo')}</ListItem>
+                <ListItem>{t('terms.privacy.article1.methods.shippingInfo')}</ListItem>
               </List>
             </OrderedList>
             <Heading3>{t('terms.privacy.article2.title')}</Heading3>
@@ -64,12 +68,18 @@ function Info() {
               <ListItem>{t('terms.privacy.article2.purposes.certificate')}</ListItem>
               <ListItem>{t('terms.privacy.article2.purposes.email')}</ListItem>
               <ListItem>{t('terms.privacy.article2.purposes.support')}</ListItem>
+              <ListItem>{t('terms.privacy.article2.purposes.shipping')}</ListItem>
             </OrderedList>
             <Heading3>{t('terms.privacy.article3.title')}</Heading3>
             <Paragraph>{t('terms.privacy.article3.description')}</Paragraph>
             <List>
               <ListItem>{t('terms.privacy.article3.retention.items')}</ListItem>
               <ListItem>{t('terms.privacy.article3.retention.period')}</ListItem>
+              <List>
+                <ListItem>{t('terms.privacy.article3.retention.payments')}</ListItem>
+                <ListItem>{t('terms.privacy.article3.retention.shipping')}</ListItem>
+                <ListItem>{t('terms.privacy.article3.retention.others')}</ListItem>
+              </List>
             </List>
             <Heading3>{t('terms.privacy.article4.title')}</Heading3>
             <Paragraph>{t('terms.privacy.article4.description')}</Paragraph>
@@ -84,8 +94,12 @@ function Info() {
               </thead>
               <tbody>
                 <tr>
-                  <S.StyledTd>Google LLC</S.StyledTd>
+                  <S.StyledTd>{t('terms.privacy.article5.table.emailCompany')}</S.StyledTd>
                   <S.StyledTd>{t('terms.privacy.article5.table.emailTask')}</S.StyledTd>
+                </tr>
+                <tr>
+                  <S.StyledTd>{t('terms.privacy.article5.table.shippingCompany')}</S.StyledTd>
+                  <S.StyledTd>{t('terms.privacy.article5.table.shippingTask')}</S.StyledTd>
                 </tr>
               </tbody>
             </S.StyledTable>
@@ -104,8 +118,6 @@ function Info() {
             <Paragraph>{t('terms.privacy.article8.description')}</Paragraph>
             <List>
               <ListItem>{t('terms.privacy.article8.measures.access')}</ListItem>
-              <ListItem>{t('terms.privacy.article8.measures.encryption')}</ListItem>
-              <ListItem>{t('terms.privacy.article8.measures.security')}</ListItem>
             </List>
             <Heading3>{t('terms.privacy.article9.title')}</Heading3>
             <Paragraph>{t('terms.privacy.article9.description')}</Paragraph>
@@ -127,64 +139,140 @@ function Info() {
         return (
           <div>
             <Paragraph>{t('terms.service.introduction')}</Paragraph>
+
             <Heading3>{t('terms.service.article1.title')}</Heading3>
             <Paragraph>{t('terms.service.article1.description')}</Paragraph>
+
             <Heading3>{t('terms.service.article2.title')}</Heading3>
             <OrderedList>
               <ListItem>{t('terms.service.article2.definitions.user')}</ListItem>
               <ListItem>{t('terms.service.article2.definitions.payments')}</ListItem>
               <ListItem>{t('terms.service.article2.definitions.content')}</ListItem>
+              <ListItem>{t('terms.service.article2.definitions.shipping')}</ListItem>
             </OrderedList>
+
             <Heading3>{t('terms.service.article3.title')}</Heading3>
             <OrderedList>
               <ListItem>{t('terms.service.article3.effectiveness.notice')}</ListItem>
               <ListItem>{t('terms.service.article3.effectiveness.changes')}</ListItem>
               <ListItem>{t('terms.service.article3.effectiveness.disagreement')}</ListItem>
             </OrderedList>
+
             <Heading3>{t('terms.service.article4.title')}</Heading3>
-            <OrderedList>
-              <ListItem>{t('terms.service.article4.services.title')}</ListItem>
-              <List>
-                <ListItem>{t('terms.service.article4.services.test')}</ListItem>
-                <ListItem>{t('terms.service.article4.services.score')}</ListItem>
-                <ListItem>{t('terms.service.article4.services.report')}</ListItem>
-              </List>
-            </OrderedList>
+            <Paragraph>{t('terms.service.article4.services.title')}</Paragraph>
+            <List>
+              <ListItem>{t('terms.service.article4.services.test')}</ListItem>
+              <ListItem>{t('terms.service.article4.services.score')}</ListItem>
+              <ListItem>{t('terms.service.article4.services.report')}</ListItem>
+              <ListItem>{t('terms.service.article4.services.shipping')}</ListItem>
+            </List>
+            <Paragraph>{t('terms.service.article4.changeNotice')}</Paragraph>
+            <Paragraph>{t('terms.service.article4.freeService')}</Paragraph>
+
             <Heading3>{t('terms.service.article5.title')}</Heading3>
             <OrderedList>
               <ListItem>{t('terms.service.article5.payments.paidContent')}</ListItem>
               <ListItem>{t('terms.service.article5.payments.process')}</ListItem>
-              <ListItem>{t('terms.service.article5.payments.refund')}</ListItem>
+              <ListItem>{t('terms.service.article5.payments.nonRefundable')}</ListItem>
+              <ListItem>{t('terms.service.article5.payments.exceptions')}</ListItem>
+            </OrderedList>
+
+            <Heading3>{t('terms.service.article6.title')}</Heading3>
+            <OrderedList>
+              <ListItem>{t('terms.service.article6.revocation')}</ListItem>
+              <ListItem>
+                {t('terms.service.article6.irrevocable.title')}
+                <OrderedList>
+                  <ListItem>{t('terms.service.article6.irrevocable.alreadyPrinted')}</ListItem>
+                  <ListItem>{t('terms.service.article6.irrevocable.nonReplicable')}</ListItem>
+                  <ListItem>{t('terms.service.article6.irrevocable.inLaw')}</ListItem>
+                </OrderedList>
+              </ListItem>
+              <ListItem>{t('terms.service.article6.process')}</ListItem>
+            </OrderedList>
+
+            <Heading3>{t('terms.service.article7.title')}</Heading3>
+            <Paragraph>{t('terms.service.article7.userResponsibility')}</Paragraph>
+            <OrderedList>
+              <ListItem>{t('terms.service.article7.personalInformationMisuse')}</ListItem>
+              <ListItem>{t('terms.service.article7.obstruction')}</ListItem>
+              <ListItem>{t('terms.service.article7.infringeIP')}</ListItem>
+              <ListItem>{t('terms.service.article7.violateLaw')}</ListItem>
+            </OrderedList>
+
+            <Heading3>{t('terms.service.article8.title')}</Heading3>
+            <OrderedList>
+              <ListItem>{t('terms.service.article8.companyRights')}</ListItem>
+              <ListItem>{t('terms.service.article8.userRestrictions')}</ListItem>
+              <ListItem>{t('terms.service.article8.reviewCopyright')}</ListItem>
+            </OrderedList>
+
+            <Heading3>{t('terms.service.article9.title')}</Heading3>
+            <Paragraph>{t('terms.service.article9.protectionPolicy')}</Paragraph>
+
+            <Heading3>{t('terms.service.article10.title')}</Heading3>
+            <OrderedList>
+              <ListItem>{t('terms.service.article10.forceMajeure')}</ListItem>
+              <ListItem>{t('terms.service.article10.userFault')}</ListItem>
+              <ListItem>{t('terms.service.article10.freeServiceLiability')}</ListItem>
+            </OrderedList>
+
+            <Heading3>{t('terms.service.article11.title')}</Heading3>
+            <OrderedList>
+              <ListItem>{t('terms.service.article11.resolutionPrinciple')}</ListItem>
+              <ListItem>{t('terms.service.article11.jurisdiction')}</ListItem>
+            </OrderedList>
+
+            <Heading3>{t('terms.service.addendum.title')}</Heading3>
+            <OrderedList>
+              <ListItem>{t('terms.service.addendum.effectiveDate')}</ListItem>
+              <ListItem>{t('terms.service.addendum.unspecifiedMatters')}</ListItem>
             </OrderedList>
           </div>
         );
       case 'business':
         return (
           <div>
-            <Paragraph>{t('terms.business.description')}</Paragraph>
+            <Paragraph>{t('business.description')}</Paragraph>
             <S.StyledTable>
               <thead>
                 <tr>
-                  <S.StyledTh>{t('terms.business.table.item')}</S.StyledTh>
-                  <S.StyledTh>{t('terms.business.table.content')}</S.StyledTh>
+                  <S.StyledTh>{t('business.table.item')}</S.StyledTh>
+                  <S.StyledTh>{t('business.table.content')}</S.StyledTh>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <S.StyledTd>{t('terms.business.table.company')}</S.StyledTd>
-                  <S.StyledTd>{t('terms.business.table.companyName')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.company')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.companyName')}</S.StyledTd>
                 </tr>
                 <tr>
-                  <S.StyledTd>{t('terms.business.table.ceo')}</S.StyledTd>
-                  <S.StyledTd>{t('terms.business.table.ceoName')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.ceo')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.ceoName')}</S.StyledTd>
                 </tr>
                 <tr>
-                  <S.StyledTd>{t('terms.business.table.address')}</S.StyledTd>
-                  <S.StyledTd>{t('terms.business.table.companyAddress')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.businessRegistration')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.businessRegistrationNumber')}</S.StyledTd>
                 </tr>
                 <tr>
-                  <S.StyledTd>{t('terms.business.table.email')}</S.StyledTd>
-                  <S.StyledTd>{t('terms.business.table.companyEmail')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.ecommerceLicense')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.ecommerceLicenseInfo')}</S.StyledTd>
+                </tr>
+                <tr>
+                  <S.StyledTd>{t('business.table.address')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.companyAddress')}</S.StyledTd>
+                </tr>
+                <tr>
+                  <S.StyledTd>{t('business.table.phone')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.phoneNumber')}</S.StyledTd>
+                </tr>
+                <tr>
+                  <S.StyledTd>{t('business.table.email')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.companyEmail')}</S.StyledTd>
+                </tr>
+                <tr>
+                  <S.StyledTd>{t('business.table.hostingProvider')}</S.StyledTd>
+                  <S.StyledTd>{t('business.table.hostingProviderName')}</S.StyledTd>
                 </tr>
               </tbody>
             </S.StyledTable>
@@ -196,10 +284,10 @@ function Info() {
   };
 
   return (
-    <S.Container>
+    <PageLayout>
       <S.Title>{getTitle()}</S.Title>
       <S.Content>{getContent()}</S.Content>
-    </S.Container>
+    </PageLayout>
   );
 }
 

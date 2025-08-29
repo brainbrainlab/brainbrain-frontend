@@ -26,7 +26,6 @@ const FIELD_ORDER: (keyof UserInfoDTO)[] = [
   'country',
   'agreement',
 ];
-const NAME_FIELDS: (keyof UserInfoDTO)[] = ['koreanName', 'firstName', 'lastName'];
 
 // --- 리팩터링: 타입 명확화 ---
 // UserInfoDTO의 키 타입만 따로 정의하여 재사용성을 높입니다.
@@ -63,7 +62,6 @@ function UserInfo() {
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState<UserInfoDTO>(INITIAL_USER_INFO);
-  // --- 리팩터링: 모든 키를 포함하여 에러 상태 초기화 ---
   const [errors, setErrors] = useState<UserInfoErrors>(INITIAL_ERRORS);
   const [visibleFields, setVisibleFields] = useState<UserInfoField[]>(['email']);
   const [isComplete, setIsComplete] = useState(false);
@@ -90,17 +88,14 @@ function UserInfo() {
       userInfo.gender !== '' &&
       userInfo.country !== '' &&
       userInfo.email.trim() !== '' &&
-      userInfo.agreement; // boolean 값은 === true 비교가 불필요합니다.
+      userInfo.agreement;
 
     setIsComplete(allFieldsFilled && noErrors);
   }, [errors, userInfo]);
 
   useEffect(() => {
-    // --- 리팩터링: 스크롤 로직을 별도 함수로 분리 ---
     const scrollToLastField = () => {
       if (formRef.current) {
-        // 마지막 자식 요소 대신 ID나 data-attribute를 사용하는 것이 더 안정적일 수 있습니다.
-        // 여기서는 기존 로직을 유지합니다.
         formRef.current.lastElementChild?.scrollIntoView({
           behavior: 'smooth',
           block: 'center',
@@ -110,7 +105,6 @@ function UserInfo() {
     scrollToLastField();
   }, [visibleFields]);
 
-  // 컴포넌트 언마운트 시 타임아웃 정리
   useEffect(() => {
     return () => {
       if (nameTimeoutRef.current) {
@@ -122,7 +116,6 @@ function UserInfo() {
   const showNextField = (currentField: UserInfoField) => {
     const currentIndex = FIELD_ORDER.indexOf(currentField);
     if (currentIndex < FIELD_ORDER.length - 1) {
-      // 중복 추가를 방지하기 위해 Set을 사용하거나 includes로 확인하는 것이 더 안전합니다.
       const nextField = FIELD_ORDER[currentIndex + 1];
       setVisibleFields(prev => (prev.includes(nextField) ? prev : [...prev, nextField]));
     }
@@ -132,18 +125,45 @@ function UserInfo() {
     switch (name) {
       case 'email':
         if (!value) return t('error.emailRequired');
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t('error.emailInvalid');
+        if (
+          !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
+            value,
+          )
+        )
+          return t('error.emailInvalid');
         return '';
-      case 'koreanName':
-      case 'firstName':
-      case 'lastName':
-        return value.trim() ? '' : t('error.nameRequired');
+
+      case 'koreanName': {
+        const trimmedValue = value.trim();
+        if (!trimmedValue) return t('error.nameRequired');
+        if (trimmedValue.length > 20) return t('error.koreanNameLength');
+        if (!/^[가-힣]+$/.test(trimmedValue)) return t('error.koreanNameFormat');
+        return '';
+      }
+
+      case 'lastName': {
+        const trimmedValue = value.trim();
+        if (!trimmedValue) return t('error.nameRequired');
+        if (trimmedValue.length > 8) return t('error.lastNameLength');
+        if (!/^[a-zA-Z]+$/.test(trimmedValue)) return t('error.englishNameFormat');
+        return '';
+      }
+
+      case 'firstName': {
+        const trimmedValue = value.trim();
+        if (!trimmedValue) return t('error.nameRequired');
+        if (trimmedValue.length > 15) return t('error.firstNameLength');
+        if (!/^[a-zA-Z]+$/.test(trimmedValue)) return t('error.englishNameFormat');
+        return '';
+      }
       case 'age':
       case 'gender':
       case 'country':
         return value ? '' : t(`error.${name}Required`);
+
       case 'agreement':
         return value ? '' : t('error.agreementRequired');
+
       default:
         return '';
     }
@@ -151,22 +171,23 @@ function UserInfo() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target as { name: UserInfoField; value: string };
+
+    // 1. 사용자가 입력한 값을 그대로 state에 업데이트합니다.
+    //    (입력 차단 로직 제거)
     setUserInfo(prev => ({ ...prev, [name]: value }));
 
-    if (NAME_FIELDS.includes(name)) {
-      if (nameTimeoutRef.current) clearTimeout(nameTimeoutRef.current);
+    // 2. 입력값에 대한 에러 검증을 즉시 실행하고 결과를 state에 반영합니다.
+    const error = validateField(name, value);
+    setErrors(prev => ({ ...prev, [name]: error }));
+
+    // 3. 다음 필드를 보여주는 동작에만 디바운스를 적용합니다.
+    if (nameTimeoutRef.current) clearTimeout(nameTimeoutRef.current);
+
+    // 현재 입력값에 에러가 없을 때만, 300ms 후에 다음 필드를 보여주는 타이머를 설정합니다.
+    if (!error) {
       nameTimeoutRef.current = setTimeout(() => {
-        if (value.trim()) {
-          setErrors(prev => ({ ...prev, [name]: '' }));
-          showNextField(name);
-        }
-      }, 300);
-    } else {
-      const error = validateField(name, value);
-      setErrors(prev => ({ ...prev, [name]: error }));
-      if (!error) {
         showNextField(name);
-      }
+      }, 500);
     }
   };
 
@@ -301,9 +322,9 @@ function UserInfo() {
               <option value="" disabled>
                 {t('userInfo.agePlaceholder')}
               </option>
-              {Array.from({ length: 83 }, (_, i) => i + 18).map(age => (
+              {Array.from({ length: 8 }, (_, i) => (i + 1) * 10).map(age => (
                 <option key={age} value={age}>
-                  {age}
+                  {`${age}~${age + 9}`}
                 </option>
               ))}
             </S.Select>
