@@ -170,3 +170,31 @@ export const PaymentsMethodItem = styled.div<{ $isSelected: boolean }>`
     background-color: #f5f9ff;
   }
 `;
+
+export const AddressForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+`;
+
+export const Label = styled.label`
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: -0.5rem;
+`;
+
+export const PostcodeWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
+
+  & > input {
+    flex-grow: 1;
+  }
+
+  & > button {
+    flex-shrink: 0;
+    padding: 0 1rem;
+    white-space: nowrap;
+  }
+`;

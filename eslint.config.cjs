@@ -226,6 +226,11 @@ const reactConfig = {
             group: 'internal',
             position: 'after',
           },
+          {
+            pattern: '**/*.json',
+            group: 'internal',
+            position: 'after',
+          },
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
         alphabetize: {

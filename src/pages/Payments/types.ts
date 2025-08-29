@@ -46,6 +46,7 @@ export interface PaymentsCompleteRequest {
   orderId: string;
   userInfoRequest: UserInfoDTO;
   answers: (number | null)[];
+  shippingInfoRequest: ShippingInfoDTO | null;
 }
 
 export interface PaymentsRequest {
@@ -81,4 +82,12 @@ export interface UserInfoDTO {
 export interface PaymentsInfo {
   planId: string;
   amount: number;
+}
+
+export interface ShippingInfoDTO {
+  recipient: string;
+  phoneNumber: string;
+  postcode: string;
+  address: string;
+  detailedAddress: string;
 }

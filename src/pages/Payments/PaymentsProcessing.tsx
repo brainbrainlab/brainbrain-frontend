@@ -27,6 +27,7 @@ function PaymentsProcessing() {
           orderId: paymentsData.orderId,
           userInfoRequest: paymentsData.userInfoRequest,
           answers: paymentsData.answers,
+          shippingInfoRequest: paymentsData.shippingInfoRequest,
         });
       } catch (error) {
         if (error instanceof SyntaxError && error.message.includes('Unexpected end of JSON input')) {
