@@ -6,7 +6,7 @@ export const Dropdown = styled.div`
   left: 50%;
   z-index: 1000;
 
-  width: 10rem;
+  width: 12rem;
   border: 1px solid ${({ theme }) => theme.color.black[200]};
   border-radius: 0.5rem;
 

@@ -3,15 +3,16 @@ import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
 import type { TranslationKeys } from '../types/i18n.types';
-import cn from './cn.json';
 import en from './en.json';
 import ko from './ko.json';
-
+import zh_cn from './zh_cn.json';
+import zh_tw from './zh_tw.json';
 // Language codes
 export const LANGUAGE_CODES = {
   KOREAN: 'ko',
   ENGLISH: 'en',
-  CHINESE: 'cn',
+  CHINESE_SIMPLIFIED: 'zh_cn',
+  CHINESE_TRADITIONAL: 'zh_tw',
 } as const;
 
 export type LanguageCode = (typeof LANGUAGE_CODES)[keyof typeof LANGUAGE_CODES];
@@ -30,8 +31,11 @@ const resources: Resources = {
   [LANGUAGE_CODES.ENGLISH]: {
     translation: en as TranslationKeys,
   },
-  [LANGUAGE_CODES.CHINESE]: {
-    translation: cn as TranslationKeys,
+  [LANGUAGE_CODES.CHINESE_SIMPLIFIED]: {
+    translation: zh_cn as TranslationKeys,
+  },
+  [LANGUAGE_CODES.CHINESE_TRADITIONAL]: {
+    translation: zh_tw as TranslationKeys,
   },
 };
 

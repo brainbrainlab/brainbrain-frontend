@@ -12,7 +12,8 @@ interface LanguageOption {
 const LANGUAGE_OPTIONS: LanguageOption[] = [
   { code: LANGUAGE_CODES.KOREAN, label: '한국어' },
   { code: LANGUAGE_CODES.ENGLISH, label: 'English' },
-  { code: LANGUAGE_CODES.CHINESE, label: '中文' },
+  { code: LANGUAGE_CODES.CHINESE_SIMPLIFIED, label: '简体中文' },
+  { code: LANGUAGE_CODES.CHINESE_TRADITIONAL, label: '繁體中文' },
 ];
 
 const LanguageDropdown = forwardRef<HTMLDivElement>((_, ref) => {

@@ -10,6 +10,7 @@ export interface TranslationKeys {
     back: string;
     goBack: string;
     goHome: string;
+    and: string;
   };
   error: {
     pageNotFound: string;
@@ -20,17 +21,24 @@ export interface TranslationKeys {
       tooFast: string;
       sameAnswer: string;
     };
-    required: string;
-    englishNameRequired: string;
-    englishNameInvalid: string;
-    koreanNameRequired: string;
-    koreanNameInvalid: string;
+    unknown: string;
+    nameRequired: string;
+    emailRequired: string;
+    emailInvalid: string;
+    koreanNameLength: string;
+    koreanNameFormat: string;
+    lastNameLength: string;
+    firstNameLength: string;
+    englishNameFormat: string;
+    ageRequired: string;
+    genderRequired: string;
+    countryRequired: string;
+    agreementRequired: string;
+    paymentsMethodRequired: string;
+    paymentsInProgress: string;
     addressRequired: string;
     phoneNumberRequired: string;
     phoneNumberInvalid: string;
-    unknown: string;
-    paymentsMethodRequired: string;
-    paymentsInProgress: string;
   };
   header: {
     language: string;
@@ -128,13 +136,14 @@ export interface TranslationKeys {
       register: string;
       apply: string;
       label: string;
+      invalid: string;
     };
     options: {
       basic: {
         title: string;
         features: string[];
       };
-      online: {
+      standard: {
         title: string;
         features: string[];
       };
@@ -153,8 +162,10 @@ export interface TranslationKeys {
       makePayments: string;
     };
     form: {
-      englishName: string;
-      englishNamePlaceholder: string;
+      englishFirstName: string;
+      englishFirstNamePlaceholder: string;
+      englishLastName: string;
+      englishLastNamePlaceholder: string;
       koreanName: string;
       koreanNamePlaceholder: string;
       address: string;
@@ -168,10 +179,38 @@ export interface TranslationKeys {
     pay: string;
     fail: {
       title: string;
+      description: string;
+      retry: string;
+      goBack: string;
     };
     processing: string;
+    success: {
+      title: string;
+      description: string;
+      download: string;
+      goHome: string;
+    };
   };
   userInfo: {
+    completeSubtitle: string;
+    email: string;
+    emailPlaceholder: string;
+    englishFirstName: string;
+    englishFirstNamePlaceholder: string;
+    englishLastName: string;
+    englishLastNamePlaceholder: string;
+    koreanName: string;
+    koreanNamePlaceholder: string;
+    age: string;
+    agePlaceholder: string;
+    gender: string;
+    genderOptions: {
+      male: string;
+      female: string;
+      other: string;
+    };
+    agreement: string;
+    submit: string;
     country: {
       label: string;
       placeholder: string;
@@ -185,19 +224,215 @@ export interface TranslationKeys {
     };
   };
   terms: {
-    service: {
+    privacy: {
       title: string;
-      article4: {
+      introduction: string;
+      article1: {
         title: string;
-        content: {
-          list: string;
-          items: {
-            test: string;
-            score: string;
-            report: string;
-          };
+        description: string;
+        items: {
+          title: string;
+          personalInfo: string;
+          testResult: string;
+          payments: string;
+          shipping: string;
+        };
+        methods: {
+          title: string;
+          directInput: string;
+          paymentsInfo: string;
+          shippingInfo: string;
         };
       };
+      article2: {
+        title: string;
+        description: string;
+        purposes: {
+          certificate: string;
+          email: string;
+          support: string;
+          shipping: string;
+        };
+      };
+      article3: {
+        title: string;
+        description: string;
+        retention: {
+          items: string;
+          period: string;
+          payments: string;
+          shipping: string;
+          others: string;
+        };
+      };
+      article4: {
+        title: string;
+        description: string;
+      };
+      article5: {
+        title: string;
+        description: string;
+        table: {
+          company: string;
+          task: string;
+          emailCompany: string;
+          emailTask: string;
+          shippingCompany: string;
+          shippingTask: string;
+        };
+      };
+      article6: {
+        title: string;
+        description: string;
+        rights: {
+          access: string;
+          correction: string;
+          deletion: string;
+          suspension: string;
+        };
+        contact: string;
+      };
+      article7: {
+        title: string;
+        description: string;
+      };
+      article8: {
+        title: string;
+        description: string;
+        measures: {
+          access: string;
+        };
+      };
+      article9: {
+        title: string;
+        description: string;
+        officer: {
+          title: string;
+          name: string;
+          email: string;
+          address: string;
+        };
+      };
+      article10: {
+        title: string;
+        description: string;
+        effectiveDate: string;
+        date: string;
+      };
+    };
+    service: {
+      title: string;
+      introduction: string;
+      article1: {
+        title: string;
+        description: string;
+      };
+      article2: {
+        title: string;
+        definitions: {
+          user: string;
+          payments: string;
+          content: string;
+          shipping: string;
+        };
+      };
+      article3: {
+        title: string;
+        effectiveness: {
+          notice: string;
+          changes: string;
+          disagreement: string;
+        };
+      };
+      article4: {
+        title: string;
+        services: {
+          title: string;
+          test: string;
+          score: string;
+          report: string;
+          shipping: string;
+        };
+        changeNotice: string;
+        freeService: string;
+      };
+      article5: {
+        title: string;
+        payments: {
+          paidContent: string;
+          process: string;
+          nonRefundable: string;
+          exceptions: string;
+        };
+      };
+      article6: {
+        title: string;
+        revocation: string;
+        irrevocable: {
+          title: string;
+          alreadyPrinted: string;
+          nonReplicable: string;
+          inLaw: string;
+        };
+        process: string;
+      };
+      article7: {
+        title: string;
+        userResponsibility: string;
+        personalInformationMisuse: string;
+        obstruction: string;
+        infringeIP: string;
+        violateLaw: string;
+      };
+      article8: {
+        title: string;
+        companyRights: string;
+        userRestrictions: string;
+        reviewCopyright: string;
+      };
+      article9: {
+        title: string;
+        protectionPolicy: string;
+      };
+      article10: {
+        title: string;
+        forceMajeure: string;
+        userFault: string;
+        freeServiceLiability: string;
+      };
+      article11: {
+        title: string;
+        resolutionPrinciple: string;
+        jurisdiction: string;
+      };
+      addendum: {
+        title: string;
+        effectiveDate: string;
+        unspecifiedMatters: string;
+      };
+    };
+  };
+  business: {
+    description: string;
+    table: {
+      item: string;
+      content: string;
+      company: string;
+      companyName: string;
+      ceo: string;
+      ceoName: string;
+      businessRegistration: string;
+      businessRegistrationNumber: string;
+      ecommerceLicense: string;
+      ecommerceLicenseInfo: string;
+      address: string;
+      companyAddress: string;
+      phone: string;
+      phoneNumber: string;
+      email: string;
+      companyEmail: string;
+      hostingProvider: string;
+      hostingProviderName: string;
     };
   };
 }

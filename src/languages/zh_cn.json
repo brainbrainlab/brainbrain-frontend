@@ -1,0 +1,438 @@
+{
+  "common": {
+    "goToHome": "返回首页",
+    "privacyPolicy": "个人信息处理方针",
+    "termsOfService": "服务使用条款",
+    "contact": "联系我们",
+    "businessInfo": "企业信息",
+    "copyright": "© 2024 BrainBrain. 保留所有权利。",
+    "currency": "韩元",
+    "back": "后退",
+    "goBack": "返回",
+    "goHome": "去首页",
+    "and": "及"
+  },
+  "error": {
+    "pageNotFound": "找不到页面",
+    "testInvalid": "无法确认结果",
+    "testInvalidDescription": "由于测试过程异常，无法确认结果。\n请重新进行测试。",
+    "retakeTest": "重新测试",
+    "invalidReasons": {
+      "tooFast": "测试进行时间过短。",
+      "sameAnswer": "相同的答案过多。"
+    },
+    "unknown": "发生了未知的错误。",
+    "nameRequired": "请输入姓名。",
+    "emailRequired": "请输入电子邮件。",
+    "emailInvalid": "电子邮件格式不正确。",
+    "koreanNameLength": "韩文姓名请输入20个字符以内。",
+    "koreanNameFormat": "韩文姓名只能输入韩文。",
+    "lastNameLength": "英文姓氏请输入8个字符以内。",
+    "firstNameLength": "英文名字请输入15个字符以内。",
+    "englishNameFormat": "英文姓名只能输入英文。",
+    "ageRequired": "请选择年龄。",
+    "genderRequired": "请选择性别。",
+    "countryRequired": "请选择国家。",
+    "agreementRequired": "请同意条款。",
+    "paymentsMethodRequired": "请选择支付方式。",
+    "paymentsInProgress": "支付已在进行中，请稍候。",
+    "addressRequired": "请输入地址。",
+    "phoneNumberRequired": "请输入手机号码。",
+    "phoneNumberInvalid": "请输入正确的手机号码。"
+  },
+  "header": {
+    "language": "语言/Language"
+  },
+  "main": {
+    "subtitle": "门萨题型智商测试",
+    "description1": "40分钟 42题",
+    "description2": "颁发官方认证证书",
+    "description3": "客观地确认您的智力水平",
+    "description4": "反映2025年最新智商测试题型",
+    "button": "开始测试",
+    "section1": {
+      "title": "什么是BrainBrain智商测试？",
+      "subtitle": "BrainBrain通过多种类型和难度的题目，提供测试结果分析和反馈。\n通过这些，您可以了解自己的优点和需要改进的地方，并提供按年龄和国家的比较分析结果。\n此外，您的个人信息将受到严格保护，所有数据都将得到安全管理。",
+      "description1": {
+        "title": "可靠准确的结果",
+        "content": "BrainBrain提供准确可靠的结果。基于对各种类型智商测试的分析结果，我们保证所有用户都能获得可信赖的智商分数。"
+      },
+      "description2": {
+        "title": "个性化分析",
+        "content": "除了简单的分数外，我们还提供对测试结果的详细分析。您可以确认在各个领域的优点和需要改进的部分，从而更好地理解您的智商结果。"
+      },
+      "description3": {
+        "title": "便捷的在线访问",
+        "content": "只要有网络，随时随地都可以轻松访问BrainBrain。不受时间和地点的限制，可以在您希望的时间进行测试，非常方便。"
+      }
+    },
+    "section2": {
+      "title": "智商分数分布图",
+      "subtitle": "智商（IQ）是将人的认知能力数值化的值，是衡量逻辑思维、问题解决、记忆力、推理能力等的心理学指标。\n智商受遗传因素和环境因素的影响，不应被解释为简单的数值，而应视为综合认知能力的一个指标。",
+      "scores": {
+        "highest": "前0.1%",
+        "higher": "前2%",
+        "high": "高智商",
+        "aboveAverage": "平均以上",
+        "belowAverage": "平均以下",
+        "low": "临界智商",
+        "lower": "后2%",
+        "lowest": "后0.1%",
+        "mensaNote": "满足门萨入会标准"
+      }
+    }
+  },
+  "test": {
+    "timeRemaining": "剩余时间",
+    "minutes": "分",
+    "seconds": "秒",
+    "question": "问题",
+    "nextQuestion": "下一题",
+    "submitTest": "提交",
+    "confirmSubmit": "您确定要提交测试吗？",
+    "confirmSubmitDescription": "提交后将无法修改答案。",
+    "yes": "是",
+    "no": "否",
+    "warning": {
+      "title": "测试注意事项",
+      "startButton": "开始测试",
+      "description": "开始测试前，请确认以下事项。",
+      "rules": {
+        "timeLimit": "测试共42题，限时40分钟。",
+        "allQuestions": "必须回答所有问题才能查看结果。",
+        "noPageLeave": "离开页面将导致测试中断，进度不会被保存。",
+        "noRefresh": "测试期间请勿关闭或刷新浏览器。"
+      }
+    },
+    "invalid": {
+      "contactMessage": "如果正常进行测试后仍出现相同问题，请",
+      "contactLink": "联系我们"
+    }
+  },
+  "result": {
+    "title": "智商测试结果",
+    "score": "您的智商分数",
+    "description": "此分数为前{percent}%的水平。",
+    "downloadCertificate": "下载证书",
+    "retakeTest": "重新测试",
+    "shareResult": "分享结果",
+    "analysis": {
+      "title": "详细分析",
+      "overall": "综合评价",
+      "categories": {
+        "logical": "逻辑思维",
+        "spatial": "空间知觉",
+        "numerical": "数理能力",
+        "memory": "记忆力"
+      }
+    }
+  },
+  "payments": {
+    "title": "选择支付选项",
+    "selectOption": "请选择支付选项",
+    "coupon": {
+      "title": "注册优惠券",
+      "placeholder": "请输入优惠券代码",
+      "register": "注册",
+      "apply": "应用",
+      "label": "已应用{{amount}}韩元折扣优惠券",
+      "invalid": "无效的优惠券"
+    },
+    "options": {
+      "basic": {
+        "title": "基础套餐",
+        "features": ["测试结果分数"]
+      },
+      "standard": {
+        "title": "在线证书套餐",
+        "features": ["测试结果分数", "在线证书", "详细报告"]
+      },
+      "premium": {
+        "title": "高级套餐",
+        "features": ["测试结果分数", "在线证书", "实体证书", "详细报告", "BrainBrain周边商品"]
+      }
+    },
+    "process": {
+      "title": "支付信息",
+      "englishName": "英文姓名",
+      "koreanName": "韩文姓名",
+      "address": "地址",
+      "phoneNumber": "手机号码",
+      "goBack": "返回",
+      "makePayments": "进行支付"
+    },
+    "form": {
+      "englishFirstName": "英文名",
+      "englishFirstNamePlaceholder": "请输入您的英文名",
+      "englishLastName": "英文姓",
+      "englishLastNamePlaceholder": "请输入您的英文姓",
+      "koreanName": "韩文姓名",
+      "koreanNamePlaceholder": "请输入您的韩文姓名",
+      "address": "地址",
+      "addressPlaceholder": "请输入地址",
+      "detailedAddress": "详细地址",
+      "detailedAddressPlaceholder": "请输入门牌号等",
+      "phoneNumber": "电话号码",
+      "phoneNumberPlaceholder": "请输入不含-的号码",
+      "searchAddress": "搜索地址"
+    },
+    "pay": "支付",
+    "fail": {
+      "title": "支付失败",
+      "description": "支付处理过程中发生错误。请稍后重试。",
+      "retry": "重试",
+      "goBack": "返回"
+    },
+    "processing": "正在处理支付...",
+    "success": {
+      "title": "支付成功",
+      "description": "感谢您的购买。",
+      "download": "下载证书",
+      "goHome": "返回首页"
+    }
+  },
+  "userInfo": {
+    "completeSubtitle": "请输入您的信息",
+    "email": "电子邮件",
+    "emailPlaceholder": "请输入电子邮件",
+    "englishFirstName": "英文名",
+    "englishFirstNamePlaceholder": "请输入您的英文名",
+    "englishLastName": "英文姓",
+    "englishLastNamePlaceholder": "请输入您的英文姓",
+    "koreanName": "韩文姓名",
+    "koreanNamePlaceholder": "请输入您的韩文姓名",
+    "age": "年龄",
+    "agePlaceholder": "请选择年龄",
+    "gender": "性别",
+    "genderOptions": {
+      "male": "男性",
+      "female": "女性",
+      "other": "其他"
+    },
+    "agreement": "我同意",
+    "submit": "提交",
+    "country": {
+      "label": "国家",
+      "placeholder": "请选择国家",
+      "options": {
+        "kr": "韩国",
+        "us": "美国",
+        "jp": "日本",
+        "cn": "中国",
+        "other": "其他"
+      }
+    }
+  },
+  "terms": {
+    "privacy": {
+      "title": "个人信息处理方针",
+      "introduction": "Brain Lab（以下简称“公司”）在运营BrainBrain服务（以下简称“服务”）时，非常重视用户的个人信息，并根据相关法律法规制定并公开以下个人信息处理方针，以安全地保护和合法地处理个人信息。",
+      "article1": {
+        "title": "第1条（收集的个人信息项目及收集方法）",
+        "description": "公司收集以下项目的个人信息。",
+        "items": {
+          "title": "收集项目",
+          "personalInfo": "姓名、电子邮件地址、性别、年龄、国家",
+          "testResult": "智商测试结果及分数",
+          "payments": "支付记录",
+          "shipping": "配送信息（收件人姓名、手机号码、地址）"
+        },
+        "methods": {
+          "title": "收集方法",
+          "directInput": "用户在进行测试或支付过程中直接输入的信息",
+          "paymentsInfo": "支付时从支付网关（PG）公司接收的支付信息",
+          "shippingInfo": "申请实体配送时，用户输入的配送地址信息"
+        }
+      },
+      "article2": {
+        "title": "第2条（个人信息的收集及使用目的）",
+        "description": "公司将收集的个人信息用于以下目的。",
+        "purposes": {
+          "certificate": "根据智商测试结果制作证书和报告",
+          "email": "通过电子邮件传送结果",
+          "support": "应对用户咨询及服务使用相关通知",
+          "shipping": "为实体证书配送发送物品及配送管理"
+        }
+      },
+      "article3": {
+        "title": "第3条（个人信息的持有及使用期限）",
+        "description": "原则上，公司在个人信息收集及使用目的达成后，会立即销毁该信息。但在以下情况下，将按规定期限保存。",
+        "retention": {
+          "items": "保存项目：姓名、电子邮件、性别、年龄段、国家、分数、支付记录",
+          "period": "保存期限：自收集之日起5年或至用户请求删除时为止",
+          "payments": "支付/交易相关信息：根据电子商务法等相关法律规定保存5年",
+          "shipping": "配送信息（收件人姓名、手机号码、地址）：根据电子商务法等相关法律规定保存5年",
+          "others": "其他项目（姓名、电子邮件、性别、年龄段、国家、分数）：自收集之日起保存2年或至用户请求删除时为止"
+        }
+      },
+      "article4": {
+        "title": "第4条（向第三方提供个人信息）",
+        "description": "公司不向第三方提供用户的个人信息。但根据相关法律法规的要求除外。"
+      },
+      "article5": {
+        "title": "第5条（个人信息处理的委托）",
+        "description": "公司将部分业务委托给外部处理，如下所示，并对受托企业是否遵守个人信息保护法进行管理和监督。",
+        "table": {
+          "company": "受托企业",
+          "task": "委托业务内容",
+          "emailCompany": "Google LLC",
+          "emailTask": "电子邮件发送（不包含用户信息，仅附加证书和报告文件）",
+          "shippingCompany": "配送代理企业（日后通知）",
+          "shippingTask": "实体证书配送业务"
+        }
+      },
+      "article6": {
+        "title": "第6条（用户的权利及行使方法）",
+        "description": "用户可随时向公司行使以下权利。",
+        "rights": {
+          "access": "要求查阅个人信息",
+          "correction": "发现错误时要求更正",
+          "deletion": "要求删除",
+          "suspension": "要求停止处理"
+        },
+        "contact": "※ 上述权利可通过电子邮件（📩 brainbrainsite@gmail.com）行使，公司将立即采取措施。"
+      },
+      "article7": {
+        "title": "第7条（个人信息自动收集装置的安装、运营及拒绝）",
+        "description": "公司不使用Cookie、网站日志分析工具（如Google Analytics）等。"
+      },
+      "article8": {
+        "title": "第8条（确保个人信息安全的措施）",
+        "description": "公司根据个人信息保护法第29条，采取以下必要的安全措施。",
+        "measures": {
+          "access": "限制对个人信息的访问"
+        }
+      },
+      "article9": {
+        "title": "第9条（个人信息保护负责人）",
+        "description": "公司指定了个人信息保护负责人，全面负责个人信息处理相关业务，并处理信息主体的个人信息相关咨询和投诉。",
+        "officer": {
+          "title": "个人信息保护负责人",
+          "name": "Brain Lab",
+          "email": "电子邮件",
+          "address": "brainbrainsite@gmail.com"
+        }
+      },
+      "article10": {
+        "title": "第10条（个人信息处理方针的变更）",
+        "description": "本个人信息处理方针可能根据法律法规和内部运营政策进行变更，变更时将通过服务内公告或电子邮件提前通知。",
+        "effectiveDate": "生效日期",
+        "date": "2025年9月10日"
+      }
+    },
+    "service": {
+      "title": "服务使用条款",
+      "introduction": "本条款旨在规定Brain Lab（以下简称“公司”）与用户之间，关于使用BrainBrain网站（以下简称“服务”）的权利、义务和责任事项。",
+      "article1": {
+        "title": "第1条（目的）",
+        "description": "本条款旨在规定公司提供的智商测试及其结果报告、证书颁发、实体证书配送等服务的使用条件、程序、权利、义务及其他必要事项。"
+      },
+      "article2": {
+        "title": "第2条（术语定义）",
+        "definitions": {
+          "user": "“用户”是指访问本服务并根据本条款使用服务的个人。",
+          "payments": "“支付”是指用户向公司支付一定金额以使用付费服务的行为。",
+          "content": "“内容”是指公司在服务内提供的文本、图像、报告、证书等一切成果物。",
+          "shipping": "“配送服务”是指公司将证书制作成实体形式，通过快递等方式提供给用户的服务。"
+        }
+      },
+      "article3": {
+        "title": "第3条（条款的效力及变更）",
+        "effectiveness": {
+          "notice": "本条款通过在服务界面上公布或其他方式通知后生效。",
+          "changes": "公司可在不违反相关法律的范围内变更条款，变更后的条款将与适用日期及事由一同公布。",
+          "disagreement": "如果用户不同意变更后的条款，可以停止使用服务。"
+        }
+      },
+      "article4": {
+        "title": "第4条（服务的提供）",
+        "services": {
+          "title": "公司提供以下服务：",
+          "test": "进行智商测试",
+          "score": "提供基于结果的分数",
+          "report": "制作并发送个性化报告和证书",
+          "shipping": "实体证书配送服务"
+        },
+        "changeNotice": "公司因服务改善、政策变更、技术原因等可能变更或中断全部或部分服务，届时将提前通知。",
+        "freeService": "对于免费提供的服务，除非法律有特别规定，公司不承担任何损害赔偿责任。"
+      },
+      "article5": {
+        "title": "第5条（服务使用费及支付）",
+        "payments": {
+          "paidContent": "本服务的部分内容为付费提供，用户可通过支付使用付费内容。",
+          "process": "支付通过NicePayments（PG）进行，用户在支付时应充分确认所提示的金额和条件。",
+          "nonRefundable": "鉴于数字内容的特性，报告、证书等颁发后，根据《电子商务法》第17条，撤销购买将受限制。",
+          "exceptions": "但是，如果存在服务故障、重大错误等公司责任事由，可根据相关法律进行退款。"
+        }
+      },
+      "article6": {
+        "title": "第6条（退款及撤销购买）",
+        "revocation": "用户可根据《电子商务法》等相关法律规定，自支付之日起7日内请求撤销购买。",
+        "irrevocable": {
+          "title": "但是，在以下情况下，撤销购买将受限制：",
+          "alreadyPrinted": "报告、证书等数字内容已被颁发或下载的情况。",
+          "nonReplicable": "为用户定制的证书等无法复制的情况。",
+          "inLaw": "其他法律规定的情况。"
+        },
+        "process": "发生退款事由时，公司将根据《电子商务法》及《内容产业振兴法》进行处理。"
+      },
+      "article7": {
+        "title": "第7条（用户的义务）",
+        "userResponsibility": "用户不得从事以下行为：",
+        "personalInformationMisuse": "盗用或不正当使用他人个人信息的行为。",
+        "obstruction": "妨碍服务运营的行为（包括使用自动化程序、黑客攻击等）。",
+        "infringeIP": "侵犯公司著作权、知识产权的行为。",
+        "violateLaw": "违反法律法规及本条款的行为。"
+      },
+      "article8": {
+        "title": "第8条（知识产权）",
+        "companyRights": "服务及内容的著作权及其他知识产权归公司所有。",
+        "userRestrictions": "未经公司事先同意，用户不得复制、传播、分发、销售、租赁、改编内容。",
+        "reviewCopyright": "用户撰写的评论的著作权归该撰写者所有，但公司仅为服务运营和宣传目的，可以使用这些评论。"
+      },
+      "article9": {
+        "title": "第9条（个人信息保护）",
+        "protectionPolicy": "公司根据《个人信息保护法》等相关法律管理在提供服务过程中获取的用户个人信息，具体事项遵循个人信息处理方针。"
+      },
+      "article10": {
+        "title": "第10条（服务中断及免责）",
+        "forceMajeure": "对于因天灾、战争、恐怖袭击、火灾、停电、通信故障等不可抗力导致的服务中断，公司不承担责任。",
+        "userFault": "对于因用户过错导致的服务使用障碍，公司不承担责任。",
+        "freeServiceLiability": "对于免费提供的服务，除非公司存在故意或重大过失，否则不承担责任。"
+      },
+      "article11": {
+        "title": "第11条（争议解决及准据法）",
+        "resolutionPrinciple": "公司与用户之间发生的争议，原则上通过双方协商圆满解决。",
+        "jurisdiction": "协商不成的，以大韩民国法律为准据法，并以民事诉讼法规定的管辖法院为专属管辖法院。"
+      },
+      "addendum": {
+        "title": "附则",
+        "effectiveDate": "本条款自2025年9月10日起施行。",
+        "unspecifiedMatters": "本条款未尽事宜，遵循《电子商务法》、《内容产业振兴法》、《个人信息保护法》等相关法律和商业惯例。"
+      }
+    }
+  },
+  "business": {
+    "description": "Brain Lab的企业信息。",
+    "table": {
+      "item": "项目",
+      "content": "内容",
+      "company": "商号（法人名）",
+      "companyName": "Brain Lab",
+      "ceo": "代表人姓名",
+      "ceoName": "李睿灿",
+      "businessRegistration": "营业执照号码",
+      "businessRegistrationNumber": "205-07-97074",
+      "ecommerceLicense": "通信销售业申报号码",
+      "ecommerceLicenseInfo": "无（小规模豁免企业）",
+      "address": "地址",
+      "companyAddress": "京畿道城南市盆唐区亭子一路15",
+      "phone": "代表电话号码",
+      "phoneNumber": "0502-6825-4056",
+      "email": "代表电子邮件",
+      "companyEmail": "brainbrainsite@gmail.com",
+      "hostingProvider": "托管服务提供商",
+      "hostingProviderName": "Amazon Web Services (AWS)"
+    }
+  }
+}
