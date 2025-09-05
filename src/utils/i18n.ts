@@ -2,11 +2,12 @@ import { I18nConfig, SupportedLanguage } from '@/types/i18n';
 
 export const i18nConfig: I18nConfig = {
   defaultLanguage: 'ko',
-  supportedLanguages: ['ko', 'en', 'cn'],
+  supportedLanguages: ['ko', 'en', 'zh_cn', 'zh_tw'],
   languageMapping: {
     ko: 'ko-KR',
     en: 'en-US',
-    cn: 'zh-CN',
+    zh_cn: 'zh-CN',
+    zh_tw: 'zh_TW',
   },
 };
 
