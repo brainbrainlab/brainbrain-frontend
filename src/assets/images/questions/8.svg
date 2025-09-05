@@ -1,0 +1,54 @@
+<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<rect x="200.141" y="90.5355" width="155" height="155" transform="rotate(45 200.141 90.5355)" stroke="black" stroke-width="5"/>
+<rect x="532.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="730" cy="200" r="97.5" fill="url(#pattern0_1556_3382)" stroke="black" stroke-width="5"/>
+<rect x="1062.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M1280.07 169.871L1280.63 171.599H1347.41L1294.86 209.781L1293.39 210.849L1293.95 212.576L1314.02 274.356L1261.47 236.174L1260 235.106L1258.53 236.174L1205.98 274.356L1226.05 212.576L1226.61 210.849L1225.14 209.781L1172.59 171.599H1239.37L1239.93 169.871L1260 108.09L1280.07 169.871Z" fill="black" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="200" cy="730" r="97.5" fill="url(#pattern1_1556_3382)" stroke="black" stroke-width="5"/>
+<rect x="532.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M750.074 699.871L750.635 701.599H817.411L764.857 739.781L763.389 740.849L763.949 742.576L784.023 804.356L731.47 766.174L730 765.106L728.53 766.174L675.976 804.356L696.051 742.576L696.611 740.849L695.143 739.781L642.589 701.599H709.365L709.926 699.871L730 638.09L750.074 699.871Z" fill="black" stroke="black" stroke-width="5"/>
+<rect x="1062.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<rect x="1260.14" y="620.536" width="155" height="155" transform="rotate(45 1260.14 620.536)" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M220.074 1229.87L220.635 1231.6H287.411L234.857 1269.78L233.389 1270.85L233.949 1272.58L254.023 1334.36L201.47 1296.17L200 1295.11L198.53 1296.17L145.976 1334.36L166.051 1272.58L166.611 1270.85L165.143 1269.78L112.589 1231.6H179.365L179.926 1229.87L200 1168.09L220.074 1229.87Z" fill="black" stroke="black" stroke-width="5"/>
+<rect x="532.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<rect x="730.141" y="1150.54" width="155" height="155" transform="rotate(45 730.141 1150.54)" stroke="black" stroke-width="5"/>
+<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
+<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+<defs>
+<pattern id="pattern0_1556_3382" patternUnits="userSpaceOnUse" patternTransform="matrix(439.466 0 0 408.615 609.607 -3.23442)" preserveAspectRatio="none" viewBox="99.3398 1.07311 439.466 408.615" width="1" height="1">
+<g id="pattern0_1556_3382_inner">
+<path d="M100.938 325.69L100.709 2.69439" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M120.756 332.378L120.527 9.38189" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M140.574 339.065L140.345 16.0694" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M160.395 345.745L160.166 22.7491" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M180.209 352.432L179.98 29.4366" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M200.029 359.12L199.8 36.1241" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M219.848 365.807L219.619 42.8116" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M239.668 372.495L239.439 49.4991" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M259.486 379.182L259.257 56.1866" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M279.305 385.87L279.076 62.8741" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M299.119 392.557L298.89 69.5616" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M318.939 399.245L318.71 76.2491" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M338.758 405.932L338.529 82.9366" stroke="black" stroke-width="3" stroke-linecap="round"/>
+</g>
+</pattern><pattern id="pattern1_1556_3382" patternUnits="userSpaceOnUse" patternTransform="matrix(439.466 0 0 408.615 79.607 526.766)" preserveAspectRatio="none" viewBox="99.3398 1.07311 439.466 408.615" width="1" height="1">
+<g id="pattern1_1556_3382_inner">
+<path d="M100.938 325.69L100.709 2.69439" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M120.756 332.378L120.527 9.38189" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M140.574 339.065L140.345 16.0694" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M160.395 345.745L160.166 22.7491" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M180.209 352.432L179.98 29.4366" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M200.029 359.12L199.8 36.1241" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M219.848 365.807L219.619 42.8116" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M239.668 372.495L239.439 49.4991" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M259.486 379.182L259.257 56.1866" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M279.305 385.87L279.076 62.8741" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M299.119 392.557L298.89 69.5616" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M318.939 399.245L318.71 76.2491" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M338.758 405.932L338.529 82.9366" stroke="black" stroke-width="3" stroke-linecap="round"/>
+</g>
+</pattern></defs>
+</svg>

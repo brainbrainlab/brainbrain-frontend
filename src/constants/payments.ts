@@ -17,7 +17,7 @@ export const PAYMENT_OPTIONS = {
     id: 'premium',
     title: '프리미엄 패키지',
     price: 34500,
-    features: ['테스트 결과 점수 제공', '온라인 인증서', '오프라인 인증서', '상세 보고서', '브레인브레인 굿즈'],
+    features: ['테스트 결과 점수 제공', '온라인 인증서', '오프라인 인증서', '상세 보고서'],
     isBest: true,
   },
 } as const;

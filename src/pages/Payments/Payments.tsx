@@ -23,7 +23,7 @@ function Payments() {
   const openPostcode = useDaumPostcodePopup();
 
   const { userInfo, testResults, actions } = usePaymentsStore();
-  const { setPaymentSuccess, setOrderId, setShippingRequest } = actions; // setShippingInfo 액션 추가
+  const { setPaymentSuccess, setOrderId, setShippingInfo } = actions; // setShippingInfo 액션 추가
 
   const [selectedOption, setSelectedOption] = useState<string>('premium');
   const [showCouponModal, setShowCouponModal] = useState<boolean>(false);
@@ -97,7 +97,7 @@ function Payments() {
       return;
     }
     // Zustand 스토어에 배송 정보 저장
-    setShippingRequest({ recipient, address, detailedAddress, phoneNumber, postcode });
+    setShippingInfo({ recipient, address, detailedAddress, phoneNumber, postcode });
     // 모달을 닫고
     setShowAddressModal(false);
     // 최종 결제 로직 호출

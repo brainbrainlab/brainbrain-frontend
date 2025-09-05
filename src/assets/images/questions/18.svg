@@ -1,0 +1,30 @@
+<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<rect x="78.5" y="78.5" width="243" height="243" stroke="black" stroke-width="7"/>
+<line x1="171.306" y1="227.877" x2="227.875" y2="171.308" stroke="black" stroke-width="7"/>
+<line x1="171.256" y1="171.314" x2="227.825" y2="227.883" stroke="black" stroke-width="7"/>
+<rect x="532.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="700.525" y1="225.377" x2="757.094" y2="168.808" stroke="black" stroke-width="7"/>
+<line x1="700.475" y1="168.814" x2="757.043" y2="225.383" stroke="black" stroke-width="7"/>
+<rect x="1138.5" y="78.5" width="243" height="243" stroke="black" stroke-width="7"/>
+<rect x="1062.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="200" cy="730" r="121.5" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="160" y1="729.5" x2="240" y2="729.5" stroke="black" stroke-width="7"/>
+<line x1="200.5" y1="691" x2="200.5" y2="771" stroke="black" stroke-width="7"/>
+<rect x="532.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="730" cy="730" r="121.5" stroke="black" stroke-width="7"/>
+<rect x="1062.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="1220" y1="729.5" x2="1300" y2="729.5" stroke="black" stroke-width="7"/>
+<line x1="1260.5" y1="691" x2="1260.5" y2="771" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M319.512 1351H80.4883L200 1144L319.512 1351Z" stroke="black" stroke-width="7"/>
+<circle cx="200" cy="1282" r="15" fill="black"/>
+<rect x="532.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<rect x="532.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M849.512 1351H610.488L730 1144L849.512 1351Z" stroke="black" stroke-width="7"/>
+<circle cx="730" cy="1282" r="15" fill="black"/>
+<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
+<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+</svg>

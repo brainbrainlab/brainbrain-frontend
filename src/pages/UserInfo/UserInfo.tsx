@@ -14,26 +14,22 @@ import PageLayout from '@/components/common/PageLayout/PageLayout';
 
 import * as S from './UserInfo.styles';
 
-// --- 리팩터링: 상수 분리 ---
-// 컴포넌트 재렌더링 시 다시 생성될 필요 없는 상수들을 외부로 분리합니다.
-const FIELD_ORDER: (keyof UserInfoDTO)[] = [
+const FIELD_ORDER = [
   'email',
   'koreanName',
-  'firstName',
-  'lastName',
+  'englishName',
   'age',
   'gender',
   'country',
   'agreement',
-];
+  'firstName',
+  'lastName',
+] as const;
+type FieldOrderType = (typeof FIELD_ORDER)[number];
 
-// --- 리팩터링: 타입 명확화 ---
-// UserInfoDTO의 키 타입만 따로 정의하여 재사용성을 높입니다.
 type UserInfoField = keyof UserInfoDTO;
 type UserInfoErrors = { [key in UserInfoField]?: string };
 
-// --- 리팩터링: 초기 상태값 상수화 ---
-// 상태의 초기값을 상수로 정의하여 재사용 및 유지보수를 용이하게 합니다.
 const INITIAL_USER_INFO: UserInfoDTO = {
   email: '',
   koreanName: '',
@@ -63,7 +59,7 @@ function UserInfo() {
 
   const [userInfo, setUserInfo] = useState<UserInfoDTO>(INITIAL_USER_INFO);
   const [errors, setErrors] = useState<UserInfoErrors>(INITIAL_ERRORS);
-  const [visibleFields, setVisibleFields] = useState<UserInfoField[]>(['email']);
+  const [visibleFields, setVisibleFields] = useState<FieldOrderType[]>(['email']);
   const [isComplete, setIsComplete] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -113,7 +109,7 @@ function UserInfo() {
     };
   }, []);
 
-  const showNextField = (currentField: UserInfoField) => {
+  const showNextField = (currentField: FieldOrderType) => {
     const currentIndex = FIELD_ORDER.indexOf(currentField);
     if (currentIndex < FIELD_ORDER.length - 1) {
       const nextField = FIELD_ORDER[currentIndex + 1];
@@ -145,7 +141,7 @@ function UserInfo() {
         const trimmedValue = value.trim();
         if (!trimmedValue) return t('error.nameRequired');
         if (trimmedValue.length > 8) return t('error.lastNameLength');
-        if (!/^[a-zA-Z]+$/.test(trimmedValue)) return t('error.englishNameFormat');
+        if (!/^[a-zA-Z\s]+$/.test(trimmedValue)) return t('error.englishNameFormat');
         return '';
       }
 
@@ -153,7 +149,7 @@ function UserInfo() {
         const trimmedValue = value.trim();
         if (!trimmedValue) return t('error.nameRequired');
         if (trimmedValue.length > 15) return t('error.firstNameLength');
-        if (!/^[a-zA-Z]+$/.test(trimmedValue)) return t('error.englishNameFormat');
+        if (!/^[a-zA-Z\s]+$/.test(trimmedValue)) return t('error.englishNameFormat');
         return '';
       }
       case 'age':
@@ -170,24 +166,34 @@ function UserInfo() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target as { name: UserInfoField; value: string };
+    // 1. e.target에서 name, value 외에 type도 가져옵니다.
+    const { name, value, type } = e.target as { name: UserInfoField; value: string; type: string };
 
-    // 1. 사용자가 입력한 값을 그대로 state에 업데이트합니다.
-    //    (입력 차단 로직 제거)
     setUserInfo(prev => ({ ...prev, [name]: value }));
 
-    // 2. 입력값에 대한 에러 검증을 즉시 실행하고 결과를 state에 반영합니다.
     const error = validateField(name, value);
     setErrors(prev => ({ ...prev, [name]: error }));
 
-    // 3. 다음 필드를 보여주는 동작에만 디바운스를 적용합니다.
     if (nameTimeoutRef.current) clearTimeout(nameTimeoutRef.current);
 
-    // 현재 입력값에 에러가 없을 때만, 300ms 후에 다음 필드를 보여주는 타이머를 설정합니다.
+    // 에러가 없을 때만 다음 필드를 보여줍니다.
     if (!error) {
-      nameTimeoutRef.current = setTimeout(() => {
+      // 2. input의 type이 'text' 또는 'email'인 경우에만 setTimeout을 적용합니다.
+      if (type === 'text' || type === 'email') {
+        nameTimeoutRef.current = setTimeout(() => {
+          if (name === 'firstName' || name === 'lastName') {
+            const otherName = name === 'firstName' ? 'lastName' : 'firstName';
+            if (userInfo[otherName] && !validateField(otherName, userInfo[otherName])) {
+              showNextField('englishName');
+            }
+          } else {
+            showNextField(name);
+          }
+        }, 500);
+      } else {
+        // 3. 그 외의 경우(select, radio 등)는 즉시 다음 필드를 보여줍니다.
         showNextField(name);
-      }, 500);
+      }
     }
   };
 
@@ -226,8 +232,14 @@ function UserInfo() {
       navigate('/payments');
     } else {
       // 제출 시 모든 필드를 보여주고, 에러 상태를 업데이트합니다.
-      setVisibleFields(FIELD_ORDER);
+      setVisibleFields([...FIELD_ORDER]);
       setErrors(validationErrors);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
     }
   };
 
@@ -235,7 +247,7 @@ function UserInfo() {
     <PageLayout>
       <S.Title>테스트를 모두 완료하셨습니다!</S.Title>
       <S.Subtitle>{t('userInfo.completeSubtitle')}</S.Subtitle>
-      <S.Form ref={formRef} onSubmit={handleSubmit} noValidate>
+      <S.Form ref={formRef} onSubmit={handleSubmit} noValidate onKeyDown={handleKeyDown}>
         {/* 각 필드 렌더링... (JSX는 동일하므로 생략) */}
         {/* ...기존 JSX 코드... */}
         {visibleFields.includes('email') && (
@@ -275,40 +287,49 @@ function UserInfo() {
             </S.ErrorContainer>
           </S.FormGroup>
         )}
-        {visibleFields.includes('firstName') && (
-          <S.FormGroup $withAnimation={visibleFields.indexOf('firstName') !== 0}>
-            <S.Label>
-              {t('userInfo.englishFirstName')}
-              <S.Required>*</S.Required>
-            </S.Label>
-            <S.Input
-              type="text"
-              name="firstName"
-              value={userInfo.firstName}
-              onChange={handleChange}
-              placeholder={t('userInfo.englishFirstNamePlaceholder')}
-              $hasError={!!errors.firstName}
-            />
-            <S.ErrorContainer>
-              {errors.firstName && <S.ErrorMessage>{errors.firstName}</S.ErrorMessage>}
-            </S.ErrorContainer>
-          </S.FormGroup>
-        )}
-        {visibleFields.includes('lastName') && (
-          <S.FormGroup $withAnimation={visibleFields.indexOf('lastName') !== 0}>
-            <S.Label>
-              {t('userInfo.englishLastName')}
-              <S.Required>*</S.Required>
-            </S.Label>
-            <S.Input
-              type="text"
-              name="lastName"
-              value={userInfo.lastName}
-              onChange={handleChange}
-              placeholder={t('userInfo.englishLastNamePlaceholder')}
-              $hasError={!!errors.lastName}
-            />
-            <S.ErrorContainer>{errors.lastName && <S.ErrorMessage>{errors.lastName}</S.ErrorMessage>}</S.ErrorContainer>
+        {visibleFields.includes('englishName') && ( // firstName을 기준으로 렌더링
+          <S.FormGroup $withAnimation>
+            {/* 두 입력을 묶는 공통 라벨 */}
+
+            <S.InputRow>
+              {/* First Name 입력 그룹 */}
+              <S.InputGroup>
+                <S.Label>
+                  {t('userInfo.englishFirstName')}
+                  <S.Required>*</S.Required>
+                </S.Label>
+                <S.Input
+                  type="text"
+                  name="firstName"
+                  value={userInfo.firstName}
+                  onChange={handleChange}
+                  placeholder={t('userInfo.englishFirstNamePlaceholder')} // "First name"
+                  $hasError={!!errors.firstName}
+                />
+                <S.ErrorContainer>
+                  {errors.firstName && <S.ErrorMessage>{errors.firstName}</S.ErrorMessage>}
+                </S.ErrorContainer>
+              </S.InputGroup>
+
+              {/* Last Name 입력 그룹 */}
+              <S.InputGroup>
+                <S.Label>
+                  {t('userInfo.englishLastName')}
+                  <S.Required>*</S.Required>
+                </S.Label>
+                <S.Input
+                  type="text"
+                  name="lastName"
+                  value={userInfo.lastName}
+                  onChange={handleChange}
+                  placeholder={t('userInfo.englishLastNamePlaceholder')} // "Last name"
+                  $hasError={!!errors.lastName}
+                />
+                <S.ErrorContainer>
+                  {errors.lastName && <S.ErrorMessage>{errors.lastName}</S.ErrorMessage>}
+                </S.ErrorContainer>
+              </S.InputGroup>
+            </S.InputRow>
           </S.FormGroup>
         )}
 

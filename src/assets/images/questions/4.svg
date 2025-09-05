@@ -1,0 +1,28 @@
+<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="110" cy="289" r="22.5" fill="black" stroke="black" stroke-width="5"/>
+<rect x="53.5" y="53.5" width="293" height="293" stroke="black" stroke-width="7"/>
+<rect x="927.5" y="2.5" width="395" height="395" transform="rotate(90 927.5 2.5)" stroke="black" stroke-width="5"/>
+<circle cx="641" cy="110" r="21.5" transform="rotate(90 641 110)" stroke="black" stroke-width="7"/>
+<rect x="876.5" y="53.5" width="293" height="293" transform="rotate(90 876.5 53.5)" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="2.5" width="395" height="395" transform="matrix(0 1 1 0 1060 0)" stroke="black" stroke-width="5"/>
+<circle cx="25" cy="25" r="22.5" transform="matrix(0 1 1 0 1324 85)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="3.5" y="3.5" width="293" height="293" transform="matrix(0 1 1 0 1110 50)" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="2.5" width="395" height="395" transform="matrix(0 1 1 0 0 530)" stroke="black" stroke-width="5"/>
+<circle cx="25" cy="25" r="22.5" transform="matrix(0 1 1 0 264 615)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="3.5" y="3.5" width="293" height="293" transform="matrix(0 1 1 0 50 580)" stroke="black" stroke-width="7"/>
+<rect x="532.5" y="927.5" width="395" height="395" transform="rotate(-90 532.5 927.5)" stroke="black" stroke-width="5"/>
+<circle cx="819" cy="820" r="21.5" transform="rotate(-90 819 820)" stroke="black" stroke-width="7"/>
+<rect x="583.5" y="876.5" width="293" height="293" transform="rotate(-90 583.5 876.5)" stroke="black" stroke-width="7"/>
+<rect x="1062.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="1172" cy="819" r="22.5" fill="black" stroke="black" stroke-width="5"/>
+<rect x="1115.5" y="583.5" width="293" height="293" stroke="black" stroke-width="7"/>
+<rect x="397.5" y="1062.5" width="395" height="395" transform="rotate(90 397.5 1062.5)" stroke="black" stroke-width="5"/>
+<circle cx="111" cy="1170" r="21.5" transform="rotate(90 111 1170)" stroke="black" stroke-width="7"/>
+<rect x="346.5" y="1113.5" width="293" height="293" transform="rotate(90 346.5 1113.5)" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="2.5" width="395" height="395" transform="matrix(0 1 1 0 530 1060)" stroke="black" stroke-width="5"/>
+<circle cx="25" cy="25" r="22.5" transform="matrix(0 1 1 0 794 1145)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="3.5" y="3.5" width="293" height="293" transform="matrix(0 1 1 0 580 1110)" stroke="black" stroke-width="7"/>
+<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
+<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+</svg>

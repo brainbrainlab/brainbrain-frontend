@@ -1,40 +1,6 @@
 <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<g clip-path="url(#clip0_294_2274)">
-<rect x="47" y="44" width="310" height="310" rx="155" fill="#C8D700"/>
-<circle cx="202" cy="199" r="152.5" fill="white" stroke="black" stroke-width="5"/>
-<path d="M36.7968 138.397L320.427 -21.0001" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M40.7427 161.795L324.373 2.39782" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M44.689 185.193L328.319 25.7953" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M48.6349 208.591L332.265 49.1932" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M52.5808 231.989L336.211 72.5912" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M56.5267 255.386L340.157 95.9886" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M60.4728 278.784L344.103 119.386" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M64.4187 302.182L348.049 142.784" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M68.3646 325.579L351.994 166.182" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M72.3109 348.977L355.941 189.579" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M76.2568 372.375L359.887 212.977" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M80.2028 395.772L363.833 236.375" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M84.1488 419.17L367.779 259.772" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M36.7968 138.397L320.427 -21.0001" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M40.7427 161.795L324.373 2.39782" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M44.689 185.193L328.319 25.7953" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M48.6349 208.591L332.265 49.1932" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M52.5808 231.989L336.211 72.5912" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M56.5267 255.386L340.157 95.9886" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M60.4728 278.784L344.103 119.386" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M64.4187 302.182L348.049 142.784" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M68.3646 325.579L351.994 166.182" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M72.3109 348.977L355.941 189.579" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M76.2568 372.375L359.887 212.977" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M80.2028 395.772L363.833 236.375" stroke="black" stroke-width="5" stroke-linecap="round"/>
-<path d="M84.1488 419.17L367.779 259.772" stroke="black" stroke-width="5" stroke-linecap="round"/>
-</g>
-<line x1="26.7678" y1="25.2322" x2="374.768" y2="373.232" stroke="black" stroke-width="5"/>
-<line y1="-2.5" x2="492.146" y2="-2.5" transform="matrix(-0.707107 0.707107 0.707107 0.707107 373 27)" stroke="black" stroke-width="5"/>
-<defs>
-<clipPath id="clip0_294_2274">
-<rect x="47" y="44" width="310" height="310" rx="155" fill="white"/>
-</clipPath>
-</defs>
+<rect x="77.5" y="77.5" width="245" height="245" stroke="black" stroke-width="5"/>
+<path d="M262 81V325" stroke="#0170C3" stroke-width="7"/>
+<path d="M319 262L75 262" stroke="#0170C3" stroke-width="7"/>
 </svg>

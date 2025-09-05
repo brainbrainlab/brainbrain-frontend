@@ -1,0 +1,23 @@
+<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M397.5 2.5V397.5H2.5V2.5H397.5Z" stroke="black" stroke-width="5"/>
+<path d="M113 287V112L288 287V112" stroke="black" stroke-width="7"/>
+<path d="M927.5 2.5V397.5H532.5V2.5H927.5Z" stroke="black" stroke-width="5"/>
+<path d="M643 112L818 112L643 287L818 287" stroke="black" stroke-width="7"/>
+<path d="M1457.5 2.5V397.5H1062.5V2.5H1457.5Z" stroke="black" stroke-width="5"/>
+<path d="M1172 287L1172 112L1347 112L1347 287L1172 287ZM1179 123.949L1179 275.051L1254.55 199.5L1179 123.949ZM1183.95 119L1259.5 194.551L1335.05 119L1183.95 119ZM1259.5 204.449L1183.95 280L1335.05 280L1259.5 204.449ZM1264.45 199.5L1340 275.051L1340 123.949L1264.45 199.5Z" fill="black"/>
+<path d="M397.5 532.5V927.5H2.5V532.5H397.5Z" stroke="black" stroke-width="5"/>
+<path d="M113 642V817H288V642" stroke="black" stroke-width="7"/>
+<path d="M927.5 532.5V927.5H532.5V532.5H927.5Z" stroke="black" stroke-width="5"/>
+<path d="M730 643V817" stroke="black" stroke-width="7"/>
+<path d="M818 817V642H643V817" stroke="black" stroke-width="7"/>
+<path d="M1457.5 532.5V927.5H1062.5V532.5H1457.5Z" stroke="black" stroke-width="5"/>
+<path d="M1260 643V817" stroke="black" stroke-width="7"/>
+<path d="M1171 817H1346" stroke="black" stroke-width="7"/>
+<path d="M1348 642H1173" stroke="black" stroke-width="7"/>
+<path d="M397.5 1062.5V1457.5H2.5V1062.5H397.5Z" stroke="black" stroke-width="5"/>
+<path d="M113 1172L200.5 1347L288 1172" stroke="black" stroke-width="7"/>
+<path d="M927.5 1062.5V1457.5H532.5V1062.5H927.5Z" stroke="black" stroke-width="5"/>
+<path d="M818 1347V1172L730.5 1347L643 1172V1347" stroke="black" stroke-width="7"/>
+<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
+<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+</svg>

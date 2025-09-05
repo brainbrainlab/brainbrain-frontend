@@ -309,3 +309,16 @@ export const ErrorContainer = styled.div`
   min-height: 20px;
   margin-top: 0.25rem;
 `;
+
+export const InputRow = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+`;

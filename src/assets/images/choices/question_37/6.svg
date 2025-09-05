@@ -1,0 +1,8 @@
+<svg width="406" height="406" viewBox="0 0 406 406" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 3L3 403H403V3H3Z" stroke="black" stroke-width="5"/>
+<path d="M83 83L83 323H323V83L83 83Z" stroke="black" stroke-width="5"/>
+<path d="M163 323L163 83" stroke="black" stroke-width="5"/>
+<path d="M243 323L243 83" stroke="black" stroke-width="5"/>
+<circle cx="203" cy="224" r="12" transform="rotate(-90 203 224)" fill="black"/>
+<circle cx="203" cy="182" r="12" transform="rotate(-90 203 182)" fill="black"/>
+</svg>

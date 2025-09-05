@@ -5,11 +5,11 @@ export const PAYMENT_OPTIONS = {
 } as const;
 
 export interface Coupon {
+  isAvailable: boolean;
   couponCode: string;
   couponType: 'FUNDING' | string;
   couponTarget: 'BASIC' | 'STANDARD' | 'PREMIUM' | 'ALL';
   discountRate: number;
-  isAvailable: boolean;
 }
 
 export type PaymentsOptionType = (typeof PAYMENT_OPTIONS)[keyof typeof PAYMENT_OPTIONS];

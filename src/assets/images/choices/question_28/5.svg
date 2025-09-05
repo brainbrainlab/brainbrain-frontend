@@ -1,0 +1,27 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<mask id="path-2-inside-1_1556_3517" fill="white">
+<path d="M300 200C300 255.229 255.228 300 200 300C144.772 300 100 255.229 100 200C147.5 200.001 144.772 200.001 200 200.001C255.228 200.001 246 200 300 200Z"/>
+</mask>
+<path d="M300 200C300 255.229 255.228 300 200 300C144.772 300 100 255.229 100 200C147.5 200.001 144.772 200.001 200 200.001C255.228 200.001 246 200 300 200Z" fill="url(#pattern0_1556_3517)" stroke="black" stroke-width="14" mask="url(#path-2-inside-1_1556_3517)"/>
+<path d="M297.935 201.067L199.969 103.102L102.003 201.067" stroke="black" stroke-width="7" stroke-linecap="round"/>
+<defs>
+<pattern id="pattern0_1556_3517" patternUnits="userSpaceOnUse" patternTransform="matrix(400.769 0 0 390.006 31.322 53.3246)" preserveAspectRatio="none" viewBox="31.7066 -1.67253 400.769 390.006" width="1" height="1">
+<use xlink:href="#pattern0_1556_3517_inner" transform="translate(0 -390.006)"/>
+<g id="pattern0_1556_3517_inner">
+<path d="M365.947 190.265L119.84 390.005" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M358.863 174.413L112.756 374.154" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M351.777 158.554L105.67 358.294" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M344.697 142.695L98.5901 342.435" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M337.611 126.843L91.5041 326.583" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M330.527 110.984L84.4201 310.724" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M323.441 95.1322L77.3342 294.873" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M316.355 79.2728L70.2483 279.013" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M309.271 63.4212L63.1643 263.162" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M302.185 47.5697L56.0783 247.31" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M295.099 31.7103L48.9924 231.451" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M288.015 15.8587L41.9084 215.599" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+<path d="M280.929 -0.000655318L34.8225 199.74" stroke="#0170C3" stroke-width="5" stroke-linecap="round"/>
+</g>
+</pattern></defs>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<circle cx="200" cy="200" r="97.5" fill="url(#pattern0_1556_3416)" stroke="black" stroke-width="5"/>
+<defs>
+<pattern id="pattern0_1556_3416" patternUnits="userSpaceOnUse" patternTransform="matrix(406.813 0 0 438.152 -2.3339 78.0805)" preserveAspectRatio="none" viewBox="1.07246 97.1562 406.813 438.152" width="1" height="1">
+<g id="pattern0_1556_3416_inner">
+<path d="M81.1291 101.203L404.114 98.5192" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M74.592 121.078L397.577 118.394" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M68.0549 140.945L391.04 138.261" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M61.5217 160.812L384.506 158.129" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M54.9865 180.68L377.971 177.996" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M48.4494 200.547L371.434 197.863" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M41.9143 220.422L364.899 217.738" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M35.3771 240.289L358.362 237.605" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M28.84 260.156L351.825 257.472" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M22.3049 280.023L345.29 277.34" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M15.7697 299.891L338.755 297.207" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M9.23457 319.758L332.219 317.074" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M2.69746 339.633L325.682 336.949" stroke="black" stroke-width="3" stroke-linecap="round"/>
+</g>
+</pattern></defs>
+</svg>

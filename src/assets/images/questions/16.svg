@@ -1,0 +1,46 @@
+<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="69" y1="66.5" x2="339" y2="66.5" stroke="black" stroke-width="7"/>
+<line x1="72.5" y1="65" x2="72.5" y2="335" stroke="black" stroke-width="7"/>
+<line x1="71.5251" y1="332.525" x2="336.525" y2="67.5251" stroke="black" stroke-width="7"/>
+<line x1="73.4749" y1="67.5251" x2="206.051" y2="200.102" stroke="black" stroke-width="7"/>
+<rect x="532.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line y1="-3.5" x2="270" y2="-3.5" transform="matrix(-1 0 0 1 869 75)" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="270" y2="-3.5" transform="matrix(0 1 1 0 869 70)" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="374.767" y2="-3.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 864 340)" stroke="black" stroke-width="7"/>
+<line x1="598.525" y1="339.525" x2="863.525" y2="74.5251" stroke="black" stroke-width="7"/>
+<rect x="1062.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="1132.5" y1="65" x2="1132.5" y2="335" stroke="black" stroke-width="7"/>
+<line x1="1397.5" y1="65" x2="1397.5" y2="335" stroke="black" stroke-width="7"/>
+<line x1="1263.47" y1="199.525" x2="1396.47" y2="332.525" stroke="black" stroke-width="7"/>
+<line x1="69" y1="726.5" x2="339" y2="726.5" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="69" y1="596.5" x2="339" y2="596.5" stroke="black" stroke-width="7"/>
+<line x1="69" y1="861.5" x2="339" y2="861.5" stroke="black" stroke-width="7"/>
+<line x1="202.5" y1="862.016" x2="202.5" y2="596.999" stroke="black" stroke-width="7"/>
+<line x1="70.5" y1="730" x2="70.5" y2="595" stroke="black" stroke-width="7"/>
+<line x1="335.5" y1="730" x2="335.5" y2="595" stroke="black" stroke-width="7"/>
+<rect x="532.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="599" y1="596.5" x2="869" y2="596.5" stroke="black" stroke-width="7"/>
+<line x1="599" y1="861.5" x2="869" y2="861.5" stroke="black" stroke-width="7"/>
+<line x1="602.5" y1="595" x2="602.5" y2="865" stroke="black" stroke-width="7"/>
+<line x1="867.5" y1="595" x2="867.5" y2="865" stroke="black" stroke-width="7"/>
+<line x1="732.5" y1="865" x2="732.5" y2="595" stroke="black" stroke-width="7"/>
+<rect x="1062.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line y1="-3.5" x2="270" y2="-3.5" transform="matrix(1 0 0 -1 1125 727.016)" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="135.015" y2="-3.5" transform="matrix(0 1 1 0 1130 727)" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="135.015" y2="-3.5" transform="matrix(0 1 1 0 1395 727)" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="199.5" y1="1267.02" x2="199.5" y2="1132" stroke="black" stroke-width="7"/>
+<line x1="200" y1="1263.5" x2="335.015" y2="1263.5" stroke="black" stroke-width="7"/>
+<line x1="333.5" y1="1130" x2="333.5" y2="1400" stroke="black" stroke-width="7"/>
+<line x1="335" y1="1133.5" x2="65" y2="1133.5" stroke="black" stroke-width="7"/>
+<line x1="67.4749" y1="1132.53" x2="332.475" y2="1397.53" stroke="black" stroke-width="7"/>
+<rect x="532.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="601.525" y1="1391.53" x2="866.525" y2="1126.53" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="374.767" y2="-3.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 866 1395)" stroke="black" stroke-width="7"/>
+<line x1="736" y1="1391.5" x2="871" y2="1391.5" stroke="black" stroke-width="7"/>
+<line x1="869.5" y1="1259" x2="869.5" y2="1394" stroke="black" stroke-width="7"/>
+<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
+<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+</svg>
