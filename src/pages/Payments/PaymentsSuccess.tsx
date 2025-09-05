@@ -20,7 +20,6 @@ function PaymentsSuccess() {
 
   const handleButtonClick = () => {
     navigate('/', { replace: true });
-    usePaymentsStore.getState().actions.reset();
   };
 
   if (!userInfo) {

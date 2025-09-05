@@ -111,7 +111,9 @@ function Payments() {
 
     const isCouponApplied =
       coupon && (coupon.couponTarget === selectedPlan.id.toUpperCase() || coupon.couponTarget === 'ALL');
-    const finalPrice = isCouponApplied ? selectedPlan.price * (1 - coupon.discountRate) : selectedPlan.price;
+    const finalPrice = isCouponApplied
+      ? Math.floor(selectedPlan.price * (1 - coupon.discountRate))
+      : selectedPlan.price;
 
     try {
       if (isCouponApplied && finalPrice <= 0) {
@@ -166,7 +168,7 @@ function Payments() {
                   <del style={{ textDecoration: 'line-through', color: 'lightgray' }}>
                     {option.price.toLocaleString()}
                   </del>{' '}
-                  {(option.price * (1 - coupon.discountRate)).toLocaleString()}
+                  {Math.floor(option.price * (1 - coupon.discountRate)).toLocaleString()}
                   {t('common.currency')}
                 </span>
               ) : (

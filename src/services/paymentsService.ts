@@ -14,17 +14,11 @@ declare global {
 
 export const paymentsService = {
   // 1. async/await 문법을 적용하고, 선택적으로 coupon 파라미터를 받도록 수정
-  async requestPayments(
-    amount: number,
-    goodsName: string,
-    coupon?: string, // 2. coupon 파라미터 추가 (선택적)
-  ): Promise<PaymentsResponse> {
+  async requestPayments(amount: number, goodsName: string, coupon?: string): Promise<PaymentsResponse> {
     try {
-      // 3. 콜백 기반 API를 await로 기다릴 수 있도록 Promise로 감싸줍니다.
       const response = await new Promise<PaymentsResponse>((resolve, reject) => {
-        const orderId = uuidv4(); // orderId는 결제 요청 자체에 필요하므로 여기서 생성
+        const orderId = uuidv4();
         usePaymentsStore.getState().actions.setOrderId(orderId);
-        // 4. returnUrl을 동적으로 생성합니다.
         const returnUrl = new URL(NICE_PAY_CONFIG.RETURN_URL);
         if (coupon) {
           returnUrl.searchParams.append('coupon', coupon);
@@ -47,7 +41,6 @@ export const paymentsService = {
           },
         };
 
-        // 5. 결제 모듈 호출 시 발생할 수 있는 동기적 에러를 잡기 위해 try-catch 추가
         try {
           window.AUTHNICE.requestPay(config);
         } catch {

@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+
+import { usePaymentsStore } from '@/stores/paymentsStore';
+
 import ScrollIcon, { TargetSection } from '@/components/common/ScrollIcon/ScrollIcon';
 import DescriptionSection from '@/components/Main/DescriptionSection';
 import ScoreSection from '@/components/Main/ScoreSection';
@@ -10,6 +14,9 @@ const targetSections: TargetSection[] = [
 ];
 
 const Main = () => {
+  useEffect(() => {
+    usePaymentsStore.getState().actions.reset();
+  });
   return (
     <>
       <TitleSection />

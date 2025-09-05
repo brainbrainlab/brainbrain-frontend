@@ -1,21 +1,21 @@
-<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1320" height="1320" viewBox="0 0 1320 1320" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
 <path d="M250 150H150V250" stroke="black" stroke-width="10"/>
-<rect x="-2.5" y="2.5" width="395" height="395" transform="matrix(-1 0 0 1 925 0)" stroke="black" stroke-width="5"/>
-<path d="M680 100L680 200L780 200L780 300" stroke="black" stroke-width="10"/>
-<rect x="-2.5" y="-2.5" width="395" height="395" transform="matrix(0 -1 -1 0 1455 395)" stroke="black" stroke-width="5"/>
-<path d="M1160 300H1260V200H1360L1360 100" stroke="black" stroke-width="10"/>
-<rect x="2.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<path d="M300 830L300 730L200 730L200 630L100 630" stroke="black" stroke-width="10"/>
-<rect x="532.5" y="927.5" width="395" height="395" transform="rotate(-90 532.5 927.5)" stroke="black" stroke-width="5"/>
-<path d="M780 630L780 730L680 730L680 830" stroke="black" stroke-width="10"/>
-<rect x="-2.5" y="2.5" width="395" height="395" transform="matrix(-1 0 0 1 1455 530)" stroke="black" stroke-width="5"/>
-<path d="M1113 877H1213V777H1313L1313 677" stroke="black" stroke-width="10"/>
-<path d="M1408 582L1408 682L1308 682" stroke="black" stroke-width="10"/>
-<rect x="2.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<path d="M275.008 1260.01H200.008H125.008" stroke="black" stroke-width="10"/>
-<rect x="-2.5" y="2.5" width="395" height="395" transform="matrix(-1 0 0 1 925 1060)" stroke="black" stroke-width="5"/>
-<path d="M680 1210L680 1310L780 1310" stroke="black" stroke-width="10"/>
-<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
-<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+<rect x="-2.5" y="2.5" width="395" height="395" transform="matrix(-1 0 0 1 855 0)" stroke="black" stroke-width="5"/>
+<path d="M610 100L610 200L710 200L710 300" stroke="black" stroke-width="10"/>
+<rect x="-2.5" y="-2.5" width="395" height="395" transform="matrix(0 -1 -1 0 1315 395)" stroke="black" stroke-width="5"/>
+<path d="M1020 300H1120V200H1220L1220 100" stroke="black" stroke-width="10"/>
+<rect x="2.5" y="462.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M300 760L300 660L200 660L200 560L100 560" stroke="black" stroke-width="10"/>
+<rect x="462.5" y="857.5" width="395" height="395" transform="rotate(-90 462.5 857.5)" stroke="black" stroke-width="5"/>
+<path d="M710 560L710 660L610 660L610 760" stroke="black" stroke-width="10"/>
+<rect x="-2.5" y="2.5" width="395" height="395" transform="matrix(-1 0 0 1 1315 460)" stroke="black" stroke-width="5"/>
+<path d="M973 807H1073V707H1173L1173 607" stroke="black" stroke-width="10"/>
+<path d="M1268 512L1268 612L1168 612" stroke="black" stroke-width="10"/>
+<rect x="2.5" y="922.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<path d="M275.008 1120.01H200.008H125.008" stroke="black" stroke-width="10"/>
+<rect x="-2.5" y="2.5" width="395" height="395" transform="matrix(-1 0 0 1 855 920)" stroke="black" stroke-width="5"/>
+<path d="M610 1070L610 1170L710 1170" stroke="black" stroke-width="10"/>
+<path d="M1119.5 1186V1147.1C1119.5 1128.88 1132.04 1113.05 1149.77 1108.88V1108.88C1157.73 1107.01 1164.9 1102.7 1170.29 1096.56L1170.75 1096.03C1176.75 1089.2 1180.34 1080.59 1180.96 1071.52L1181.21 1067.92C1182.34 1051.6 1175.74 1035.69 1163.39 1024.96L1161.97 1023.73C1144.76 1008.78 1120.21 1005.78 1099.9 1016.13L1095.45 1018.4C1072.6 1030.05 1060.04 1055.25 1064.5 1080.5V1080.5" stroke="black" stroke-width="30"/>
+<rect x="1112.5" y="1218.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
 </svg>

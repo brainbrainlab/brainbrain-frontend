@@ -78,8 +78,8 @@ export const QuestionImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 32vw;
-  height: 32vw;
+  width: 26vw;
+  height: 26vw;
 
   @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: column;
@@ -91,8 +91,8 @@ export const QuestionImageWrapper = styled.div`
 `;
 
 export const QuestionImage = styled.img`
-  width: 60vw;
-  height: 60vw;
+  width: 40vw;
+  height: 40vw;
   @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     width: 80%;
     height: 100%;
@@ -106,7 +106,7 @@ export const ChoiceContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   place-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
   width: 40vw;
   aspect-ratio: 2;

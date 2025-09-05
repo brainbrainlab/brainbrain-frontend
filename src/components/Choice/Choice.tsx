@@ -1,5 +1,3 @@
-import Button from '@/components/common/Button/Button';
-
 import * as S from './Choice.styles';
 
 interface ChoiceProps {
@@ -14,16 +12,16 @@ function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
   };
 
   return (
-    <Button
+    <S.StyledChoiceButton
       width="max-content"
       height="max-content"
       color="#ECECEC"
       borderRadius="0"
       onClick={onClick}
-      animation={false}
+      animation={true}
     >
       <S.ChoiceImage src={getChoiceImage(questionIndex, choiceIndex)} />
-    </Button>
+    </S.StyledChoiceButton>
   );
 }
 

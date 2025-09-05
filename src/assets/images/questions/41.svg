@@ -1,42 +1,49 @@
-<svg width="1460" height="1460" viewBox="0 0 1460 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1320" height="1320" viewBox="0 0 1320 1320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1556_2634)">
 <rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
 <line x1="15" y1="198.5" x2="385" y2="198.5" stroke="black" stroke-width="7"/>
 <line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 200 385)" stroke="black" stroke-width="7"/>
 <circle cx="104" cy="103" r="50" fill="black"/>
 <circle cx="104" cy="296" r="46.5" stroke="black" stroke-width="7"/>
-<rect x="532.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="545" y1="198.5" x2="915" y2="198.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 730 385)" stroke="black" stroke-width="7"/>
-<circle cx="831" cy="103" r="50" fill="black"/>
-<rect x="1062.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="1075" y1="198.5" x2="1445" y2="198.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 1260 385)" stroke="black" stroke-width="7"/>
-<circle cx="1364" cy="296" r="50" fill="black"/>
-<circle cx="1164" cy="296" r="46.5" stroke="black" stroke-width="7"/>
-<rect x="2.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="15" y1="728.5" x2="385" y2="728.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 200 915)" stroke="black" stroke-width="7"/>
-<circle cx="301" cy="632" r="46.5" stroke="black" stroke-width="7"/>
-<circle cx="104" cy="826" r="50" fill="black"/>
-<rect x="532.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="545" y1="728.5" x2="915" y2="728.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 730 915)" stroke="black" stroke-width="7"/>
-<circle cx="634" cy="633" r="50" fill="black"/>
-<circle cx="634" cy="826" r="46.5" stroke="black" stroke-width="7"/>
-<rect x="1062.5" y="532.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="1075" y1="728.5" x2="1445" y2="728.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 1260 915)" stroke="black" stroke-width="7"/>
-<circle cx="1361" cy="633" r="50" fill="black"/>
-<rect x="2.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="15" y1="1258.5" x2="385" y2="1258.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 200 1445)" stroke="black" stroke-width="7"/>
-<circle cx="304" cy="1356" r="50" fill="black"/>
-<circle cx="104" cy="1356" r="46.5" stroke="black" stroke-width="7"/>
-<rect x="532.5" y="1062.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<line x1="545" y1="1258.5" x2="915" y2="1258.5" stroke="black" stroke-width="7"/>
-<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 730 1445)" stroke="black" stroke-width="7"/>
-<circle cx="831" cy="1162" r="46.5" stroke="black" stroke-width="7"/>
-<circle cx="634" cy="1356" r="50" fill="black"/>
-<path d="M1259.5 1326V1287.1C1259.5 1268.88 1272.04 1253.05 1289.77 1248.88V1248.88C1297.73 1247.01 1304.9 1242.7 1310.29 1236.56L1310.75 1236.03C1316.75 1229.2 1320.34 1220.59 1320.96 1211.52L1321.21 1207.92C1322.34 1191.6 1315.74 1175.69 1303.39 1164.96L1301.97 1163.73C1284.76 1148.78 1260.21 1145.78 1239.9 1156.13L1235.45 1158.4C1212.6 1170.05 1200.04 1195.25 1204.5 1220.5V1220.5" stroke="black" stroke-width="30"/>
-<rect x="1252.5" y="1358.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+<rect x="462.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="475" y1="198.5" x2="845" y2="198.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 660 385)" stroke="black" stroke-width="7"/>
+<circle cx="761" cy="103" r="50" fill="black"/>
+<rect x="922.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="935" y1="198.5" x2="1305" y2="198.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 1120 385)" stroke="black" stroke-width="7"/>
+<circle cx="1224" cy="296" r="50" fill="black"/>
+<circle cx="1024" cy="296" r="46.5" stroke="black" stroke-width="7"/>
+<rect x="2.5" y="462.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="15" y1="658.5" x2="385" y2="658.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 200 845)" stroke="black" stroke-width="7"/>
+<circle cx="301" cy="562" r="46.5" stroke="black" stroke-width="7"/>
+<circle cx="104" cy="756" r="50" fill="black"/>
+<rect x="462.5" y="462.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="475" y1="658.5" x2="845" y2="658.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 660 845)" stroke="black" stroke-width="7"/>
+<circle cx="564" cy="563" r="50" fill="black"/>
+<circle cx="564" cy="756" r="46.5" stroke="black" stroke-width="7"/>
+<rect x="922.5" y="462.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="935" y1="658.5" x2="1305" y2="658.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 1120 845)" stroke="black" stroke-width="7"/>
+<circle cx="1221" cy="563" r="50" fill="black"/>
+<rect x="2.5" y="922.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="15" y1="1118.5" x2="385" y2="1118.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 200 1305)" stroke="black" stroke-width="7"/>
+<circle cx="304" cy="1216" r="50" fill="black"/>
+<circle cx="104" cy="1216" r="46.5" stroke="black" stroke-width="7"/>
+<rect x="462.5" y="922.5" width="395" height="395" stroke="black" stroke-width="5"/>
+<line x1="475" y1="1118.5" x2="845" y2="1118.5" stroke="black" stroke-width="7"/>
+<line y1="-3.5" x2="370" y2="-3.5" transform="matrix(0 -1 -1 0 660 1305)" stroke="black" stroke-width="7"/>
+<circle cx="761" cy="1022" r="46.5" stroke="black" stroke-width="7"/>
+<circle cx="564" cy="1216" r="50" fill="black"/>
+<path d="M1119.5 1186V1147.1C1119.5 1128.88 1132.04 1113.05 1149.77 1108.88V1108.88C1157.73 1107.01 1164.9 1102.7 1170.29 1096.56L1170.75 1096.03C1176.75 1089.2 1180.34 1080.59 1180.96 1071.52L1181.21 1067.92C1182.34 1051.6 1175.74 1035.69 1163.39 1024.96L1161.97 1023.73C1144.76 1008.78 1120.21 1005.78 1099.9 1016.13L1095.45 1018.4C1072.6 1030.05 1060.04 1055.25 1064.5 1080.5V1080.5" stroke="black" stroke-width="30"/>
+<rect x="1112.5" y="1218.5" width="15" height="15" fill="black" stroke="black" stroke-width="15"/>
+</g>
+<defs>
+<clipPath id="clip0_1556_2634">
+<rect width="1320" height="1320" fill="white"/>
+</clipPath>
+</defs>
 </svg>
