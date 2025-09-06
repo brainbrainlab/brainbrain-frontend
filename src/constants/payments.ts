@@ -1,23 +1,58 @@
 export const PAYMENT_OPTIONS = {
   BASIC: {
     id: 'basic',
-    title: '점수만 제공',
+    title: '기본 패키지',
     price: 9800,
-    features: ['테스트 결과 점수 제공'],
+    features: [
+      {
+        text: '테스트 결과 점수 제공',
+        image: '/assets/images/previews/1.png',
+      },
+    ],
     isBest: false,
   },
   STANDARD: {
     id: 'standard',
-    title: '온라인 인증서 + 보고서',
+    title: '온라인 인증서 패키지',
     price: 14600,
-    features: ['테스트 결과 점수 제공', '온라인 인증서', '상세 보고서'],
+    features: [
+      {
+        text: '테스트 결과 점수 제공',
+        image: '/assets/images/previews/1.png',
+      },
+      {
+        text: '온라인 인증서',
+        image: '/assets/images/previews/2.png',
+      },
+      {
+        text: '상세 보고서',
+        image: '/assets/images/previews/3.png',
+      },
+    ],
     isBest: false,
   },
   PREMIUM: {
     id: 'premium',
     title: '프리미엄 패키지',
     price: 34500,
-    features: ['테스트 결과 점수 제공', '온라인 인증서', '오프라인 인증서', '상세 보고서'],
+    features: [
+      {
+        text: '테스트 결과 점수 제공',
+        image: '/assets/images/previews/1.png',
+      },
+      {
+        text: '온라인 인증서',
+        image: '/assets/images/previews/2.png',
+      },
+      {
+        text: '상세 보고서',
+        image: '/assets/images/previews/3.png',
+      },
+      {
+        text: '오프라인 인증서',
+        image: '/assets/images/previews/4.png',
+      },
+    ],
     isBest: true,
   },
 } as const;

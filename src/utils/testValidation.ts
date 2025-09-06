@@ -10,7 +10,7 @@ export const validateTest = (startTime: Date, endTime: Date, answers: number[]):
   };
 
   const testDurationMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
-  if (testDurationMinutes < 10) {
+  if (testDurationMinutes < 8) {
     result.isValid = false;
     result.reasons.push('tooFast');
   }

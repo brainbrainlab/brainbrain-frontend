@@ -13,17 +13,17 @@ declare global {
 }
 
 export const paymentsService = {
-  // 1. async/await 문법을 적용하고, 선택적으로 coupon 파라미터를 받도록 수정
   async requestPayments(amount: number, goodsName: string, coupon?: string): Promise<PaymentsResponse> {
     try {
       const response = await new Promise<PaymentsResponse>((resolve, reject) => {
         const orderId = uuidv4();
         usePaymentsStore.getState().actions.setOrderId(orderId);
         const returnUrl = new URL(NICE_PAY_CONFIG.RETURN_URL);
+
         if (coupon) {
           returnUrl.searchParams.append('coupon', coupon);
         }
-
+        console.log(returnUrl);
         const config: NicePayConfig = {
           clientId: NICE_PAY_CONFIG.CLIENT_ID,
           method: 'all',

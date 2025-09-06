@@ -13,9 +13,16 @@ import PageLayout from '@/components/common/PageLayout/PageLayout';
 import { Coupon } from '@/api/constants';
 import { couponsApi } from '@/api/coupons';
 
+// ✨ 수정: 변경된 데이터 구조를 가진 PAYMENT_OPTIONS를 가져옵니다.
 import { PAYMENT_OPTIONS } from '@/constants/payments';
 
 import * as S from './Payments.styles';
+
+// ✨ 추가: feature 객체의 타입을 명확히 정의합니다.
+interface Feature {
+  text: string;
+  image: string;
+}
 
 function Payments() {
   const navigate = useNavigate();
@@ -23,27 +30,29 @@ function Payments() {
   const openPostcode = useDaumPostcodePopup();
 
   const { userInfo, testResults, actions } = usePaymentsStore();
-  const { setPaymentSuccess, setOrderId, setShippingInfo } = actions; // setShippingInfo 액션 추가
+  const { setPaymentSuccess, setOrderId, setShippingInfo } = actions;
 
   const [selectedOption, setSelectedOption] = useState<string>('premium');
   const [showCouponModal, setShowCouponModal] = useState<boolean>(false);
   const [couponCode, setCouponCode] = useState<string>('');
   const [coupon, setCoupon] = useState<Coupon>();
 
-  // 1. 주소 입력 모달 및 폼을 위한 상태 추가
   const [showAddressModal, setShowAddressModal] = useState<boolean>(false);
 
-  const [recipient, setRecipient] = useState(''); // 수령인
+  const [recipient, setRecipient] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [postcode, setPostcode] = useState(''); // 우편번호
-  const [address, setAddress] = useState(''); // 주소
-  const [detailedAddress, setDetailedAddress] = useState(''); // 상세주소
+  const [postcode, setPostcode] = useState('');
+  const [address, setAddress] = useState('');
+  const [detailedAddress, setDetailedAddress] = useState('');
+
+  // ✨ 수정: 어떤 '항목'에 마우스가 올라왔는지 관리하기 위한 상태
+  const [hoveredFeature, setHoveredFeature] = useState<{ optionId: string; index: number } | null>(null);
 
   useEffect(() => {
     if (!userInfo || !testResults) {
       navigate('/404');
     }
-  }, [userInfo, testResults]);
+  }, [userInfo, testResults, navigate]);
 
   useEffect(() => {
     setCouponCode('');
@@ -96,15 +105,11 @@ function Payments() {
       alert('모든 배송 정보를 입력해주세요.');
       return;
     }
-    // Zustand 스토어에 배송 정보 저장
     setShippingInfo({ recipient, address, detailedAddress, phoneNumber, postcode });
-    // 모달을 닫고
     setShowAddressModal(false);
-    // 최종 결제 로직 호출
     await handleFinalSubmit();
   };
 
-  // 3. 실제 결제 요청 로직을 별도 함수로 분리
   const handleFinalSubmit = async () => {
     const selectedPlan = Object.values(PAYMENT_OPTIONS).find(option => option.id === selectedOption);
     if (!selectedPlan) return;
@@ -122,12 +127,12 @@ function Payments() {
         navigate('/payments/processing');
         return;
       }
-
-      const paymentsResult = await paymentsService.requestPayments(finalPrice, selectedPlan.id);
+      const paymentsResult = await paymentsService.requestPayments(finalPrice, selectedPlan.id, coupon?.couponCode);
 
       if (paymentsResult.success && paymentsResult.orderId && paymentsResult.result) {
         setOrderId(paymentsResult.orderId);
         setPaymentSuccess({ orderId: paymentsResult.orderId, result: paymentsResult.result });
+        navigate('/payments/processing');
       }
     } catch (e) {
       navigate('/payments/fail');
@@ -135,16 +140,13 @@ function Payments() {
     }
   };
 
-  // 2. 수정된 결제 핸들러: 옵션에 따라 분기 처리
   const handlePayments = (event: React.MouseEvent) => {
     event.preventDefault();
     if (!selectedOption) return;
 
-    // 'premium' 옵션일 경우 주소 입력 모달을 띄움
     if (selectedOption === 'premium') {
       setShowAddressModal(true);
     } else {
-      // 그 외 옵션은 바로 결제 요청
       handleFinalSubmit();
     }
   };
@@ -161,7 +163,7 @@ function Payments() {
             onClick={() => handleOptionSelect(option.id)}
           >
             {option.isBest && <S.BestBadge>BEST</S.BestBadge>}
-            <S.OptionTitle>{t(`payments.options.${option.id}.title`)}</S.OptionTitle>
+            <S.OptionTitle>{option.title}</S.OptionTitle>
             <S.Price>
               {coupon && (coupon.couponTarget === option.id.toUpperCase() || coupon.couponTarget === 'ALL') ? (
                 <span>
@@ -179,14 +181,22 @@ function Payments() {
               )}
             </S.Price>
             <S.FeaturesList>
-              {(t(`payments.options.${option.id}.features`, { returnObjects: true }) as string[]).map(
-                (feature: string, index: number) => (
-                  <S.FeatureItem key={index}>
-                    <S.CheckIcon />
-                    {feature}
-                  </S.FeatureItem>
-                ),
-              )}
+              {option.features.map((feature: Feature, index: number) => (
+                <S.FeatureItem key={index}>
+                  <S.CheckIcon />
+                  {feature.text}
+                  <S.HoverImageWrapper
+                    isVisible={hoveredFeature?.optionId === option.id && hoveredFeature?.index === index}
+                  >
+                    <S.HoverImage src={feature.image} alt={`${feature.text} preview`} />
+                  </S.HoverImageWrapper>
+                  <S.PreviewIcon
+                    onMouseEnter={() => setHoveredFeature({ optionId: option.id, index })}
+                    onMouseLeave={() => setHoveredFeature(null)}
+                    isHovered={hoveredFeature?.optionId === option.id && hoveredFeature?.index === index}
+                  ></S.PreviewIcon>
+                </S.FeatureItem>
+              ))}
             </S.FeaturesList>
           </S.OptionCard>
         ))}

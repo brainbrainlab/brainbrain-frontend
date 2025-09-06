@@ -1,3 +1,4 @@
+import { AiFillPicture } from 'react-icons/ai';
 import styled, { css } from 'styled-components';
 
 export const Title = styled.h1`
@@ -74,6 +75,7 @@ export const FeaturesList = styled.ul`
 `;
 
 export const FeatureItem = styled.li`
+  position: relative;
   display: flex;
   align-items: center;
 
@@ -105,6 +107,42 @@ export const CheckIcon = styled.div`
     content: '';
     border-width: 0 2px 2px 0;
   }
+`;
+
+// ✨ 변경된 부분: 이미지를 감싸는 Wrapper div 스타일
+export const HoverImageWrapper = styled.div<{ isVisible: boolean }>`
+  position: absolute;
+  right: 10%;
+  z-index: 100;
+  width: 24rem;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: white;
+
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+  opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
+  transform: ${({ isVisible }) => (isVisible ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)')};
+  pointer-events: none;
+`;
+
+export const HoverImage = styled.img`
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  pointer-events: none;
+`;
+
+export const PreviewIcon = styled(AiFillPicture)<{ isHovered: boolean }>`
+  position: absolute;
+  right: 0;
+
+  transition: all 0.2s;
+
+  opacity: ${({ isHovered }) => (isHovered ? 0.2 : 1)};
 `;
 
 export const ActionsContainer = styled.div`
