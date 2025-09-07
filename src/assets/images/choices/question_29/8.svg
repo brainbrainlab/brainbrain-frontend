@@ -1,7 +1,0 @@
-<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2.5" y="397.5" width="395" height="395" transform="rotate(-90 2.5 397.5)" stroke="black" stroke-width="5"/>
-<mask id="path-2-inside-1_1556_4294" fill="white">
-<path d="M150 150L150 250L250 250L250 150L150 150Z"/>
-</mask>
-<path d="M150 150L150 250L250 250L250 150L150 150Z" stroke="black" stroke-width="20" mask="url(#path-2-inside-1_1556_4294)"/>
-</svg>

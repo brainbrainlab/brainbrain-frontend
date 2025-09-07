@@ -190,11 +190,15 @@ function Payments() {
                   >
                     <S.HoverImage src={feature.image} alt={`${feature.text} preview`} />
                   </S.HoverImageWrapper>
-                  <S.PreviewIcon
-                    onMouseEnter={() => setHoveredFeature({ optionId: option.id, index })}
-                    onMouseLeave={() => setHoveredFeature(null)}
+                  <S.PreviewWrapper
                     isHovered={hoveredFeature?.optionId === option.id && hoveredFeature?.index === index}
-                  ></S.PreviewIcon>
+                  >
+                    <p>미리보기</p>
+                    <S.PreviewIcon
+                      onMouseEnter={() => setHoveredFeature({ optionId: option.id, index })}
+                      onMouseLeave={() => setHoveredFeature(null)}
+                    ></S.PreviewIcon>
+                  </S.PreviewWrapper>
                 </S.FeatureItem>
               ))}
             </S.FeaturesList>

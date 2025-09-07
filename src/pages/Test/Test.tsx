@@ -60,7 +60,7 @@ function Test() {
   };
 
   const getQuestionImage = (index: QuestionIndex) => {
-    return `../../assets/images/questions/${index + 1}.svg`;
+    return `../../assets/images/questions/${index + 1}.png`;
   };
 
   const handleBeforeUnload = (event: Event) => {

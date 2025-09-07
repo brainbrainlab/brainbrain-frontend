@@ -1,8 +1,0 @@
-<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2.5" y="2.5" width="395" height="395" stroke="black" stroke-width="5"/>
-<mask id="path-2-inside-1_1556_671" fill="white">
-<path d="M325 200C325 269.036 269.036 325 200 325C130.964 325 75 269.036 75 200C75 130.964 130.964 75 200 75C269.036 75 325 130.964 325 200Z"/>
-</mask>
-<path d="M325 200C325 269.036 269.036 325 200 325C130.964 325 75 269.036 75 200C75 130.964 130.964 75 200 75C269.036 75 325 130.964 325 200Z" stroke="black" stroke-width="14" mask="url(#path-2-inside-1_1556_671)"/>
-<path d="M302.19 259H97.8096L200 82L302.19 259Z" stroke="black" stroke-width="7"/>
-</svg>

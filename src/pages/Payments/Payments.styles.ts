@@ -136,13 +136,19 @@ export const HoverImage = styled.img`
   pointer-events: none;
 `;
 
-export const PreviewIcon = styled(AiFillPicture)<{ isHovered: boolean }>`
+export const PreviewWrapper = styled.div<{ isHovered: boolean }>`
+  display: flex;
+  flex-direction: row;
   position: absolute;
   right: 0;
-
-  transition: all 0.2s;
-
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
   opacity: ${({ isHovered }) => (isHovered ? 0.2 : 1)};
+`;
+
+export const PreviewIcon = styled(AiFillPicture)`
+  transition: all 0.2s;
 `;
 
 export const ActionsContainer = styled.div`

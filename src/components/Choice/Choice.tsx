@@ -8,7 +8,7 @@ interface ChoiceProps {
 
 function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
   const getChoiceImage = (questionIndex: number, choiceIndex: number) => {
-    return `../../assets/images/choices/question_${questionIndex + 1}/${choiceIndex + 1}.svg`;
+    return `../../assets/images/choices/question_${questionIndex + 1}/${choiceIndex + 1}.png`;
   };
 
   return (
