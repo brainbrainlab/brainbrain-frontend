@@ -28,13 +28,11 @@ const useScrollIcon = ({ targetSections }: UseScrollIconProps) => {
     const headerHeight = getHeaderHeight();
     const footerHeight = getFooterHeight();
 
-    // 페이지 하단에 도달했는지 확인
     if (scrollPosition + windowHeight >= documentHeight - footerHeight - 100) {
       setCurrentSection('bottom');
       return;
     }
 
-    // 각 섹션의 위치 확인
     for (const section of targetSections) {
       const element = document.getElementById(section.id);
       if (!element) continue;

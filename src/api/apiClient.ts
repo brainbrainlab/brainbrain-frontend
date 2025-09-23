@@ -31,7 +31,7 @@ export const apiClient = {
       headers: { 'Content-Type': 'application/json' },
       body: data ? JSON.stringify(data) : null,
     });
-
+    console.log(response);
     if (!response.ok) {
       throw new ApiError(response.status, `HTTP error! status: ${response.status}`);
     }

@@ -39,9 +39,9 @@ function Contact() {
     content: useRef<HTMLTextAreaElement>(null),
   };
 
-  const MAX_FILES = 5; // 최대 파일 개수
-  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 개별 파일 최대 크기 (10MB)
-  const MAX_TOTAL_SIZE = 30 * 1024 * 1024; // 총 파일 크기 제한 (30MB)
+  const MAX_FILES = 5;
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const MAX_TOTAL_SIZE = 30 * 1024 * 1024;
 
   // 파일 에러 자동 제거
   useEffect(() => {
@@ -60,7 +60,6 @@ function Contact() {
     };
   }, [fileError]);
 
-  // 폼 에러 자동 제거
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
 
@@ -82,21 +81,17 @@ function Contact() {
       return '이메일을 입력해주세요';
     }
 
-    // 기본 이메일 형식 검사
     const basicEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!basicEmailRegex.test(email)) {
       return '올바른 이메일 형식이 아닙니다';
     }
 
-    // 추가 유효성 검사
     const [localPart, domain] = email.split('@');
 
-    // 로컬 파트 검사 (64자 제한, 특수문자 제한)
     if (localPart.length > 64 || !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(localPart)) {
       return '이메일 주소의 @ 앞부분이 올바르지 않습니다';
     }
 
-    // 도메인 검사
     if (domain.length > 255 || !/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(domain)) {
       return '이메일 도메인이 올바르지 않습니다';
     }
@@ -148,8 +143,6 @@ function Contact() {
       return;
     }
 
-    // TODO: 실제 문의 제출 로직 구현
-    console.log('Form submitted:', form);
     alert('문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.');
     setForm({
       name: '',

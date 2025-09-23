@@ -181,7 +181,7 @@ export const QuestionButtonContainer = styled.div<{ $showUnsolved: boolean }>`
   left: 50%;
   z-index: 100;
 
-  width: max-content;
+  width: fit-content;
   height: 12rem;
   margin-top: 1rem;
   padding: 1rem;

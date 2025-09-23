@@ -5,6 +5,12 @@ import { apiClient } from '@/api/apiClient';
 export const paymentsApi = {
   completePayments: async (data: PaymentsCompleteRequest) => {
     const response = await apiClient.post('/results', data);
-    return response.json();
+
+    const responseText = await response.text();
+
+    if (!responseText) {
+      return null;
+    }
+    return JSON.parse(responseText);
   },
 };

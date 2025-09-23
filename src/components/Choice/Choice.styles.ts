@@ -15,17 +15,16 @@ export const ChoiceImage = styled.img`
   }
 `;
 
-export const StyledChoiceButton = styled(Button)`
+export const StyledChoiceButton = styled(Button)<{ isSelected: boolean }>`
   background-color: #ececec;
   padding: 0;
   box-shadow: 0.8rem 0.8rem 8px rgba(0, 0, 0, 0.1);
 
-  /* 가상 요소의 위치 기준점을 잡아주기 위해 필요합니다. */
   position: relative;
-  /* 둥근 모서리 밖으로 튀어나가지 않게 합니다. */
   overflow: hidden;
 
-  /* 검은색 오버레이 역할을 할 가상 요소 정의 */
+  border: ${({ isSelected, theme }) => (isSelected ? `0.6rem solid ${theme.color.primary[400]}` : `none`)};
+
   &::before {
     content: '';
     position: absolute;

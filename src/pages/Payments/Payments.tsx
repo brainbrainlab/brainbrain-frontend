@@ -76,6 +76,7 @@ function Payments() {
     }
     setCoupon(fetchedCoupon);
     setShowCouponModal(false);
+    alert(t('payments.coupon.success'));
   };
 
   const handleCompletePostcode = (data: any) => {
@@ -240,7 +241,7 @@ function Payments() {
           <S.Label htmlFor="phoneNumber">연락처</S.Label>
           <S.Input
             id="phoneNumber"
-            type="text"
+            type="number"
             placeholder="-를 제외한 번호를 입력해주세요"
             value={phoneNumber}
             onChange={e => setPhoneNumber(e.target.value)}

@@ -82,7 +82,7 @@
         "high": "높은 지능",
         "aboveAverage": "평균 이상",
         "belowAverage": "평균 이하",
-        "low": "경계성 지능",
+        "low": "낮은 지능",
         "lower": "하위 2%",
         "lowest": "하위 0.1%",
         "mensaNote": "멘사 가입 기준 충족"
@@ -143,7 +143,8 @@
       "register": "쿠폰 등록",
       "apply": "쿠폰 적용",
       "label": "{{amount}}원 할인 쿠폰 적용",
-      "invalid": "유효하지 않은 쿠폰입니다"
+      "invalid": "유효하지 않은 쿠폰입니다",
+      "success": "쿠폰이 등록되었습니다."
     },
     "options": {
       "basic": {

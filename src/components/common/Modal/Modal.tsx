@@ -39,7 +39,7 @@ const Modal = ({ isOpen, onClose, title, children, width, footer }: ModalProps) 
     setTimeout(() => {
       setIsClosing(false);
       onClose();
-    }, 300); // Match the animation duration
+    }, 300);
   };
 
   const handleOverlayClick = (e: React.MouseEvent) => {

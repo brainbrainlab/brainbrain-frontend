@@ -30,13 +30,11 @@ export const paymentsService = {
           orderId,
           amount,
           goodsName,
-          returnUrl: returnUrl.toString(), // 생성된 URL 사용
+          returnUrl: returnUrl.toString(),
           fnError: result => {
-            // 실패 시 Promise를 reject 합니다.
             reject({ success: false, error: result.errorMsg });
           },
           fnSuccess: result => {
-            // 성공 시 Promise를 resolve 합니다.
             resolve({ success: true, orderId, result });
           },
         };

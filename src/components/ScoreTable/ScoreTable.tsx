@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 
 import * as S from './ScoreTable.styles';
 
-// Score level literal type
 export type ScoreLevelType =
   | 'highest'
   | 'higher'
@@ -14,7 +13,7 @@ export type ScoreLevelType =
   | 'lowest';
 
 export interface ScoreLevel {
-  level: ScoreLevelType; // string -> ScoreLevelType
+  level: ScoreLevelType;
   range: string;
   translationKey: string;
   hasMensaNote?: boolean;
@@ -32,8 +31,8 @@ const SCORE_LEVELS: ScoreLevel[] = [
 ] as const;
 
 interface ScoreTableProps {
-  hoveredLevel: ScoreLevelType | null; // string -> ScoreLevelType
-  onHover: (level: ScoreLevelType | null) => void; // string -> ScoreLevelType
+  hoveredLevel: ScoreLevelType | null;
+  onHover: (level: ScoreLevelType | null) => void;
 }
 
 const ScoreTable = ({ hoveredLevel, onHover }: ScoreTableProps) => {

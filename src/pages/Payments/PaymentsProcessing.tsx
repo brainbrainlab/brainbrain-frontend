@@ -9,44 +9,42 @@ import { paymentsApi } from '@/api/payments';
 
 function PaymentsProcessing() {
   const navigate = useNavigate();
-  // 스토어에서 필요한 액션들을 가져옵니다.
-  const { getPaymentsResults, reset } = usePaymentsStore(state => state.actions);
 
+  const { getPaymentsResults, reset } = usePaymentsStore(state => state.actions);
+  const paymentsData = getPaymentsResults();
   useEffect(() => {
     const completePayment = async () => {
-      const paymentsData = getPaymentsResults();
-
-      // 1. 스토어 데이터 유효성 검사
       if (!paymentsData.orderId || !paymentsData.userInfoRequest) {
         navigate('/404', { replace: true });
         return;
       }
+
       try {
-        // 2. 백엔드에 최종 결제 완료 요청
         await paymentsApi.completePayments({
           orderId: paymentsData.orderId,
           userInfoRequest: paymentsData.userInfoRequest,
           answers: paymentsData.answers,
           shippingInfoRequest: paymentsData.shippingInfoRequest,
         });
+
+        navigate('/payments/success', { replace: true });
       } catch (error) {
-        if (error instanceof SyntaxError && error.message.includes('Unexpected end of JSON input')) {
-          console.log('Payment completion successful with empty server response.');
-          navigate('/payments/success', { replace: true });
-        } else {
-          console.error('Failed to complete payment:', error);
-          reset();
-          navigate('/payments/fail', {
-            state: { error: { message: 'An unexpected error occurred. Please try again later.' } },
-          });
-        }
+        console.error('Failed to complete payment:', error);
+        reset();
+        navigate('/payments/fail', {
+          state: { error: { message: 'An unexpected error occurred. Please try again later.' } },
+        });
       }
     };
 
     completePayment();
   }, []);
 
-  return <PageLayout>결제 정보를 처리 중입니다. 잠시만 기다려 주세요.</PageLayout>;
+  return (
+    <PageLayout>
+      {`PDF를 제작해 이메일로 전송하는 중입니다. 잠시만 기다려주세요. \n 최대 5분까지 소요됩니다. 5분이 지나도 화면이 그대로일 경우, 문의하기를 통해 이메일과 성함을 포함한 문의를 남겨주시면 최대한 빠르게 도와드리겠습니다.`}
+    </PageLayout>
+  );
 }
 
 export default PaymentsProcessing;

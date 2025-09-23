@@ -4,9 +4,10 @@ interface ChoiceProps {
   onClick: () => void;
   questionIndex: number;
   choiceIndex: number;
+  isSelected: boolean;
 }
 
-function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
+function Choice({ onClick, questionIndex, choiceIndex, isSelected }: ChoiceProps) {
   const getChoiceImage = (questionIndex: number, choiceIndex: number) => {
     return `../../assets/images/choices/question_${questionIndex + 1}/${choiceIndex + 1}.png`;
   };
@@ -19,6 +20,7 @@ function Choice({ onClick, questionIndex, choiceIndex }: ChoiceProps) {
       borderRadius="0"
       onClick={onClick}
       animation={true}
+      isSelected={isSelected}
     >
       <S.ChoiceImage src={getChoiceImage(questionIndex, choiceIndex)} />
     </S.StyledChoiceButton>

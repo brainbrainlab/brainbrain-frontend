@@ -11,7 +11,7 @@ interface PaymentsState {
   userInfo: UserInfoDTO | null;
   testResults: (number | null)[];
   orderId: string | null;
-  paymentsResult: any | null;
+  paymentsResult: Object | null;
   shippingInfo: ShippingInfoDTO | null;
   actions: {
     setTestResults: (results: TestResult) => void;

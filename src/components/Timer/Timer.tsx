@@ -5,11 +5,13 @@ import * as S from './Timer.styles';
 
 interface TimerProps {
   TIME_LIMIT: number;
+  TOTAL_COUNT: number;
+  solvedCount: number;
   startTime: Date | null;
   handleSubmit: () => void;
 }
 
-const Timer = memo(({ TIME_LIMIT, startTime, handleSubmit }: TimerProps) => {
+const Timer = memo(({ TIME_LIMIT, TOTAL_COUNT, solvedCount, startTime, handleSubmit }: TimerProps) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -36,19 +38,24 @@ const Timer = memo(({ TIME_LIMIT, startTime, handleSubmit }: TimerProps) => {
 
   return (
     <S.Container>
-      <S.TimerText>
-        {timeLeft / 60 > 10
-          ? `${Math.floor(timeLeft / 60)} `
-          : timeLeft / 60 > 1
-          ? `0${Math.floor(timeLeft / 60)} `
-          : `00 `}
-        :{' '}
-        {timeLeft % 60 > 10
-          ? `${Math.floor(timeLeft % 60)} `
-          : timeLeft % 60 > 1
-          ? `0${Math.floor(timeLeft % 60)} `
-          : `00 `}
-      </S.TimerText>
+      <S.TextWrapper>
+        <S.SolvedText>
+          <S.SolvedCount>{solvedCount}</S.SolvedCount>/ {TOTAL_COUNT}
+        </S.SolvedText>
+        <S.TimerText>
+          {timeLeft / 60 > 10
+            ? `${Math.floor(timeLeft / 60)} `
+            : timeLeft / 60 > 1
+            ? `0${Math.floor(timeLeft / 60)} `
+            : `00 `}
+          :{' '}
+          {timeLeft % 60 > 10
+            ? `${Math.floor(timeLeft % 60)} `
+            : timeLeft % 60 > 1
+            ? `0${Math.floor(timeLeft % 60)} `
+            : `00 `}
+        </S.TimerText>
+      </S.TextWrapper>
       <S.TimerBar value={timeLeft / TIME_LIMIT} />
     </S.Container>
   );

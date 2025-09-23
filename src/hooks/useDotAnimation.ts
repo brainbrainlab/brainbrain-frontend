@@ -256,7 +256,6 @@ export const useDotAnimation = (config: DotAnimationConfig = {}) => {
       window.removeEventListener('mousemove', onMouseMove);
       gsap.ticker.remove(render);
 
-      // Cleanup Three.js resources
       if (renderer) {
         renderer.dispose();
       }

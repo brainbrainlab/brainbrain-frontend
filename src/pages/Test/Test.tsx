@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import { FaCheck } from 'react-icons/fa';
 
 import { usePaymentsStore } from '@/stores/paymentsStore';
 
@@ -15,14 +13,13 @@ import { validateTest } from '@/utils/testValidation';
 
 import * as S from './Test.styles';
 
-// Constants
 const TOTAL_QUESTIONS = 42;
+const PRELOAD_AHEAD_COUNT = 5;
 const LAST_QUESTION_INDEX = TOTAL_QUESTIONS - 1;
 const CHOICES_PER_QUESTION = 8;
-const TIME_LIMIT_SECONDS = 60 * 40; // 40 minutes
+const TIME_LIMIT_SECONDS = 60 * 40;
 const UNSOLVED_NOTIFICATION_DURATION = 3000;
 
-// Types
 type QuestionIndex = number;
 type ChoiceIndex = number;
 type SolvedQuestions = (number | null)[];
@@ -36,6 +33,22 @@ function Test() {
   const [answers, setAnswers] = useState<SolvedQuestions>(Array(TOTAL_QUESTIONS).fill(null));
   const [isTestWarningModalOpen, setIsTestWarningModalOpen] = useState(true);
   const [isCompletionModalOpen, setIsCompletionModalOpen] = useState(false);
+
+  useEffect(() => {
+    Array.from({ length: PRELOAD_AHEAD_COUNT }).forEach((_, i) => {
+      const nextQuestionIndex = questionIndex + 1 + i;
+
+      if (nextQuestionIndex < TOTAL_QUESTIONS) {
+        const questionImg = new Image();
+        questionImg.src = `../../assets/images/questions/${nextQuestionIndex + 1}.png`;
+
+        Array.from({ length: CHOICES_PER_QUESTION }).forEach((_, choiceIdx) => {
+          const choiceImg = new Image();
+          choiceImg.src = `../../assets/images/choices/question_${nextQuestionIndex + 1}/${choiceIdx + 1}.png`;
+        });
+      }
+    });
+  }, [questionIndex]);
 
   const handleSolveQuestion = (index: QuestionIndex, choiceIndex: ChoiceIndex) => {
     const newAnswers = [...answers];
@@ -68,7 +81,7 @@ function Test() {
     return '페이지를 나가시면 테스트가 중지됩니다. 그래도 나가시겠습니까?';
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     if (!startTime) {
       return;
     }
@@ -85,12 +98,11 @@ function Test() {
     }
 
     const result = answers;
-    console.log('Test results:', result);
     const { setTestResults } = usePaymentsStore.getState().actions;
     setTestResults(result);
 
     navigate('/user-info');
-  };
+  }, [answers, startTime, navigate]);
 
   const handleReview = () => {
     setIsCompletionModalOpen(false);
@@ -119,7 +131,13 @@ function Test() {
         onSubmit={handleSubmit}
         onReview={handleReview}
       />
-      <Timer TIME_LIMIT={TIME_LIMIT_SECONDS} startTime={startTime} handleSubmit={handleSubmit} />
+      <Timer
+        TIME_LIMIT={TIME_LIMIT_SECONDS}
+        TOTAL_COUNT={TOTAL_QUESTIONS}
+        solvedCount={answers.filter(val => val !== null).length}
+        startTime={startTime}
+        handleSubmit={handleSubmit}
+      />
       <S.QuestionContainer>
         <S.QuestionWrapper>
           <S.QuestionText>Q{questionIndex + 1}.</S.QuestionText>
@@ -136,6 +154,7 @@ function Test() {
                 onClick={() => handleSolveQuestion(questionIndex, index)}
                 questionIndex={questionIndex}
                 choiceIndex={index}
+                isSelected={answers[questionIndex] === index}
               />
             ))}
         </S.ChoiceContainer>
@@ -156,7 +175,7 @@ function Test() {
               onClick={() => handleChangeQuestion(index)}
               $showUnsolved={solved === null && showUnsolved}
             >
-              {solved !== null ? <FaCheck color="white" /> : index + 1}
+              {index + 1}
             </S.QuestionButton>
           ))}
         </S.QuestionButtonContainer>
