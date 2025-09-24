@@ -434,6 +434,7 @@ export const StyledIqGraph = styled(IqGraph)<{ $hoveredLevel: string | null }>`
 
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 70%;
     height: auto;

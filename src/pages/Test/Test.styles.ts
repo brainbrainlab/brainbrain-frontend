@@ -83,6 +83,7 @@ export const QuestionImageWrapper = styled.div`
 
   @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: column;
+
     width: 100%;
     height: max-content;
   }
@@ -93,6 +94,7 @@ export const QuestionImageWrapper = styled.div`
 export const QuestionImage = styled.img`
   width: 40vw;
   height: 40vw;
+
   @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     width: 80%;
     height: 100%;
@@ -102,10 +104,10 @@ export const QuestionImage = styled.img`
 export const ChoiceContainer = styled.div`
   display: grid;
   justify-content: center;
-  align-items: center;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   place-items: center;
+
   gap: 0.5rem;
 
   width: 40vw;
@@ -114,6 +116,7 @@ export const ChoiceContainer = styled.div`
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     width: 50%;
   }
+
   @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     width: 80%;
   }
@@ -128,8 +131,10 @@ export const QuestionButtonWrapper = styled.div`
   position: relative;
 
   width: 100%;
+
   @media (width <= ${({ theme }) => theme.breakpoints.sm}) {
     justify-content: space-between;
+
     padding: 0 4rem;
   }
 `;
@@ -233,6 +238,7 @@ export const ToggleButton = styled(HiMiniListBullet)`
 
     opacity: 1;
   }
+
   @media (width <= ${({ theme }) => theme.breakpoints.lg}) {
     display: none;
   }

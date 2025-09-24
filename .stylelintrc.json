@@ -103,6 +103,7 @@
         "properties": ["cursor"]
       }
     ],
-    "media-query-no-invalid": null
+    "media-query-no-invalid": null,
+    "nesting-selector-no-missing-scoping-root": null
   }
 }

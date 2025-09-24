@@ -45,6 +45,9 @@ export const Button = styled.button<ButtonStyleProp>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: ${({ $animation }) => ($animation ? 'all 0.2s' : 'none')};
+
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${({ theme, $size = 'md', $width, $height, $borderRadius, $fontSize, $fontWeight, $textAlign, $rounded }) => {
@@ -60,6 +63,7 @@ export const Button = styled.button<ButtonStyleProp>`
       width: ${finalWidth};
       height: ${finalHeight};
       border-radius: ${finalBorderRadius};
+
       font-size: ${finalFontSize};
       font-weight: ${$fontWeight || 'normal'};
       text-align: ${$textAlign || 'center'};
@@ -68,6 +72,7 @@ export const Button = styled.button<ButtonStyleProp>`
         width: ${reducedCssValue(finalWidth)};
         height: ${reducedCssValue(finalHeight)};
         border-radius: ${reducedCssValue(finalBorderRadius)};
+
         /* font-size: ${reducedCssValue(finalFontSize)}; */
       }
     `;
@@ -77,23 +82,26 @@ export const Button = styled.button<ButtonStyleProp>`
     const { base, hover, active, disabled } = calculateButtonColor($color, $filled);
     return css`
       border: ${$filled ? 'none' : '1px solid'};
+
       ${base}
       &:hover {
         ${hover}
       }
+
       &:active {
         ${active}
       }
+
       &:disabled {
         ${disabled}
       }
     `;
   }}
 
-  transition: ${({ $animation }) => ($animation ? 'all 0.2s' : 'none')};
   &:hover {
     transform: ${({ $animation }) => ($animation ? 'scale(1.01)' : 'none')};
   }
+
   &:active {
     transform: ${({ $animation }) => ($animation ? 'scale(1.02)' : 'none')};
   }

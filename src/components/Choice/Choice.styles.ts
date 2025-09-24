@@ -16,26 +16,29 @@ export const ChoiceImage = styled.img`
 `;
 
 export const StyledChoiceButton = styled(Button)<{ isSelected: boolean }>`
-  background-color: #ececec;
-  padding: 0;
-  box-shadow: 0.8rem 0.8rem 8px rgba(0, 0, 0, 0.1);
-
-  position: relative;
   overflow: hidden;
 
+  position: relative;
+
+  padding: 0;
   border: ${({ isSelected, theme }) => (isSelected ? `0.6rem solid ${theme.color.primary[400]}` : `none`)};
+
+  background-color: #ececec;
+  box-shadow: 0.8rem 0.8rem 8px rgb(0 0 0 / 10%);
 
   &::before {
     content: '';
+
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.2); /* 어둡게 만들 색상과 투명도 */
-
+    background-color: rgb(0 0 0 / 20%); /* 어둡게 만들 색상과 투명도 */
     opacity: 0; /* 평소에는 완전히 투명하게 */
+
     transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
   }
 

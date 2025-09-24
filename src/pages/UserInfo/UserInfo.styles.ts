@@ -313,12 +313,13 @@ export const ErrorContainer = styled.div`
 export const InputRow = styled.div`
   display: flex;
   gap: 1.5rem;
+
   width: 100%;
 `;
 
 export const InputGroup = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.5rem;
-  flex: 1;
 `;

@@ -44,13 +44,13 @@ export const LanguageButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 2rem;
   gap: 0.5rem;
 
   position: relative;
 
   width: fit-content;
   height: 3rem;
+  margin-right: 2rem;
 
   cursor: pointer;
 

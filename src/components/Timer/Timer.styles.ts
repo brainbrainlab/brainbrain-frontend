@@ -14,8 +14,9 @@ export const Container = styled.div`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
+
+  width: 100%;
 `;
 
 export const SolvedText = styled.div`
@@ -24,15 +25,17 @@ export const SolvedText = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
   font-size: 2rem;
   font-weight: 600;
 `;
 
 export const SolvedCount = styled.p`
+  width: max-content;
+
+  color: ${({ theme }) => theme.color.primary[400]};
   font-size: 3rem;
   font-weight: 600;
-  color: ${({ theme }) => theme.color.primary[400]};
-  width: max-content;
 `;
 
 export const TimerBar = styled.progress`

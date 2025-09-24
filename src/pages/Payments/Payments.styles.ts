@@ -75,9 +75,10 @@ export const FeaturesList = styled.ul`
 `;
 
 export const FeatureItem = styled.li`
-  position: relative;
   display: flex;
   align-items: center;
+
+  position: relative;
 
   margin-bottom: 0.75rem;
 
@@ -114,22 +115,24 @@ export const HoverImageWrapper = styled.div<{ isVisible: boolean }>`
   position: absolute;
   right: 10%;
   z-index: 100;
+
   width: 24rem;
   height: auto;
+  border: 1px solid rgb(0 0 0 / 5%);
   border-radius: 0.75rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+
   background-color: white;
-
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
+  box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+
   transform: ${({ isVisible }) => (isVisible ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)')};
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   pointer-events: none;
 `;
 
 export const HoverImage = styled.img`
   display: block;
+
   width: 100%;
   height: auto;
   border-radius: 0.75rem;
@@ -139,11 +142,13 @@ export const HoverImage = styled.img`
 export const PreviewWrapper = styled.div<{ isHovered: boolean }>`
   display: flex;
   flex-direction: row;
-  position: absolute;
-  right: 0;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+
+  position: absolute;
+  right: 0;
+
   opacity: ${({ isHovered }) => (isHovered ? 0.2 : 1)};
 `;
 
@@ -219,13 +224,15 @@ export const AddressForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
   width: 100%;
 `;
 
 export const Label = styled.label`
-  font-weight: bold;
-  font-size: 2rem;
   margin-bottom: -0.5rem;
+
+  font-size: 2rem;
+  font-weight: bold;
 `;
 
 export const PostcodeWrapper = styled.div`
@@ -238,7 +245,9 @@ export const PostcodeWrapper = styled.div`
 
   & > button {
     flex-shrink: 0;
+
     padding: 0 1rem;
+
     white-space: nowrap;
   }
 `;
