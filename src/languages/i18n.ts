@@ -6,7 +6,7 @@ import type { TranslationKeys } from '../types/i18n.types';
 import en from './en.json';
 import ko from './ko.json';
 import zh_cn from './zh_cn.json';
-// Language codes
+
 export const LANGUAGE_CODES = {
   KOREAN: 'ko',
   ENGLISH: 'en',
@@ -15,7 +15,6 @@ export const LANGUAGE_CODES = {
 
 export type LanguageCode = (typeof LANGUAGE_CODES)[keyof typeof LANGUAGE_CODES];
 
-// Resources type
 export type Resources = {
   [key in LanguageCode]: {
     translation: TranslationKeys;
@@ -34,12 +33,21 @@ const resources: Resources = {
   },
 };
 
+let detectedLanguageCode: LanguageCode = LANGUAGE_CODES.ENGLISH;
+if (typeof navigator !== 'undefined' && navigator.language) {
+  const browserLang = navigator.language.toLowerCase();
+  if (browserLang.startsWith('ko')) {
+    detectedLanguageCode = LANGUAGE_CODES.KOREAN;
+  } else if (browserLang.startsWith('zh')) {
+    detectedLanguageCode = LANGUAGE_CODES.CHINESE_SIMPLIFIED;
+  }
+}
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: LANGUAGE_CODES.KOREAN,
+  lng: detectedLanguageCode,
   fallbackLng: LANGUAGE_CODES.ENGLISH,
 
-  // Enable debug only in development
   debug: process.env.NODE_ENV === 'development',
 
   defaultNS: 'translation',
@@ -54,8 +62,6 @@ i18n.use(initReactI18next).init({
     useSuspense: false,
   },
 });
-
-// Type augmentation for useTranslation hook
 declare module 'react-i18next' {
   interface CustomTypeOptions {
     defaultNS: 'translation';
