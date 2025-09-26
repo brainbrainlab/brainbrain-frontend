@@ -34,11 +34,14 @@ interface ButtonStyleProp {
   disabled?: boolean;
 }
 
-const defaultSizes: Record<ButtonSize, { width: string; height: string; borderRadius: string; fontSize: string }> = {
-  sm: { width: '14rem', height: '4rem', borderRadius: '0.8rem', fontSize: 'md' },
-  md: { width: '18rem', height: '5.8rem', borderRadius: '1rem', fontSize: 'lg' },
-  lg: { width: '22rem', height: '7.2rem', borderRadius: '1.2rem', fontSize: 'xl' },
-  xl: { width: '26rem', height: '8rem', borderRadius: '1.2rem', fontSize: 'xxl' },
+const defaultSizes: Record<
+  ButtonSize,
+  { minWidth: string; width: string; height: string; borderRadius: string; fontSize: string }
+> = {
+  sm: { minWidth: '10rem', width: '14rem', height: '4rem', borderRadius: '0.8rem', fontSize: 'md' },
+  md: { minWidth: '14rem', width: '18rem', height: '5.8rem', borderRadius: '1rem', fontSize: 'lg' },
+  lg: { minWidth: '18rem', width: '22rem', height: '7.2rem', borderRadius: '1.2rem', fontSize: 'xl' },
+  xl: { minWidth: '22rem', width: '26rem', height: '8rem', borderRadius: '1.2rem', fontSize: 'xxl' },
 };
 
 export const Button = styled.button<ButtonStyleProp>`
