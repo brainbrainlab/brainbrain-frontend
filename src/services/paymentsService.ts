@@ -23,7 +23,6 @@ export const paymentsService = {
         if (coupon) {
           returnUrl.searchParams.append('coupon', coupon);
         }
-        console.log(returnUrl);
         const config: NicePayConfig = {
           clientId: NICE_PAY_CONFIG.CLIENT_ID,
           method: 'all',
